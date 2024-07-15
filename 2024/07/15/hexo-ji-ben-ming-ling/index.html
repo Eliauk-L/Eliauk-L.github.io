@@ -4,18 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python学习02-初始Python, Jay&#39;s Blog">
-    <meta name="description" content="初始Python1 Python特性
-Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。
+    <meta name="keywords" content="Hexo基本命令, Jay&#39;s Blog">
+    <meta name="description" content="Hexo基本命令1 Hexo环境安装
+git安装
+nodejs安装
+npm install -g hexo-cli
+hexo init &amp;lt;folder&amp;gt;
 
-
-解释性
-交互式
-面向对象
-跨平台
-
-2 中文编码
-Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
+2 基本指令
+**hexo new [layout] &amp;lt;title">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +24,7 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python学习02-初始Python | Jay&#39;s Blog</title>
+    <title>Hexo基本命令 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -235,12 +232,12 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python学习02-初始Python</h1>
+                    <h1 class="description center-align post-title">Hexo基本命令</h1>
                 </div>
             </div>
         </div>
@@ -264,12 +261,12 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -280,8 +277,8 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Python/" class="post-category">
-                                Python
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                博客搭建
                             </a>
                         
                     </div>
@@ -302,14 +299,14 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    136
+                    458
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -332,25 +329,76 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="初始Python"><a href="#初始Python" class="headerlink" title="初始Python"></a>初始Python</h2><h2 id="1-Python特性"><a href="#1-Python特性" class="headerlink" title="1 Python特性"></a>1 Python特性</h2><blockquote>
-<p>Python 是一个高层次的结合了<strong>解释性、编译性、互动性和面向对象</strong>的脚本语言。</p>
-</blockquote>
-<ul>
-<li>解释性</li>
-<li>交互式</li>
-<li>面向对象</li>
-<li>跨平台</li>
+                <h1 id="Hexo基本命令"><a href="#Hexo基本命令" class="headerlink" title="Hexo基本命令"></a>Hexo基本命令</h1><h2 id="1-Hexo环境安装"><a href="#1-Hexo环境安装" class="headerlink" title="1 Hexo环境安装"></a>1 Hexo环境安装</h2><ul>
+<li><strong>git安装</strong></li>
+<li><strong>nodejs安装</strong></li>
+<li><strong><code>npm install -g hexo-cli</code></strong></li>
+<li><strong><code>hexo init &lt;folder&gt;</code></strong></li>
 </ul>
-<h2 id="2-中文编码"><a href="#2-中文编码" class="headerlink" title="2 中文编码"></a>2 中文编码</h2><blockquote>
-<p>Python2中默认的编码格式是 <strong>ASCII</strong> 格式，在没修改编码格式时无法正确打印汉字。</p>
-</blockquote>
-<p>解决方法：在文件开头加入 <strong># -*- coding: UTF-8 -*-</strong> 或者 <strong># coding=utf-8</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
-<span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
-<span class="token keyword">print</span><span class="token punctuation">(</span> <span class="token string">"你好，世界"</span> <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-基本指令"><a href="#2-基本指令" class="headerlink" title="2 基本指令"></a>2 基本指令</h2><ul>
+<li>**<code>hexo new [layout] &lt;title&gt;</code>**：新建一篇文章。</li>
+<li>**<code>hexo generate</code>**：生成静态文件。</li>
+<li>**<code>hexo publish [layout] &lt;filename&gt;</code>**：发表草稿。</li>
+<li>**<code>hexo server</code>**：启动服务器。 默认情况下，访问网址为： <code>http://localhost:4000/</code>。</li>
+<li>**<code>hexo deploy</code>**：部署你的网站。</li>
+<li>**<code>hexo render &lt;file1&gt; [file2] ...</code>**：渲染文件。</li>
+<li>**<code>hexo migrate &lt;type&gt;</code>**：从其他博客系统 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</li>
+<li>**<code>hexo clean</code>**：清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</li>
+<li>**<code>hexo list &lt;type&gt;</code>**：列出所有路由。</li>
+<li>**<code>hexo version</code>**：显示版本信息。</li>
+<li>**<code>hexo config [key] [value]</code>**：列出网站的配置（<code>_config.yml</code>）。 如果指定了 <code>key</code>，则只展示配置中对应 <code>key</code> 的值；如果同时指定了 <code>key</code> 和 <code>value</code>，则将配置中对应的 <code>key</code> 的值修改为 <code>value</code>。</li>
+<li>**<code>hexo --config custom.yml</code>**：自定义配置文件的路径</li>
+<li>**<code>hexo --draft</code>**：显示 <code>source/_drafts</code> 文件夹中的草稿文章。</li>
+<li>**<code>hexo --cwd /path/to/cwd</code>**：自定义当前工作目录（Current working directory）的路径。</li>
+</ul>
+<h2 id="3-打开本地服务器"><a href="#3-打开本地服务器" class="headerlink" title="3 打开本地服务器"></a>3 打开本地服务器</h2><ul>
+<li><pre><code class="shell">hexo clean
+hexo g
+hexo server(hexo s)
+<pre class="line-numbers language-none"><code class="language-none">
+## 4 hexo部署
 
-<p>Python 3 源码文件以 <strong>UTF-8</strong> 编码，所有字符串都是 unicode 字符串</p>
+* 以github为例
+  ```yaml
+  deploy:
+    type: git
+    repository: https://github.com/Eliauk-L/Eliauk-L.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
+</li>
+<li><p>安装<code>deploy-git</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><pre><code class="shell">hexo clean
+hexo generate
+hexo deploy
+<pre class="line-numbers language-none"><code class="language-none">
+## 5 布局
+
+* Hexo有三种默认布局：**`post、page和draft`**
+* 发布文章
+
+* ```shell
+  hexo new XXX
+  # 默认使用的是post布局，在source文件夹下的_post里面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
+</li>
+<li><p>另起一页</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage
+<span class="token comment"># 系统会自动在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，</span>
+<span class="token comment"># 访问newpage对应的链接就是http://xxx.xxx/newpage</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>发布草稿</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft
+<span class="token comment"># 在source/_draft中新建一个newdraft.md文件，如果想要预览，那么可以使用 </span>
+<span class="token comment"># hexo server --draft</span>
+
+<span class="token comment"># 将草稿发表到post中</span>
+hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p><strong>参考：</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58608526/article/details/124652412">https://blog.csdn.net/qq_58608526/article/details/124652412</a></li>
+</ol>
 
                 
             </div>
@@ -377,7 +425,7 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/15/python-xue-xi-02-chu-shi-python/">http://Eliauk-L.github.io/2024/07/15/python-xue-xi-02-chu-shi-python/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/15/hexo-ji-ben-ming-ling/">http://Eliauk-L.github.io/2024/07/15/hexo-ji-ben-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -415,12 +463,12 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -470,13 +518,13 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/07/15/hexo-ji-ben-ming-ling/">
+                <a href="/2024/07/15/python-xue-xi-03-bian-liang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="Hexo基本命令">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Python学习03-变量">
                         
-                        <span class="card-title">Hexo基本命令</span>
+                        <span class="card-title">Python学习03-变量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -489,59 +537,6 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2024-07-15
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/06/29/python-xue-xi-01-huan-jing-an-zhuang/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Python学习01-环境安装">
-                        
-                        <span class="card-title">Python学习01-环境安装</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-29
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -565,8 +560,57 @@ Python2中默认的编码格式是 ASCII 格式，在没修改编码格式">
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-                        <span class="chip bg-color">环境安装</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/15/python-xue-xi-02-chu-shi-python/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Python学习02-初始Python">
+                        
+                        <span class="card-title">Python学习02-初始Python</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
