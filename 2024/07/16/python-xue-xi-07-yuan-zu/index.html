@@ -4,15 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python学习03-变量, Jay&#39;s Blog">
-    <meta name="description" content="变量1 命名
-变量名只能包含字母、数字和下划线。变量名可以字母或下划线打头，但不能以数字打头。
+    <meta name="keywords" content="Python学习07-元组, Jay&#39;s Blog">
+    <meta name="description" content="元组
+元组（tuple）：元素不可修改，使用小括号
 
-Python 中的标识符是区分大小写的。
+元组中只包含一个元素时，需要在元素后面添加逗号tuple1 = (50,)
 
-在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也允许
+元组可以使用下标索引来访问元组中的值
 
-以单下划线开头 f">
+元组中的元素值是不允许修改的，但我们可以对元组进行连接组合
+#!/u">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +25,7 @@ Python 中的标识符是区分大小写的。
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python学习03-变量 | Jay&#39;s Blog</title>
+    <title>Python学习07-元组 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -232,12 +233,12 @@ Python 中的标识符是区分大小写的。
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python学习03-变量</h1>
+                    <h1 class="description center-align post-title">Python学习07-元组</h1>
                 </div>
             </div>
         </div>
@@ -290,7 +291,7 @@ Python 中的标识符是区分大小写的。
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-15
+                    2024-07-16
                 </div>
                 
 
@@ -299,7 +300,7 @@ Python 中的标识符是区分大小写的。
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    773
+                    742
                 </div>
                 
 
@@ -329,159 +330,132 @@ Python 中的标识符是区分大小写的。
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="1-命名"><a href="#1-命名" class="headerlink" title="1 命名"></a>1 命名</h2><ul>
-<li><p>变量名只能包含<strong>字母、数字和下划线</strong>。变量名可以字母或下划线打头，但不能以数字打<br>头。</p>
+                <h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1><ul>
+<li><p>元组（tuple）：<strong>元素不可修改</strong>，使用<strong>小括号</strong></p>
 </li>
-<li><p>Python 中的标识符是<strong>区分大小写</strong>的。</p>
+<li><p>元组中只包含一个元素时，需要<strong>在元素后面添加逗号</strong><code>tuple1 = (50,)</code></p>
 </li>
-<li><p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也允许</p>
+<li><p>元组可以使用<strong>下标索引</strong>来访问元组中的值</p>
 </li>
-<li><p>以单下划线开头 <em>foo 的代表<strong>不能直接访问的类属性</strong>，需通过类提供的接口进行访问，不能用 from xxx import * 而导入；以双下划线开头的 <em>_foo 代表类的<strong>私有成员</strong>，以双下划线开头和结尾的 <em>_foo</em></em> 代表 Python 里<strong>特殊方法</strong>专用的标识，如 <em>_init</em></em>() 代表类的构造函数。</p>
+<li><p>元组中的<strong>元素值是不允许修改</strong>的，但我们可以对元组进行<strong>连接组合</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+<span class="token comment"># -*- coding: UTF-8 -*-</span>
+ 
+tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">34.56</span><span class="token punctuation">)</span>
+tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">,</span> <span class="token string">'xyz'</span><span class="token punctuation">)</span>
+ 
+<span class="token comment"># 以下修改元组元素操作是非法的。</span>
+<span class="token comment"># tup1[0] = 100</span>
+ 
+<span class="token comment"># 创建一个新的元组</span>
+tup3 <span class="token operator">=</span> tup1 <span class="token operator">+</span> tup2
+<span class="token keyword">print</span><span class="token punctuation">(</span>tup3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>Python 可以同一行显示多条语句，方法是<strong>用分号 ; 分开</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"world"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><p>元组中的元素值是<strong>不允许删除</strong>的，但可以使用<strong>del语句来删除整个元组</strong></p>
 </li>
-<li><table>
+</ul>
+<h2 id="1-元组运算符"><a href="#1-元组运算符" class="headerlink" title="1 元组运算符"></a>1 元组运算符</h2><table>
 <thead>
 <tr>
-<th align="left">保留字</th>
-<th>保留字</th>
-<th>保留字</th>
+<th align="left">Python 表达式</th>
+<th align="left">结果</th>
+<th align="left">描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">and</td>
-<td>exec</td>
-<td>not</td>
+<td align="left">len((1, 2, 3))</td>
+<td align="left">3</td>
+<td align="left">计算元素个数</td>
 </tr>
 <tr>
-<td align="left">assert</td>
-<td>finally</td>
-<td>or</td>
+<td align="left">(1, 2, 3) + (4, 5, 6)</td>
+<td align="left">(1, 2, 3, 4, 5, 6)</td>
+<td align="left">连接</td>
 </tr>
 <tr>
-<td align="left">break</td>
-<td>for</td>
-<td>pass</td>
+<td align="left">(‘Hi!’,) * 4</td>
+<td align="left">(‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’)</td>
+<td align="left">复制</td>
 </tr>
 <tr>
-<td align="left">class</td>
-<td>from</td>
-<td>print</td>
+<td align="left">3 in (1, 2, 3)</td>
+<td align="left">True</td>
+<td align="left">元素是否存在</td>
 </tr>
 <tr>
-<td align="left">continue</td>
-<td>global</td>
-<td>raise</td>
+<td align="left">for x in (1, 2, 3): print x,</td>
+<td align="left">1 2 3</td>
+<td align="left">迭代</td>
+</tr>
+</tbody></table>
+<h2 id="2-无关闭分隔符"><a href="#2-无关闭分隔符" class="headerlink" title="2 无关闭分隔符"></a>2 无关闭分隔符</h2><ul>
+<li><p><strong>任意无符号的对象，以逗号隔开，默认为元组</strong></p>
+</li>
+<li><p><code>tup = "a", "b", "c", "d"</code></p>
+</li>
+</ul>
+<h2 id="3-元组内置函数"><a href="#3-元组内置函数" class="headerlink" title="3 元组内置函数"></a>3 元组内置函数</h2><ul>
+<li><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-cmp.html">cmp(tuple1, tuple2)</a></td>
+<td>比较两个元组元素。Python 3.X 的版本中已经没有 cmp 函数</td>
 </tr>
 <tr>
-<td align="left">def</td>
-<td>if</td>
-<td>return</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-len.html">len(tuple)</a></td>
+<td>计算元组元素个数。</td>
 </tr>
 <tr>
-<td align="left">del</td>
-<td>import</td>
-<td>try</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-max.html"> max(tuple)</a></td>
+<td>返回元组中元素最大值。</td>
 </tr>
 <tr>
-<td align="left">elif</td>
-<td>in</td>
-<td>while</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-min.html"> min(tuple)</a></td>
+<td>返回元组中元素最小值。</td>
 </tr>
 <tr>
-<td align="left">else</td>
-<td>is</td>
-<td>with</td>
-</tr>
-<tr>
-<td align="left">except</td>
-<td>lambda</td>
-<td>yield</td>
-</tr>
-<tr>
-<td align="left">False</td>
-<td>None</td>
-<td>True</td>
-</tr>
-<tr>
-<td align="left">as</td>
-<td>nonlocal</td>
-<td></td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-tuple.html"> tuple(seq)</a></td>
+<td>将列表转换为元组。</td>
 </tr>
 </tbody></table>
 </li>
 </ul>
-<h2 id="2-缩进"><a href="#2-缩进" class="headerlink" title="2 缩进"></a>2 缩进</h2><ul>
-<li><p>Python 的代码块不使用大括号 <strong>{}</strong> 来控制类，函数以及其他逻辑判断。python 最具特色的就是用<strong>缩进</strong>来写模块</p>
+<h2 id="4-命名元组"><a href="#4-命名元组" class="headerlink" title="4 命名元组"></a>4 命名元组</h2><ul>
+<li><p><code>collections.namedtuple()</code> 函数通过使用一个普通的元组对象来实现通过名称来访问元素.实际上是一个返回 Python 中标准元组类型子类的一个工厂方法，支持所有的普通元组操作</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> collections <span class="token keyword">import</span> namedtuple
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Subscriber <span class="token operator">=</span> namedtuple<span class="token punctuation">(</span><span class="token string">'Subscriber'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'addr'</span><span class="token punctuation">,</span> <span class="token string">'joined'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sub <span class="token operator">=</span> Subscriber<span class="token punctuation">(</span><span class="token string">'jonesy@example.com'</span><span class="token punctuation">,</span> <span class="token string">'2012-10-19'</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sub
+Subscriber<span class="token punctuation">(</span>addr<span class="token operator">=</span><span class="token string">'jonesy@example.com'</span><span class="token punctuation">,</span> joined<span class="token operator">=</span><span class="token string">'2012-10-19'</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sub<span class="token punctuation">.</span>addr
+<span class="token string">'jonesy@example.com'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sub<span class="token punctuation">.</span>joined
+<span class="token string">'2012-10-19'</span>
+<span class="token comment"># 你需要传递一个类型名和你需要的字段给它，然后它就会返回一个类，你可以初始化这个类，为你定义的字段传递值等。 </span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span>
+<span class="token number">2</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> addr<span class="token punctuation">,</span> joined <span class="token operator">=</span> sub
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> addr
+<span class="token string">'jonesy@example.com'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> joined
+<span class="token string">'2012-10-19'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>缩进的空白数量是可变的，但是<strong>所有代码块语句必须包含相同的缩进空白数量</strong></p>
-</li>
-<li><p>Python语句中一般以新行作为语句的结束符，使用斜杠（ <code>\</code>）将一行的语句分为多行显示,语句中包含 [], {} 或 () 括号就不需要使用多行连接符</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">total <span class="token operator">=</span> item_one <span class="token operator">+</span> \
-        item_two <span class="token operator">+</span> \
-        item_three
-days <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Monday'</span><span class="token punctuation">,</span> <span class="token string">'Tuesday'</span><span class="token punctuation">,</span> <span class="token string">'Wednesday'</span><span class="token punctuation">,</span>
-        <span class="token string">'Thursday'</span><span class="token punctuation">,</span> <span class="token string">'Friday'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-<h2 id="3-引号"><a href="#3-引号" class="headerlink" title="3 引号"></a>3 引号</h2><ul>
-<li><p>字符串表示：<strong>引号( ‘ )、双引号( “ )、三引号( ‘’’ 或 “”” )</strong> </p>
-</li>
-<li><pre><code class="python">word = 'word'
-sentence = "这是一个句子。"
-paragraph = """这是一个段落。
-包含了多个语句"""
-<pre class="line-numbers language-none"><code class="language-none">
-## 4 注释
-
-* 单行注释：`#` 开头
-* 多行注释：三个单引号 `'''` 或三个双引号` """`
-
-## 5 print换行
-
-* print 默认输出是换行的
-
-* 在 Python 3.x 中，我们可以在 print() 函数中添加 `end=""` 参数，这样就可以实现不换行效果,end也可以设置其他特殊符号
-
-  ```python
-  print('这是字符串，', end="")
-  print('这里的字符串不会另起一行')
-  # 这是字符串，这里的字符串不会另起一行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-</li>
-<li><p>在 Python 2.x中， 可以使用逗号 <code>, </code>来实现不换行效果;如果有变量，我们可以在逗号 , 后面直接添加变量</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token operator">=</span> <span class="token number">2</span>
-<span class="token keyword">print</span> <span class="token string">"数字为："</span><span class="token punctuation">,</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>如果 Python2.x 版本想使用 Python3.x 的 print 函数，可以导入 <em>_future</em>_ 包，该包禁用 Python2.x 的 print 语句，采用 Python3.x 的 print 函数</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<h2 id="6-标准数据类型"><a href="#6-标准数据类型" class="headerlink" title="6 标准数据类型"></a>6 标准数据类型</h2><ul>
-<li><p><strong>不可变（3 个）：</strong>Number（数字）、String（字符串）、Tuple（元组）；</p>
-</li>
-<li><p><strong>可变（3 个）：</strong>List（列表）、Dictionary（字典）、Set（集合）</p>
-</li>
-<li><p>类型判断</p>
-<ul>
-<li><p>内置的 <code>type()</code> 函数可以用来查询变量所指的对象类型</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">5.5</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token operator">+</span><span class="token number">3j</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'float'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'bool'</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'complex'</span><span class="token operator">&gt;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>isinstance</code> </p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token number">111</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
-<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>isinstance 和 type 的区别在于：</p>
-<ul>
-<li>type()不会认为子类是一种父类类型</li>
-<li>isinstance()会认为子类是一种父类类型</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>命名元组另一个用途就是<strong>作为字典的替代</strong>，因为字典存储需要更多的内存空间。 如果你需要构建一个非常大的包含字典的数据结构，那么使用命名元组会更加高效。 但是需要注意的是，不像字典那样，<strong>一个命名元组是不可更改的。</strong>但可以使用命名元组实例的 <code>_replace()</code> 方法， 它会创建一个全新的命名元组并将对应的字段用新的值取代。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s <span class="token operator">=</span> Stock<span class="token punctuation">(</span><span class="token string">'ACME'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">123.45</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s
+Stock<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'ACME'</span><span class="token punctuation">,</span> shares<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> price<span class="token operator">=</span><span class="token number">123.45</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span>shares <span class="token operator">=</span> <span class="token number">75</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
+AttributeError<span class="token punctuation">:</span> can't <span class="token builtin">set</span> attribute
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s <span class="token operator">=</span> s<span class="token punctuation">.</span>_replace<span class="token punctuation">(</span>shares<span class="token operator">=</span><span class="token number">75</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s
+Stock<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'ACME'</span><span class="token punctuation">,</span> shares<span class="token operator">=</span><span class="token number">75</span><span class="token punctuation">,</span> price<span class="token operator">=</span><span class="token number">123.45</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
                 
@@ -509,7 +483,7 @@ paragraph = """这是一个段落。
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/15/python-xue-xi-03-bian-liang/">http://Eliauk-L.github.io/2024/07/15/python-xue-xi-03-bian-liang/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/16/python-xue-xi-07-yuan-zu/">http://Eliauk-L.github.io/2024/07/16/python-xue-xi-07-yuan-zu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -598,17 +572,18 @@ paragraph = """这是一个段落。
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/16/python-xue-xi-04-shu-zi/">
+                <a href="/2024/07/16/python-xue-xi-07-yuan-zu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Python学习04-数字">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Python学习07-元组">
                         
-                        <span class="card-title">Python学习04-数字</span>
+                        <span class="card-title">Python学习07-元组</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -618,9 +593,9 @@ paragraph = """这是一个段落。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -633,6 +608,7 @@ paragraph = """这是一个段落。
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -655,13 +631,13 @@ paragraph = """这是一个段落。
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/15/hexo-ji-ben-ming-ling/">
+                <a href="/2024/07/16/python-xue-xi-06-lie-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="Hexo基本命令">
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="Python学习06-列表">
                         
-                        <span class="card-title">Hexo基本命令</span>
+                        <span class="card-title">Python学习06-列表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -672,14 +648,14 @@ paragraph = """这是一个段落。
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -689,12 +665,12 @@ paragraph = """这是一个段落。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
