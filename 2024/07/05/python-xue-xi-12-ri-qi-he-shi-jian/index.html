@@ -1,0 +1,1577 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python学习12-日期和时间, Jay&#39;s Blog">
+    <meta name="description" content="日期和时间
+Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间，时间间隔是以秒为单位的浮点小数
+
+每个时间戳都以自从 1970 年 1 月 1 日午夜（历元）经过了多长时间来表示
+
+获取当前时间戳:tim">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Python学习12-日期和时间 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/50.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python学习12-日期和时间</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-05
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h1><ul>
+<li><p>Python 提供了一个<code> time</code> 和 <code>calendar</code> 模块可以用于格式化日期和时间，时间间隔是以<strong>秒</strong>为单位的浮点小数</p>
+</li>
+<li><p>每个时间戳都以自从 1970 年 1 月 1 日午夜（历元）经过了多长时间来表示</p>
+</li>
+<li><p>获取当前时间戳:<code>time.time()</code></p>
+</li>
+</ul>
+<h2 id="1-时间元组"><a href="#1-时间元组" class="headerlink" title="1 时间元组"></a>1 时间元组</h2><p>很多Python函数用一个元组装起来的9组数字处理时间：<code> struct_time 元组</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">字段</th>
+<th>属性</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">4位数年</td>
+<td>tm_year</td>
+<td align="left">2008</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">月</td>
+<td>tm_mon</td>
+<td align="left">1 到 12</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">日</td>
+<td>tm_mday</td>
+<td align="left">1到31</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">小时</td>
+<td>tm_hour</td>
+<td align="left">0到23</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">分钟</td>
+<td>tm_min</td>
+<td align="left">0到59</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">秒</td>
+<td>tm_sec</td>
+<td align="left">0到61 (60或61 是闰秒)</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">一周的第几日</td>
+<td>tm_wday</td>
+<td align="left">0到6 (0是周一)</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">一年的第几日</td>
+<td>tm_yday</td>
+<td align="left">1到366</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">夏令时</td>
+<td>tm_isdst</td>
+<td align="left">-1, 0, 1, -1是决定是否为夏令时的标识</td>
+</tr>
+</tbody></table>
+<h2 id="2-当前时间"><a href="#2-当前时间" class="headerlink" title="2 当前时间"></a>2 当前时间</h2><ul>
+<li><p>从返回浮点数的时间戳方式向时间元组转换</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
+
+localtime <span class="token operator">=</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"本地时间为 :"</span><span class="token punctuation">,</span> localtime<span class="token punctuation">)</span>
+<span class="token comment"># 本地时间为 : time.struct_time(tm_year=2024, tm_mon=7, tm_mday=5, tm_hour=12, tm_min=53, tm_sec=27, tm_wday=4, tm_yday=187, tm_isdst=0)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>格式化当前时间</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
+
+localtime <span class="token operator">=</span> time<span class="token punctuation">.</span>asctime<span class="token punctuation">(</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"本地时间为 :"</span><span class="token punctuation">,</span> localtime<span class="token punctuation">)</span>
+<span class="token comment"># 本地时间为 : Fri Jul  5 12:53:57 2024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="3-日期格式化"><a href="#3-日期格式化" class="headerlink" title="3 日期格式化"></a>3 日期格式化</h2><ul>
+<li>使用 time 模块的 strftime 方法来格式化日期：<code>time.strftime(format[, t])</code></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
+
+<span class="token comment"># 格式化成2016-03-20 11:45:39形式</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 2016-04-07 10:29:46</span>
+
+<span class="token comment"># 格式化成Sat Mar 28 22:24:24 2016形式</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%a %b %d %H:%M:%S %Y"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># Thu Apr 07 10:29:46 2016</span>
+
+<span class="token comment"># 将格式字符串转换为时间戳</span>
+a <span class="token operator">=</span> <span class="token string">"Sat Mar 28 22:24:24 2016"</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">"%a %b %d %H:%M:%S %Y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 1459175064.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>时间日期格式化符号</p>
+<ul>
+<li><p>%y 两位数的年份表示（00-99）</p>
+</li>
+<li><p>%Y 四位数的年份表示（000-9999）</p>
+</li>
+<li><p>%m 月份（01-12）</p>
+</li>
+<li><p>%d 月内中的一天（0-31）</p>
+</li>
+<li><p>%H 24小时制小时数（0-23）</p>
+</li>
+<li><p>%I 12小时制小时数（01-12）</p>
+</li>
+<li><p>%M 分钟数（00=59）</p>
+</li>
+<li><p>%S 秒（00-59）</p>
+</li>
+<li><p>%a 本地简化星期名称</p>
+</li>
+<li><p>%A 本地完整星期名称</p>
+</li>
+<li><p>%b 本地简化的月份名称</p>
+</li>
+<li><p>%B 本地完整的月份名称</p>
+</li>
+<li><p>%c 本地相应的日期表示和时间表示</p>
+</li>
+<li><p>%j 年内的一天（001-366）</p>
+</li>
+<li><p>%p 本地A.M.或P.M.的等价符</p>
+</li>
+<li><p>%U 一年中的星期数（00-53）星期天为星期的开始</p>
+</li>
+<li><p>%w 星期（0-6），星期天为星期的开始</p>
+</li>
+<li><p>%W 一年中的星期数（00-53）星期一为星期的开始</p>
+</li>
+<li><p>%x 本地相应的日期表示</p>
+</li>
+<li><p>%X 本地相应的时间表示</p>
+</li>
+<li><p>%Z 当前时区的名称</p>
+</li>
+<li><p>%% %号本身</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-获取日历"><a href="#4-获取日历" class="headerlink" title="4 获取日历"></a>4 获取日历</h2><ul>
+<li><code>Calendar</code>模块有很广泛的方法用来处理年历和月历</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> calendar
+
+cal <span class="token operator">=</span> calendar<span class="token punctuation">.</span>month<span class="token punctuation">(</span><span class="token number">2024</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"以下输出2024年7月份的日历:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>cal<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+以下输出2024年7月份的日历:
+     July 2024
+Mo Tu We Th Fr Sa Su
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30 31
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-Time模块"><a href="#5-Time模块" class="headerlink" title="5 Time模块"></a>5 Time模块</h2><table>
+<thead>
+<tr>
+<th align="left">函数及描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">time.altzone<br>返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
+<td align="left">以下实例展示了 altzone()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("time.altzone %d " % time.altzone) time.altzone -28800 </code></td>
+</tr>
+<tr>
+<td align="left">time.asctime([tupletime]) <br>接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
+<td align="left">以下实例展示了 asctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; t = time.localtime() </code><br><code>&gt;&gt;&gt; print ("time.asctime(t): %s " % time.asctime(t)) </code><br><code>time.asctime(t): Thu Apr  7 10:36:20 2016 </code></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">time.clock()</a> <br>用以浮点数计算的秒数返回当前的CPU时间。用来<strong>衡量不同程序的耗时</strong>，比time.time()更有用。</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">实例</a>由于该方法依赖操作系统，在 Python 3.3 以后不被推荐，而在 3.8 版本中被移除，需使用下列两个函数替代。<br><code>time.perf_counter()  # 返回系统运行时间 time.process_time()  # 返回进程运行时间</code></td>
+</tr>
+<tr>
+<td align="left">time.ctime([secs]) <br>作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
+<td align="left">以下实例展示了 ctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("time.ctime() : %s" % time.ctime()) time.ctime() : Thu Apr  7 10:51:58 2016</code></td>
+</tr>
+<tr>
+<td align="left">time.gmtime([secs]) <br>接收时间戳（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
+<td align="left">以下实例展示了 gmtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("gmtime :", time.gmtime(1455508609.34375)) </code><br><code>gmtime : time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=3, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
+</tr>
+<tr>
+<td align="left">time.localtime([secs] <br>接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
+<td align="left">以下实例展示了 localtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("localtime(): ", time.localtime(1455508609.34375)) </code><br><code>localtime():  time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=11, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-mktime.html">time.mktime(tupletime)</a> <br>接受时间元组并返回时间戳（1970纪元后经过的浮点秒数）。</td>
+<td align="left"><code>t = (2016, 2, 17, 17, 3, 38, 1, 48, 0) </code><br><code>secs = time.mktime( t ) </code><br><code>print ("time.mktime(t) : %f" %  secs) </code><br><code>print ("asctime(localtime(secs)): %s" % time.asctime(time.localtime(secs)))</code><br>==time.mktime(t) : 1455699818.000000<br>asctime(localtime(secs)): Wed Feb 17 17:03:38 2016==</td>
+</tr>
+<tr>
+<td align="left">time.sleep(secs) <br>推迟调用线程的运行，secs指秒数。</td>
+<td align="left">以下实例展示了 sleep()函数的使用方法：<br><code>import time </code><br><code>print ("Start : %s" % time.ctime()) time.sleep( 5 ) </code><br><code>print ("End : %s" % time.ctime())</code></td>
+</tr>
+<tr>
+<td align="left">time.strftime(fmt[,tupletime]) <br>接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
+<td align="left">以下实例展示了 strftime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) </code><br><code>2016-04-07 11:18:05</code></td>
+</tr>
+<tr>
+<td align="left">time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’) <br>根据fmt的格式把一个时间字符串解析为时间元组。</td>
+<td align="left">以下实例展示了 strptime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; struct_time = time.strptime("30 Nov 00", "%d %b %y") </code><br><code>&gt;&gt;&gt; print ("返回元组: ", struct_time) </code><br><code>返回元组:  time.struct_time(tm_year=2000, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=335, tm_isdst=-1)</code></td>
+</tr>
+<tr>
+<td align="left">time.time( ) <br>返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
+<td align="left">以下实例展示了 time()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print(time.time())</code><br><code>1459999336.1963577</code></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">time.tzset()</a> <br>根据环境变量TZ重新初始化时间相关设置。</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">实例</a></td>
+</tr>
+<tr>
+<td align="left"><strong>time.perf_counter()</strong> <br>返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-date-time.html#comment-35499">实例</a></td>
+</tr>
+<tr>
+<td align="left"><strong>time.process_time()</strong> <br>返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>time.timezone</strong></td>
+<td>属性time.timezone是当地时区（未启动夏令时）距离格林威治的偏移秒数（&gt;0，美洲;&lt;=0大部分欧洲，亚洲，非洲）</td>
+</tr>
+<tr>
+<td><strong>time.tzname</strong></td>
+<td>属性time.tzname包含一对根据情况的不同而不同的字符串，分别是带夏令时的本地时区名称，和不带的</td>
+</tr>
+</tbody></table>
+<h2 id="6-Calendar模块"><a href="#6-Calendar模块" class="headerlink" title="6 Calendar模块"></a>6 Calendar模块</h2><ul>
+<li><p>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用<code>calendar.setfirstweekday()</code>函数</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>calendar.calendar(year,w=2,l=1,c=6)</strong></td>
+<td>返回一个多行字符串格式的 year 年年历，3 个月一行，间隔距离为 c。 每日宽度间隔为w字符。每行长度为 <strong>21* W+18+2* C</strong>。<strong>l</strong> 是每星期行数。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.firstweekday( )</strong></td>
+<td>返回当前每周起始日期的设置。默认情况下，首次载入 calendar 模块时返回 0，即星期一。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.isleap(year)</strong></td>
+<td>是闰年返回 True，否则为 False。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.leapdays(y1,y2)</strong></td>
+<td>返回在Y1，Y2两年之间的闰年总数。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.month(year,month,w=2,l=1)</strong></td>
+<td>返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7* w+6。l是每星期的行数。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.monthcalendar(year,month)</strong></td>
+<td>返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.monthrange(year,month)</strong></td>
+<td>返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从0（星期一）到 6（星期日）。<br><code>&gt;&gt;&gt; import calendar </code><br><code>&gt;&gt;&gt; calendar.monthrange(2014, 11) </code><br><code>(5, 30)</code><br>(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.prcal(year, w=0, l=0, c=6, m=3)</strong></td>
+<td>相当于 print (calendar.calendar(year, w=0, l=0, c=6, m=3))。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.prmonth(theyear, themonth, w=0, l=0)</strong></td>
+<td>相当于 **print(calendar.month(theyear, themonth, w=0, l=0))**。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.setfirstweekday(weekday)</strong></td>
+<td>设置每周的起始日期码。0（星期一）到6（星期日）。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.timegm(tupletime)</strong></td>
+<td>和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间戳（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td align="left"><strong>calendar.weekday(year,month,day)</strong></td>
+<td>返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="7-datetime模块"><a href="#7-datetime模块" class="headerlink" title="7 datetime模块"></a>7 datetime模块</h2><ul>
+<li><p>操作日期和时间</p>
+<ul>
+<li><code>datetime.date</code>：一个理想化的日期，它假设公历无限地延伸到未来和过去。该对象将年、月和日存储为属性。</li>
+<li><code>datetime.time</code>：一个理想化的时间，假设每天有86400秒，没有闰秒。该对象存储时、分、秒、微秒和 tzinfo （时区信息）。</li>
+<li><code>datetime.datetime</code>：是 datetime.date 和 datetime.time 的结合，具有这两个类的所有属性</li>
+</ul>
+</li>
+<li><p><strong>datetime 对象可以根据是否包含时区信息分为“感知型”和“简单型”两类</strong></p>
+<ul>
+<li><p>感知型对象：具有政治性时间调整信息（如<strong>时区和夏令时</strong>），能够定位自身相对于其他感知型对象的精确时间点。 感知型对象是一个没有解释空间的<strong>固定时间点</strong>。对于要求感知型对象的应用程序，datetime 和 time 对象具有一个可选的<strong>时区信息属性 tzinfo</strong>，它接受抽象类 tzinfo 的子类的一个实例。 tzinfo 对象会捕获与 UTC 时间的差值、时区名称以及夏令时是否生效等信息。</p>
+<blockquote>
+<p>感知型 datetime 实例可以明确地将自己与其他感知型 datetime 实例进行比较，并且在进行算术运算时返回正确的时间差。 </p>
+</blockquote>
+</li>
+<li><p>简单型对象：没有足够多的信息，不能定位自身相对于其他 datetime 对象的时间点。 一个简单型对象所代表的是世界标准时间（UTC）、当地时间还是某个其他时区的时间，完全取决于具体程序，就像一个特定数字所代表的是米、英里还是质量完全取决于具体程序一样。 简单型对象更易于理解和使用，代价则是忽略了某些现实性考量。</p>
+<blockquote>
+<ol>
+<li><strong>date 类型的对象都是简单型的</strong>。</li>
+<li>time 或 datetime 类型的对象可以是感知型或者简单型，对于一个x，以下两个条件同时成立时，x是感知型的：（1）x.tzinfo 不为 None（2）x.tzinfo.utcoffset() 不返回 None。</li>
+<li><strong>感知型和简单型之间的区别不适用于 timedelta 对象</strong>。</li>
+<li>简单型 datetime 对象会被许多 datetime 方法当作本地时间来处理，如果你有一个表示 UTC 的简单型 datetime，请使用 datetime.replace(tzinfo=timezone.utc) 将其改为感知型。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>datetime类</p>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407161901214.png" alt="datetime类"></p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>类方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>datetime.today()</td>
+<td>返回一个简单型datetime 对象，表示当前地方时间。（tzinfo 为 None）此方法的功能等价于 now()，但是不带 tz 形参。</td>
+</tr>
+<tr>
+<td>datetime.now(tz=None)</td>
+<td>返回 datetime 对象，表示当前地方时间。（1）如果可选参数 tz 为 None 或未指定，这就类似于 today()；（2）如果 tz 不为 None，它必须是 tzinfo 子类的一个实例，并且当前日期和时间将被转换到 tz 时区；（3）使用带 UTC（tz=timezone.utc）的 datetime.now() 得到当前 UTC datetime对象</td>
+</tr>
+<tr>
+<td>datetime.utcnow()</td>
+<td>返回一个简单型 datetime 对象（其中 tzinfo 为 None），表示当前 UTC。注：不推荐使用此方法，推荐使用 datetime.now(timezone.utc)。</td>
+</tr>
+<tr>
+<td>datetime.combine(date, time, tzinfo=time.tzinfo)</td>
+<td>返回一个新的 datetime 对象，其日期部分等于给定的 date 对象的值，而其时间部分等于给定的 time 对象的值。（1）如果提供了 tzinfo 参数，其值会被用来设置结果的 tzinfo 属性，否则将使用 time 参数的 tzinfo 属性。（2）如果 date 参数是一个 datetime 对象，则其时间部分和 tzinfo 属性将被忽略。（3）对于任意 datetime 对象 d，d == datetime.combine(d.date(), d.time(), d.tzinfo)。</td>
+</tr>
+<tr>
+<td>datetime.strptime(date_string, format)</td>
+<td>返回一个对应于 date_string，根据 format 进行解析得到的datetime对象。（1）如果 format 不包含微秒或时区信息，等价于:datetime(*(time.strptime(date_string, format)[0:6]))（2）如果 date_string 和 format 无法被 time.strptime() 解析或它返回一个不是时间元组的值则将引发 ValueError</td>
+</tr>
+<tr>
+<td>datetime.fromisoformat(date_string)</td>
+<td>返回一个对应于以任何有效的 8601 格式给出的 date_string 的 datetime</td>
+</tr>
+<tr>
+<td>datetime.fromisocalendar(year, week, day)</td>
+<td>返回以 year, week 和 day 值指明的 ISO 历法日期所对应的 datetime。</td>
+</tr>
+<tr>
+<td>datetime.fromordinal(ordinal)</td>
+<td>返回一个简单型 datetime 对象，表示格列高利历序号对应的日期。注：结果中的 hour, minute, second 和 microsecond 值均为 0，tzinfo 值为 None</td>
+</tr>
+<tr>
+<td>datetime.fromtimestamp(timestamp, tz=None)</td>
+<td>返回一个简单型 datetime 对象，表示 unix time 对应的本地日期和时间</td>
+</tr>
+<tr>
+<td>datetime.utcfromtimestamp(timestamp)</td>
+<td>返回一个简单型 datetime 对象，表示 unix time 对应的 UTC。注：tzinfo 值为 None</td>
+</tr>
+</tbody></table>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">算术运算</th>
+<th align="left"><strong>描述</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>datetime2 = datetime1 + timedelta</code></td>
+<td align="left">如果 timedelta.days &gt; 0 则在时间线上前进，如果 timedelta.days &lt; 0 则在时间线上后退。</td>
+<td>（1）输出结果具有与输入的 datetime 相同的 tzinfo 属性，并且操作完成后 datetime2 - datetime1 == timedelta。</td>
+</tr>
+<tr>
+<td align="left"><code>datetime2 = datetime1 - timedelta</code></td>
+<td align="left">如果 timedelta.days &gt; 0 则在时间线上后退，如果 timedelta.days &lt; 0 则在时间线上前进。</td>
+<td>（2）即使输入的是一个感知型对象，该方法也不会进行时区调整。</td>
+</tr>
+<tr>
+<td align="left"><code>timedelta = datetime1 - datetime2</code></td>
+<td align="left">仅对两个操作数均为简单型或均为感知型时有定义，如果一个是感知型而另一个是简单型，将会引发 TypeError。</td>
+<td>（1）如果两个比较数都是感知的，并且具有相同的tzinfo属性，则忽略tzinfo和fold属性，基于基本的日期时间进行计算或比较。</td>
+</tr>
+<tr>
+<td align="left"><code>datetime1 == datetime2</code><br><code>datetime1 != datetime2</code></td>
+<td align="left">相等性比较。<br>简单型和感知型 datetime 对象绝对不会相等，datetime 对象和不为 datetime 实例的 date 对象绝对不会相等（即使二者表示相同的日期）。</td>
+<td>（2）如果两个比较数都是感知的并且具有不同的tzinfo属性，则先将比较数转换为UTC（dt.replace(tzinfo=None) - dt.utcoffset()），再进行比较。</td>
+</tr>
+<tr>
+<td align="left"><code>datetime1 &lt; datetime2</code><br><code>datetime1 &gt; datetime2</code><br><code>datetime1 &lt;= datetime2</code><br><code>datetime1 &gt;= datetime2</code></td>
+<td align="left">顺序比较：<br>简单型和感知型对象之间，以及 datetime 对象与非 datetime 实例的 date 对象之间的顺序比较会引发 TypeError。</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>date 类、time 类</p>
+<ul>
+<li>类属性、类方法、实例属性、实例方法与 datetime 类似</li>
+</ul>
+</li>
+<li><p>timedelta类</p>
+<ul>
+<li>timedelta 对象表示一段持续的时间，即两个 datetime 或 date 实例之间的差值</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407161909312.png" alt="timedelta类"></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta
+delta <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span><span class="token number">27</span><span class="token punctuation">,</span> microseconds<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> milliseconds<span class="token operator">=</span><span class="token number">29000</span><span class="token punctuation">,</span> minutes<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">,</span> weeks<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment"># Only days, seconds, and microseconds remain</span>
+delta
+datetime<span class="token punctuation">.</span>timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span><span class="token number">29156</span><span class="token punctuation">,</span> microseconds<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>实例方法：timedelta.total_seconds()—-返回占用了多少秒。等价于 td / timedelta(seconds=1)。对于秒以外的间隔单位，使用除法形式，如： td / timedelta(microseconds=1)。</li>
+</ul>
+</li>
+<li><p>tzinfo | timezone</p>
+<ul>
+<li>tzinfo是一个抽象基类，也就是说该类不应被直接实例化。需要定义tzinfo的子类来捕获有关特定时区的信息。</li>
+<li>tzinfo 的 (某个实体子类) 的实例可以被传给 datetime 和 time 对象的构造器。 这些对象会将它们的属性视为对应的本地时间，并且 tzinfo 对象支持展示本地时间与 UTC 的差值、时区名称以及 DST 差值的方法，都是与传给它们的日期或时间对象的相对值</li>
+<li>timezone 类是 tzinfo 的子类，它的实例代表一个由与 UTC 的固定时差定义的时区</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-不同时间单位的转换和计算"><a href="#8-不同时间单位的转换和计算" class="headerlink" title="8 不同时间单位的转换和计算"></a>8 不同时间单位的转换和计算</h2><ul>
+<li><p>使用<code>datetime</code> 模块实现不同时间单位的转换和计算</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> datetime <span class="token keyword">import</span> timedelta
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> hours<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span><span class="token number">4.5</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c <span class="token operator">=</span> a <span class="token operator">+</span> b
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token punctuation">.</span>days
+<span class="token number">2</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token punctuation">.</span>seconds
+<span class="token number">37800</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token punctuation">.</span>seconds <span class="token operator">/</span> <span class="token number">3600</span>
+<span class="token number">10.5</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c<span class="token punctuation">.</span>total_seconds<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">3600</span>
+<span class="token number">58.5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>表示指定的日期和时间</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 2012-10-03 00:00:00</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> d <span class="token operator">=</span> b <span class="token operator">-</span> a
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> d<span class="token punctuation">.</span>days
+<span class="token comment"># 89</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> now <span class="token operator">=</span> datetime<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span>
+<span class="token comment"># 2012-12-21 14:54:43.094063</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>now <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>minutes<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 2012-12-21 15:04:43.094063</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>datetime</code> 会自动处理闰年</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">-</span> b
+datetime<span class="token punctuation">.</span>timedelta<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span><span class="token punctuation">.</span>days
+<span class="token number">2</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2013</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> d <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2013</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>c <span class="token operator">-</span> d<span class="token punctuation">)</span><span class="token punctuation">.</span>days
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>计算一周中某一天上一次出现的日期</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+<span class="token comment"># -*- encoding: utf-8 -*-</span>
+<span class="token triple-quoted-string string">"""
+Topic: 最后的周五
+Desc :
+"""</span>
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> timedelta
+
+weekdays <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Monday'</span><span class="token punctuation">,</span> <span class="token string">'Tuesday'</span><span class="token punctuation">,</span> <span class="token string">'Wednesday'</span><span class="token punctuation">,</span> <span class="token string">'Thursday'</span><span class="token punctuation">,</span>
+            <span class="token string">'Friday'</span><span class="token punctuation">,</span> <span class="token string">'Saturday'</span><span class="token punctuation">,</span> <span class="token string">'Sunday'</span><span class="token punctuation">]</span>
+
+<span class="token triple-quoted-string string">'''
+先将开始日期和目标日期映射到星期数组的位置上(星期一索引为0)， 然后通过模运算计算出目标日期要经过多少天才能到达开始日期。然后用开始日期减去那个时间差即得到结果日期
+'''</span>
+<span class="token keyword">def</span> <span class="token function">get_previous_byday</span><span class="token punctuation">(</span>dayname<span class="token punctuation">,</span> start_date<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> start_date <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        start_date <span class="token operator">=</span> datetime<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    day_num <span class="token operator">=</span> start_date<span class="token punctuation">.</span>weekday<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    day_num_target <span class="token operator">=</span> weekdays<span class="token punctuation">.</span>index<span class="token punctuation">(</span>dayname<span class="token punctuation">)</span>
+    days_ago <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">7</span> <span class="token operator">+</span> day_num <span class="token operator">-</span> day_num_target<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">7</span>
+    <span class="token keyword">if</span> days_ago <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        days_ago <span class="token operator">=</span> <span class="token number">7</span>
+    target_date <span class="token operator">=</span> start_date <span class="token operator">-</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span>days_ago<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> target_date
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> datetime<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># For reference</span>
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">263076</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> get_previous_byday<span class="token punctuation">(</span><span class="token string">'Monday'</span><span class="token punctuation">)</span>
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">57</span><span class="token punctuation">,</span> <span class="token number">29045</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> get_previous_byday<span class="token punctuation">(</span><span class="token string">'Tuesday'</span><span class="token punctuation">)</span> <span class="token comment"># Previous week, not today</span>
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">629771</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> get_previous_byday<span class="token punctuation">(</span><span class="token string">'Friday'</span><span class="token punctuation">)</span>
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">911393</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> get_previous_byday<span class="token punctuation">(</span><span class="token string">'Sunday'</span><span class="token punctuation">,</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在当前月份中循环每一天</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> date<span class="token punctuation">,</span> timedelta
+<span class="token keyword">import</span> calendar
+
+<span class="token triple-quoted-string string">'''
+在这样的日期上循环并需要事先构造一个包含所有日期的列表。 先计算出开始日期和结束日期， 然后在步进的时候使用 datetime.timedelta 对象递增这个日期变量即可
+'''</span>
+<span class="token keyword">def</span> <span class="token function">get_month_range</span><span class="token punctuation">(</span>start_date<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> start_date <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        start_date <span class="token operator">=</span> date<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>day<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    _<span class="token punctuation">,</span> days_in_month <span class="token operator">=</span> calendar<span class="token punctuation">.</span>monthrange<span class="token punctuation">(</span>start_date<span class="token punctuation">.</span>year<span class="token punctuation">,</span> start_date<span class="token punctuation">.</span>month<span class="token punctuation">)</span> <span class="token comment"># 找出该月的总天数</span>
+    end_date <span class="token operator">=</span> start_date <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span>days_in_month<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>start_date<span class="token punctuation">,</span> end_date<span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a_day <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> first_day<span class="token punctuation">,</span> last_day <span class="token operator">=</span> get_month_range<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">while</span> first_day <span class="token operator">&lt;</span> last_day<span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>first_day<span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     first_day <span class="token operator">+=</span> a_day
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment"># 2012-08-01</span>
+<span class="token comment"># 2012-08-02</span>
+<span class="token comment"># 2012-08-03</span>
+<span class="token comment"># 2012-08-04</span>
+<span class="token comment"># 2012-08-05</span>
+<span class="token comment"># 2012-08-06</span>
+<span class="token comment"># 2012-08-07</span>
+<span class="token comment"># 2012-08-08</span>
+<span class="token comment"># 2012-08-09</span>
+<span class="token comment">#... and so on...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="9-字符串转换为日期"><a href="#9-字符串转换为日期" class="headerlink" title="9 字符串转换为日期"></a>9 字符串转换为日期</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> text <span class="token operator">=</span> <span class="token string">'2012-09-20'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> y <span class="token operator">=</span> datetime<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>text<span class="token punctuation">,</span> <span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> z <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> diff <span class="token operator">=</span> z <span class="token operator">-</span> y
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> diff
+datetime<span class="token punctuation">.</span>timedelta<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">77824</span><span class="token punctuation">,</span> <span class="token number">177393</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> z
+datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">177393</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> nice_z <span class="token operator">=</span> datetime<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span>z<span class="token punctuation">,</span> <span class="token string">'%A %B %d, %Y'</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> nice_z
+<span class="token string">'Sunday September 23, 2012'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="10-结合时区的日期操作"><a href="#10-结合时区的日期操作" class="headerlink" title="10 结合时区的日期操作"></a>10 结合时区的日期操作</h2><ul>
+<li><p>处理本地化日期的通常的策略<strong>先将所有日期转换为UTC时间， 并用它来执行所有的中间存储和操作</strong></p>
+</li>
+<li><p><code>pytz</code> 模块一个主要用途是将 <code>datetime</code> 库创建的简单日期对象本地化</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> pytz <span class="token keyword">import</span> timezone
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> d <span class="token operator">=</span> datetime<span class="token punctuation">(</span><span class="token number">2012</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+<span class="token comment"># 2012-12-21 09:30:00</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token comment"># Localize the date for Chicago</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> central <span class="token operator">=</span> timezone<span class="token punctuation">(</span><span class="token string">'US/Central'</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> loc_d <span class="token operator">=</span> central<span class="token punctuation">.</span>localize<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>loc_d<span class="token punctuation">)</span>
+<span class="token comment"># 2013-03-10 01:45:00-06:00</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> utc_d <span class="token operator">=</span> loc_d<span class="token punctuation">.</span>astimezone<span class="token punctuation">(</span>pytz<span class="token punctuation">.</span>utc<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>utc_d<span class="token punctuation">)</span>
+<span class="token comment"># 2013-03-10 07:45:00+00:00</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> later_utc <span class="token operator">=</span> utc_d <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>minutes<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>later_utc<span class="token punctuation">.</span>astimezone<span class="token punctuation">(</span>central<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 2013-03-10 03:15:00-05:00</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>得到时区的名称</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pytz<span class="token punctuation">.</span>country_timezones<span class="token punctuation">[</span><span class="token string">'IN'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token string">'Asia/Kolkata'</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<blockquote>
+<p><strong>参考：</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://python3-cookbook.readthedocs.io/zh-cn/latest/index.html">《Python Cookbook》3rd Edition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html">https://www.runoob.com/python/python-tutorial.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40134371/article/details/137071930">https://blog.csdn.net/weixin_40134371/article/details/137071930</a></li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/07/05/python-xue-xi-12-ri-qi-he-shi-jian/">http://Eliauk-L.github.io/2024/07/05/python-xue-xi-12-ri-qi-he-shi-jian/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/07/06/python-xue-xi-13-yun-suan-fu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python学习13-运算符">
+                        
+                        <span class="card-title">Python学习13-运算符</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/05/python-xue-xi-11-zi-jie-shu-zu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python学习11-字节数组">
+                        
+                        <span class="card-title">Python学习11-字节数组</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1365 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python学习08-字典, Jay&#39;s Blog">
+    <meta name="description" content="字典
+字典是另一种可变容器模型，且可存储任意类型对象。
+
+字典的每个键值 key:value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {}中 。
+
+键是唯一的，如果重复最后的一个键值对会替换前面的，值不需要">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Python学习08-字典 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python学习08-字典</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-04
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><ul>
+<li><p>字典是另一种<strong>可变</strong>容器模型，且可存储<strong>任意类型</strong>对象。</p>
+</li>
+<li><p>字典的每个键值 <code>key:value</code> 对用冒号 : 分割，每个键值对之间用逗号 <code>,</code> 分割，整个字典包括在花括号<code> {}</code>中 。</p>
+</li>
+<li><p><strong>键是唯一</strong>的，如果重复最后的一个键值对会<strong>替换</strong>前面的，值不需要唯一</p>
+</li>
+<li><p>值可以取任何数据类型，但<strong>键必须是不可变的，如==字符串，数字或元组==</strong></p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tinydict2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">'abc'</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">98.6</span><span class="token punctuation">:</span> <span class="token number">37</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="1-字典操作"><a href="#1-字典操作" class="headerlink" title="1 字典操作"></a>1 字典操作</h2><blockquote>
+<p><strong>访问字典</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+ 
+tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
+ 
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Name']: "</span> <span class="token operator">+</span> tinydict<span class="token punctuation">[</span><span class="token string">'Name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Age']: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>访问不存在的键将会报错KeyError</strong>==&gt;使用<code>get()</code></p>
+<blockquote>
+<p><strong>修改字典</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+<span class="token comment"># -*- coding: UTF-8 -*-</span>
+ 
+tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
+ 
+tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">8</span> <span class="token comment"># 更新</span>
+tinydict<span class="token punctuation">[</span><span class="token string">'School'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"RUNOOB"</span> <span class="token comment"># 添加</span>
+ 
+ 
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Age']: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['School']: "</span> <span class="token operator">+</span> tinydict<span class="token punctuation">[</span><span class="token string">'School'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>删除字典</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
+ 
+<span class="token keyword">del</span> tinydict<span class="token punctuation">[</span><span class="token string">'Name'</span><span class="token punctuation">]</span>  <span class="token comment"># 删除键是'Name'的条目</span>
+tinydict<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment"># 清空字典所有条目</span>
+<span class="token keyword">del</span> tinydict          <span class="token comment"># 删除字典</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>删除操作不可逆</p>
+<blockquote>
+<p><strong>集合操作</strong></p>
+</blockquote>
+<ul>
+<li><p>字典的 <code>keys()</code> 方法返回一个展现键集合的键视图对象。字典的 <code>items()</code> 方法返回一个包含 (键，值) 对的元素视图对象。</p>
+</li>
+<li><p><strong>键视图和元素视图支持集合操作</strong>：合并、交、差运算</p>
+</li>
+<li><p>注意:<code>values()</code>不支持集合操作</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'x'</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">'y'</span> <span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token string">'z'</span> <span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token punctuation">}</span>
+
+b <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'w'</span> <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    <span class="token string">'x'</span> <span class="token punctuation">:</span> <span class="token number">11</span><span class="token punctuation">,</span>
+    <span class="token string">'y'</span> <span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Find keys in common</span>
+a<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> b<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># { 'x', 'y' }</span>
+<span class="token comment"># Find keys in a that are not in b</span>
+a<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> b<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># { 'z' }</span>
+<span class="token comment"># Find (key,value) pairs in common</span>
+a<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> b<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># { ('y', 2) }</span>
+
+<span class="token comment"># Make a new dictionary with certain keys removed</span>
+c <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span>a<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> a<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">{</span><span class="token string">'z'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token comment"># c is {'x': 1, 'y': 2}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>字典合并</strong></p>
+</blockquote>
+<ul>
+<li><p>使用 <code>collections</code> 模块中的 <code>ChainMap</code> 类:逻辑合并， <code>ChainMap</code> 类在内部创建了一个容纳这些字典的列表 并重新定义了一些常见的字典操作来遍历这个列表。如果出现重复键，那么第一次出现的映射值会被返回。对于字典的更新或删除操作总是影响的是列表中第一个字典。不创建新的字典</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> ChainMap
+c <span class="token operator">=</span> ChainMap<span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Outputs 1 (from a)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Outputs 2 (from b)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">[</span><span class="token string">'z'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Outputs 3 (from a)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'x'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'z'</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'y'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'z'</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged <span class="token operator">=</span> ChainMap<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span>
+<span class="token number">1</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token comment"># Notice change to merged dicts</span>
+<span class="token number">42</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用 <code>update()</code> 方法将两个字典合并:原字典更新不会影响新的合并字典</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'x'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'z'</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'y'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'z'</span><span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged<span class="token punctuation">.</span>update<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">13</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> merged<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="2-字典遍历"><a href="#2-字典遍历" class="headerlink" title="2 字典遍历"></a>2 字典遍历</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">user_0 <span class="token operator">=</span> <span class="token punctuation">{</span> 
+ <span class="token string">'username'</span><span class="token punctuation">:</span> <span class="token string">'efermi'</span><span class="token punctuation">,</span> 
+ <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'enrico'</span><span class="token punctuation">,</span> 
+ <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'fermi'</span><span class="token punctuation">,</span> 
+ <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p><strong>遍历所有键值对–items()</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> key<span class="token punctuation">,</span>value <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Value: "</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>遍历所有键</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> key <span class="token keyword">in</span> user_0<span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> 
+<span class="token keyword">for</span> key <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># keys()返回列表</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>遍历所有值</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> value <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Value:"</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="3-字典置函数-方法"><a href="#3-字典置函数-方法" class="headerlink" title="3 字典置函数&amp;方法"></a>3 字典置函数&amp;方法</h2><table>
+<thead>
+<tr>
+<th>函数&amp;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-cmp.html"> cmp(dict1, dict2)</a></td>
+<td>比较两个字典元素。（Python3.x已移除）</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-len.html">len(dict)</a></td>
+<td>计算字典元素个数，即<strong>键的总数</strong>。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-str.html"> str(dict)</a></td>
+<td>输出字典可打印的<strong>字符串</strong>表示。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-type.html"> type(variable)</a></td>
+<td>返回输入的变量类型，如果变量是字典就返回字典类型。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-clear.html"> dict.clear()</a></td>
+<td>删除字典内所有元素</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-copy.html">dict.copy()</a></td>
+<td>返回一个字典的浅复制</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-fromkeys.html">dict.fromkeys(seq[, val])</a></td>
+<td>创建一个新字典，<strong>以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值，默认None</strong>。需保存变量</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-get.html">dict.get(key, default=None)</a></td>
+<td>返回指定键的值，如果<strong>值不在</strong>字典中返回default值</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-has_key.html"> dict.has_key(key)</a></td>
+<td>如果键在字典dict里返回true，否则返回false。Python3 不支持。改为 <code>in</code></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-items.html">dict.items()</a></td>
+<td>以列表返回可遍历的(键, 值) 元组数组</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-keys.html">dict.keys()</a></td>
+<td>以列表返回一个字典所有的键</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-setdefault.html"> dict.setdefault(key, default=None)</a></td>
+<td>和get()类似, 但如果<strong>键不存在</strong>于字典中，将会添加键并将值设为default</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-update.html">dict.update(dict2)</a></td>
+<td>把字典dict2的键/值对<strong>更新</strong>到dict里   合并</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-values.html">dict.values()</a></td>
+<td>以列表返回字典中的所有值</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-att-dictionary-pop.html">pop(key[,default])</a></td>
+<td>删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-att-dictionary-popitem.html">popitem()</a></td>
+<td><strong>返回并删除</strong>字典中的最后一对键和值。</td>
+</tr>
+</tbody></table>
+<h2 id="4-字典复制"><a href="#4-字典复制" class="headerlink" title="4 字典复制"></a>4 字典复制</h2><ul>
+<li><p><strong>直接复制</strong>:浅拷贝: 引用对象</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dict1 <span class="token operator">=</span>  <span class="token punctuation">{</span><span class="token string">'user'</span><span class="token punctuation">:</span><span class="token string">'runoob'</span><span class="token punctuation">,</span><span class="token string">'num'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+ 
+dict2 <span class="token operator">=</span> dict1
+<span class="token comment"># id(dict1) = id(dict2)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>copy()</strong>:浅拷贝–<strong>深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+<span class="token comment"># -*- coding: UTF-8 -*-</span>
+ 
+dict1 <span class="token operator">=</span>  <span class="token punctuation">{</span><span class="token string">'user'</span><span class="token punctuation">:</span><span class="token string">'runoob'</span><span class="token punctuation">,</span><span class="token string">'num'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+ 
+dict3 <span class="token operator">=</span> dict1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+ 
+<span class="token comment"># 修改 data 数据</span>
+dict1<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'root'</span>
+dict1<span class="token punctuation">[</span><span class="token string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+ 
+<span class="token comment"># 输出结果</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict3<span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span><span class="token string">'num'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">'num'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'runoob'</span><span class="token punctuation">}</span> <span class="token comment">#dict3 父对象进行了深拷贝，不会随dict1 修改而修改，子对象是浅拷贝所以随 dict1 的修改而修改  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>字典子集构造</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">prices <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'ACME'</span><span class="token punctuation">:</span> <span class="token number">45.23</span><span class="token punctuation">,</span>
+    <span class="token string">'AAPL'</span><span class="token punctuation">:</span> <span class="token number">612.78</span><span class="token punctuation">,</span>
+    <span class="token string">'IBM'</span><span class="token punctuation">:</span> <span class="token number">205.55</span><span class="token punctuation">,</span>
+    <span class="token string">'HPQ'</span><span class="token punctuation">:</span> <span class="token number">37.20</span><span class="token punctuation">,</span>
+    <span class="token string">'FB'</span><span class="token punctuation">:</span> <span class="token number">10.75</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># Make a dictionary of all prices over 200</span>
+p1 <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> value <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> prices<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> value <span class="token operator">&gt;</span> <span class="token number">200</span><span class="token punctuation">}</span>
+p1 <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> prices<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> value <span class="token operator">&gt;</span> <span class="token number">200</span><span class="token punctuation">)</span>
+<span class="token comment"># Make a dictionary of tech stocks</span>
+tech_names <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'AAPL'</span><span class="token punctuation">,</span> <span class="token string">'IBM'</span><span class="token punctuation">,</span> <span class="token string">'HPQ'</span><span class="token punctuation">,</span> <span class="token string">'MSFT'</span><span class="token punctuation">}</span>
+p2 <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> value <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> prices<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> key <span class="token keyword">in</span> tech_names<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="5-字典嵌套"><a href="#5-字典嵌套" class="headerlink" title="5 字典嵌套"></a>5 字典嵌套</h2><blockquote>
+<p><strong>字典列表</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">user_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">'jack'</span><span class="token punctuation">,</span>
+        <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">'tom'</span><span class="token punctuation">,</span>
+        <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">'alice'</span><span class="token punctuation">,</span>
+        <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">for</span> user <span class="token keyword">in</span> user_list<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>user<span class="token punctuation">[</span><span class="token string">"username"</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">--</span><span class="token interpolation"><span class="token punctuation">{</span>user<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>在字典中存储列表</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">student <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'jack'</span><span class="token punctuation">,</span>
+    <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token string">'languages'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Python'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'C++'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span> language <span class="token keyword">in</span> student<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'languages'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>language<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>嵌套字典</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">users <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    <span class="token string">'aeinstein'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'albert'</span><span class="token punctuation">,</span> 
+        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'einstein'</span><span class="token punctuation">,</span> 
+        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'princeton'</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token string">'mcurie'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'marie'</span><span class="token punctuation">,</span> 
+        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'curie'</span><span class="token punctuation">,</span> 
+        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'paris'</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span> username<span class="token punctuation">,</span> user_info <span class="token keyword">in</span> users<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nUsername: "</span> <span class="token operator">+</span> username<span class="token punctuation">)</span> 
+	full_name <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'first'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> user_info<span class="token punctuation">[</span><span class="token string">'last'</span><span class="token punctuation">]</span> 
+	location <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'location'</span><span class="token punctuation">]</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tFull name: "</span> <span class="token operator">+</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tLocation: "</span> <span class="token operator">+</span> location<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="6-多值映射"><a href="#6-多值映射" class="headerlink" title="6 多值映射"></a>6 多值映射</h2><ul>
+<li><p>常规字典就是一个键对应一个单值的映射。如果想实现一个键多值映射，需要将这多个值放入列表或集合中</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">d <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'a'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'b'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+e <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'a'</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'b'</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用 <code>collections</code> 模块中的 <code>defaultdict</code> 来构造字典</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+
+d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+
+d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+
+
+d <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment"># 一个普通的字典</span>
+d<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+d<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+d<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>defaultdict</code> 会自动为将要访问的键（就算目前字典中并不存在这样的键）创建映射实体</p>
+</li>
+</ul>
+<h2 id="7-字典排序"><a href="#7-字典排序" class="headerlink" title="7 字典排序"></a>7 字典排序</h2><blockquote>
+<p><strong>次序字典</strong></p>
+</blockquote>
+<ul>
+<li>使用 <code>collections</code> 模块中的 <code>OrderedDict</code> 类控制一个字典中元素的顺序</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> OrderedDict
+
+d <span class="token operator">=</span> OrderedDict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d<span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+d<span class="token punctuation">[</span><span class="token string">'bar'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+d<span class="token punctuation">[</span><span class="token string">'spam'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+d<span class="token punctuation">[</span><span class="token string">'grok'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token comment"># Outputs "foo 1", "bar 2", "spam 3", "grok 4"</span>
+<span class="token keyword">for</span> key <span class="token keyword">in</span> d<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> d<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>OrderedDict</code> 内部维护着一个根据键插入顺序排序的<strong>双向链表</strong>。每次当一个新的元素插入进来的时候， 它会被放到链表的<strong>尾部</strong>。对于一个已经存在的键的重复赋值不会改变键的顺序，同时一个 <code>OrderedDict</code> 的大小是一个普通字典的两倍</li>
+</ul>
+<blockquote>
+<p><strong>字典列表关键字排序</strong></p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">rows <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'Brian'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Jones'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1003</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'David'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Beazley'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1002</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Cleese'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1001</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'Big'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Jones'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1004</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">from</span> operator <span class="token keyword">import</span> itemgetter
+rows_by_fname <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span>itemgetter<span class="token punctuation">(</span><span class="token string">'fname'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+rows_by_uid <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span>itemgetter<span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rows_by_fname<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rows_by_uid<span class="token punctuation">)</span>
+rows_by_lfname <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span>itemgetter<span class="token punctuation">(</span><span class="token string">'lname'</span><span class="token punctuation">,</span><span class="token string">'fname'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">min</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span>itemgetter<span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Cleese'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1001</span><span class="token punctuation">}</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">max</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span>itemgetter<span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'Big'</span><span class="token punctuation">,</span> <span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Jones'</span><span class="token punctuation">,</span> <span class="token string">'uid'</span><span class="token punctuation">:</span> <span class="token number">1004</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p><code>operator.itemgetter()</code> 函数有一个被 <code>rows</code> 中的记录用来查找值的索引参数。可以是一个字典键名称， 一个整形值或者任何能够传入一个对象的 <code>__getitem__()</code> 方法的值。 如果你传入多个索引参数给 <code>itemgetter()</code> ，它生成的 <code>callable</code> 对象会返回一个包含所有元素值的元组， 并且 <code>sorted()</code> 函数会根据这个元组中元素顺序去排序。</p>
+</li>
+<li><p>用 <code>lambda</code> 表达式代替，但<code>itemgetter()</code> 方式会运行的稍微快点</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">rows_by_fname <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> r<span class="token punctuation">:</span> r<span class="token punctuation">[</span><span class="token string">'fname'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+rows_by_lfname <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>rows<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> r<span class="token punctuation">:</span> <span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token string">'lname'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>r<span class="token punctuation">[</span><span class="token string">'fname'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="8-数据字典运算"><a href="#8-数据字典运算" class="headerlink" title="8 数据字典运算"></a>8 数据字典运算</h2><ul>
+<li><p>在数据字典中执行一些计算操作（比如求最小值、最大值、排序等等）</p>
+</li>
+<li><p>使用 <code>zip()</code> 函数先将键和值反转过来：<code>zip()</code> 函数创建的是一个<strong>只能访问一次</strong>的迭代器</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">prices <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'ACME'</span><span class="token punctuation">:</span> <span class="token number">45.23</span><span class="token punctuation">,</span>
+    <span class="token string">'AAPL'</span><span class="token punctuation">:</span> <span class="token number">612.78</span><span class="token punctuation">,</span>
+    <span class="token string">'IBM'</span><span class="token punctuation">:</span> <span class="token number">205.55</span><span class="token punctuation">,</span>
+    <span class="token string">'HPQ'</span><span class="token punctuation">:</span> <span class="token number">37.20</span><span class="token punctuation">,</span>
+    <span class="token string">'FB'</span><span class="token punctuation">:</span> <span class="token number">10.75</span>
+<span class="token punctuation">}</span>
+min_price <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>prices<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prices<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># min_price is (10.75, 'FB')</span>
+max_price <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>prices<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prices<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># max_price is (612.78, 'AAPL')</span>
+
+prices_sorted <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>prices<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prices<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># prices_sorted is [(10.75, 'FB'), (37.2, 'HPQ'),</span>
+<span class="token comment">#                   (45.23, 'ACME'), (205.55, 'IBM'),</span>
+<span class="token comment">#                   (612.78, 'AAPL')]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在 <code>min()</code> 和 <code>max()</code> 函数中提供 <code>key</code> 函数参数来获取最小值或最大值对应的键的信息</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">min</span><span class="token punctuation">(</span>prices<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> k<span class="token punctuation">:</span> prices<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Returns 'FB'</span>
+<span class="token builtin">max</span><span class="token punctuation">(</span>prices<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> k<span class="token punctuation">:</span> prices<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Returns 'AAPL'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p><strong>参考：</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://python3-cookbook.readthedocs.io/zh-cn/latest/index.html">《Python Cookbook》3rd Edition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html">https://www.runoob.com/python/python-tutorial.html</a></li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/07/04/python-xue-xi-08-zi-dian/">http://Eliauk-L.github.io/2024/07/04/python-xue-xi-08-zi-dian/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/07/04/python-xue-xi-09-ji-he/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Python学习09-集合">
+                        
+                        <span class="card-title">Python学习09-集合</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/03/python-xue-xi-07-yuan-zu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Python学习07-元组">
+                        
+                        <span class="card-title">Python学习07-元组</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
