@@ -1,0 +1,1689 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python学习26-正则表达式, Jay&#39;s Blog">
+    <meta name="description" content="正则表达式
+正则表达式是一个特殊的字符序列，它能帮助检查一个字符串是否与某种模式匹配。
+在 Python 中，使用 re 模块来处理正则表达式。re 模块提供了一组函数，允许在字符串中进行模式匹配、搜索和替换操作。
+
+1 正则匹配
+re.m">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Python学习26-正则表达式 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python学习26-正则表达式</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><ul>
+<li>正则表达式是一个特殊的字符序列，它能帮助检查一个字符串是否与某种模式匹配。</li>
+<li>在 Python 中，使用 <strong><code>re</code></strong> 模块来处理正则表达式。<code>re</code> 模块提供了一组函数，允许在字符串中进行模式匹配、搜索和替换操作。</li>
+</ul>
+<h2 id="1-正则匹配"><a href="#1-正则匹配" class="headerlink" title="1 正则匹配"></a>1 正则匹配</h2><blockquote>
+<p><strong>re.match</strong></p>
+</blockquote>
+<ul>
+<li><p><strong><code>re.match</code> 尝试从字符串的==起始位置==匹配一个模式，如果不是起始位置匹配成功的话，match() 就返回 None。</strong></p>
+</li>
+<li><p><strong><code>re.match(pattern, string, flags=0)</code></strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：[正则表达式修饰符 - 可选标志](#26.4 正则表达式修饰符 - 可选标志)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>匹配成功 <strong>re.match</strong> 方法返回一个匹配的对象，否则返回 <strong>None</strong>。</p>
+</li>
+<li><p>使用 <strong>group(num)</strong> 或 <strong>groups()</strong> 匹配对象函数来获取匹配表达式。</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配对象方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">group(num=0)</td>
+<td align="left">匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</td>
+</tr>
+<tr>
+<td align="left">groups()</td>
+<td align="left">返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+ 
+<span class="token keyword">import</span> re
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'www'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 在起始位置匹配</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'com'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token comment"># 不在起始位置匹配</span>
+<span class="token comment"># (0, 3)</span>
+<span class="token comment"># None</span>
+ 
+line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span>
+<span class="token comment"># .* 表示任意匹配除换行符（\n、\r）之外的任何单个或多个字符</span>
+<span class="token comment"># (.*?) 表示"非贪婪"模式，只保存第一个匹配到的子串</span>
+matchObj <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span> <span class="token string">r'(.*) are (.*?) .*'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
+ 
+<span class="token keyword">if</span> matchObj<span class="token punctuation">:</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group() : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group(1) : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group(2) : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"No match!!"</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p><strong>re.search</strong> </p>
+</blockquote>
+<ul>
+<li><p>re.search 扫描整个字符串并返回第一个成功的匹配。</p>
+</li>
+<li><p><strong><code>re.search(pattern, string, flags=0)</code></strong></p>
+</li>
+<li><p>匹配成功re.search方法返回一个匹配的对象，否则返回None。</p>
+</li>
+<li><p>使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+ 
+<span class="token keyword">import</span> re
+ 
+line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span>
+ 
+searchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span> <span class="token string">r'(.*) are (.*?) .*'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
+ 
+<span class="token keyword">if</span> searchObj<span class="token punctuation">:</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"searchObj.group() : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"searchObj.group(1) : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"searchObj.group(2) : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Nothing found!!"</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+searchObj.group() :  Cats are smarter than dogs
+searchObj.group(1) :  Cats
+searchObj.group(2) :  smarter
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p><strong>re.match 与 re.search的区别</strong></p>
+</blockquote>
+<ul>
+<li><strong>re.match</strong> 只匹配字符串的==开始==，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 <strong>re.search</strong> 匹配==整个==字符串，直到找到一个匹配。</li>
+</ul>
+<h2 id="2-检索和替换"><a href="#2-检索和替换" class="headerlink" title="2 检索和替换"></a>2 检索和替换</h2><ul>
+<li><p><code>re.sub</code>用于替换字符串中的匹配项。</p>
+</li>
+<li><p><code>re.sub(pattern, repl, string, count=0, flags=0)</code></p>
+<ul>
+<li>pattern : 正则中的模式字符串。必选</li>
+<li>repl : 替换的字符串，也可为一个函数。必选</li>
+<li>string : 要被查找替换的原始字符串。必选</li>
+<li>count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。可选</li>
+<li>flags : 编译时用的匹配模式，数字形式。可选</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+<span class="token keyword">import</span> re
+ 
+phone <span class="token operator">=</span> <span class="token string">"2004-959-559 # 这是一个电话号码"</span>
+ 
+<span class="token comment"># 删除注释</span>
+num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'#.*$'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"电话号码 : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span>
+ 
+<span class="token comment"># 移除非数字的内容</span>
+num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\D'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"电话号码 : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span>
+<span class="token comment"># 电话号码 :  2004-959-559 </span>
+<span class="token comment"># 电话号码 :  2004959559</span>
+
+<span class="token comment"># repl 参数是一个函数</span>
+
+<span class="token comment"># 将匹配的数字乘以 2</span>
+<span class="token keyword">def</span> <span class="token function">double</span><span class="token punctuation">(</span>matched<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    value <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>matched<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
+ 
+s <span class="token operator">=</span> <span class="token string">'A23G4HFD567'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'(?P&lt;value&gt;\d+)'</span><span class="token punctuation">,</span> double<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#  A46G8HFD1134</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用<code>re.sub</code>改变日期的格式</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s <span class="token operator">=</span> <span class="token string">'2017-11-27'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> re
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'(\d{4})-(\d{2})-(\d{2})'</span><span class="token punctuation">,</span><span class="token string">r'\2/\3/\1'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">11</span><span class="token operator">/</span><span class="token number">27</span><span class="token operator">/</span><span class="token number">2017</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>用 () 来划定原字符串的组，{} 中表示数字的个数，r 即后面的字符串为原始字符串，防止计算机将 \ 理解为转义字符，2，3，1 为输入的字符串三段的序号。</strong></p>
+</li>
+<li><p><code>compile</code> 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
+</li>
+<li><p><strong><code>re.compile(pattern[, flags])</code></strong></p>
+<ul>
+<li><p>pattern : 一个字符串形式的正则表达式</p>
+</li>
+<li><p>flags 可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：</p>
+<ul>
+<li><strong>re.IGNORECASE</strong> 或 <strong>re.I</strong>- 使匹配对大小写不敏感</li>
+<li>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境</li>
+<li>re.MULTILINE 或 re.M - 多行模式，改变 ^ 和 $ 的行为，使它们匹配字符串的每一行的开头和结尾。</li>
+<li>re.DOTALL 或 re.S - 使 <strong><code>.</code></strong> 匹配包括换行符在内的任意字符。</li>
+<li>re.ASCII - 使 \w, \W, \b, \B, \d, \D, \s, \S 仅匹配 ASCII 字符。</li>
+<li>re.VERBOSE 或 re.X - 忽略空格和注释，可以更清晰地组织复杂的正则表达式。</li>
+</ul>
+<p>这些标志可以单独使用，也可以通过按位或（<code>|</code>）组合使用。例如，re.IGNORECASE | re.MULTILINE 表示同时启用忽略大小写和多行模式。</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span class="token keyword">import</span> re
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pattern <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'\d+'</span><span class="token punctuation">)</span>                    <span class="token comment"># 用于匹配至少一个数字</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m <span class="token operator">=</span> pattern<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'one12twothree34four'</span><span class="token punctuation">)</span>        <span class="token comment"># 查找头部，没有匹配</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span> m <span class="token punctuation">)</span>
+<span class="token boolean">None</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m <span class="token operator">=</span> pattern<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'one12twothree34four'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># 从'e'的位置开始匹配，没有匹配</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span> m <span class="token punctuation">)</span>
+<span class="token boolean">None</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m <span class="token operator">=</span> pattern<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'one12twothree34four'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># 从'1'的位置开始匹配，正好匹配</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span> m <span class="token punctuation">)</span>                                        <span class="token comment"># 返回一个 Match 对象</span>
+<span class="token operator">&lt;</span>_sre<span class="token punctuation">.</span>SRE_Match <span class="token builtin">object</span> at <span class="token number">0x10a42aac0</span><span class="token operator">&gt;</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment"># 可省略 0</span>
+<span class="token string">'12'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment"># 可省略 0</span>
+<span class="token number">3</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m<span class="token punctuation">.</span>end<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>     <span class="token comment"># 可省略 0</span>
+<span class="token number">5</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> m<span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment"># 可省略 0</span>
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>当匹配成功时返回一个 Match 对象</p>
+<ul>
+<li><code>group([group1, …])</code> 方法用于获得一个或多个分组匹配的字符串，当要获得整个匹配的子串时，可直接使用 <code>group()</code> 或 <code>group(0)</code>；</li>
+<li><code>start([group])</code> 方法用于获取分组匹配的子串在整个字符串中的起始位置（子串第一个字符的索引），参数默认值为 0；</li>
+<li><code>end([group])</code> 方法用于获取分组匹配的子串在整个字符串中的结束位置（子串最后一个字符的索引+1），参数默认值为 0；</li>
+<li><code>span([group])</code> 方法返回 <code>(start(group), end(group))</code>。</li>
+</ul>
+</li>
+<li><p><strong><code>findall</code><strong>在字符串中找到正则表达式所匹配的</strong>所有</strong>子串，并返回一个列表，如果有多个匹配模式，则返回元组列表，如果没有找到匹配的，则返回空列表。</p>
+</li>
+<li><p><strong><code>re.findall(pattern, string, flags=0)</code><strong>或</strong><code>pattern.findall(string[, pos[, endpos]])</code></strong></p>
+<ul>
+<li><strong>pattern</strong> 匹配模式。</li>
+<li><strong>string</strong> 待匹配的字符串。</li>
+<li><strong>pos</strong> 可选参数，指定字符串的起始位置，默认为 0。</li>
+<li><strong>endpos</strong> 可选参数，指定字符串的结束位置，默认为字符串的长度。</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+result1 <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'\d+'</span><span class="token punctuation">,</span><span class="token string">'runoob 123 google 456'</span><span class="token punctuation">)</span>
+ 
+pattern <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'\d+'</span><span class="token punctuation">)</span>   <span class="token comment"># 查找数字</span>
+result2 <span class="token operator">=</span> pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'runoob 123 google 456'</span><span class="token punctuation">)</span>
+result3 <span class="token operator">=</span> pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'run88oob123google456'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result3<span class="token punctuation">)</span>
+<span class="token comment"># ['123', '456']</span>
+<span class="token comment"># ['123', '456']</span>
+<span class="token comment"># ['88', '12']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>多个匹配模式，返回元组列表</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'(\w+)=(\d+)'</span><span class="token punctuation">,</span> <span class="token string">'set width=20 and height=10'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment"># [('width', '20'), ('height', '10')]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>re.finditer</strong>在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
+</li>
+<li><p><strong><code>re.finditer(pattern, string, flags=0)</code></strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：[正则表达式修饰符 - 可选标志](##4 正则表达式修饰符 - 可选标志)</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+it <span class="token operator">=</span> re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span><span class="token string">"12a32bc43jf3"</span><span class="token punctuation">)</span> 
+<span class="token keyword">for</span> <span class="token keyword">match</span> <span class="token keyword">in</span> it<span class="token punctuation">:</span> 
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+12 
+32 
+43 
+3
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>re.split</strong>按照能够匹配的子串将字符串分割后返回列表</p>
+</li>
+<li><p><strong><code>re.split(pattern, string[, maxsplit=0, flags=0])</code></strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pattern</td>
+<td align="left">匹配的正则表达式</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">要匹配的字符串。</td>
+</tr>
+<tr>
+<td align="left">maxsplit</td>
+<td align="left">分割次数，maxsplit=1 分割一次，默认为 0，不限制次数。</td>
+</tr>
+<tr>
+<td align="left">flags</td>
+<td align="left">标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：[正则表达式修饰符 - 可选标志](##4 正则表达式修饰符 - 可选标志)</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span class="token keyword">import</span> re
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\W+'</span><span class="token punctuation">,</span> <span class="token string">'runoob, runoob, runoob.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'(\W+)'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">)</span> 
+<span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">', '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">', '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\W+'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> 
+<span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">'runoob, runoob, runoob.'</span><span class="token punctuation">]</span>
+ 
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'a*'</span><span class="token punctuation">,</span> <span class="token string">'hello world'</span><span class="token punctuation">)</span>   <span class="token comment"># 对于一个找不到匹配的字符串而言，split 不会对其作出分割</span>
+<span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="3-正则表达式对象"><a href="#3-正则表达式对象" class="headerlink" title="3 正则表达式对象"></a>3 正则表达式对象</h2><ul>
+<li><strong>re.RegexObject</strong>:re.compile() 返回 RegexObject 对象。</li>
+<li><strong>re.MatchObject</strong>:group() 返回被 RE 匹配的字符串。<ul>
+<li><strong>start()</strong> 返回匹配开始的位置</li>
+<li><strong>end()</strong> 返回匹配结束的位置</li>
+<li><strong>span()</strong> 返回一个元组包含匹配 (开始,结束) 的位置</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-正则表达式修饰符-可选标志"><a href="#4-正则表达式修饰符-可选标志" class="headerlink" title="4 正则表达式修饰符 - 可选标志"></a>4 正则表达式修饰符 - 可选标志</h2><ul>
+<li><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。</p>
+</li>
+<li><p>以下标志可以单独使用，也可以通过按位或（|）组合使用。</p>
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">re.IGNORECASE 或 re.I</td>
+<td align="left">使匹配对大小写不敏感</td>
+<td align="left">import re<br>pattern = re.compile(r’apple’, flags=re.IGNORECASE)<br>result = pattern.match(‘Apple’)<br>print(result.group())  # 输出: ‘Apple’</td>
+</tr>
+<tr>
+<td align="left">re.MULTILINE 或 re.M</td>
+<td align="left">多行匹配，影响 <strong>^</strong> 和 **$**，使它们匹配字符串的每一行的开头和结尾。</td>
+<td align="left">import re <br>pattern = re.compile(r’^\d+’, flags=re.MULTILINE) text = ‘123\n456\n789’ <br>result = pattern.findall(text) <br>print(result)  # 输出: [‘123’, ‘456’, ‘789’]</td>
+</tr>
+<tr>
+<td align="left">re.DOTALL 或 re.S：</td>
+<td align="left">使 <strong>.</strong> 匹配包括换行符在内的任意字符。</td>
+<td align="left">import re <br>pattern = re.compile(r’a.b’, flags=re.DOTALL) <br>result = pattern.match(‘a\nb’) <br>print(result.group())  # 输出: ‘a\nb’</td>
+</tr>
+<tr>
+<td align="left">re.ASCII</td>
+<td align="left">使 \w, \W, \b, \B, \d, \D, \s, \S 仅匹配 ASCII 字符。</td>
+<td align="left">import re <br>pattern = re.compile(r’\w+’, flags=re.ASCII) <br>result = pattern.match(‘Hello123’) <br>print(result.group())  # 输出: ‘Hello123’</td>
+</tr>
+<tr>
+<td align="left">re.VERBOSE 或 re.X</td>
+<td align="left">忽略空格和注释，可以更清晰地组织复杂的正则表达式。</td>
+<td align="left">import re <br>pattern = re.compile(r’’’    \d+  # 匹配数字    [a-z]+  # 匹配小写字母 ‘’’, flags=re.VERBOSE) <br>result = pattern.match(‘123abc’) <br>print(result.group())  # 输出: ‘123abc’</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="5-正则表达式模式"><a href="#5-正则表达式模式" class="headerlink" title="5 正则表达式模式"></a>5 正则表达式模式</h2><ol>
+<li><p>模式字符串使用特殊的语法来表示一个正则表达式。</p>
+</li>
+<li><p>字母和数字表示他们自身。一个正则表达式模式中的字母和数字匹配同样的字符串。</p>
+</li>
+<li><p>多数字母和数字前加一个反斜杠时会拥有不同的含义。</p>
+</li>
+<li><p>标点符号只有被转义时才匹配自身，否则它们表示特殊的含义。</p>
+</li>
+<li><p>反斜杠本身需要使用反斜杠转义。</p>
+</li>
+<li><p>由于正则表达式通常都包含反斜杠，所以最好使用原始字符串来表示它们。模式元素(如 r’\t’，等价于 \t )匹配相应的特殊字符。</p>
+<table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">^</td>
+<td align="left">匹配字符串的<strong>开头</strong></td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left">匹配字符串的<strong>末尾</strong>。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">匹配<strong>任意字符</strong>，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td align="left">[…]</td>
+<td align="left">用来匹配所包含的<strong>任意一个字符</strong>，例如 [amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td align="left">[^…]</td>
+<td align="left"><strong>不在</strong>[]中的字符：[^abc] 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td align="left">re*</td>
+<td align="left">匹配<strong>0个或多个</strong>的表达式。</td>
+</tr>
+<tr>
+<td align="left">re+</td>
+<td align="left">匹配<strong>1个或多个</strong>的表达式。</td>
+</tr>
+<tr>
+<td align="left">re?</td>
+<td align="left">匹配0个或1个由前面的正则表达式定义的片段，<strong>非贪婪</strong>方式</td>
+</tr>
+<tr>
+<td align="left">re{ n}</td>
+<td align="left">匹配<strong>n个前面表达式</strong>。例如，”o{2}”不能匹配”Bob”中的”o”，但是能匹配”food”中的两个o。</td>
+</tr>
+<tr>
+<td align="left">re{ n,}</td>
+<td align="left"><strong>精确匹配n个前面表达式</strong>。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o*”。</td>
+</tr>
+<tr>
+<td align="left">re{ n, m}</td>
+<td align="left">匹配 n 到 m 次由前面的正则表达式定义的片段，<strong>贪婪方式</strong></td>
+</tr>
+<tr>
+<td align="left">a| b</td>
+<td align="left">匹配a或b</td>
+</tr>
+<tr>
+<td align="left">(re)</td>
+<td align="left"><strong>匹配括号内的表达式，也表示一个组</strong></td>
+</tr>
+<tr>
+<td align="left">(?<name>exp)</name></td>
+<td align="left">匹配 exp表达式,并捕获文本到名称为 name 的组里</td>
+</tr>
+<tr>
+<td align="left">(?imx)</td>
+<td align="left">正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td align="left">(?-imx)</td>
+<td align="left">正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td align="left">(?: re)</td>
+<td align="left">类似 (…), 但是不表示一个组</td>
+</tr>
+<tr>
+<td align="left">(?imx: re)</td>
+<td align="left">在括号中使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td align="left">(?-imx: re)</td>
+<td align="left">在括号中不使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td align="left">(?#…)</td>
+<td align="left">注释.</td>
+</tr>
+<tr>
+<td align="left">(?= re)</td>
+<td align="left">前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。</td>
+</tr>
+<tr>
+<td align="left">(?! re)</td>
+<td align="left">前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。</td>
+</tr>
+<tr>
+<td align="left">(?&gt; re)</td>
+<td align="left">匹配的独立模式，省去回溯。</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配数字字母下划线</td>
+</tr>
+<tr>
+<td align="left">\W</td>
+<td align="left">匹配非数字字母下划线</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任意空白字符，等价于 [\t\n\r\f]。</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任意非空字符</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配任意数字，等价于 [0-9]。</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配任意非数字</td>
+</tr>
+<tr>
+<td align="left">\A</td>
+<td align="left">匹配字符串开始</td>
+</tr>
+<tr>
+<td align="left">\Z</td>
+<td align="left">匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。</td>
+</tr>
+<tr>
+<td align="left">\z</td>
+<td align="left">匹配字符串结束</td>
+</tr>
+<tr>
+<td align="left">\G</td>
+<td align="left">匹配最后匹配完成的位置。</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配一个单词边界，也就是指<strong>单词和空格间的位置</strong>包括单词和特殊字符边界，比如 <strong>$，#…</strong> 等。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td align="left">\B</td>
+<td align="left">匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td align="left">\n, \t, 等。</td>
+<td align="left">匹配一个换行符。匹配一个制表符, 等</td>
+</tr>
+<tr>
+<td align="left">\1…\9</td>
+<td align="left">匹配<strong>第n个分组</strong>的内容。</td>
+</tr>
+<tr>
+<td align="left">\10</td>
+<td align="left">匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">字符匹配实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">python</td>
+<td align="left">匹配 “python”.</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">字符类实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[Pp]ython</td>
+<td align="left">匹配 “Python” 或 “python”</td>
+</tr>
+<tr>
+<td align="left">rub[ye]</td>
+<td align="left">匹配 “ruby” 或 “rube”</td>
+</tr>
+<tr>
+<td align="left">[aeiou]</td>
+<td align="left">匹配中括号内的任意一个字母</td>
+</tr>
+<tr>
+<td align="left">[0-9]</td>
+<td align="left">匹配任何数字。类似于 [0123456789]</td>
+</tr>
+<tr>
+<td align="left">[a-z]</td>
+<td align="left">匹配任何小写字母</td>
+</tr>
+<tr>
+<td align="left">[A-Z]</td>
+<td align="left">匹配任何大写字母</td>
+</tr>
+<tr>
+<td align="left">[a-zA-Z0-9]</td>
+<td align="left">匹配任何字母及数字</td>
+</tr>
+<tr>
+<td align="left">[^aeiou]</td>
+<td align="left">除了aeiou字母以外的所有字符</td>
+</tr>
+<tr>
+<td align="left">[^0-9]</td>
+<td align="left">匹配除了数字外的字符</td>
+</tr>
+<tr>
+<td align="left">(?P<name>exp)</name></td>
+<td align="left">import re  <br>pattern = re.compile(r’(?P<here>[a-z]+) ([a-z]+)’, re.I) <br>m = pattern.match(‘Hello World word helo’) <br>print (m.group(‘here’)) # 输出：Hello</here></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">特殊字符类实例</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.</td>
+<td align="left">匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配一个数字字符。等价于 [0-9]。</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配一个非数字字符。等价于 [^0-9]。</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。</td>
+</tr>
+<tr>
+<td align="left">\W</td>
+<td align="left">匹配任何非单词字符。等价于 ‘[^A-Za-z0-9_]’。</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="6-常用实例"><a href="#6-常用实例" class="headerlink" title="6 常用实例"></a>6 常用实例</h2><ul>
+<li><p><strong>匹配 IP 地址</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+
+ip <span class="token operator">=</span><span class="token string">'192.168.1.1'</span>
+trueIp <span class="token operator">=</span>re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">r'(([01]?\d?\d|2[0-4]\d|25[0-5])\.){3}(25[0-5]|2[0-4]\d|[01]?\d?\d)'</span><span class="token punctuation">,</span>ip<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>trueIp<span class="token punctuation">)</span>
+<span class="token comment"># 192.168.1.1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>日期转换</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+
+s <span class="token operator">=</span> <span class="token string">'2017-11-27'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'(\d{4})-(\d{2})-(\d{2})'</span><span class="token punctuation">,</span><span class="token string">r'\2/\3/\1'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 11/27/2017</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>找到以小写字母开头的单词</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+
+s<span class="token operator">=</span><span class="token string">"i Am a gOod boy  baby!!"</span>
+result<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'\b[a-z][a-zA-Z]*\b'</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment"># ['i', 'a', 'gOod', 'boy', 'baby']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>匹配标点符号、换行</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+s <span class="token operator">=</span> <span class="token string">"you're asking me out.that's so cute.what's your name again?"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"([.!?])"</span><span class="token punctuation">,</span> <span class="token string">r"\1\n"</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># you're asking me out.</span>
+<span class="token comment"># that's so cute.</span>
+<span class="token comment"># what's your name again?</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>删除重复文本</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+x<span class="token operator">=</span><span class="token string">'this is is ok ok'</span>
+y<span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'(\w+)\s\1'</span><span class="token punctuation">,</span><span class="token string">r'\1'</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+<span class="token comment"># this is ok</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>检查一个字符串是否包含数字</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+<span class="token keyword">def</span> <span class="token function">contains_digit</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">any</span><span class="token punctuation">(</span>char<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> char <span class="token keyword">in</span> s<span class="token punctuation">)</span>
+ 
+s <span class="token operator">=</span> <span class="token string">"Hello123"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>contains_digit<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>验证电子邮件地址</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+<span class="token keyword">def</span> <span class="token function">validate_email</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
+ 
+email <span class="token operator">=</span> <span class="token string">"test@example.com"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>validate_email<span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: &lt;re.Match object; span=(0, 15), match='test@example.com'&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>提取URL</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+<span class="token keyword">def</span> <span class="token function">extract_urls</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+ 
+text <span class="token operator">=</span> <span class="token string">"https://www.example.com and http://www.example.org"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>extract_urls<span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: ['https://www.example.com', 'http://www.example.org']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>替换字符串中的电话号码</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+<span class="token keyword">def</span> <span class="token function">replace_phone_number</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\d{3}-\d{2}-\d{4}'</span><span class="token punctuation">,</span> <span class="token string">'******'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+ 
+s <span class="token operator">=</span> <span class="token string">"My phone number is 123-45-6789."</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>replace_phone_number<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: My phone number is ******.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>分割标题大小写的字符串</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+ 
+<span class="token keyword">def</span> <span class="token function">split_capitalized_words</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r'(?&lt;!^)(?=[A-Z])'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+ 
+s <span class="token operator">=</span> <span class="token string">"HelloWorldXMLHTTPRequest"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>split_capitalized_words<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: ['Hello', 'World', 'XML', 'HTTP', 'Request']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p><strong>参考：</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://python3-cookbook.readthedocs.io/zh-cn/latest/index.html">《Python Cookbook》3rd Edition</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html">https://www.runoob.com/python/python-tutorial.html</a></li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/07/12/python-xue-xi-26-zheng-ze-biao-da-shi/">http://Eliauk-L.github.io/2024/07/12/python-xue-xi-26-zheng-ze-biao-da-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/07/13/python-xue-xi-27-duo-xian-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="Python学习27-多线程">
+                        
+                        <span class="card-title">Python学习27-多线程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/12/python-xue-xi-25-cuo-wu-yu-yi-chang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Python学习25-错误与异常">
+                        
+                        <span class="card-title">Python学习25-错误与异常</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
