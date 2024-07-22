@@ -4,17 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python学习15-循环语句, Jay&#39;s Blog">
-    <meta name="description" content="循环语句1 while 循环while 判断条件(condition)：
-    执行语句(statements)……
+    <meta name="keywords" content="Python网络请求库之requests, Jay&#39;s Blog">
+    <meta name="description" content="Python网络请求库之requests
+Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。
 
-
-在 Python 中没有 do..while 循环
-
-while 循环使用 else 语句
-
-
-while &amp;lt;">
+向指定 URL 发送 HTTP 请求
+# 导入 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +21,7 @@ while &amp;lt;">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python学习15-循环语句 | Jay&#39;s Blog</title>
+    <title>Python网络请求库之requests | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -256,12 +251,12 @@ while &amp;lt;">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/33.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/51.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python学习15-循环语句</h1>
+                    <h1 class="description center-align post-title">Python网络请求库之requests</h1>
                 </div>
             </div>
         </div>
@@ -293,6 +288,10 @@ while &amp;lt;">
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
+                                <span class="chip bg-color">网络请求</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -314,7 +313,7 @@ while &amp;lt;">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-06
+                    2024-07-22
                 </div>
                 
 
@@ -323,14 +322,14 @@ while &amp;lt;">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    515
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -353,95 +352,245 @@ while &amp;lt;">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="1-while-循环"><a href="#1-while-循环" class="headerlink" title="1 while 循环"></a>1 while 循环</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">while</span> 判断条件<span class="token punctuation">(</span>condition<span class="token punctuation">)</span>：
-    执行语句<span class="token punctuation">(</span>statements<span class="token punctuation">)</span>……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407162155416.jpeg" alt="while 循环"></p>
-<ul>
-<li><p>在 Python 中没有 do..while 循环</p>
+                <h1 id="Python网络请求库之requests"><a href="#Python网络请求库之requests" class="headerlink" title="Python网络请求库之requests"></a>Python网络请求库之requests</h1><ul>
+<li><p>Python <strong><code>requests</code></strong> 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。</p>
 </li>
-<li><p>while 循环使用 else 语句</p>
-</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">while</span> <span class="token operator">&lt;</span>expr<span class="token operator">&gt;</span><span class="token punctuation">:</span>
-    <span class="token operator">&lt;</span>statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">&gt;</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token operator">&lt;</span>additional_statement<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>expr 条件语句为 true 则执行 statement(s) 语句块，如果为 false，则执行 additional_statement(s)</p>
-<h2 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2 for循环"></a>2 for循环</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> <span class="token operator">&lt;</span>variable<span class="token operator">&gt;</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>sequence<span class="token operator">&gt;</span><span class="token punctuation">:</span>
-    <span class="token operator">&lt;</span>statements<span class="token operator">&gt;</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token operator">&lt;</span>statements<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407162155107.jpeg" alt="for循环"></p>
-<p><strong>for…else</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> item <span class="token keyword">in</span> iterable<span class="token punctuation">:</span>
-    <span class="token comment"># 循环主体</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token comment"># 循环结束后执行的代码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>当循环执行完毕（即遍历完 iterable 中的所有元素）后，会执行 else 子句中的代码，如果在循环过程中遇到了 break 语句，则会中断循环，此时不会执行 else 子句</p>
-<h2 id="3-break与continue"><a href="#3-break与continue" class="headerlink" title="3 break与continue"></a>3 break与continue</h2><ul>
-<li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407162155968.png" alt="break与continue"></p>
-</li>
-<li><p>while 语句代码执行过程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407162156737.webp" alt="while 语句代码执行过程"></p>
-</li>
-<li><p>for 语句代码执行过程<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407162156643.png" alt="for 语句代码执行过程"></p>
-</li>
-<li><p>break 语句可以<strong>跳出 for 和 while 的循环体</strong>。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。</p>
-</li>
-<li><p>continue 语句被用来告诉 Python <strong>跳过当前循环块中的剩余语句</strong>，然后继续进行下一轮循环。</p>
-</li>
-</ul>
-<h2 id="4-pass-语句"><a href="#4-pass-语句" class="headerlink" title="4 pass 语句"></a>4 pass 语句</h2><p>pass是空语句，是为了保持程序结构的完整性, 不做任何事情，一般用做占位语句</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
- 
-<span class="token keyword">for</span> letter <span class="token keyword">in</span> <span class="token string">'Runoob'</span><span class="token punctuation">:</span> 
-   <span class="token keyword">if</span> letter <span class="token operator">==</span> <span class="token string">'o'</span><span class="token punctuation">:</span>
-      <span class="token keyword">pass</span>
-      <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'执行 pass 块'</span><span class="token punctuation">)</span>
-   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'当前字母 :'</span><span class="token punctuation">,</span> letter<span class="token punctuation">)</span>
- 
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Good bye!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-用户输入与while循环"><a href="#5-用户输入与while循环" class="headerlink" title="5 用户输入与while循环"></a>5 用户输入与while循环</h2><ul>
-<li>函数input()让程序<strong>暂停运行</strong>，<strong>等待用户输入</strong>一些文本。获取用户输入后，Python将其存储在一个<strong>变量</strong>中。</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">message <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Tell me something, and I will repeat it back to you: "</span><span class="token punctuation">)</span> 
-<span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
-<span class="token comment"># Tell me something, and I will repeat it back to you: Hello everyone! </span>
-<span class="token comment"># Hello everyone!</span>
+<li><p>向指定 URL 发送 HTTP 请求</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
+<span class="token keyword">import</span> requests
 
-prompt <span class="token operator">=</span> <span class="token string">"If you tell us who you are, we can personalize the messages you see."</span> 
-prompt <span class="token operator">+=</span> <span class="token string">"\nWhat is your first name? "</span> 
-name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>prompt<span class="token punctuation">)</span> 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nHello, "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>获取数值输入</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> age <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"How old are you? "</span><span class="token punctuation">)</span> 
-How old are you? <span class="token number">21</span> 
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> age 
-<span class="token string">'21'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>用户输入结合while循环</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">prompt <span class="token operator">=</span> <span class="token string">"\nTell me something, and I will repeat it back to you:"</span> 
-prompt <span class="token operator">+=</span> <span class="token string">"\nEnter 'quit' to end the program. "</span> 
-message <span class="token operator">=</span> <span class="token string">""</span> 
-<span class="token keyword">while</span> message <span class="token operator">!=</span> <span class="token string">'quit'</span><span class="token punctuation">:</span> 
-	message <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>prompt<span class="token punctuation">)</span> 
-	<span class="token keyword">if</span> message <span class="token operator">!=</span> <span class="token string">'quit'</span><span class="token punctuation">:</span> 
- 		<span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+<span class="token comment"># 发送请求</span>
+x <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/'</span><span class="token punctuation">)</span>
 
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    message <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> message <span class="token operator">==</span> <span class="token string">'quit'</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
-        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 返回网页内容</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>每次调用 requests 请求之后，会返回一个 response 对象，该对象包含了具体的响应信息，如状态码、响应头、响应内容</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>  <span class="token comment"># 获取响应状态码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>  <span class="token comment"># 获取响应头</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>  <span class="token comment"># 获取响应内容</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>响应信息</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性或方法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">apparent_encoding</td>
+<td style="text-align:left">编码方式</td>
+</tr>
+<tr>
+<td style="text-align:left">close()</td>
+<td style="text-align:left">关闭与服务器的连接</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:left">返回响应的内容，以字节为单位</td>
+</tr>
+<tr>
+<td style="text-align:left">cookies</td>
+<td style="text-align:left">返回一个 CookieJar 对象，包含了从服务器发回的 cookie</td>
+</tr>
+<tr>
+<td style="text-align:left">elapsed</td>
+<td style="text-align:left">返回一个 timedelta 对象，包含了从发送请求到响应到达之间经过的时间量，可以用于测试响应速度。比如 r.elapsed.microseconds 表示响应到达需要多少微秒。</td>
+</tr>
+<tr>
+<td style="text-align:left">encoding</td>
+<td style="text-align:left">解码 r.text 的编码方式</td>
+</tr>
+<tr>
+<td style="text-align:left">headers</td>
+<td style="text-align:left">返回响应头，字典格式</td>
+</tr>
+<tr>
+<td style="text-align:left">history</td>
+<td style="text-align:left">返回包含请求历史的响应对象列表（url）</td>
+</tr>
+<tr>
+<td style="text-align:left">is_permanent_redirect</td>
+<td style="text-align:left">如果响应是永久重定向的 url，则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">is_redirect</td>
+<td style="text-align:left">如果响应被重定向，则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">iter_content()</td>
+<td style="text-align:left">迭代响应</td>
+</tr>
+<tr>
+<td style="text-align:left">iter_lines()</td>
+<td style="text-align:left">迭代响应的行</td>
+</tr>
+<tr>
+<td style="text-align:left">json()</td>
+<td style="text-align:left">返回结果的 JSON 对象 (结果需要以 JSON 格式编写的，否则会引发错误)</td>
+</tr>
+<tr>
+<td style="text-align:left">links</td>
+<td style="text-align:left">返回响应的解析头链接</td>
+</tr>
+<tr>
+<td style="text-align:left">next</td>
+<td style="text-align:left">返回重定向链中下一个请求的 PreparedRequest 对象</td>
+</tr>
+<tr>
+<td style="text-align:left">ok</td>
+<td style="text-align:left">检查 “status_code” 的值，如果小于400，则返回 True，如果不小于 400，则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">raise_for_status()</td>
+<td style="text-align:left">如果发生错误，方法返回一个 HTTPError 对象</td>
+</tr>
+<tr>
+<td style="text-align:left">reason</td>
+<td style="text-align:left">响应状态的描述，比如 “Not Found” 或 “OK”</td>
+</tr>
+<tr>
+<td style="text-align:left">request</td>
+<td style="text-align:left">返回请求此响应的请求对象</td>
+</tr>
+<tr>
+<td style="text-align:left">status_code</td>
+<td style="text-align:left">返回 http 的状态码，比如 404 和 200（200 是 OK，404 是 Not Found）</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">返回响应的内容，unicode 类型数据</td>
+</tr>
+<tr>
+<td style="text-align:left">url</td>
+<td style="text-align:left">返回响应的 URL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
+<span class="token keyword">import</span> requests
+
+<span class="token comment"># 发送请求</span>
+x <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 返回 http 的状态码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+
+<span class="token comment"># 响应状态的描述</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>reason<span class="token punctuation">)</span>
+
+<span class="token comment"># 返回编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>apparent_encoding<span class="token punctuation">)</span>
+<span class="token comment"># 200</span>
+<span class="token comment"># OK</span>
+<span class="token comment"># utf-8</span>
+
+<span class="token comment"># 请求 json 数据文件，返回 json 内容</span>
+<span class="token comment"># 发送请求</span>
+x <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/try/ajax/json_demo.json'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 返回 json 数据</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># {'name': '网站', 'num': 3, 'sites': [{'name': 'Google', 'info': ['Android', 'Google 搜索', 'Google 翻译']}, {'name': 'Runoob', 'info': ['菜鸟教程', '菜鸟工具', '菜鸟微信']}, {'name': 'Taobao', 'info': ['淘宝', '网购']}]}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="requests-方法"><a href="#requests-方法" class="headerlink" title="requests 方法"></a>requests 方法</h2><ul>
+<li>requests 方法如下表</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>方法</strong></th>
+<th style="text-align:left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>delete(<em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left">发送 DELETE 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>get(<em>url</em>, <em>params, args</em>)</strong></td>
+<td style="text-align:left">发送 GET 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>head(<em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left">发送 HEAD 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>patch(<em>url</em>, <em>data, args</em>)</strong></td>
+<td style="text-align:left">发送 PATCH 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>post(<em>url</em>, <em>data, json, args</em>)</strong></td>
+<td style="text-align:left">发送 POST 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>put(<em>url</em>, <em>data, args</em>)</strong></td>
+<td style="text-align:left">发送 PUT 请求到指定 url</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>request(<em>method</em>, <em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left">向指定的 url 发送指定的请求方法</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>设置请求头</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
+<span class="token keyword">import</span> requests
+
+ 
+kw <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'s'</span><span class="token punctuation">:</span><span class="token string">'python 教程'</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 设置请求头</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"</span><span class="token punctuation">}</span>
+ 
+<span class="token comment"># params 接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.runoob.com/"</span><span class="token punctuation">,</span> params <span class="token operator">=</span> kw<span class="token punctuation">,</span> headers <span class="token operator">=</span> headers<span class="token punctuation">)</span>
+
+<span class="token comment"># 查看响应状态码</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+
+<span class="token comment"># 查看响应头部字符编码</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>encoding<span class="token punctuation">)</span>
+
+<span class="token comment"># 查看完整url地址</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+
+<span class="token comment"># 查看响应内容，response.text 返回的是Unicode格式的数据</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>发送 POST 请求:<strong><code>requests.post(url, data={key: value}, json={key: value}, args)</code></strong></p>
+<ul>
+<li><strong>url</strong> 请求 url。</li>
+<li><strong>data</strong> 参数为要发送到指定 url 的字典、元组列表、字节或文件对象。</li>
+<li><strong>json</strong> 参数为要发送到指定 url 的 JSON 对象。</li>
+<li><strong>args</strong> 为其他参数，比如 cookies、headers、verify等。</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
+<span class="token keyword">import</span> requests
+
+<span class="token comment"># 表单参数，参数名为 fname 和 lname</span>
+myobj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'fname'</span><span class="token punctuation">:</span> <span class="token string">'RUNOOB'</span><span class="token punctuation">,</span><span class="token string">'lname'</span><span class="token punctuation">:</span> <span class="token string">'Boy'</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 发送请求</span>
+x <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/try/ajax/demo_post2.php'</span><span class="token punctuation">,</span> data <span class="token operator">=</span> myobj<span class="token punctuation">)</span>
+
+<span class="token comment"># 返回网页内容</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html">https://www.runoob.com/python/python-tutorial.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-requests.html">https://www.runoob.com/python3/python-requests.html</a></li>
 </ol>
 </blockquote>
 
@@ -470,7 +619,7 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/06/python-xue-xi-15-xun-huan-yu-ju/">http://Eliauk-L.github.io/2024/07/06/python-xue-xi-15-xun-huan-yu-ju/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/22/python-wang-luo-qing-qiu-ku-zhi-requests/">http://Eliauk-L.github.io/2024/07/22/python-wang-luo-qing-qiu-ku-zhi-requests/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -516,6 +665,10 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
+                                    <span class="chip bg-color">网络请求</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -559,17 +712,18 @@ message <span class="token operator">=</span> <span class="token string">""</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/07/python-xue-xi-16-die-dai-qi/">
+                <a href="/2024/07/22/python-wang-luo-qing-qiu-ku-zhi-requests/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="Python学习16-迭代器">
+                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="Python网络请求库之requests">
                         
-                        <span class="card-title">Python学习16-迭代器</span>
+                        <span class="card-title">Python网络请求库之requests</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -579,9 +733,9 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -594,6 +748,7 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -603,6 +758,10 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
+                        <span class="chip bg-color">网络请求</span>
                     </a>
                     
                 </div>
@@ -616,13 +775,13 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/06/python-xue-xi-14-tiao-jian-yu-ju/">
+                <a href="/2024/07/22/python-wang-luo-qing-qiu-ku-zhi-urllib/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python学习14-条件语句">
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="Python网络请求库之urllib">
                         
-                        <span class="card-title">Python学习14-条件语句</span>
+                        <span class="card-title">Python网络请求库之urllib</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -633,7 +792,7 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-22
                             </span>
                         <span class="publish-author">
                             
@@ -656,6 +815,10 @@ message <span class="token operator">=</span> <span class="token string">""</spa
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
+                        <span class="chip bg-color">网络请求</span>
                     </a>
                     
                 </div>

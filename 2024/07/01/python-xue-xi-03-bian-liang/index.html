@@ -12,7 +12,7 @@ Python 中的标识符是区分大小写的。
 
 在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也允许
 
-以单下划线开头 f">
+以单下划线开头 _">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -283,12 +283,12 @@ Python 中的标识符是区分大小写的。
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -358,80 +358,12 @@ Python 中的标识符是区分大小写的。
 </li>
 <li><p>在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也允许</p>
 </li>
-<li><p>以单下划线开头 <em>foo 的代表<strong>不能直接访问的类属性</strong>，需通过类提供的接口进行访问，不能用 from xxx import * 而导入；以双下划线开头的 <em>_foo 代表类的<strong>私有成员</strong>，以双下划线开头和结尾的 <em>_foo</em></em> 代表 Python 里<strong>特殊方法</strong>专用的标识，如 <em>_init</em></em>() 代表类的构造函数。</p>
+<li><p>以单下划线开头 _foo 的代表<strong>不能直接访问的类属性</strong>，需通过类提供的接口进行访问，不能用 from xxx import <em> 而导入；以双下划线开头的 __foo 代表类的<strong>私有成员</strong>，以双下划线开头和结尾的 __foo__ 代表 Python 里<em>*特殊方法</em></em>专用的标识，如 __init__() 代表类的构造函数。</p>
 </li>
 <li><p>Python 可以同一行显示多条语句，方法是<strong>用分号 ; 分开</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"world"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><table>
-<thead>
-<tr>
-<th align="left">保留字</th>
-<th>保留字</th>
-<th>保留字</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">and</td>
-<td>exec</td>
-<td>not</td>
-</tr>
-<tr>
-<td align="left">assert</td>
-<td>finally</td>
-<td>or</td>
-</tr>
-<tr>
-<td align="left">break</td>
-<td>for</td>
-<td>pass</td>
-</tr>
-<tr>
-<td align="left">class</td>
-<td>from</td>
-<td>print</td>
-</tr>
-<tr>
-<td align="left">continue</td>
-<td>global</td>
-<td>raise</td>
-</tr>
-<tr>
-<td align="left">def</td>
-<td>if</td>
-<td>return</td>
-</tr>
-<tr>
-<td align="left">del</td>
-<td>import</td>
-<td>try</td>
-</tr>
-<tr>
-<td align="left">elif</td>
-<td>in</td>
-<td>while</td>
-</tr>
-<tr>
-<td align="left">else</td>
-<td>is</td>
-<td>with</td>
-</tr>
-<tr>
-<td align="left">except</td>
-<td>lambda</td>
-<td>yield</td>
-</tr>
-<tr>
-<td align="left">False</td>
-<td>None</td>
-<td>True</td>
-</tr>
-<tr>
-<td align="left">as</td>
-<td>nonlocal</td>
-<td></td>
-</tr>
-</tbody></table>
+<li><p>| 保留字   | 保留字   | 保留字 |<br>| :———- | ———— | ——— |<br>| and      | exec     | not    |<br>| assert   | finally  | or     |<br>| break    | for      | pass   |<br>| class    | from     | print  |<br>| continue | global   | raise  |<br>| def      | if       | return |<br>| del      | import   | try    |<br>| elif     | in       | while  |<br>| else     | is       | with   |<br>| except   | lambda   | yield  |<br>| False    | None     | True   |<br>| as       | nonlocal |        |</p>
 </li>
 </ul>
 <h2 id="2-缩进"><a href="#2-缩进" class="headerlink" title="2 缩进"></a>2 缩进</h2><ul>
@@ -444,19 +376,19 @@ Python 中的标识符是区分大小写的。
         item_two <span class="token operator">+</span> \
         item_three
 days <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Monday'</span><span class="token punctuation">,</span> <span class="token string">'Tuesday'</span><span class="token punctuation">,</span> <span class="token string">'Wednesday'</span><span class="token punctuation">,</span>
-        <span class="token string">'Thursday'</span><span class="token punctuation">,</span> <span class="token string">'Friday'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        <span class="token string">'Thursday'</span><span class="token punctuation">,</span> <span class="token string">'Friday'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-引号"><a href="#3-引号" class="headerlink" title="3 引号"></a>3 引号</h2><ul>
-<li>字符串表示：<strong>引号( ‘ )、双引号( “ )、三引号( ‘’’ 或 “”” )</strong></li>
+<li>字符串表示：<strong>引号( ‘ )、双引号( “ )、三引号( ‘’’ 或 “”” )</strong> </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">word <span class="token operator">=</span> <span class="token string">'word'</span>
 sentence <span class="token operator">=</span> <span class="token string">"这是一个句子。"</span>
 paragraph <span class="token operator">=</span> <span class="token triple-quoted-string string">"""这是一个段落。
 包含了多个语句"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="4-注释"><a href="#4-注释" class="headerlink" title="4 注释"></a>4 注释</h2><ul>
 <li>单行注释：<code>#</code> 开头</li>
-<li>多行注释：三个单引号 <code>'''</code> 或三个双引号<code> """</code></li>
+<li>多行注释：三个单引号 <code>'''</code> 或三个双引号<code>"""</code></li>
 </ul>
 <h2 id="5-print换行"><a href="#5-print换行" class="headerlink" title="5 print换行"></a>5 print换行</h2><ul>
 <li><p>print 默认输出是换行的</p>
@@ -466,12 +398,13 @@ paragraph <span class="token operator">=</span> <span class="token triple-quoted
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'这里的字符串不会另起一行'</span><span class="token punctuation">)</span>
 <span class="token comment"># 这是字符串，这里的字符串不会另起一行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>在 Python 2.x中， 可以使用逗号 <code>, </code>来实现不换行效果;如果有变量，我们可以在逗号 , 后面直接添加变量</p>
+<li><p>在 Python 2.x中， 可以使用逗号 <code>,</code>来实现不换行效果;如果有变量，我们可以在逗号 , 后面直接添加变量</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">x<span class="token operator">=</span> <span class="token number">2</span>
 <span class="token keyword">print</span> <span class="token string">"数字为："</span><span class="token punctuation">,</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果 Python2.x 版本想使用 Python3.x 的 print 函数，可以导入 <em>_future</em>_ 包，该包禁用 Python2.x 的 print 语句，采用 Python3.x 的 print 函数</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>如果 Python2.x 版本想使用 Python3.x 的 print 函数，可以导入 __future__ 包，该包禁用 Python2.x 的 print 语句，采用 Python3.x 的 print 函数</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="6-标准数据类型"><a href="#6-标准数据类型" class="headerlink" title="6 标准数据类型"></a>6 标准数据类型</h2><ul>
 <li><p><strong>不可变（3 个）：</strong>Number（数字）、String（字符串）、Tuple（元组）；</p>
@@ -571,12 +504,12 @@ paragraph <span class="token operator">=</span> <span class="token triple-quoted
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -660,12 +593,12 @@ paragraph <span class="token operator">=</span> <span class="token triple-quoted
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -713,12 +646,12 @@ paragraph <span class="token operator">=</span> <span class="token triple-quoted
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

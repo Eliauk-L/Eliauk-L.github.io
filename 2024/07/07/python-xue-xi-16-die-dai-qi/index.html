@@ -285,12 +285,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -368,7 +368,8 @@
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># 输出迭代器的下一个元素</span>
 <span class="token number">1</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="1-迭代器遍历"><a href="#1-迭代器遍历" class="headerlink" title="1 迭代器遍历"></a>1 迭代器遍历</h2><ul>
 <li><p>迭代器对象可以使用<strong>常规for语句进行遍历</strong></p>
@@ -391,12 +392,13 @@ it <span class="token operator">=</span> <span class="token builtin">iter</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">except</span> StopIteration<span class="token punctuation">:</span>
-        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="2-创建迭代器"><a href="#2-创建迭代器" class="headerlink" title="2 创建迭代器"></a>2 创建迭代器</h2><ul>
-<li><p>把一个类作为一个迭代器使用需要在类中实现两个方法 <code>__iter__()</code> 与 <code>__next__() </code></p>
+<li><p>把一个类作为一个迭代器使用需要在类中实现两个方法 <code>__iter__()</code> 与 <code>__next__()</code></p>
 <ul>
-<li><code>__iter__()</code> 方法返回一个特殊的迭代器对象， 这个迭代器对象实现了 <code>__next__() </code>方法并通过 <strong>StopIteration</strong> 异常标识迭代的完成。</li>
+<li><code>__iter__()</code> 方法返回一个特殊的迭代器对象， 这个迭代器对象实现了 <code>__next__()</code>方法并通过 <strong>StopIteration</strong> 异常标识迭代的完成。</li>
 <li><code>__next__() 方法</code>（Python 2 里是 next()）会返回下一个迭代器对象</li>
 </ul>
 </li>
@@ -437,7 +439,8 @@ myiter <span class="token operator">=</span> <span class="token builtin">iter</s
 <span class="token keyword">def</span> <span class="token function">reader2</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> chunk <span class="token keyword">in</span> <span class="token builtin">iter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">:</span> s<span class="token punctuation">.</span>recv<span class="token punctuation">(</span>CHUNKSIZE<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">b''</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">pass</span>
-        <span class="token comment"># process_data(data)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        <span class="token comment"># process_data(data)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-迭代完成标识"><a href="#3-迭代完成标识" class="headerlink" title="3 迭代完成标识"></a>3 迭代完成标识</h2><p><strong>StopIteration</strong> 异常用于<strong>标识迭代的完成</strong>，防止出现无限循环的情况，在 <code>__next__()</code> 方法中我们可以设置在完成指定循环次数后触发 StopIteration 异常来结束迭代。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyNumbers</span><span class="token punctuation">:</span>
@@ -458,7 +461,6 @@ myiter <span class="token operator">=</span> <span class="token builtin">iter</s
  
 <span class="token keyword">for</span> x <span class="token keyword">in</span> myiter<span class="token punctuation">:</span>
   <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="4-代理迭代"><a href="#4-代理迭代" class="headerlink" title="4 代理迭代"></a>4 代理迭代</h2><ul>
 <li><p>自定义容器对象，里面包含有列表、元组或其他可迭代对象，直接在新容器对象上执行迭代操作</p>
 </li>
@@ -489,7 +491,6 @@ myiter <span class="token operator">=</span> <span class="token builtin">iter</s
     <span class="token comment"># Outputs Node(1), Node(2)</span>
     <span class="token keyword">for</span> ch <span class="token keyword">in</span> root<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>Python的迭代器协议需要 <code>__iter__()</code> 方法返回一个实现了 <code>__next__()</code> 方法的迭代器对象。 如果你只是迭代遍历其他容器的内容，你无须担心底层是怎样实现的。你所要做的只是传递迭代请求既可。</p>
 <h2 id="5-反向迭代"><a href="#5-反向迭代" class="headerlink" title="5 反向迭代"></a>5 反向迭代</h2><p>在自定义类上实现 <code>__reversed__()</code> 方法来实现反向迭代</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Countdown</span><span class="token punctuation">:</span>
@@ -514,7 +515,6 @@ myiter <span class="token operator">=</span> <span class="token builtin">iter</s
     <span class="token keyword">print</span><span class="token punctuation">(</span>rr<span class="token punctuation">)</span>
 <span class="token keyword">for</span> rr <span class="token keyword">in</span> Countdown<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>rr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="6-itertools-模块"><a href="#6-itertools-模块" class="headerlink" title="6 itertools 模块"></a>6 itertools 模块</h2><blockquote>
 <p><strong>迭代器切片</strong></p>
 </blockquote>
@@ -522,9 +522,7 @@ myiter <span class="token operator">=</span> <span class="token builtin">iter</s
 <li><p>迭代器不支持标准切片操作</p>
 </li>
 <li><p>函数 <code>itertools.islice()</code> 适用于在迭代器和生成器上做切片操作:返回一个可以<strong>生成指定元素的迭代器</strong>，它通过遍历并丢弃直到切片开始索引位置的所有元素。 然后才开始一个个的返回元素，并直到切片结束索引位置。</p>
-</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token keyword">yield</span> n
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         n <span class="token operator">+=</span> <span class="token number">1</span>
@@ -540,29 +538,28 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> itertools<span class="token punctuation">.</span>islice<span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 <span class="token comment"># 10 11 12 ... 19</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li><code>islice()</code> 会消耗掉传入的迭代器中的数据。<strong>迭代器是不可逆的</strong></li>
+</li>
+<li><p><code>islice()</code> 会消耗掉传入的迭代器中的数据。<strong>迭代器是不可逆的</strong></p>
+</li>
 </ul>
 <blockquote>
 <p><strong>跳过可迭代对象的开始部分</strong></p>
 </blockquote>
 <ul>
-<li><code>itertools.dropwhile()</code> :传递一个函数对象和一个可迭代对象。 返回一个迭代器对象，<strong>丢弃原有序列中直到函数返回Flase之前的所有元素</strong>，然后返回后面所有元素。</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 跳过文件开始注释</span>
+<li><p><code>itertools.dropwhile()</code> :传递一个函数对象和一个可迭代对象。 返回一个迭代器对象，<strong>丢弃原有序列中直到函数返回Flase之前的所有元素</strong>，然后返回后面所有元素。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 跳过文件开始注释</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> itertools <span class="token keyword">import</span> dropwhile
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'/etc/passwd'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">for</span> line <span class="token keyword">in</span> dropwhile<span class="token punctuation">(</span><span class="token keyword">lambda</span> line<span class="token punctuation">:</span> <span class="token keyword">not</span> line<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+</li>
+</ul>
 <blockquote>
 <p><strong>排列组合</strong></p>
 </blockquote>
 <ul>
-<li><code>itertools.permutations() </code>:接受一个集合并产生一个元组序列，每个元组由集合中所有元素的一个可能排列组成.</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span>
+<li><p><code>itertools.permutations()</code>:接受一个集合并产生一个元组序列，每个元组由集合中所有元素的一个可能排列组成.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> itertools <span class="token keyword">import</span> permutations
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> permutations<span class="token punctuation">(</span>items<span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
@@ -584,8 +581,7 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
+</li>
 <li><p><code>itertools.combinations()</code> ：得到输入集合中元素的所有的组合</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> itertools <span class="token keyword">import</span> combinations
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> combinations<span class="token punctuation">(</span>items<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -622,7 +618,8 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span>
-<span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>同时迭代多个序列</strong></p>
@@ -631,9 +628,7 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <li><p><strong>zip()</strong> 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的对象</p>
 </li>
 <li><p><code>zip(a, b)</code> 会生成一个可返回元组 <code>(x, y)</code> 的迭代器，其中x来自a，y来自b。 一旦其中某个序列到底结尾，迭代宣告结束。 因此迭代长度跟参数中最短序列长度一致。</p>
-</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'w'</span><span class="token punctuation">,</span> <span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">,</span> <span class="token string">'z'</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
@@ -641,8 +636,7 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'x'</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
+</li>
 <li><p><code>zip()</code> 可以接受多个的序列的参数，此外<code>zip()</code> 会创建一个迭代器来作为结果返回。 如果你需要将结对的值存储在列表中，要使用 <code>list()</code> 函数。</p>
 </li>
 <li><p><code>itertools.zip_longest()</code> 函数迭代长度与最长序列长度一致</p>
@@ -666,7 +660,8 @@ TypeError<span class="token punctuation">:</span> <span class="token string">'ge
 <li><p>头列表和一个值列表生成字典</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'shares'</span><span class="token punctuation">,</span> <span class="token string">'price'</span><span class="token punctuation">]</span>
 values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ACME'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">490.1</span><span class="token punctuation">]</span>
-s <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>headers<span class="token punctuation">,</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+s <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span>headers<span class="token punctuation">,</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>不同集合上元素的迭代</strong></p>
@@ -685,14 +680,12 @@ s <span class="token operator">=</span> <span class="token builtin">dict</span><
 x
 y
 z<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="7-索引值迭代"><a href="#7-索引值迭代" class="headerlink" title="7 索引值迭代"></a>7 索引值迭代</h2><p><code>enumerate(sequence, [start=0]) </code>函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
+<h2 id="7-索引值迭代"><a href="#7-索引值迭代" class="headerlink" title="7 索引值迭代"></a>7 索引值迭代</h2><p><code>enumerate(sequence, [start=0])</code>函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> seasons <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Spring'</span><span class="token punctuation">,</span> <span class="token string">'Summer'</span><span class="token punctuation">,</span> <span class="token string">'Fall'</span><span class="token punctuation">,</span> <span class="token string">'Winter'</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">enumerate</span><span class="token punctuation">(</span>seasons<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'Spring'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Summer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'Fall'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'Winter'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">enumerate</span><span class="token punctuation">(</span>seasons<span class="token punctuation">,</span> start<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>       <span class="token comment"># 下标从 1 开始</span>
 <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Spring'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'Summer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'Fall'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'Winter'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">seq <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> i<span class="token punctuation">,</span> element <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>seq<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> element<span class="token punctuation">)</span>
@@ -701,9 +694,6 @@ data <span class="token operator">=</span> <span class="token punctuation">[</sp
 <span class="token comment"># Correct!</span>
 <span class="token keyword">for</span> n<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -775,12 +765,12 @@ data <span class="token operator">=</span> <span class="token punctuation">[</sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -864,12 +854,12 @@ data <span class="token operator">=</span> <span class="token punctuation">[</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -917,12 +907,12 @@ data <span class="token operator">=</span> <span class="token punctuation">[</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

@@ -282,12 +282,12 @@ import 语句：import module1[, module2[,... moduleN]
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -361,9 +361,7 @@ import 语句：import module1[, module2[,... moduleN]
 <li><p>搜索路径时一个解释器会先进行搜索的所有目录的列表。</p>
 </li>
 <li><p>一般把命令放在脚本的顶端</p>
-</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
 <span class="token comment"># Filename: support.py</span>
  
 <span class="token keyword">def</span> <span class="token function">print_func</span><span class="token punctuation">(</span> par <span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -381,12 +379,12 @@ support<span class="token punctuation">.</span>print_func<span class="token punc
 
 $ python3 test<span class="token punctuation">.</span>py 
 Hello <span class="token punctuation">:</span>  Runoob<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>无论执行多少次<code>import</code>，一个模块只会被<strong>导入一次</strong></li>
+</li>
+<li><p>无论执行多少次<code>import</code>，一个模块只会被<strong>导入一次</strong></p>
+</li>
 </ul>
 </li>
-<li><p><strong>搜索路径</strong>：由一系列目录名组成的，Python 解释器就依次从这些目录中去寻找所引入的模块。可以通过定义环境变量的方式来确定搜索路径。搜索路径是在 Python 编译或安装的时候确定的，安装新的库应该也会修改。搜索路径被存储在 sys 模块中的 <code>path </code>变量。</p>
+<li><p><strong>搜索路径</strong>：由一系列目录名组成的，Python 解释器就依次从这些目录中去寻找所引入的模块。可以通过定义环境变量的方式来确定搜索路径。搜索路径是在 Python 编译或安装的时候确定的，安装新的库应该也会修改。搜索路径被存储在 sys 模块中的 <code>path</code>变量。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> sys
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys<span class="token punctuation">.</span>path
 <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">'/usr/lib/python3.4'</span><span class="token punctuation">,</span> <span class="token string">'/usr/lib/python3.4/plat-x86_64-linux-gnu'</span><span class="token punctuation">,</span> <span class="token string">'/usr/lib/python3.4/lib-dynload'</span><span class="token punctuation">,</span> <span class="token string">'/usr/local/lib/python3.4/dist-packages'</span><span class="token punctuation">,</span> <span class="token string">'/usr/lib/python3/dist-packages'</span><span class="token punctuation">]</span>
@@ -410,7 +408,6 @@ sys.path 输出是一个列表，其中第一项是空串 ''，代表当前目�
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> imp
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> imp<span class="token punctuation">.</span><span class="token builtin">reload</span><span class="token punctuation">(</span>spam<span class="token punctuation">)</span>
 <span class="token operator">&lt;</span>module <span class="token string">'spam'</span> <span class="token keyword">from</span> <span class="token string">'./spam.py'</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在生产环境中可能需要避免重新加载模块。</p>
 </li>
 <li><p><strong>运行目录</strong></p>
@@ -422,7 +419,6 @@ sys.path 输出是一个列表，其中第一项是空串 ''，代表当前目�
     __main__.py
     
 bash % python3 myapplication<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>解释器将执行<code>__main__.py</code>文件作为主程序。</p>
 </li>
 </ul>
@@ -435,7 +431,7 @@ bash % python3 myapplication<span aria-hidden="true" class="line-numbers-rows"><
 </li>
 <li><p>使用 import 直接把模块内（函数，变量的）名称导入到当前操作模块不会把被导入的模块的名称放在当前的字符表中</p>
 </li>
-<li><p>**from … import ***可以一次性的把模块中的所有（函数，变量）名称都导入到当前模块的字符表，但是那些由单一下划线（_）开头的名字不在此例。</p>
+<li><p><strong>from … import *</strong>可以一次性的把模块中的所有（函数，变量）名称都导入到当前模块的字符表，但是那些由单一下划线（_）开头的名字不在此例。</p>
 </li>
 <li><p>一个模块被另一个程序第一次引入时，其主程序将运行。如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用<code>__name__</code>属性来使该程序块仅在该模块自身运行时执行。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
@@ -453,7 +449,6 @@ $ python
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> using_name
 我来自另一模块
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>每个模块都有一个<code>__name__</code>属性，当其值是’<code>__main__</code>‘时，表明该模块自身在运行，否则是被引入。</li>
 <li><strong><code>__name__</code></strong> 与 <strong><code>__main__</code></strong> 底下是双下划线， <strong><code>_ _</code></strong> 是这样去掉中间的那个空格。</li>
@@ -481,7 +476,6 @@ $ python
  <span class="token string">'setcheckinterval'</span><span class="token punctuation">,</span> <span class="token string">'setdlopenflags'</span><span class="token punctuation">,</span> <span class="token string">'setprofile'</span><span class="token punctuation">,</span> <span class="token string">'setrecursionlimit'</span><span class="token punctuation">,</span>
  <span class="token string">'setswitchinterval'</span><span class="token punctuation">,</span> <span class="token string">'settrace'</span><span class="token punctuation">,</span> <span class="token string">'stderr'</span><span class="token punctuation">,</span> <span class="token string">'stdin'</span><span class="token punctuation">,</span> <span class="token string">'stdout'</span><span class="token punctuation">,</span>
  <span class="token string">'thread_info'</span><span class="token punctuation">,</span> <span class="token string">'version'</span><span class="token punctuation">,</span> <span class="token string">'version_info'</span><span class="token punctuation">,</span> <span class="token string">'warnoptions'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如果没有给定参数，那么 <code>dir()</code> 函数会罗列出当前定义的所有名称</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> fibo
@@ -507,7 +501,8 @@ $ python
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys<span class="token punctuation">.</span>ps1 <span class="token operator">=</span> <span class="token string">'C&gt; '</span>
 C<span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Runoob!'</span><span class="token punctuation">)</span>
 Runoob!
-C<span class="token operator">&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+C<span class="token operator">&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-包"><a href="#3-包" class="headerlink" title="3 包"></a>3 包</h2><ul>
 <li><p>包是一种管理 Python 模块命名空间的形式，采用”<strong>点模块名称</strong>“。</p>
@@ -526,10 +521,9 @@ C<span class="token operator">&gt;</span> <span aria-hidden="true" class="line-n
 </li>
 <li><p>导入语句遵循如下规则：如果包定义文件 <strong><code>__init__.py</code></strong> 存在一个叫做 <strong><code>__all__</code></strong> 的列表变量，那么在使用 <strong>from package import *</strong> 的时候就<strong>把这个列表中的所有名字作为包内容导入</strong>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"echo"</span><span class="token punctuation">,</span> <span class="token string">"surround"</span><span class="token punctuation">,</span> <span class="token string">"reverse"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ol>
 <li>使用from sound.effects import *只会导入包里面这三个子模块</li>
-<li>如果 <strong><code>__all__</code></strong> 真的没有定义，那么使用**from sound.effects import ***这种语法的时候，就不会导入包 sound.effects 里的任何子模块。他只是把包sound.effects和它里面定义的所有内容导入进来（可能运行<code>__init__.py</code>里定义的初始化代码）。</li>
+<li>如果 <strong><code>__all__</code></strong> 真的没有定义，那么使用<strong>from sound.effects import *</strong>这种语法的时候，就不会导入包 sound.effects 里的任何子模块。他只是把包sound.effects和它里面定义的所有内容导入进来（可能运行<code>__init__.py</code>里定义的初始化代码）。</li>
 </ol>
 </li>
 <li><p>加载子模块：<code>from . import submodule</code></p>
@@ -543,7 +537,6 @@ C<span class="token operator">&gt;</span> <span aria-hidden="true" class="line-n
 <span class="token comment"># spam.py</span>
 <span class="token keyword">import</span> pkgutil
 data <span class="token operator">=</span> pkgutil<span class="token punctuation">.</span>get_data<span class="token punctuation">(</span>__package__<span class="token punctuation">,</span> <span class="token string">'somedata.dat'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>由此产生的变量是<strong>包含该文件的原始内容的字节字符串</strong></p>
 <p>get_data()的第一个参数是包含包名的字符串。你可以直接使用包名，也可以使用特殊的变量，比如<code>__package__</code>。第二个参数是包内文件的<strong>相对名称</strong>。</p>
 </li>
@@ -557,7 +550,6 @@ data <span class="token operator">=</span> pkgutil<span class="token punctuation
     B<span class="token operator">/</span>
         __init__<span class="token punctuation">.</span>py
         bar<span class="token punctuation">.</span>py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># mypackage/A/spam.py</span>
 <span class="token comment"># 使用相对路径</span>
 <span class="token comment"># 同级目录</span>
@@ -567,12 +559,10 @@ data <span class="token operator">=</span> pkgutil<span class="token punctuation
 
 <span class="token comment"># 绝对路径</span>
 <span class="token keyword">from</span> mypackage<span class="token punctuation">.</span>A <span class="token keyword">import</span> grok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>使用绝对路径名的不利之处是这将顶层包名硬编码到你的源码中。不便于重新组织。</p>
 <h2 id="5-模块分割"><a href="#5-模块分割" class="headerlink" title="5 模块分割"></a>5 模块分割</h2><ul>
-<li>将一个模块分割成多个文件变成包</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># mymodule.py</span>
+<li><p>将一个模块分割成多个文件变成包</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># mymodule.py</span>
 <span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">spam</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'A.spam'</span><span class="token punctuation">)</span>
@@ -600,8 +590,7 @@ mymodule<span class="token operator">/</span>
 <span class="token comment"># __init__.py</span>
 <span class="token keyword">from</span> <span class="token punctuation">.</span>a <span class="token keyword">import</span> A
 <span class="token keyword">from</span> <span class="token punctuation">.</span>b <span class="token keyword">import</span> B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 产生的包MyModule将作为一个单一的逻辑模块</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 产生的包MyModule将作为一个单一的逻辑模块</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> mymodule
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> mymodule<span class="token punctuation">.</span>A<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">.</span>spam<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -610,8 +599,7 @@ A<span class="token punctuation">.</span>spam
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b<span class="token punctuation">.</span>bar<span class="token punctuation">(</span><span class="token punctuation">)</span>
 B<span class="token punctuation">.</span>bar
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
+</li>
 <li><p><strong>延迟导入</strong>:组件在需要时被加载</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># __init__.py</span>
 <span class="token keyword">def</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -625,12 +613,12 @@ B<span class="token punctuation">.</span>bar
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> mymodule
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> mymodule<span class="token punctuation">.</span>A<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">.</span>spam<span class="token punctuation">(</span><span class="token punctuation">)</span>
-A<span class="token punctuation">.</span>spam<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+A<span class="token punctuation">.</span>spam<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="6-统一命名空间"><a href="#6-统一命名空间" class="headerlink" title="6 统一命名空间"></a>6 统一命名空间</h2><ul>
-<li>在统一不同的目录里统一相同的命名空间，但是要删去用来将组件联合起来的<code>__init__.py</code>文件。</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python">foo<span class="token operator">-</span>package<span class="token operator">/</span>
+<li><p>在统一不同的目录里统一相同的命名空间，但是要删去用来将组件联合起来的<code>__init__.py</code>文件。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">foo<span class="token operator">-</span>package<span class="token operator">/</span>
     spam<span class="token operator">/</span>
         blah<span class="token punctuation">.</span>py
 
@@ -642,8 +630,7 @@ bar<span class="token operator">-</span>package<span class="token operator">/</s
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>extend<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'foo-package'</span><span class="token punctuation">,</span> <span class="token string">'bar-package'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> spam<span class="token punctuation">.</span>blah
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> spam<span class="token punctuation">.</span>grok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
+</li>
 <li><p>包命名空间是一种特殊的封装设计，为合并不同的目录的代码到一个<strong>共同的命名空间</strong>。它允许一个框架的部分被单独地安装下载。它也使人们能够轻松地为这样的框架编写第三方附加组件和其他扩展。</p>
 </li>
 <li><p>包命名空间的关键是确保顶级目录中<strong>没有<code>__init__.py</code>文件</strong>来作为共同的命名空间。</p>
@@ -678,34 +665,31 @@ Type <span class="token string">"help"</span><span class="token punctuation">,</
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># myapplication.pth</span>
 <span class="token operator">/</span>some<span class="token operator">/</span><span class="token builtin">dir</span>
 <span class="token operator">/</span>other<span class="token operator">/</span><span class="token builtin">dir</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>.pth文件需要放在某个Python的site-packages目录，通常位于/usr/local/lib/python3.3/site-packages 或者 ~/.local/lib/python3.3/sitepackages。当解释器启动时，.pth文件里列举出来的存在于文件系统的目录将被添加到sys.path。安装一个.pth文件可能需要管理员权限，如果它被添加到系统级的Python解释器。</p>
 </li>
 <li><p>代码手动调节sys.path的值：在不修改源代码的情况下，将path配置到其他地方。如果您使用模块级的变量来精心构造一个适当的绝对路径，有时你可以解决硬编码目录的问题，比如<code>__file__</code>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sys
 <span class="token keyword">from</span> os<span class="token punctuation">.</span>path <span class="token keyword">import</span> abspath<span class="token punctuation">,</span> join<span class="token punctuation">,</span> dirname
 sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> join<span class="token punctuation">(</span>abspath<span class="token punctuation">(</span>dirname<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>将src目录添加到path里，和执行插入步骤的代码在同一个目录里</strong></p>
 </li>
 </ol>
 </li>
 </ul>
 <h2 id="7-字符串名导入模块"><a href="#7-字符串名导入模块" class="headerlink" title="7 字符串名导入模块"></a>7 字符串名导入模块</h2><ul>
-<li>使用**<code>importlib.import_module()</code><strong>函数来手动导入</strong>名字为字符串**给出的一个模块或者包的一部分。</li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> importlib
+<li><p>使用<strong><code>importlib.import_module()</code></strong>函数来手动导入<strong>名字为字符串</strong>给出的一个模块或者包的一部分。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> importlib
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> math <span class="token operator">=</span> importlib<span class="token punctuation">.</span>import_module<span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token number">0.9092974268256817</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> mod <span class="token operator">=</span> importlib<span class="token punctuation">.</span>import_module<span class="token punctuation">(</span><span class="token string">'urllib.request'</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> u <span class="token operator">=</span> mod<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://www.python.org'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
+</li>
 <li><p>import_module()也可相对导入。但是需要一个额外的参数。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> importlib
 <span class="token comment"># Same as 'from . import b'</span>
-b <span class="token operator">=</span> importlib<span class="token punctuation">.</span>import_module<span class="token punctuation">(</span><span class="token string">'.b'</span><span class="token punctuation">,</span> __package__<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+b <span class="token operator">=</span> importlib<span class="token punctuation">.</span>import_module<span class="token punctuation">(</span><span class="token string">'.b'</span><span class="token punctuation">,</span> __package__<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="8-分发包"><a href="#8-分发包" class="headerlink" title="8 分发包"></a>8 分发包</h2><ul>
 <li><p>典型的函数库包</p>
@@ -819,12 +803,12 @@ recursive<span class="token operator">-</span>include Doc <span class="token ope
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -908,12 +892,12 @@ recursive<span class="token operator">-</span>include Doc <span class="token ope
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -961,12 +945,12 @@ recursive<span class="token operator">-</span>include Doc <span class="token ope
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

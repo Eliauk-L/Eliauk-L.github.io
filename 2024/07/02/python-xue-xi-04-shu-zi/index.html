@@ -285,12 +285,12 @@ complex
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -364,7 +364,7 @@ complex
 </ul>
 </li>
 <li>python3中没有long，取而代之的是<strong>bool</strong> (布尔), 如 True</li>
-<li><strong>bool 是 int 的子类</strong>，True 和 False 可以和数字相加， True==1、False==0 会返回 True</li>
+<li><strong>bool 是 int 的子类</strong>，True 和 False 可以和数字相加， True=\=1、False==0 会返回 True</li>
 </ul>
 <h2 id="1-浮点数说明"><a href="#1-浮点数说明" class="headerlink" title="1 浮点数说明"></a>1 浮点数说明</h2><ul>
 <li><p>浮点数的一个普遍问题是它们<strong>并不能精确的表示十进制数</strong>.由底层CPU和IEEE 754标准通过自己的浮点单位去执行算术时的特征。 由于Python的浮点数据类型使用底层表示存储数据</p>
@@ -384,29 +384,24 @@ Decimal<span class="token punctuation">(</span><span class="token string">'6.3'<
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span>
 <span class="token number">6.3</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">==</span> Decimal<span class="token punctuation">(</span><span class="token string">'6.3'</span><span class="token punctuation">)</span>
-<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="2-数据类型转换"><a href="#2-数据类型转换" class="headerlink" title="2 数据类型转换"></a>2 数据类型转换</h2><ul>
-<li><p>Python 数据类型转换可以分为两种</p>
-<ul>
+<li>Python 数据类型转换可以分为两种<ul>
 <li>隐式类型转换 - 自动完成</li>
 <li>显式类型转换 - 需要使用类型函数来转换</li>
 </ul>
 </li>
 <li><p>较低数据类型（整数）就会转换为较高数据类型（浮点数）以避免数据丢失</p>
 </li>
-<li><p>对数据内置的类型进行转换，只需要将<strong>数据类型作为函数名</strong>，如：<code>int(x [,base])、long(x [,base] )、float(x)、complex(real [,imag])、str(x)、tuple(s)、list(s)、set(s)、dict(d)、frozenset(s)	</code></p>
+<li><p>对数据内置的类型进行转换，只需要将<strong>数据类型作为函数名</strong>，如：<code>int(x [,base])、long(x [,base] )、float(x)、complex(real [,imag])、str(x)、tuple(s)、list(s)、set(s)、dict(d)、frozenset(s)</code></p>
 </li>
-<li><p><code>repr(x)</code>:将对象 x 转换为表达式字符串</p>
-</li>
-<li><p><code>eval(str)</code>:用来计算在字符串中的有效Python表达式,并返回一个对象</p>
-</li>
-<li><p><code>chr(x)</code>:将一个整数转换为一个字符</p>
-</li>
-<li><p><code>ord(x)</code>:将一个字符转换为它的整数值</p>
-</li>
-<li><p><code>bin(x)、hex(x)、oct(x)</code>:整数–&gt;二进制、十六进制、八进制</p>
-</li>
+<li><code>repr(x)</code>:将对象 x 转换为表达式字符串</li>
+<li><code>eval(str)</code>:用来计算在字符串中的有效Python表达式,并返回一个对象</li>
+<li><code>chr(x)</code>:将一个整数转换为一个字符</li>
+<li><code>ord(x)</code>:将一个字符转换为它的整数值</li>
+<li><code>bin(x)、hex(x)、oct(x)</code>:整数—&gt;二进制、十六进制、八进制</li>
 </ul>
 <h2 id="3-math与cmath模块"><a href="#3-math与cmath模块" class="headerlink" title="3 math与cmath模块"></a>3 math与cmath模块</h2><blockquote>
 <p>cmath 模块的函数跟 math 模块函数基本一致，区别是 cmath 模块运算的是复数，math 模块运算的是数学运算</p>
@@ -415,113 +410,122 @@ Decimal<span class="token punctuation">(</span><span class="token string">'6.3'<
 <li><p>查看包中内容：<code>dir()</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> math
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">dir</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> <span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'acos'</span><span class="token punctuation">,</span> <span class="token string">'acosh'</span><span class="token punctuation">,</span> <span class="token string">'asin'</span><span class="token punctuation">,</span> <span class="token string">'asinh'</span><span class="token punctuation">,</span> <span class="token string">'atan'</span><span class="token punctuation">,</span> <span class="token string">'atan2'</span><span class="token punctuation">,</span> <span class="token string">'atanh'</span><span class="token punctuation">,</span> <span class="token string">'ceil'</span><span class="token punctuation">,</span> <span class="token string">'copysign'</span><span class="token punctuation">,</span> <span class="token string">'cos'</span><span class="token punctuation">,</span> <span class="token string">'cosh'</span><span class="token punctuation">,</span> <span class="token string">'degrees'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'erf'</span><span class="token punctuation">,</span> <span class="token string">'erfc'</span><span class="token punctuation">,</span> <span class="token string">'exp'</span><span class="token punctuation">,</span> <span class="token string">'expm1'</span><span class="token punctuation">,</span> <span class="token string">'fabs'</span><span class="token punctuation">,</span> <span class="token string">'factorial'</span><span class="token punctuation">,</span> <span class="token string">'floor'</span><span class="token punctuation">,</span> <span class="token string">'fmod'</span><span class="token punctuation">,</span> <span class="token string">'frexp'</span><span class="token punctuation">,</span> <span class="token string">'fsum'</span><span class="token punctuation">,</span> <span class="token string">'gamma'</span><span class="token punctuation">,</span> <span class="token string">'gcd'</span><span class="token punctuation">,</span> <span class="token string">'hypot'</span><span class="token punctuation">,</span> <span class="token string">'inf'</span><span class="token punctuation">,</span> <span class="token string">'isclose'</span><span class="token punctuation">,</span> <span class="token string">'isfinite'</span><span class="token punctuation">,</span> <span class="token string">'isinf'</span><span class="token punctuation">,</span> <span class="token string">'isnan'</span><span class="token punctuation">,</span> <span class="token string">'ldexp'</span><span class="token punctuation">,</span> <span class="token string">'lgamma'</span><span class="token punctuation">,</span> <span class="token string">'log'</span><span class="token punctuation">,</span> <span class="token string">'log10'</span><span class="token punctuation">,</span> <span class="token string">'log1p'</span><span class="token punctuation">,</span> <span class="token string">'log2'</span><span class="token punctuation">,</span> <span class="token string">'modf'</span><span class="token punctuation">,</span> <span class="token string">'nan'</span><span class="token punctuation">,</span> <span class="token string">'pi'</span><span class="token punctuation">,</span> <span class="token string">'pow'</span><span class="token punctuation">,</span> <span class="token string">'radians'</span><span class="token punctuation">,</span> <span class="token string">'sin'</span><span class="token punctuation">,</span> <span class="token string">'sinh'</span><span class="token punctuation">,</span> <span class="token string">'sqrt'</span><span class="token punctuation">,</span> <span class="token string">'tan'</span><span class="token punctuation">,</span> <span class="token string">'tanh'</span><span class="token punctuation">,</span> <span class="token string">'tau'</span><span class="token punctuation">,</span> <span class="token string">'trunc'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">[</span><span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> <span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'acos'</span><span class="token punctuation">,</span> <span class="token string">'acosh'</span><span class="token punctuation">,</span> <span class="token string">'asin'</span><span class="token punctuation">,</span> <span class="token string">'asinh'</span><span class="token punctuation">,</span> <span class="token string">'atan'</span><span class="token punctuation">,</span> <span class="token string">'atan2'</span><span class="token punctuation">,</span> <span class="token string">'atanh'</span><span class="token punctuation">,</span> <span class="token string">'ceil'</span><span class="token punctuation">,</span> <span class="token string">'copysign'</span><span class="token punctuation">,</span> <span class="token string">'cos'</span><span class="token punctuation">,</span> <span class="token string">'cosh'</span><span class="token punctuation">,</span> <span class="token string">'degrees'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'erf'</span><span class="token punctuation">,</span> <span class="token string">'erfc'</span><span class="token punctuation">,</span> <span class="token string">'exp'</span><span class="token punctuation">,</span> <span class="token string">'expm1'</span><span class="token punctuation">,</span> <span class="token string">'fabs'</span><span class="token punctuation">,</span> <span class="token string">'factorial'</span><span class="token punctuation">,</span> <span class="token string">'floor'</span><span class="token punctuation">,</span> <span class="token string">'fmod'</span><span class="token punctuation">,</span> <span class="token string">'frexp'</span><span class="token punctuation">,</span> <span class="token string">'fsum'</span><span class="token punctuation">,</span> <span class="token string">'gamma'</span><span class="token punctuation">,</span> <span class="token string">'gcd'</span><span class="token punctuation">,</span> <span class="token string">'hypot'</span><span class="token punctuation">,</span> <span class="token string">'inf'</span><span class="token punctuation">,</span> <span class="token string">'isclose'</span><span class="token punctuation">,</span> <span class="token string">'isfinite'</span><span class="token punctuation">,</span> <span class="token string">'isinf'</span><span class="token punctuation">,</span> <span class="token string">'isnan'</span><span class="token punctuation">,</span> <span class="token string">'ldexp'</span><span class="token punctuation">,</span> <span class="token string">'lgamma'</span><span class="token punctuation">,</span> <span class="token string">'log'</span><span class="token punctuation">,</span> <span class="token string">'log10'</span><span class="token punctuation">,</span> <span class="token string">'log1p'</span><span class="token punctuation">,</span> <span class="token string">'log2'</span><span class="token punctuation">,</span> <span class="token string">'modf'</span><span class="token punctuation">,</span> <span class="token string">'nan'</span><span class="token punctuation">,</span> <span class="token string">'pi'</span><span class="token punctuation">,</span> <span class="token string">'pow'</span><span class="token punctuation">,</span> <span class="token string">'radians'</span><span class="token punctuation">,</span> <span class="token string">'sin'</span><span class="token punctuation">,</span> <span class="token string">'sinh'</span><span class="token punctuation">,</span> <span class="token string">'sqrt'</span><span class="token punctuation">,</span> <span class="token string">'tan'</span><span class="token punctuation">,</span> <span class="token string">'tanh'</span><span class="token punctuation">,</span> <span class="token string">'tau'</span><span class="token punctuation">,</span> <span class="token string">'trunc'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<h2 id="4-数学函数"><a href="#4-数学函数" class="headerlink" title="4 数学函数"></a>4 数学函数</h2><table>
-<thead>
-<tr>
-<th align="left">函数</th>
-<th align="left">返回值 ( 描述 )</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-abs.html">abs(x)</a></td>
-<td align="left">返回数字的绝对值，如abs(-10) 返回 10</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-ceil.html">ceil(x)</a></td>
-<td align="left">返回数字的上入整数，如math.ceil(4.1) 返回 5</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-cmp.html">cmp(x, y)</a></td>
-<td align="left">如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1.<strong>Python 3 已废弃，使用 (x&gt;y)-(x&lt;y) 替换</strong>。</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-exp.html">exp(x)</a></td>
-<td align="left">返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-fabs.html">fabs(x)</a></td>
-<td align="left">以浮点数形式返回数字的绝对值，如math.fabs(-10) 返回10.0</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-floor.html">floor(x)</a></td>
-<td align="left">返回数字的下舍整数，如math.floor(4.9)返回 4</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-log.html">log(x)</a></td>
-<td align="left">如math.log(math.e)返回1.0,math.log(100,10)返回2.0</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-log10.html">log10(x)</a></td>
-<td align="left">返回以10为基数的x的对数，如math.log10(100)返回 2.0</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-max.html">max(x1, x2,…)</a></td>
-<td align="left">返回给定参数的最大值，参数可以为序列。</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-min.html">min(x1, x2,…)</a></td>
-<td align="left">返回给定参数的最小值，参数可以为序列。</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-modf.html">modf(x)</a></td>
-<td align="left">返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-pow.html">pow(x, y)</a></td>
-<td align="left">x**y 运算后的值。</td>
-</tr>
-<tr>
-<td align="left">[round(x [,n])](<a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-round.html">https://www.runoob.com/python/func-number-round.html</a>)</td>
-<td align="left">返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。n值如果为负数，舍入运算会作用在十位、百位、千位等上面</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-sqrt.html">sqrt(x)</a></td>
-<td align="left">返回数字x的平方根</td>
-</tr>
-</tbody></table>
-<h2 id="5-随机数函数"><a href="#5-随机数函数" class="headerlink" title="5 随机数函数"></a>5 随机数函数</h2><p><code>random</code> 模块</p>
+<h2 id="4-数学函数"><a href="#4-数学函数" class="headerlink" title="4 数学函数"></a>4 数学函数</h2><div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">函数</th>
-<th align="left">描述</th>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">返回值 ( 描述 )</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-choice.html">choice(seq)</a></td>
-<td align="left">从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</td>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-abs.html">abs(x)</a></td>
+<td style="text-align:left">返回数字的绝对值，如abs(-10) 返回 10</td>
 </tr>
 <tr>
-<td align="left">[randrange (<a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-randrange.html">start,] stop [,step])</a></td>
-<td align="left">从指定范围内，按指定基数递增的集合中获取一个随机数，基数默认值为 1</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-ceil.html">ceil(x)</a></td>
+<td style="text-align:left">返回数字的上入整数，如math.ceil(4.1) 返回 5</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-random.html">random()</a></td>
-<td align="left">随机生成下一个实数，它在[0,1)范围内。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-cmp.html">cmp(x, y)</a></td>
+<td style="text-align:left">如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1.<strong>Python 3 已废弃，使用 (x&gt;y)-(x&lt;y) 替换</strong>。</td>
 </tr>
 <tr>
-<td align="left">[seed([x])](<a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-seed.html">https://www.runoob.com/python/func-number-seed.html</a>)</td>
-<td align="left">改变随机数生成器的种子seed。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-exp.html">exp(x)</a></td>
+<td style="text-align:left">返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-shuffle.html">shuffle(lst)</a></td>
-<td align="left">将序列的所有元素随机排序</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-fabs.html">fabs(x)</a></td>
+<td style="text-align:left">以浮点数形式返回数字的绝对值，如math.fabs(-10) 返回10.0</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-uniform.html">uniform(x, y)</a></td>
-<td align="left">随机生成下一个实数，它在[x,y]范围内。均匀分布</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-floor.html">floor(x)</a></td>
+<td style="text-align:left">返回数字的下舍整数，如math.floor(4.9)返回 4</td>
 </tr>
 <tr>
-<td align="left">sample(seq,num)</td>
-<td align="left">随机选取num个不同元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-log.html">log(x)</a></td>
+<td style="text-align:left">如math.log(math.e)返回1.0,math.log(100,10)返回2.0</td>
 </tr>
 <tr>
-<td align="left">randint(x,y)</td>
-<td align="left">生成随机整数，在[x,y]范围内</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-log10.html">log10(x)</a></td>
+<td style="text-align:left">返回以10为基数的x的对数，如math.log10(100)返回 2.0</td>
 </tr>
-</tbody></table>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-max.html">max(x1, x2,…)</a></td>
+<td style="text-align:left">返回给定参数的最大值，参数可以为序列。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-min.html">min(x1, x2,…)</a></td>
+<td style="text-align:left">返回给定参数的最小值，参数可以为序列。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-modf.html">modf(x)</a></td>
+<td style="text-align:left">返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-pow.html">pow(x, y)</a></td>
+<td style="text-align:left">x**y 运算后的值。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-round.html">round(x [,n])</a></td>
+<td style="text-align:left">返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。n值如果为负数，舍入运算会作用在十位、百位、千位等上面</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-sqrt.html">sqrt(x)</a></td>
+<td style="text-align:left">返回数字x的平方根</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5-随机数函数"><a href="#5-随机数函数" class="headerlink" title="5 随机数函数"></a>5 随机数函数</h2><p><code>random</code> 模块</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-choice.html">choice(seq)</a></td>
+<td style="text-align:left">从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-randrange.html">randrange ([start,] stop [,step])</a></td>
+<td style="text-align:left">从指定范围内，按指定基数递增的集合中获取一个随机数，基数默认值为 1</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-random.html">random()</a></td>
+<td style="text-align:left">随机生成下一个实数，它在[0,1)范围内。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-seed.html">seed([x])</a></td>
+<td style="text-align:left">改变随机数生成器的种子seed。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-shuffle.html">shuffle(lst)</a></td>
+<td style="text-align:left">将序列的所有元素随机排序</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/func-number-uniform.html">uniform(x, y)</a></td>
+<td style="text-align:left">随机生成下一个实数，它在[x,y]范围内。均匀分布</td>
+</tr>
+<tr>
+<td style="text-align:left">sample(seq,num)</td>
+<td style="text-align:left">随机选取num个不同元素</td>
+</tr>
+<tr>
+<td style="text-align:left">randint(x,y)</td>
+<td style="text-align:left">生成随机整数，在[x,y]范围内</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="6-数字的格式化输出"><a href="#6-数字的格式化输出" class="headerlink" title="6 数字的格式化输出"></a>6 数字的格式化输出</h2><ul>
 <li><p>控制数字的位数、对齐、千位分隔符</p>
 </li>
@@ -555,110 +559,114 @@ Decimal<span class="token punctuation">(</span><span class="token string">'6.3'<
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">'0.2E'</span><span class="token punctuation">)</span>
 <span class="token string">'1.23E+03'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>同时指定宽度和精度的一般形式是 <code>'[&lt;&gt;^]?width[,]?(.digits)?' </code>， 其中 <code>width</code> 和 <code>digits</code> 为整数，<code>？</code>代表可选部分。 同样的格式也被用在字符串的 <code>format()</code> 方法中</p>
+<li><p>同时指定宽度和精度的一般形式是 <code>'[&lt;&gt;^]?width[,]?(.digits)?'</code>， 其中 <code>width</code> 和 <code>digits</code> 为整数，<code>？</code>代表可选部分。 同样的格式也被用在字符串的 <code>format()</code> 方法中</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">'The value is {:0,.2f}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-<span class="token string">'The value is 1,234.57'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token string">'The value is 1,234.57'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p>str.format() 格式化数字</p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:.2f}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">3.1415926</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token number">3.14</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">数字</th>
-<th align="left">格式</th>
-<th align="left">输出</th>
-<th align="left">描述</th>
+<th style="text-align:left">数字</th>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">输出</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">3.1415926</td>
-<td align="left"><code>{:.2f}</code></td>
-<td align="left">3.14</td>
-<td align="left">保留小数点后两位</td>
+<tbody>
+<tr>
+<td style="text-align:left">3.1415926</td>
+<td style="text-align:left"><code>{:.2f}</code></td>
+<td style="text-align:left">3.14</td>
+<td style="text-align:left">保留小数点后两位</td>
 </tr>
 <tr>
-<td align="left">3.1415926</td>
-<td align="left"><code>{:+.2f}</code></td>
-<td align="left">+3.14</td>
-<td align="left">带符号保留小数点后两位</td>
+<td style="text-align:left">3.1415926</td>
+<td style="text-align:left"><code>{:+.2f}</code></td>
+<td style="text-align:left">+3.14</td>
+<td style="text-align:left">带符号保留小数点后两位</td>
 </tr>
 <tr>
-<td align="left">-1</td>
-<td align="left"><code>{:-.2f}</code></td>
-<td align="left">-1.00</td>
-<td align="left">带符号保留小数点后两位</td>
+<td style="text-align:left">-1</td>
+<td style="text-align:left"><code>{:-.2f}</code></td>
+<td style="text-align:left">-1.00</td>
+<td style="text-align:left">带符号保留小数点后两位</td>
 </tr>
 <tr>
-<td align="left">2.71828</td>
-<td align="left"><code>{:.0f}</code></td>
-<td align="left">3</td>
-<td align="left">不带小数</td>
+<td style="text-align:left">2.71828</td>
+<td style="text-align:left"><code>{:.0f}</code></td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">不带小数</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left"><code>{:0&gt;2d}</code></td>
-<td align="left">05</td>
-<td align="left">数字补零 (填充左边, 宽度为2)</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><code>{:0&gt;2d}</code></td>
+<td style="text-align:left">05</td>
+<td style="text-align:left">数字补零 (填充左边, 宽度为2)</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left"><code>{:x&lt;4d}</code></td>
-<td align="left">5xxx</td>
-<td align="left">数字补x (填充右边, 宽度为4)</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><code>{:x&lt;4d}</code></td>
+<td style="text-align:left">5xxx</td>
+<td style="text-align:left">数字补x (填充右边, 宽度为4)</td>
 </tr>
 <tr>
-<td align="left">10</td>
-<td align="left"><code>{:x&lt;4d}</code></td>
-<td align="left">10xx</td>
-<td align="left">数字补x (填充右边, 宽度为4)</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><code>{:x&lt;4d}</code></td>
+<td style="text-align:left">10xx</td>
+<td style="text-align:left">数字补x (填充右边, 宽度为4)</td>
 </tr>
 <tr>
-<td align="left">1000000</td>
-<td align="left"><code>{:,}</code></td>
-<td align="left">1,000,000</td>
-<td align="left">以逗号分隔的数字格式</td>
+<td style="text-align:left">1000000</td>
+<td style="text-align:left"><code>{:,}</code></td>
+<td style="text-align:left">1,000,000</td>
+<td style="text-align:left">以逗号分隔的数字格式</td>
 </tr>
 <tr>
-<td align="left">0.25</td>
-<td align="left"><code>{:.2%}</code></td>
-<td align="left">25.00%</td>
-<td align="left">百分比格式</td>
+<td style="text-align:left">0.25</td>
+<td style="text-align:left"><code>{:.2%}</code></td>
+<td style="text-align:left">25.00%</td>
+<td style="text-align:left">百分比格式</td>
 </tr>
 <tr>
-<td align="left">1000000000</td>
-<td align="left"><code>{:.2e}</code></td>
-<td align="left">1.00e+09</td>
-<td align="left">指数记法</td>
+<td style="text-align:left">1000000000</td>
+<td style="text-align:left"><code>{:.2e}</code></td>
+<td style="text-align:left">1.00e+09</td>
+<td style="text-align:left">指数记法</td>
 </tr>
 <tr>
-<td align="left">13</td>
-<td align="left"><code>{:&gt;10d}</code></td>
-<td align="left">13</td>
-<td align="left">右对齐 (默认, 宽度为10)</td>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><code>{:&gt;10d}</code></td>
+<td style="text-align:left">13</td>
+<td style="text-align:left">右对齐 (默认, 宽度为10)</td>
 </tr>
 <tr>
-<td align="left">13</td>
-<td align="left"><code>{:&lt;10d}</code></td>
-<td align="left">13</td>
-<td align="left">左对齐 (宽度为10)</td>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><code>{:&lt;10d}</code></td>
+<td style="text-align:left">13</td>
+<td style="text-align:left">左对齐 (宽度为10)</td>
 </tr>
 <tr>
-<td align="left">13</td>
-<td align="left"><code>{:^10d}</code></td>
-<td align="left">13</td>
-<td align="left">中间对齐 (宽度为10)</td>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><code>{:^10d}</code></td>
+<td style="text-align:left">13</td>
+<td style="text-align:left">中间对齐 (宽度为10)</td>
 </tr>
 <tr>
-<td align="left">11</td>
-<td align="left"><code>'{:b}'.format(11) '{:d}'.format(11) '{:o}'.format(11) '{:x}'.format(11) '{:#x}'.format(11) '{:#X}'.format(11)</code></td>
-<td align="left"><code>1011 11 13 b 0xb 0XB</code></td>
-<td align="left">进制</td>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><code>'{:b}'.format(11) '{:d}'.format(11) '{:o}'.format(11) '{:x}'.format(11) '{:#x}'.format(11) '{:#X}'.format(11)</code></td>
+<td style="text-align:left"><code>1011 11 13 b 0xb 0XB</code></td>
+<td style="text-align:left">进制</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="7-无穷大与NaN"><a href="#7-无穷大与NaN" class="headerlink" title="7 无穷大与NaN"></a>7 无穷大与NaN</h2><ul>
 <li><p>使用 <code>float()</code> 来创建</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
@@ -701,7 +709,8 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c <span class="token operator">==</span> d
 <span class="token boolean">False</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> c <span class="token keyword">is</span> d
-<span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="8-数值运算"><a href="#8-数值运算" class="headerlink" title="8 数值运算"></a>8 数值运算</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">4</span>  <span class="token comment"># 加法</span>
 <span class="token number">9</span>
@@ -717,7 +726,6 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <span class="token number">2</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">5</span> <span class="token comment"># 乘方</span>
 <span class="token number">32</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><p><strong>//</strong> 得到的并不一定是整数类型的数，它与分母分子的数据类型有关系</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token number">7</span><span class="token operator">//</span><span class="token number">2</span>
@@ -738,7 +746,8 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> price <span class="token operator">+</span> _
 <span class="token number">113.0625</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">round</span><span class="token punctuation">(</span>_<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-<span class="token number">113.06</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token number">113.06</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="9-分数运算"><a href="#9-分数运算" class="headerlink" title="9 分数运算"></a>9 分数运算</h2><p><code>fractions</code> 模块可以被用来执行包含分数的数学运算</p>
 <blockquote>
@@ -812,12 +821,12 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -901,12 +910,12 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -954,12 +963,12 @@ nan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

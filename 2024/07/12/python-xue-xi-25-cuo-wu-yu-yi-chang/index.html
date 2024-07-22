@@ -282,12 +282,12 @@ Python 的语法错误或者称之为解析错
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -376,7 +376,8 @@ NameError<span class="token punctuation">:</span> name <span class="token string
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">'2'</span> <span class="token operator">+</span> <span class="token number">2</span>               <span class="token comment"># int 不能与 str 相加，触发异常</span>
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
-TypeError<span class="token punctuation">:</span> can only concatenate <span class="token builtin">str</span> <span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token string">"int"</span><span class="token punctuation">)</span> to <span class="token builtin">str</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+TypeError<span class="token punctuation">:</span> can only concatenate <span class="token builtin">str</span> <span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token string">"int"</span><span class="token punctuation">)</span> to <span class="token builtin">str</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1 异常处理"></a>1 异常处理</h2><ul>
 <li><p>异常捕捉可以使用 <strong><code>try/except</code></strong> 语句。</p>
@@ -388,7 +389,6 @@ TypeError<span class="token punctuation">:</span> can only concatenate <span cla
         <span class="token keyword">break</span>
     <span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"您输入的不是数字，请再次尝试输入！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>首先，执行 try 子句（在关键字 try 和关键字 except 之间的语句）。</li>
 <li>如果没有异常发生，忽略 except 子句，try 子句执行后结束。</li>
@@ -474,7 +474,6 @@ Handling run<span class="token operator">-</span>time error<span class="token pu
 <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
    log<span class="token punctuation">(</span><span class="token string">'Reason:'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>       <span class="token comment"># Important!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这个将会捕获除了 <code>SystemExit</code> 、 <code>KeyboardInterrupt</code> 和 <code>GeneratorExit</code> 之外的所有异常。 如果你还想捕获这三个异常，将 <code>Exception</code> 改成 <code>BaseException</code> 即可。</p>
 </li>
 </ul>
@@ -533,7 +532,8 @@ example3<span class="token punctuation">(</span><span class="token punctuation">
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">5</span><span class="token punctuation">,</span> <span class="token keyword">in</span> example3
-RuntimeError<span class="token punctuation">:</span> A parsing error occurred<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+RuntimeError<span class="token punctuation">:</span> A parsing error occurred<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-自定义异常"><a href="#3-自定义异常" class="headerlink" title="3 自定义异常"></a>3 自定义异常</h2><ul>
 <li><p>创建一个新的异常类来拥有自己的异常。<strong>异常类继承自 Exception 类</strong>，可以直接继承，或者间接继承</p>
@@ -584,7 +584,8 @@ __main__<span class="token punctuation">.</span>MyError<span class="token punctu
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> previous<span class="token punctuation">,</span> <span class="token builtin">next</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>previous <span class="token operator">=</span> previous
         self<span class="token punctuation">.</span><span class="token builtin">next</span> <span class="token operator">=</span> <span class="token builtin">next</span>
-        self<span class="token punctuation">.</span>message <span class="token operator">=</span> message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        self<span class="token punctuation">.</span>message <span class="token operator">=</span> message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="4-清理行为"><a href="#4-清理行为" class="headerlink" title="4 清理行为"></a>4 清理行为</h2><ul>
 <li><p>定义清理行为</p>
@@ -618,9 +619,8 @@ KeyboardInterrupt<span aria-hidden="true" class="line-numbers-rows"><span></span
 <li><p><strong><code>assert expression [, arguments]</code></strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 等价于</span>
 <span class="token keyword">if</span> <span class="token keyword">not</span> expression<span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> AssertionError<span class="token punctuation">(</span>arguments<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ul>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">assert</span> <span class="token boolean">True</span>     <span class="token comment"># 条件为 true 正常执行</span>
+    <span class="token keyword">raise</span> AssertionError<span class="token punctuation">(</span>arguments<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">assert</span> <span class="token boolean">True</span>     <span class="token comment"># 条件为 true 正常执行</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">assert</span> <span class="token boolean">False</span>    <span class="token comment"># 条件为 false 触发异常</span>
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
@@ -635,7 +635,10 @@ AssertionError
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
 AssertionError<span class="token punctuation">:</span> <span class="token number">1</span> 不等于 <span class="token number">2</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="6-警告信息"><a href="#6-警告信息" class="headerlink" title="6 警告信息"></a>6 警告信息</h2><ul>
 <li><p>使用 <code>warning.warn()</code> 函数输出一个警告消息</p>
@@ -663,7 +666,7 @@ Traceback <span class="token punctuation">(</span>most recent call last<span cla
 DeprecationWarning: logfile argument is deprecated
 <span class="token function">bash</span> %<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><code>-W</code> 选项能控制警告消息的输出。 <code>-W all</code> 会输出所有警告消息，<code>-W ignore</code> 忽略掉所有警告，<code>-W error</code> 将警告转换成异常。 另外一种选择，你还可以使用 <code>warnings.simplefilter()</code> 函数控制输出。 <code>always</code> 参数会让所有警告消息出现，``ignore<code> 忽略调所有的警告，</code>error` 将警告转换成异常。</p>
+<li><p><code>-W</code> 选项能控制警告消息的输出。 <code>-W all</code> 会输出所有警告消息，<code>-W ignore</code> 忽略掉所有警告，<code>-W error</code> 将警告转换成异常。 另外一种选择，你还可以使用 <code>warnings.simplefilter()</code> 函数控制输出。 <code>always</code> 参数会让所有警告消息出现，<code>`ignore</code> 忽略调所有的警告，<code>error</code> 将警告转换成异常。</p>
 </li>
 </ul>
 <h2 id="7-内置异常类型"><a href="#7-内置异常类型" class="headerlink" title="7 内置异常类型"></a>7 内置异常类型</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">BaseException
@@ -730,9 +733,6 @@ DeprecationWarning: logfile argument is deprecated
            <span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span> UnicodeWarning
            <span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span> BytesWarning
            <span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span> ResourceWarning<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -804,12 +804,12 @@ DeprecationWarning: logfile argument is deprecated
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -893,12 +893,12 @@ DeprecationWarning: logfile argument is deprecated
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -946,12 +946,12 @@ DeprecationWarning: logfile argument is deprecated
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

@@ -279,12 +279,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -378,7 +378,6 @@
 <span class="token decorator annotation punctuation">@decorator_function</span>
 <span class="token keyword">def</span> <span class="token function">target_function</span><span class="token punctuation">(</span>arg1<span class="token punctuation">,</span> arg2<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span>  <span class="token comment"># 原始函数的实现</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><code>decorator_function</code> 是装饰器，它接收一个函数 <code>original_function</code> 作为参数。</li>
 <li><code>wrapper</code> 是内部函数，它是实际会被调用的新函数，它包裹了原始函数的调用，并在其前后增加了额外的行为。</li>
@@ -392,7 +391,6 @@
 <span class="token keyword">def</span> <span class="token function">target_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span>
 target_function <span class="token operator">=</span> time_logger<span class="token punctuation">(</span>target_function<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="3-装饰器参数"><a href="#3-装饰器参数" class="headerlink" title="3 装饰器参数"></a>3 装饰器参数</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">repeat</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -407,11 +405,10 @@ target_function <span class="token operator">=</span> time_logger<span class="to
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Hello, </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">!"</span></span><span class="token punctuation">)</span>
 
 greet<span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>以上代码中 repeat 函数是一个带参数的装饰器，它接<strong>受一个整数参数 n，然后返回一个装饰器函数。该装饰器函数内部定义了 wrapper 函数</strong>，在调用原始函数之前重复执行 n 次</li>
 </ul>
-<h2 id="4-类装饰器"><a href="#4-类装饰器" class="headerlink" title="4 类装饰器"></a>4 类装饰器</h2><p>类装饰器是包含 <strong><em>_call</em>_</strong> 方法的类，它接受一个函数作为参数，并返回一个新的函数。</p>
+<h2 id="4-类装饰器"><a href="#4-类装饰器" class="headerlink" title="4 类装饰器"></a>4 类装饰器</h2><p>类装饰器是包含 <strong>__call__</strong> 方法的类，它接受一个函数作为参数，并返回一个新的函数。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">DecoratorClass</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> func<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>func <span class="token operator">=</span> func
@@ -425,9 +422,6 @@ greet<span class="token punctuation">(</span><span class="token string">"Alice"<
 <span class="token decorator annotation punctuation">@DecoratorClass</span>
 <span class="token keyword">def</span> <span class="token function">my_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -499,12 +493,12 @@ greet<span class="token punctuation">(</span><span class="token string">"Alice"<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -588,12 +582,12 @@ greet<span class="token punctuation">(</span><span class="token string">"Alice"<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -641,12 +635,12 @@ greet<span class="token punctuation">(</span><span class="token string">"Alice"<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

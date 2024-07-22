@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Python学习12-日期和时间, Jay&#39;s Blog">
     <meta name="description" content="日期和时间
-Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间，时间间隔是以秒为单位的浮点小数
+Python 提供了一个time 和 calendar 模块可以用于格式化日期和时间，时间间隔是以秒为单位的浮点小数
 
 每个时间戳都以自从 1970 年 1 月 1 日午夜（历元）经过了多长时间来表示
 
-获取当前时间戳:tim">
+获取当前时间戳:time">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -281,12 +281,12 @@ Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -350,78 +350,81 @@ Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h1><ul>
-<li><p>Python 提供了一个<code> time</code> 和 <code>calendar</code> 模块可以用于格式化日期和时间，时间间隔是以<strong>秒</strong>为单位的浮点小数</p>
+<li><p>Python 提供了一个<code>time</code> 和 <code>calendar</code> 模块可以用于格式化日期和时间，时间间隔是以<strong>秒</strong>为单位的浮点小数</p>
 </li>
 <li><p>每个时间戳都以自从 1970 年 1 月 1 日午夜（历元）经过了多长时间来表示</p>
 </li>
-<li><p>获取当前时间戳:<code>time.time()</code></p>
-</li>
+<li>获取当前时间戳:<code>time.time()</code></li>
 </ul>
-<h2 id="1-时间元组"><a href="#1-时间元组" class="headerlink" title="1 时间元组"></a>1 时间元组</h2><p>很多Python函数用一个元组装起来的9组数字处理时间：<code> struct_time 元组</code></p>
+<h2 id="1-时间元组"><a href="#1-时间元组" class="headerlink" title="1 时间元组"></a>1 时间元组</h2><p>很多Python函数用一个元组装起来的9组数字处理时间：<code>struct_time 元组</code></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">序号</th>
-<th align="left">字段</th>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">字段</th>
 <th>属性</th>
-<th align="left">值</th>
+<th style="text-align:left">值</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">0</td>
-<td align="left">4位数年</td>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">4位数年</td>
 <td>tm_year</td>
-<td align="left">2008</td>
+<td style="text-align:left">2008</td>
 </tr>
 <tr>
-<td align="left">1</td>
-<td align="left">月</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">月</td>
 <td>tm_mon</td>
-<td align="left">1 到 12</td>
+<td style="text-align:left">1 到 12</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="left">日</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">日</td>
 <td>tm_mday</td>
-<td align="left">1到31</td>
+<td style="text-align:left">1到31</td>
 </tr>
 <tr>
-<td align="left">3</td>
-<td align="left">小时</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">小时</td>
 <td>tm_hour</td>
-<td align="left">0到23</td>
+<td style="text-align:left">0到23</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="left">分钟</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">分钟</td>
 <td>tm_min</td>
-<td align="left">0到59</td>
+<td style="text-align:left">0到59</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left">秒</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">秒</td>
 <td>tm_sec</td>
-<td align="left">0到61 (60或61 是闰秒)</td>
+<td style="text-align:left">0到61 (60或61 是闰秒)</td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="left">一周的第几日</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">一周的第几日</td>
 <td>tm_wday</td>
-<td align="left">0到6 (0是周一)</td>
+<td style="text-align:left">0到6 (0是周一)</td>
 </tr>
 <tr>
-<td align="left">7</td>
-<td align="left">一年的第几日</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">一年的第几日</td>
 <td>tm_yday</td>
-<td align="left">1到366</td>
+<td style="text-align:left">1到366</td>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="left">夏令时</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">夏令时</td>
 <td>tm_isdst</td>
-<td align="left">-1, 0, 1, -1是决定是否为夏令时的标识</td>
+<td style="text-align:left">-1, 0, 1, -1是决定是否为夏令时的标识</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="2-当前时间"><a href="#2-当前时间" class="headerlink" title="2 当前时间"></a>2 当前时间</h2><ul>
 <li><p>从返回浮点数的时间戳方式向时间元组转换</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
@@ -435,7 +438,8 @@ localtime <span class="token operator">=</span> time<span class="token punctuati
 
 localtime <span class="token operator">=</span> time<span class="token punctuation">.</span>asctime<span class="token punctuation">(</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"本地时间为 :"</span><span class="token punctuation">,</span> localtime<span class="token punctuation">)</span>
-<span class="token comment"># 本地时间为 : Fri Jul  5 12:53:57 2024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 本地时间为 : Fri Jul  5 12:53:57 2024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-日期格式化"><a href="#3-日期格式化" class="headerlink" title="3 日期格式化"></a>3 日期格式化</h2><ul>
 <li>使用 time 模块的 strftime 方法来格式化日期：<code>time.strftime(format[, t])</code></li>
@@ -454,7 +458,6 @@ localtime <span class="token operator">=</span> time<span class="token punctuati
 a <span class="token operator">=</span> <span class="token string">"Sat Mar 28 22:24:24 2016"</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">"%a %b %d %H:%M:%S %Y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># 1459175064.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><p>时间日期格式化符号</p>
 <ul>
@@ -523,71 +526,74 @@ Mo Tu We Th Fr Sa Su
 22 23 24 25 26 27 28
 29 30 31
 '''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="5-Time模块"><a href="#5-Time模块" class="headerlink" title="5 Time模块"></a>5 Time模块</h2><table>
+<h2 id="5-Time模块"><a href="#5-Time模块" class="headerlink" title="5 Time模块"></a>5 Time模块</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left">函数及描述</th>
-<th align="left">实例</th>
+<th style="text-align:left">函数及描述</th>
+<th style="text-align:left">实例</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">time.altzone<br>返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
-<td align="left">以下实例展示了 altzone()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("time.altzone %d " % time.altzone) time.altzone -28800 </code></td>
+<tbody>
+<tr>
+<td style="text-align:left">time.altzone<br>返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
+<td style="text-align:left">以下实例展示了 altzone()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print ("time.altzone %d " % time.altzone) time.altzone -28800</code></td>
 </tr>
 <tr>
-<td align="left">time.asctime([tupletime]) <br>接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
-<td align="left">以下实例展示了 asctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; t = time.localtime() </code><br><code>&gt;&gt;&gt; print ("time.asctime(t): %s " % time.asctime(t)) </code><br><code>time.asctime(t): Thu Apr  7 10:36:20 2016 </code></td>
+<td style="text-align:left">time.asctime([tupletime]) <br>接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
+<td style="text-align:left">以下实例展示了 asctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; t = time.localtime()</code><br><code>&gt;&gt;&gt; print ("time.asctime(t): %s " % time.asctime(t))</code><br><code>time.asctime(t): Thu Apr  7 10:36:20 2016</code></td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">time.clock()</a> <br>用以浮点数计算的秒数返回当前的CPU时间。用来<strong>衡量不同程序的耗时</strong>，比time.time()更有用。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">实例</a>由于该方法依赖操作系统，在 Python 3.3 以后不被推荐，而在 3.8 版本中被移除，需使用下列两个函数替代。<br><code>time.perf_counter()  # 返回系统运行时间 time.process_time()  # 返回进程运行时间</code></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">time.clock()</a> <br>用以浮点数计算的秒数返回当前的CPU时间。用来<strong>衡量不同程序的耗时</strong>，比time.time()更有用。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-clock.html">实例</a>由于该方法依赖操作系统，在 Python 3.3 以后不被推荐，而在 3.8 版本中被移除，需使用下列两个函数替代。<br><code>time.perf_counter()  # 返回系统运行时间 time.process_time()  # 返回进程运行时间</code></td>
 </tr>
 <tr>
-<td align="left">time.ctime([secs]) <br>作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
-<td align="left">以下实例展示了 ctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("time.ctime() : %s" % time.ctime()) time.ctime() : Thu Apr  7 10:51:58 2016</code></td>
+<td style="text-align:left">time.ctime([secs]) <br>作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
+<td style="text-align:left">以下实例展示了 ctime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print ("time.ctime() : %s" % time.ctime()) time.ctime() : Thu Apr  7 10:51:58 2016</code></td>
 </tr>
 <tr>
-<td align="left">time.gmtime([secs]) <br>接收时间戳（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
-<td align="left">以下实例展示了 gmtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("gmtime :", time.gmtime(1455508609.34375)) </code><br><code>gmtime : time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=3, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
+<td style="text-align:left">time.gmtime([secs]) <br>接收时间戳（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
+<td style="text-align:left">以下实例展示了 gmtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print ("gmtime :", time.gmtime(1455508609.34375))</code><br><code>gmtime : time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=3, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
 </tr>
 <tr>
-<td align="left">time.localtime([secs] <br>接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
-<td align="left">以下实例展示了 localtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print ("localtime(): ", time.localtime(1455508609.34375)) </code><br><code>localtime():  time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=11, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
+<td style="text-align:left">time.localtime([secs] <br>接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
+<td style="text-align:left">以下实例展示了 localtime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print ("localtime(): ", time.localtime(1455508609.34375))</code><br><code>localtime():  time.struct_time(tm_year=2016, tm_mon=2, tm_mday=15, tm_hour=11, tm_min=56, tm_sec=49, tm_wday=0, tm_yday=46, tm_isdst=0)</code></td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-mktime.html">time.mktime(tupletime)</a> <br>接受时间元组并返回时间戳（1970纪元后经过的浮点秒数）。</td>
-<td align="left"><code>t = (2016, 2, 17, 17, 3, 38, 1, 48, 0) </code><br><code>secs = time.mktime( t ) </code><br><code>print ("time.mktime(t) : %f" %  secs) </code><br><code>print ("asctime(localtime(secs)): %s" % time.asctime(time.localtime(secs)))</code><br>==time.mktime(t) : 1455699818.000000<br>asctime(localtime(secs)): Wed Feb 17 17:03:38 2016==</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-mktime.html">time.mktime(tupletime)</a> <br>接受时间元组并返回时间戳（1970纪元后经过的浮点秒数）。</td>
+<td style="text-align:left"><code>t = (2016, 2, 17, 17, 3, 38, 1, 48, 0)</code><br><code>secs = time.mktime( t )</code><br><code>print ("time.mktime(t) : %f" %  secs)</code><br><code>print ("asctime(localtime(secs)): %s" % time.asctime(time.localtime(secs)))</code><br>==time.mktime(t) : 1455699818.000000<br>asctime(localtime(secs)): Wed Feb 17 17:03:38 2016==</td>
 </tr>
 <tr>
-<td align="left">time.sleep(secs) <br>推迟调用线程的运行，secs指秒数。</td>
-<td align="left">以下实例展示了 sleep()函数的使用方法：<br><code>import time </code><br><code>print ("Start : %s" % time.ctime()) time.sleep( 5 ) </code><br><code>print ("End : %s" % time.ctime())</code></td>
+<td style="text-align:left">time.sleep(secs) <br>推迟调用线程的运行，secs指秒数。</td>
+<td style="text-align:left">以下实例展示了 sleep()函数的使用方法：<br><code>import time</code><br><code>print ("Start : %s" % time.ctime()) time.sleep( 5 )</code><br><code>print ("End : %s" % time.ctime())</code></td>
 </tr>
 <tr>
-<td align="left">time.strftime(fmt[,tupletime]) <br>接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
-<td align="left">以下实例展示了 strftime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) </code><br><code>2016-04-07 11:18:05</code></td>
+<td style="text-align:left">time.strftime(fmt[,tupletime]) <br>接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
+<td style="text-align:left">以下实例展示了 strftime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))</code><br><code>2016-04-07 11:18:05</code></td>
 </tr>
 <tr>
-<td align="left">time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’) <br>根据fmt的格式把一个时间字符串解析为时间元组。</td>
-<td align="left">以下实例展示了 strptime()函数的使用方法：<br><code>&gt;&gt;&gt; import time </code><br><code>&gt;&gt;&gt; struct_time = time.strptime("30 Nov 00", "%d %b %y") </code><br><code>&gt;&gt;&gt; print ("返回元组: ", struct_time) </code><br><code>返回元组:  time.struct_time(tm_year=2000, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=335, tm_isdst=-1)</code></td>
+<td style="text-align:left">time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’) <br>根据fmt的格式把一个时间字符串解析为时间元组。</td>
+<td style="text-align:left">以下实例展示了 strptime()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; struct_time = time.strptime("30 Nov 00", "%d %b %y")</code><br><code>&gt;&gt;&gt; print ("返回元组: ", struct_time)</code><br><code>返回元组:  time.struct_time(tm_year=2000, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=335, tm_isdst=-1)</code></td>
 </tr>
 <tr>
-<td align="left">time.time( ) <br>返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
-<td align="left">以下实例展示了 time()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print(time.time())</code><br><code>1459999336.1963577</code></td>
+<td style="text-align:left">time.time( ) <br>返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
+<td style="text-align:left">以下实例展示了 time()函数的使用方法：<br><code>&gt;&gt;&gt; import time</code><br><code>&gt;&gt;&gt; print(time.time())</code><br><code>1459999336.1963577</code></td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">time.tzset()</a> <br>根据环境变量TZ重新初始化时间相关设置。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">实例</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">time.tzset()</a> <br>根据环境变量TZ重新初始化时间相关设置。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-att-time-tzset.html">实例</a></td>
 </tr>
 <tr>
-<td align="left"><strong>time.perf_counter()</strong> <br>返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-date-time.html#comment-35499">实例</a></td>
+<td style="text-align:left"><strong>time.perf_counter()</strong> <br>返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-date-time.html#comment-35499">实例</a></td>
 </tr>
 <tr>
-<td align="left"><strong>time.process_time()</strong> <br>返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
-<td align="left"></td>
+<td style="text-align:left"><strong>time.process_time()</strong> <br>返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -595,7 +601,8 @@ Mo Tu We Th Fr Sa Su
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>time.timezone</strong></td>
 <td>属性time.timezone是当地时区（未启动夏令时）距离格林威治的偏移秒数（&gt;0，美洲;&lt;=0大部分欧洲，亚洲，非洲）</td>
 </tr>
@@ -603,66 +610,13 @@ Mo Tu We Th Fr Sa Su
 <td><strong>time.tzname</strong></td>
 <td>属性time.tzname包含一对根据情况的不同而不同的字符串，分别是带夏令时的本地时区名称，和不带的</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="6-Calendar模块"><a href="#6-Calendar模块" class="headerlink" title="6 Calendar模块"></a>6 Calendar模块</h2><ul>
 <li><p>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用<code>calendar.setfirstweekday()</code>函数</p>
 </li>
-<li><table>
-<thead>
-<tr>
-<th align="left">函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>calendar.calendar(year,w=2,l=1,c=6)</strong></td>
-<td>返回一个多行字符串格式的 year 年年历，3 个月一行，间隔距离为 c。 每日宽度间隔为w字符。每行长度为 <strong>21* W+18+2* C</strong>。<strong>l</strong> 是每星期行数。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.firstweekday( )</strong></td>
-<td>返回当前每周起始日期的设置。默认情况下，首次载入 calendar 模块时返回 0，即星期一。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.isleap(year)</strong></td>
-<td>是闰年返回 True，否则为 False。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.leapdays(y1,y2)</strong></td>
-<td>返回在Y1，Y2两年之间的闰年总数。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.month(year,month,w=2,l=1)</strong></td>
-<td>返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7* w+6。l是每星期的行数。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.monthcalendar(year,month)</strong></td>
-<td>返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.monthrange(year,month)</strong></td>
-<td>返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从0（星期一）到 6（星期日）。<br><code>&gt;&gt;&gt; import calendar </code><br><code>&gt;&gt;&gt; calendar.monthrange(2014, 11) </code><br><code>(5, 30)</code><br>(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.prcal(year, w=0, l=0, c=6, m=3)</strong></td>
-<td>相当于 print (calendar.calendar(year, w=0, l=0, c=6, m=3))。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.prmonth(theyear, themonth, w=0, l=0)</strong></td>
-<td>相当于 **print(calendar.month(theyear, themonth, w=0, l=0))**。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.setfirstweekday(weekday)</strong></td>
-<td>设置每周的起始日期码。0（星期一）到6（星期日）。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.timegm(tupletime)</strong></td>
-<td>和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间戳（1970纪元后经过的浮点秒数）。</td>
-</tr>
-<tr>
-<td align="left"><strong>calendar.weekday(year,month,day)</strong></td>
-<td>返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。</td>
-</tr>
-</tbody></table>
+<li><p>| 函数                                              | 描述                                                         |<br>| :———————————————————————— | —————————————————————————————— |<br>| <strong>calendar.calendar(year,w=2,l=1,c=6)</strong>           | 返回一个多行字符串格式的 year 年年历，3 个月一行，间隔距离为 c。 每日宽度间隔为w字符。每行长度为 <strong>21* W+18+2* C</strong>。<strong>l</strong> 是每星期行数。 |<br>| <strong>calendar.firstweekday( )</strong>                      | 返回当前每周起始日期的设置。默认情况下，首次载入 calendar 模块时返回 0，即星期一。 |<br>| <strong>calendar.isleap(year)</strong>                         | 是闰年返回 True，否则为 False。                              |<br>| <strong>calendar.leapdays(y1,y2)</strong>                      | 返回在Y1，Y2两年之间的闰年总数。                             |<br>| <strong>calendar.month(year,month,w=2,l=1)</strong>            | 返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7<em> w+6。l是每星期的行数。 |<br>| <strong>calendar.monthcalendar(year,month)</strong>            | 返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。 |<br>| <strong>calendar.monthrange(year,month)</strong>               | 返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从0（星期一）到 6（星期日）。<br><code>&gt;&gt;&gt; import calendar</code><br><code>&gt;&gt;&gt; calendar.monthrange(2014, 11)</code><br><code>(5, 30)</code><br>(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。 |<br>| <strong>calendar.prcal(year, w=0, l=0, c=6, m=3)</strong>      | 相当于 print (calendar.calendar(year, w=0, l=0, c=6, m=3))。 |<br>| <strong>calendar.prmonth(theyear, themonth, w=0, l=0)</strong> | 相当于 <strong>print(calendar.month(theyear, themonth, w=0, l=0))</strong>。 |<br>| <strong>calendar.setfirstweekday(weekday)</strong>             | 设置每周的起始日期码。0（星期一）到6（星期日）。             |<br>| <strong>calendar.timegm(tupletime)</strong>                    | 和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间戳（1970纪元后经过的浮点秒数）。 |<br>| <em>*calendar.weekday(year,month,day)</em></em>              | 返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。 |</p>
 </li>
 </ul>
 <h2 id="7-datetime模块"><a href="#7-datetime模块" class="headerlink" title="7 datetime模块"></a>7 datetime模块</h2><ul>
@@ -696,89 +650,9 @@ Mo Tu We Th Fr Sa Su
 <ul>
 <li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407161901214.png" alt="datetime类"></p>
 </li>
-<li><table>
-<thead>
-<tr>
-<th>类方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>datetime.today()</td>
-<td>返回一个简单型datetime 对象，表示当前地方时间。（tzinfo 为 None）此方法的功能等价于 now()，但是不带 tz 形参。</td>
-</tr>
-<tr>
-<td>datetime.now(tz=None)</td>
-<td>返回 datetime 对象，表示当前地方时间。（1）如果可选参数 tz 为 None 或未指定，这就类似于 today()；（2）如果 tz 不为 None，它必须是 tzinfo 子类的一个实例，并且当前日期和时间将被转换到 tz 时区；（3）使用带 UTC（tz=timezone.utc）的 datetime.now() 得到当前 UTC datetime对象</td>
-</tr>
-<tr>
-<td>datetime.utcnow()</td>
-<td>返回一个简单型 datetime 对象（其中 tzinfo 为 None），表示当前 UTC。注：不推荐使用此方法，推荐使用 datetime.now(timezone.utc)。</td>
-</tr>
-<tr>
-<td>datetime.combine(date, time, tzinfo=time.tzinfo)</td>
-<td>返回一个新的 datetime 对象，其日期部分等于给定的 date 对象的值，而其时间部分等于给定的 time 对象的值。（1）如果提供了 tzinfo 参数，其值会被用来设置结果的 tzinfo 属性，否则将使用 time 参数的 tzinfo 属性。（2）如果 date 参数是一个 datetime 对象，则其时间部分和 tzinfo 属性将被忽略。（3）对于任意 datetime 对象 d，d == datetime.combine(d.date(), d.time(), d.tzinfo)。</td>
-</tr>
-<tr>
-<td>datetime.strptime(date_string, format)</td>
-<td>返回一个对应于 date_string，根据 format 进行解析得到的datetime对象。（1）如果 format 不包含微秒或时区信息，等价于:datetime(*(time.strptime(date_string, format)[0:6]))（2）如果 date_string 和 format 无法被 time.strptime() 解析或它返回一个不是时间元组的值则将引发 ValueError</td>
-</tr>
-<tr>
-<td>datetime.fromisoformat(date_string)</td>
-<td>返回一个对应于以任何有效的 8601 格式给出的 date_string 的 datetime</td>
-</tr>
-<tr>
-<td>datetime.fromisocalendar(year, week, day)</td>
-<td>返回以 year, week 和 day 值指明的 ISO 历法日期所对应的 datetime。</td>
-</tr>
-<tr>
-<td>datetime.fromordinal(ordinal)</td>
-<td>返回一个简单型 datetime 对象，表示格列高利历序号对应的日期。注：结果中的 hour, minute, second 和 microsecond 值均为 0，tzinfo 值为 None</td>
-</tr>
-<tr>
-<td>datetime.fromtimestamp(timestamp, tz=None)</td>
-<td>返回一个简单型 datetime 对象，表示 unix time 对应的本地日期和时间</td>
-</tr>
-<tr>
-<td>datetime.utcfromtimestamp(timestamp)</td>
-<td>返回一个简单型 datetime 对象，表示 unix time 对应的 UTC。注：tzinfo 值为 None</td>
-</tr>
-</tbody></table>
+<li><p>| 类方法                                           | 描述                                                         |<br>| ———————————————————————— | —————————————————————————————— |<br>| datetime.today()                                 | 返回一个简单型datetime 对象，表示当前地方时间。（tzinfo 为 None）此方法的功能等价于 now()，但是不带 tz 形参。 |<br>| datetime.now(tz=None)                            | 返回 datetime 对象，表示当前地方时间。（1）如果可选参数 tz 为 None 或未指定，这就类似于 today()；（2）如果 tz 不为 None，它必须是 tzinfo 子类的一个实例，并且当前日期和时间将被转换到 tz 时区；（3）使用带 UTC（tz=timezone.utc）的 datetime.now() 得到当前 UTC datetime对象 |<br>| datetime.utcnow()                                | 返回一个简单型 datetime 对象（其中 tzinfo 为 None），表示当前 UTC。注：不推荐使用此方法，推荐使用 datetime.now(timezone.utc)。 |<br>| datetime.combine(date, time, tzinfo=time.tzinfo) | 返回一个新的 datetime 对象，其日期部分等于给定的 date 对象的值，而其时间部分等于给定的 time 对象的值。（1）如果提供了 tzinfo 参数，其值会被用来设置结果的 tzinfo 属性，否则将使用 time 参数的 tzinfo 属性。（2）如果 date 参数是一个 datetime 对象，则其时间部分和 tzinfo 属性将被忽略。（3）对于任意 datetime 对象 d，d == datetime.combine(d.date(), d.time(), d.tzinfo)。 |<br>| datetime.strptime(date_string, format)           | 返回一个对应于 date_string，根据 format 进行解析得到的datetime对象。（1）如果 format 不包含微秒或时区信息，等价于:datetime(*(time.strptime(date_string, format)[0:6]))（2）如果 date_string 和 format 无法被 time.strptime() 解析或它返回一个不是时间元组的值则将引发 ValueError |<br>| datetime.fromisoformat(date_string)              | 返回一个对应于以任何有效的 8601 格式给出的 date_string 的 datetime |<br>| datetime.fromisocalendar(year, week, day)        | 返回以 year, week 和 day 值指明的 ISO 历法日期所对应的 datetime。 |<br>| datetime.fromordinal(ordinal)                    | 返回一个简单型 datetime 对象，表示格列高利历序号对应的日期。注：结果中的 hour, minute, second 和 microsecond 值均为 0，tzinfo 值为 None |<br>| datetime.fromtimestamp(timestamp, tz=None)       | 返回一个简单型 datetime 对象，表示 unix time 对应的本地日期和时间 |<br>| datetime.utcfromtimestamp(timestamp)             | 返回一个简单型 datetime 对象，表示 unix time 对应的 UTC。注：tzinfo 值为 None |</p>
 </li>
-<li><table>
-<thead>
-<tr>
-<th align="left">算术运算</th>
-<th align="left"><strong>描述</strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>datetime2 = datetime1 + timedelta</code></td>
-<td align="left">如果 timedelta.days &gt; 0 则在时间线上前进，如果 timedelta.days &lt; 0 则在时间线上后退。</td>
-<td>（1）输出结果具有与输入的 datetime 相同的 tzinfo 属性，并且操作完成后 datetime2 - datetime1 == timedelta。</td>
-</tr>
-<tr>
-<td align="left"><code>datetime2 = datetime1 - timedelta</code></td>
-<td align="left">如果 timedelta.days &gt; 0 则在时间线上后退，如果 timedelta.days &lt; 0 则在时间线上前进。</td>
-<td>（2）即使输入的是一个感知型对象，该方法也不会进行时区调整。</td>
-</tr>
-<tr>
-<td align="left"><code>timedelta = datetime1 - datetime2</code></td>
-<td align="left">仅对两个操作数均为简单型或均为感知型时有定义，如果一个是感知型而另一个是简单型，将会引发 TypeError。</td>
-<td>（1）如果两个比较数都是感知的，并且具有相同的tzinfo属性，则忽略tzinfo和fold属性，基于基本的日期时间进行计算或比较。</td>
-</tr>
-<tr>
-<td align="left"><code>datetime1 == datetime2</code><br><code>datetime1 != datetime2</code></td>
-<td align="left">相等性比较。<br>简单型和感知型 datetime 对象绝对不会相等，datetime 对象和不为 datetime 实例的 date 对象绝对不会相等（即使二者表示相同的日期）。</td>
-<td>（2）如果两个比较数都是感知的并且具有不同的tzinfo属性，则先将比较数转换为UTC（dt.replace(tzinfo=None) - dt.utcoffset()），再进行比较。</td>
-</tr>
-<tr>
-<td align="left"><code>datetime1 &lt; datetime2</code><br><code>datetime1 &gt; datetime2</code><br><code>datetime1 &lt;= datetime2</code><br><code>datetime1 &gt;= datetime2</code></td>
-<td align="left">顺序比较：<br>简单型和感知型对象之间，以及 datetime 对象与非 datetime 实例的 date 对象之间的顺序比较会引发 TypeError。</td>
-<td></td>
-</tr>
-</tbody></table>
+<li><p>| 算术运算                                                     | <strong>描述</strong>                                                     |                                                              |<br>| :—————————————————————————————- | :—————————————————————————————- | —————————————————————————————— |<br>| <code>datetime2 = datetime1 + timedelta</code>                          | 如果 timedelta.days &gt; 0 则在时间线上前进，如果 timedelta.days &lt; 0 则在时间线上后退。 | （1）输出结果具有与输入的 datetime 相同的 tzinfo 属性，并且操作完成后 datetime2 - datetime1 == timedelta。 |<br>| <code>datetime2 = datetime1 - timedelta</code>                          | 如果 timedelta.days &gt; 0 则在时间线上后退，如果 timedelta.days &lt; 0 则在时间线上前进。 | （2）即使输入的是一个感知型对象，该方法也不会进行时区调整。  |<br>| <code>timedelta = datetime1 - datetime2</code>                          | 仅对两个操作数均为简单型或均为感知型时有定义，如果一个是感知型而另一个是简单型，将会引发 TypeError。 | （1）如果两个比较数都是感知的，并且具有相同的tzinfo属性，则忽略tzinfo和fold属性，基于基本的日期时间进行计算或比较。 |<br>| <code>datetime1 == datetime2</code><br><code>datetime1 != datetime2</code>       | 相等性比较。<br>简单型和感知型 datetime 对象绝对不会相等，datetime 对象和不为 datetime 实例的 date 对象绝对不会相等（即使二者表示相同的日期）。 | （2）如果两个比较数都是感知的并且具有不同的tzinfo属性，则先将比较数转换为UTC（dt.replace(tzinfo=None) - dt.utcoffset()），再进行比较。 |<br>| <code>datetime1 &lt; datetime2</code><br><code>datetime1 &gt; datetime2</code><br><code>datetime1 &lt;= datetime2</code><br><code>datetime1 &gt;= datetime2</code> | 顺序比较：<br>简单型和感知型对象之间，以及 datetime 对象与非 datetime 实例的 date 对象之间的顺序比较会引发 TypeError。 |                                                              |</p>
 </li>
 </ul>
 </li>
@@ -797,9 +671,8 @@ delta <span class="token operator">=</span> timedelta<span class="token punctuat
 <span class="token comment"># Only days, seconds, and microseconds remain</span>
 delta
 datetime<span class="token punctuation">.</span>timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">,</span> seconds<span class="token operator">=</span><span class="token number">29156</span><span class="token punctuation">,</span> microseconds<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
-<li>实例方法：timedelta.total_seconds()—-返回占用了多少秒。等价于 td / timedelta(seconds=1)。对于秒以外的间隔单位，使用除法形式，如： td / timedelta(microseconds=1)。</li>
+<li>实例方法：timedelta.total_seconds()——返回占用了多少秒。等价于 td / timedelta(seconds=1)。对于秒以外的间隔单位，使用除法形式，如： td / timedelta(microseconds=1)。</li>
 </ul>
 </li>
 <li><p>tzinfo | timezone</p>
@@ -918,7 +791,8 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
 <span class="token comment"># 2012-08-07</span>
 <span class="token comment"># 2012-08-08</span>
 <span class="token comment"># 2012-08-09</span>
-<span class="token comment">#... and so on...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment">#... and so on...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="9-字符串转换为日期"><a href="#9-字符串转换为日期" class="headerlink" title="9 字符串转换为日期"></a>9 字符串转换为日期</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> text <span class="token operator">=</span> <span class="token string">'2012-09-20'</span>
@@ -932,7 +806,6 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> nice_z <span class="token operator">=</span> datetime<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span>z<span class="token punctuation">,</span> <span class="token string">'%A %B %d, %Y'</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> nice_z
 <span class="token string">'Sunday September 23, 2012'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="10-结合时区的日期操作"><a href="#10-结合时区的日期操作" class="headerlink" title="10 结合时区的日期操作"></a>10 结合时区的日期操作</h2><ul>
 <li><p>处理本地化日期的通常的策略<strong>先将所有日期转换为UTC时间， 并用它来执行所有的中间存储和操作</strong></p>
 </li>
@@ -957,18 +830,12 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> later_utc <span class="token operator">=</span> utc_d <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>minutes<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>later_utc<span class="token punctuation">.</span>astimezone<span class="token punctuation">(</span>central<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># 2013-03-10 03:15:00-05:00</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>得到时区的名称</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pytz<span class="token punctuation">.</span>country_timezones<span class="token punctuation">[</span><span class="token string">'IN'</span><span class="token punctuation">]</span>
 <span class="token punctuation">[</span><span class="token string">'Asia/Kolkata'</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -1041,12 +908,12 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -1130,12 +997,12 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1183,12 +1050,12 @@ datetime<span class="token punctuation">.</span>datetime<span class="token punct
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

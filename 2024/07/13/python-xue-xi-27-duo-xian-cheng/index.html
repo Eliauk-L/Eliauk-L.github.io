@@ -278,12 +278,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -351,7 +351,7 @@
 <li>每个线程都有他自己的一组CPU寄存器，称为线程的<strong>上下文</strong>，该上下文反映了线程上次运行该线程的CPU寄存器的状态。</li>
 <li><strong>指令指针和堆栈指针寄存器</strong>是线程上下文中两个最重要的寄存器，线程总是在进程得到上下文中运行的，这些地址都用于标志拥有线程的进程地址空间中的内存。<ul>
 <li>线程可以被抢占（中断）。</li>
-<li>在其他线程正在运行时，线程可以暂时搁置（也称为睡眠） – 这就是线程的退让。</li>
+<li>在其他线程正在运行时，线程可以暂时搁置（也称为睡眠） — 这就是线程的退让。</li>
 </ul>
 </li>
 <li>Python中的线程会在一个单独的<strong>系统级线程</strong>中执行（比如说一个 POSIX 线程或者一个 Windows 线程），这些线程将由操作系统来全权管理。线程一旦启动，将独立执行直到目标函数返回。</li>
@@ -369,7 +369,7 @@
 <li>由于全局解释锁（GIL）的原因，Python 的线程被限制到<strong>同一时刻只允许一个线程执行</strong>这样一个执行模型。所以，Python 的线程更适用于处理I/O和其他需要并发执行的阻塞操作（比如等待I/O、等待从数据库获取数据等等），而不是需要多处理器并行的计算密集型任务。</li>
 </ul>
 <h2 id="1-thread-模块"><a href="#1-thread-模块" class="headerlink" title="1 _thread 模块"></a>1 _thread 模块</h2><ul>
-<li><p>函数式创建线程：调用 _thread 模块中的**start_new_thread()**函数来产生新线程</p>
+<li><p>函数式创建线程：调用 _thread 模块中的<strong>start_new_thread()</strong>函数来产生新线程</p>
 </li>
 <li><p><strong><code>_thread.start_new_thread ( function, args[, kwargs] )</code></strong></p>
 <ul>
@@ -398,7 +398,8 @@
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: 无法启动线程"</span><span class="token punctuation">)</span>
 
 <span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
-   <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+   <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="2-线程模块threading"><a href="#2-线程模块threading" class="headerlink" title="2 线程模块threading"></a>2 线程模块threading</h2><ul>
 <li><p>threading 模块除了包含 _thread 模块中的所有方法外，还提供的其他方法</p>
@@ -437,7 +438,7 @@
 </ul>
 </li>
 <li><strong><code>join(self, timeout=None)</code>：</strong><ul>
-<li><strong>等待线程终止</strong>。默	认情况下，<code>join()</code>会一直阻塞，直到被调用线程终止。如果指定了<code>timeout</code>参数，则最多等待<code>timeout</code>秒。</li>
+<li><strong>等待线程终止</strong>。默    认情况下，<code>join()</code>会一直阻塞，直到被调用线程终止。如果指定了<code>timeout</code>参数，则最多等待<code>timeout</code>秒。</li>
 </ul>
 </li>
 <li><strong><code>is_alive(self)</code>：</strong><ul>
@@ -522,7 +523,8 @@ thread1<span class="token punctuation">.</span>start<span class="token punctuati
 thread2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 thread1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
 thread2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"退出主线程"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"退出主线程"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-线程同步"><a href="#3-线程同步" class="headerlink" title="3 线程同步"></a>3 线程同步</h2><ul>
 <li><p>如果<strong>多个线程共同对某个数据修改</strong>，则可能出现不可预料的结果，为了保证数据的正确性，需要对多个线程进行同步。</p>
@@ -628,7 +630,6 @@ threads<span class="token punctuation">.</span>append<span class="token punctuat
         '''</span>
         <span class="token keyword">with</span> SharedCounter<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
              self<span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token operator">-</span>delta<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>该例子中没有对每一个实例中的可变对象加锁，而是一个<strong>被所有实例共享的类级锁</strong>。这个锁用来<strong>同步类方法</strong>，这个锁可以保证一次<strong>只有一个线程可以调用这个类方法</strong>。不过，与一个标准的锁不同的是，<strong>已经持有这个锁的方法在调用同样使用这个锁的方法时无需再次获取锁。</strong></p>
 </li>
 <li><p><strong>限制一段代码的并发访问量</strong></p>
@@ -640,7 +641,8 @@ _fetch_url_sema <span class="token operator">=</span> Semaphore<span class="toke
 
 <span class="token keyword">def</span> <span class="token function">fetch_url</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">with</span> _fetch_url_sema<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        <span class="token keyword">return</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="4-线程优先级队列"><a href="#4-线程优先级队列" class="headerlink" title="4 线程优先级队列"></a>4 线程优先级队列</h2><ul>
 <li><p>Python 的 <code>Queue</code> 模块中提供了<strong>同步的、线程安全</strong>的队列类，包括<code>FIFO</code>（先入先出)队列Queue，<code>LIFO</code>（后入先出）队列LifoQueue，和优先级队列 <code>PriorityQueue</code>。这些队列都实现了锁原语，能够<strong>在多线程中直接使用</strong>，可以<strong>使用队列来实现线程间的同步</strong>。</p>
@@ -732,7 +734,8 @@ Thread-1 processing Five
 退出线程：Thread-2
 退出线程：Thread-1
 退出主线程
-'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="5-信号量"><a href="#5-信号量" class="headerlink" title="5 信号量"></a>5 信号量</h2><ul>
 <li><p>程序中的其他线程需要通过判断某个线程的状态来确定下一步操作</p>
@@ -900,7 +903,8 @@ t1<span class="token punctuation">.</span>start<span class="token punctuation">(
 
 t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>thread_2<span class="token punctuation">)</span>
 t2<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span>
-t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="7-线程状态信息"><a href="#7-线程状态信息" class="headerlink" title="7 线程状态信息"></a>7 线程状态信息</h2><ul>
 <li><p>保存当前运行线程的状态：使用 <code>thread.local()</code> 创建一个本地线程存储对象。 对这个对象的属性的保存和读取操作都只会对执行线程可见，而其他线程并不可见。</p>
@@ -946,7 +950,8 @@ t2<span class="token punctuation">.</span>start<span class="token punctuation">(
     t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="8-线程池"><a href="#8-线程池" class="headerlink" title="8 线程池"></a>8 线程池</h2><ul>
 <li><p><code>concurrent.futures</code> 模块</p>
@@ -1010,7 +1015,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
     result<span class="token operator">=</span><span class="token punctuation">[</span>i<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> all_task<span class="token punctuation">]</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"result:</span><span class="token interpolation"><span class="token punctuation">{</span>result<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>等到所有子线程完成：**<code>wait(fs, timeout=None, return_when=ALL_COMPLETED)</code>**</p>
+<li><p>等到所有子线程完成：<strong><code>wait(fs, timeout=None, return_when=ALL_COMPLETED)</code></strong></p>
 <ul>
 <li>fs: 表示需要执行的序列<br>timeout: 等待的最大时间，如果超过这个时间即使线程未执行完成也将返回<br>return_when：表示wait返回结果的条件，默认为 <code>ALL_COMPLETED</code> 全部执行完成再返回，可选 <code>FIRST_COMPLETED</code></li>
 </ul>
@@ -1086,7 +1091,6 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 3 返回
 ----complete-----
 '''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>as_completed() 方法是一个生成器，在没有任务完成的时候，会一直阻塞。当有某个任务完成的时候，会 yield 这个任务，就能执行 for 循环下面的语句，然后继续阻塞住，循环到所有的任务结束。同时，先完成的任务会先返回给主线程。</p>
 </li>
 <li><p>map 方法是对序列中每一个元素都执行 action 方法</p>
@@ -1095,7 +1099,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 </li>
 <li><p>返回结果的顺序和元素的顺序相同，即使子线程先返回也不会获取结果</p>
 </li>
-<li><p><strong><code>map(fn, *iterables, timeout=**None**)</code></strong></p>
+<li><p><strong>`map(fn, *iterables, timeout=</strong>None<strong>)`</strong></p>
 <ul>
 <li>fn： 第一个参数 fn 是需要线程执行的函数；</li>
 <li>iterables：第二个参数接受一个可迭代对象；</li>
@@ -1122,7 +1126,8 @@ lists<span class="token operator">=</span><span class="token punctuation">[</spa
 1 返回
 2 返回
 3 返回
-'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1167,7 +1172,8 @@ results <span class="token operator">=</span> <span class="token builtin">map</s
     <span class="token comment"># Obtaining the result (blocks until done)</span>
     r <span class="token operator">=</span> future_result<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 会阻塞进程直到结果被返回来</span>
     future_result<span class="token punctuation">.</span>add_done_callback<span class="token punctuation">(</span>when_done<span class="token punctuation">)</span> <span class="token comment"># 不阻塞则使用回调函数</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1196,7 +1202,6 @@ pool <span class="token operator">=</span> <span class="token boolean">None</spa
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> multiprocessing
     pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p> 当一个线程想要执行CPU密集型工作时，会将任务发给进程池。 然后进程池会在另外一个进程中启动一个单独的Python解释器来工作。 当线程等待结果的时候会释放GIL。能很好的利用多CPU的优势。</p>
 </li>
 <li><p>使用C扩展编程技术：将计算密集型任务转移给C，跟Python独立，在工作的时候在C代码中释放GIL。</p>
@@ -1211,7 +1216,8 @@ PyObject <span class="token operator">*</span><span class="token function">pyfun
    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
    Py_END_ALLOW_THREADS
    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
@@ -1285,12 +1291,12 @@ PyObject <span class="token operator">*</span><span class="token function">pyfun
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -1374,12 +1380,12 @@ PyObject <span class="token operator">*</span><span class="token function">pyfun
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1427,12 +1433,12 @@ PyObject <span class="token operator">*</span><span class="token function">pyfun
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

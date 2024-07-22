@@ -283,12 +283,12 @@ Python hashlib 模块主要用于进行哈希（hash）操作。
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -363,7 +363,8 @@ Python hashlib 模块主要用于进行哈希（hash）操作。
 <li><p>hashlib 模块提供了常见的哈希算法的实现，如 MD5、SHA-1、SHA-256 等。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib 
 <span class="token builtin">dir</span><span class="token punctuation">(</span>hashlib<span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token string">'__all__'</span><span class="token punctuation">,</span> <span class="token string">'__block_openssl_constructor'</span><span class="token punctuation">,</span> <span class="token string">'__builtin_constructor_cache'</span><span class="token punctuation">,</span> <span class="token string">'__builtins__'</span><span class="token punctuation">,</span> <span class="token string">'__cached__'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__get_builtin_constructor'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> <span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'_hashlib'</span><span class="token punctuation">,</span> <span class="token string">'algorithms_available'</span><span class="token punctuation">,</span> <span class="token string">'algorithms_guaranteed'</span><span class="token punctuation">,</span> <span class="token string">'blake2b'</span><span class="token punctuation">,</span> <span class="token string">'blake2s'</span><span class="token punctuation">,</span> <span class="token string">'md5'</span><span class="token punctuation">,</span> <span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token string">'pbkdf2_hmac'</span><span class="token punctuation">,</span> <span class="token string">'scrypt'</span><span class="token punctuation">,</span> <span class="token string">'sha1'</span><span class="token punctuation">,</span> <span class="token string">'sha224'</span><span class="token punctuation">,</span> <span class="token string">'sha256'</span><span class="token punctuation">,</span> <span class="token string">'sha384'</span><span class="token punctuation">,</span> <span class="token string">'sha3_224'</span><span class="token punctuation">,</span> <span class="token string">'sha3_256'</span><span class="token punctuation">,</span> <span class="token string">'sha3_384'</span><span class="token punctuation">,</span> <span class="token string">'sha3_512'</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token string">'shake_128'</span><span class="token punctuation">,</span> <span class="token string">'shake_256'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">[</span><span class="token string">'__all__'</span><span class="token punctuation">,</span> <span class="token string">'__block_openssl_constructor'</span><span class="token punctuation">,</span> <span class="token string">'__builtin_constructor_cache'</span><span class="token punctuation">,</span> <span class="token string">'__builtins__'</span><span class="token punctuation">,</span> <span class="token string">'__cached__'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">,</span> <span class="token string">'__file__'</span><span class="token punctuation">,</span> <span class="token string">'__get_builtin_constructor'</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">,</span> <span class="token string">'__name__'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">,</span> <span class="token string">'_hashlib'</span><span class="token punctuation">,</span> <span class="token string">'algorithms_available'</span><span class="token punctuation">,</span> <span class="token string">'algorithms_guaranteed'</span><span class="token punctuation">,</span> <span class="token string">'blake2b'</span><span class="token punctuation">,</span> <span class="token string">'blake2s'</span><span class="token punctuation">,</span> <span class="token string">'md5'</span><span class="token punctuation">,</span> <span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token string">'pbkdf2_hmac'</span><span class="token punctuation">,</span> <span class="token string">'scrypt'</span><span class="token punctuation">,</span> <span class="token string">'sha1'</span><span class="token punctuation">,</span> <span class="token string">'sha224'</span><span class="token punctuation">,</span> <span class="token string">'sha256'</span><span class="token punctuation">,</span> <span class="token string">'sha384'</span><span class="token punctuation">,</span> <span class="token string">'sha3_224'</span><span class="token punctuation">,</span> <span class="token string">'sha3_256'</span><span class="token punctuation">,</span> <span class="token string">'sha3_384'</span><span class="token punctuation">,</span> <span class="token string">'sha3_512'</span><span class="token punctuation">,</span> <span class="token string">'sha512'</span><span class="token punctuation">,</span> <span class="token string">'shake_128'</span><span class="token punctuation">,</span> <span class="token string">'shake_256'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="1-常用方法"><a href="#1-常用方法" class="headerlink" title="1 常用方法"></a>1 常用方法</h2><ul>
 <li><p><strong><code>hashlib.new(name, data=None)</code></strong>: 创建一个哈希对象。name 参数是哈希算法的名称，data 参数是要被哈希的数据。</p>
@@ -379,7 +380,8 @@ sha256_hash<span class="token punctuation">.</span>update<span class="token punc
 
 md5_hash <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token string">b'RUNOOB'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>md5_hash<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment"># 18fa661e2a4a7dd6471cc1407290cf6e</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 18fa661e2a4a7dd6471cc1407290cf6e</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="2-哈希对象方法"><a href="#2-哈希对象方法" class="headerlink" title="2 哈希对象方法"></a>2 哈希对象方法</h2><ul>
 <li><p><strong><code>update(data)</code></strong>: 更新哈希对象的消息内容。</p>
@@ -403,7 +405,8 @@ md5_hash <span class="token operator">=</span> hashlib<span class="token punctua
 
 sha1_hash <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha1<span class="token punctuation">(</span><span class="token string">b'RUNOOB'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>sha1_hash<span class="token punctuation">.</span>digest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment"># b'4\x17\t\xd0\xdb\xc2f3/\x1c\xbc\xd8\xc2_\xd4\xa0T\x12\xb7\xd4'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># b'4\x17\t\xd0\xdb\xc2f3/\x1c\xbc\xd8\xc2_\xd4\xa0T\x12\xb7\xd4'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="3-常见哈希算法"><a href="#3-常见哈希算法" class="headerlink" title="3 常见哈希算法"></a>3 常见哈希算法</h2><ul>
 <li><p><strong>MD5</strong></p>
@@ -432,7 +435,8 @@ sha256_hash <span class="token operator">=</span> hashlib<span class="token punc
 
 sha512_hash <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha512<span class="token punctuation">(</span><span class="token string">b'RUNOOB'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>sha512_hash<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment"># 7cfe50493eebd48ee7330c797459c2d0d5ca943bd1c84ad7a0b6783b11cd49d06b4a1dc84ee9ea5e20d0bfedbdb67e716500a20e5870abecea3f32dc8484a811</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 7cfe50493eebd48ee7330c797459c2d0d5ca943bd1c84ad7a0b6783b11cd49d06b4a1dc84ee9ea5e20d0bfedbdb67e716500a20e5870abecea3f32dc8484a811</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
@@ -504,12 +508,12 @@ sha512_hash <span class="token operator">=</span> hashlib<span class="token punc
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -555,18 +559,17 @@ sha512_hash <span class="token operator">=</span> hashlib<span class="token punc
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/07/17/python-xue-xi-32-hashlib-mo-kuai/">
+                <a href="/2024/07/22/http-zhuang-tai-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Python学习32-hashlib 模块">
+                        <img src="/medias/featureimages/45.jpg" class="responsive-img" alt="HTTP 状态码">
                         
-                        <span class="card-title">Python学习32-hashlib 模块</span>
+                        <span class="card-title">HTTP 状态码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -576,31 +579,26 @@ sha512_hash <span class="token operator">=</span> hashlib<span class="token punc
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/Http/" class="post-category">
+                                    Http
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
                 </div>
@@ -648,12 +646,12 @@ sha512_hash <span class="token operator">=</span> hashlib<span class="token punc
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

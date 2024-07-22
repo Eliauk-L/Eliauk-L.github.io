@@ -282,12 +282,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -381,7 +381,6 @@
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token string">'abracadabra'</span> <span class="token keyword">if</span> x <span class="token keyword">not</span> <span class="token keyword">in</span> <span class="token string">'abc'</span><span class="token punctuation">}</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
 <span class="token punctuation">{</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="1-集合操作"><a href="#1-集合操作" class="headerlink" title="1 集合操作"></a>1 集合操作</h2><blockquote>
 <p><strong>集合添加</strong></p>
 </blockquote>
@@ -389,7 +388,6 @@
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">"Facebook"</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token string">'Taobao'</span><span class="token punctuation">,</span> <span class="token string">'Facebook'</span><span class="token punctuation">,</span> <span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token string">'Runoob'</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"Google"</span><span class="token punctuation">,</span> <span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token string">"Taobao"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
@@ -397,7 +395,6 @@
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token string">'Taobao'</span><span class="token punctuation">,</span> <span class="token string">'Runoob'</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p><strong>集合移除</strong></p>
 </blockquote>
@@ -409,102 +406,102 @@
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
 KeyError<span class="token punctuation">:</span> <span class="token string">'Facebook'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"Google"</span><span class="token punctuation">,</span> <span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token string">"Taobao"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>discard<span class="token punctuation">(</span><span class="token string">"Facebook"</span><span class="token punctuation">)</span>  <span class="token comment"># 不存在不会发生错误</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token string">'Taobao'</span><span class="token punctuation">,</span> <span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token string">'Runoob'</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">thisset <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"Google"</span><span class="token punctuation">,</span> <span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token string">"Taobao"</span><span class="token punctuation">,</span> <span class="token string">"Facebook"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 x <span class="token operator">=</span> thisset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># 随机删除集合中的一个元素</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 <span class="token comment"># set 集合的 pop 方法会对集合进行无序的排列，然后将这个无序排列集合的左面第一个元素进行删除。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"Google"</span><span class="token punctuation">,</span> <span class="token string">"Runoob"</span><span class="token punctuation">,</span> <span class="token string">"Taobao"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 清空</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-集合内置方法"><a href="#2-集合内置方法" class="headerlink" title="2 集合内置方法"></a>2 集合内置方法</h2><table>
+<h2 id="2-集合内置方法"><a href="#2-集合内置方法" class="headerlink" title="2 集合内置方法"></a>2 集合内置方法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left">方法</th>
-<th align="left">描述</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-add.html">add()</a></td>
-<td align="left">为集合添加元素</td>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-add.html">add()</a></td>
+<td style="text-align:left">为集合添加元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-clear.html">clear()</a></td>
-<td align="left">移除集合中的所有元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-clear.html">clear()</a></td>
+<td style="text-align:left">移除集合中的所有元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-copy.html">copy()</a></td>
-<td align="left">拷贝一个集合</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-copy.html">copy()</a></td>
+<td style="text-align:left">拷贝一个集合</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-difference.html">difference()</a></td>
-<td align="left">返回多个集合的差集</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-difference.html">difference()</a></td>
+<td style="text-align:left">返回多个集合的差集</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-difference_update.html">difference_update()</a></td>
-<td align="left">移除两个集合中都存在的元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-difference_update.html">difference_update()</a></td>
+<td style="text-align:left">移除两个集合中都存在的元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-discard.html">discard()</a></td>
-<td align="left">删除集合中指定的元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-discard.html">discard()</a></td>
+<td style="text-align:left">删除集合中指定的元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-intersection.html">intersection()</a></td>
-<td align="left">返回集合的交集</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-intersection.html">intersection()</a></td>
+<td style="text-align:left">返回集合的交集</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-intersection_update.html">intersection_update()</a></td>
-<td align="left">返回集合的交集。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-intersection_update.html">intersection_update()</a></td>
+<td style="text-align:left">返回集合的交集。</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-isdisjoint.html">isdisjoint()</a></td>
-<td align="left">判断两个集合是否包含相同的元素，如果没有返回 True，否则返回 False。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-isdisjoint.html">isdisjoint()</a></td>
+<td style="text-align:left">判断两个集合是否包含相同的元素，如果没有返回 True，否则返回 False。</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-issubset.html">issubset()</a></td>
-<td align="left">判断指定集合是否为该方法参数集合的子集。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-issubset.html">issubset()</a></td>
+<td style="text-align:left">判断指定集合是否为该方法参数集合的子集。</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-issuperset.html">issuperset()</a></td>
-<td align="left">判断该方法的参数集合是否为指定集合的子集</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-issuperset.html">issuperset()</a></td>
+<td style="text-align:left">判断该方法的参数集合是否为指定集合的子集</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-pop.html">pop()</a></td>
-<td align="left">随机移除元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-pop.html">pop()</a></td>
+<td style="text-align:left">随机移除元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-remove.html">remove()</a></td>
-<td align="left">移除指定元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-remove.html">remove()</a></td>
+<td style="text-align:left">移除指定元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-symmetric_difference.html">symmetric_difference()</a></td>
-<td align="left">返回两个集合中不重复的元素集合。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-symmetric_difference.html">symmetric_difference()</a></td>
+<td style="text-align:left">返回两个集合中不重复的元素集合。</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-symmetric_difference_update.html">symmetric_difference_update()</a></td>
-<td align="left">移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-symmetric_difference_update.html">symmetric_difference_update()</a></td>
+<td style="text-align:left">移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-union.html">union()</a></td>
-<td align="left">返回两个集合的并集</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-union.html">union()</a></td>
+<td style="text-align:left">返回两个集合的并集</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-update.html">update()</a></td>
-<td align="left">给集合添加元素</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/ref-set-update.html">update()</a></td>
+<td style="text-align:left">给集合添加元素</td>
 </tr>
 <tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-string-len.html">len()</a></td>
-<td align="left">计算集合元素个数</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-string-len.html">len()</a></td>
+<td style="text-align:left">计算集合元素个数</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -575,12 +572,12 @@ x <span class="token operator">=</span> thisset<span class="token punctuation">.
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -664,12 +661,12 @@ x <span class="token operator">=</span> thisset<span class="token punctuation">.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -717,12 +714,12 @@ x <span class="token operator">=</span> thisset<span class="token punctuation">.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

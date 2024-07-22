@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Python学习06-列表, Jay&#39;s Blog">
     <meta name="description" content="列表
-序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字–索引，从0开始
+序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字—索引，从0开始
 Python中6个内置的序列类型
 字符串（string）
 列表（list）
@@ -283,12 +283,12 @@ Python中6个内置的序列类型
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -352,7 +352,7 @@ Python中6个内置的序列类型
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
-<li>序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字–<strong>索引，从0开始</strong></li>
+<li>序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字—<strong>索引，从0开始</strong></li>
 <li>Python中6个内置的序列类型<ul>
 <li><strong>字符串（string）</strong></li>
 <li><strong>列表（list）</strong></li>
@@ -372,7 +372,7 @@ Python中6个内置的序列类型
 </ul>
 </li>
 <li>列表<ul>
-<li>方括号**[]**内逗号分隔</li>
+<li>方括号<strong>[]</strong>内逗号分隔</li>
 <li><strong>列表的数据项类型可以不同</strong></li>
 </ul>
 </li>
@@ -388,7 +388,8 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"list1[0]: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"list2[1:5]: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment">#list1[0]:  physics</span>
-<span class="token comment">#list2[1:5]:  [2, 3, 4, 5]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment">#list2[1:5]:  [2, 3, 4, 5]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>列表更新</strong></p>
@@ -401,41 +402,7 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 <p><strong>列表操作符</strong></p>
 </blockquote>
 <ul>
-<li><table>
-<thead>
-<tr>
-<th align="left">Python 表达式</th>
-<th align="left">结果</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">len([1, 2, 3])</td>
-<td align="left">3</td>
-<td align="left">长度</td>
-</tr>
-<tr>
-<td align="left">[1, 2, 3] + [4, 5, 6]</td>
-<td align="left">[1, 2, 3, 4, 5, 6]</td>
-<td align="left">组合</td>
-</tr>
-<tr>
-<td align="left">[‘Hi!’] * 4</td>
-<td align="left">[‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’]</td>
-<td align="left">重复</td>
-</tr>
-<tr>
-<td align="left">3 in [1, 2, 3]</td>
-<td align="left">True</td>
-<td align="left">元素是否存在于列表中</td>
-</tr>
-<tr>
-<td align="left">for x in [1, 2, 3]: print x,</td>
-<td align="left">1 2 3</td>
-<td align="left">迭代</td>
-</tr>
-</tbody></table>
-</li>
+<li>| Python 表达式                | 结果                         | 描述                 |<br>| :—————————————- | :—————————————- | :—————————- |<br>| len([1, 2, 3])               | 3                            | 长度                 |<br>| [1, 2, 3] + [4, 5, 6]        | [1, 2, 3, 4, 5, 6]           | 组合                 |<br>| [‘Hi!’] * 4                  | [‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’] | 重复                 |<br>| 3 in [1, 2, 3]               | True                         | 元素是否存在于列表中 |<br>| for x in [1, 2, 3]: print x, | 1 2 3                        | 迭代                 |</li>
 </ul>
 <blockquote>
 <p><strong>列表比较</strong></p>
@@ -451,15 +418,16 @@ c <span class="token operator">=</span> <span class="token punctuation">[</span>
 
 operator<span class="token punctuation">.</span>eq<span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token boolean">False</span>
 operator<span class="token punctuation">.</span>eq<span class="token punctuation">(</span>c<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-列表函数-方法"><a href="#2-列表函数-方法" class="headerlink" title="2 列表函数&amp;方法"></a>2 列表函数&amp;方法</h2><table>
+<h2 id="2-列表函数-amp-方法"><a href="#2-列表函数-amp-方法" class="headerlink" title="2 列表函数&amp;方法"></a>2 列表函数&amp;方法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>函数&amp;方法</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-list-cmp.html">cmp(list1, list2)</a></td>
 <td>比较两个列表的元素（<strong>Python 3.X 的版本移除</strong>）</td>
 </tr>
@@ -496,7 +464,7 @@ operator<span class="token punctuation">.</span>eq<span class="token punctuation
 <td>在列表末尾一次性<strong>追加</strong>另一个序列中的多个值（用新列表扩展原来的列表）</td>
 </tr>
 <tr>
-<td>[list.index(x<a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-list-index.html">, start[, end]])</a></td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-list-index.html">list.index(x[, start[, end]])</a></td>
 <td>从列表中找出某个值第一个<strong>匹配项</strong>的索引位置</td>
 </tr>
 <tr>
@@ -519,7 +487,9 @@ operator<span class="token punctuation">.</span>eq<span class="token punctuation
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-list-sort.html">list.sort(cmp=None, key=None, reverse=False)</a></td>
 <td>对原列表进行<strong>排序</strong>，key：比较对象，reverse = False 升序，永久性操作</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="3-遍历列表"><a href="#3-遍历列表" class="headerlink" title="3 遍历列表"></a>3 遍历列表</h2><blockquote>
 <p><strong>for循环遍历</strong></p>
 </blockquote>
@@ -547,7 +517,8 @@ flattened <span class="token operator">=</span> <span class="token punctuation">
 <span class="token comment"># 也可解压多个元素</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> name<span class="token punctuation">,</span><span class="token operator">*</span>numbers<span class="token punctuation">,</span>date <span class="token operator">=</span> data
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> numbers
-<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">91.1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">91.1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="4-复制列表"><a href="#4-复制列表" class="headerlink" title="4 复制列表"></a>4 复制列表</h2><ul>
 <li><p>==直接变量赋值==：同一存储地址，同步更新，相当于一个别名</p>
@@ -582,9 +553,10 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 </li>
 <li><p>==列表推导式==：不同存储地址</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
-list2 <span class="token operator">=</span> <span class="token punctuation">[</span>item <span class="token keyword">for</span> item <span class="token keyword">in</span> list1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+list2 <span class="token operator">=</span> <span class="token punctuation">[</span>item <span class="token keyword">for</span> item <span class="token keyword">in</span> list1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<h2 id="5-数值列表–range"><a href="#5-数值列表–range" class="headerlink" title="5 数值列表–range"></a>5 数值列表–range</h2><ul>
+<h2 id="5-数值列表—range"><a href="#5-数值列表—range" class="headerlink" title="5 数值列表—range"></a>5 数值列表—range</h2><ul>
 <li><p>range函数用于创建<strong>整数列表</strong>，常用于<strong>for循环</strong></p>
 </li>
 <li><p>使用：<code>range(start,stop,step)</code></p>
@@ -600,7 +572,8 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">num_list <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span>
-<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
@@ -674,12 +647,12 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -763,12 +736,12 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -816,12 +789,12 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

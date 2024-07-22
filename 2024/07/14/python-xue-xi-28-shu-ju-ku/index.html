@@ -281,12 +281,12 @@ $ pip install pym">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
-                            </a>
-                        
                             <a href="/tags/Python/">
                                 <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -358,7 +358,8 @@ $ pip <span class="token function">install</span> pymongo
 <span class="token comment"># 指定安装的版本</span>
 $ pip <span class="token function">install</span> <span class="token assign-left variable">pymongo</span><span class="token operator">==</span><span class="token number">3.5</span>.1
 <span class="token comment"># 更新</span>
-$ pip <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pymongo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+$ pip <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pymongo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="1-1-数据库"><a href="#1-1-数据库" class="headerlink" title="1.1 数据库"></a>1.1 数据库</h3><ul>
 <li><p><strong>创建数据库</strong></p>
@@ -366,7 +367,6 @@ $ pip <span class="token function">install</span> <span class="token parameter v
  
 myclient <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">"mongodb://localhost:27017/"</span><span class="token punctuation">)</span>
 mydb <span class="token operator">=</span> myclient<span class="token punctuation">[</span><span class="token string">"runoobdb"</span><span class="token punctuation">]</span> <span class="token comment"># 创建数据库 runoobdb</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在 MongoDB 中，数据库只有在内容插入后才会创建! 数据库创建后要创建集合(数据表)并插入一个文档(记录)，数据库才会真正创建</p>
 </li>
 <li><p><strong>判断数据库是否已存在</strong></p>
@@ -377,7 +377,8 @@ myclient <span class="token operator">=</span> pymongo<span class="token punctua
 dblist <span class="token operator">=</span> myclient<span class="token punctuation">.</span>list_database_names<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># dblist = myclient.database_names() # 最新版本的 Python 中已废弃</span>
 <span class="token keyword">if</span> <span class="token string">"runoobdb"</span> <span class="token keyword">in</span> dblist<span class="token punctuation">:</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据库已存在！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据库已存在！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="1-2-集合"><a href="#1-2-集合" class="headerlink" title="1.2 集合"></a>1.2 集合</h3><ul>
 <li><p><strong>创建集合</strong></p>
@@ -387,7 +388,6 @@ myclient <span class="token operator">=</span> pymongo<span class="token punctua
 mydb <span class="token operator">=</span> myclient<span class="token punctuation">[</span><span class="token string">"runoobdb"</span><span class="token punctuation">]</span>
  
 mycol <span class="token operator">=</span> mydb<span class="token punctuation">[</span><span class="token string">"sites"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在 MongoDB 中，集合只有在内容插入后才会创建! 就是说，创建集合(数据表)后要再插入一个文档(记录)，集合才会真正创建</p>
 </li>
 <li><p><strong>判断集合是否已存在</strong></p>
@@ -410,7 +410,6 @@ mydb <span class="token operator">=</span> myclient<span class="token punctuatio
 mycol <span class="token operator">=</span> mydb<span class="token punctuation">[</span><span class="token string">"sites"</span><span class="token punctuation">]</span>
  
 mycol<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如果删除成功 drop() 返回 true，如果删除失败(集合不存在)则返回 false。</p>
 </li>
 </ul>
@@ -476,7 +475,8 @@ x <span class="token operator">=</span> mycol<span class="token punctuation">.</
  
 <span class="token comment"># 输出插入的所有文档对应的 _id 值</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>inserted_ids<span class="token punctuation">)</span>
-<span class="token comment"># [1, 2, 3, 4, 5]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># [1, 2, 3, 4, 5]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>查询</strong></p>
@@ -524,7 +524,6 @@ mycol <span class="token operator">=</span> mydb<span class="token punctuation">
 '''</span>
 <span class="token keyword">for</span> x <span class="token keyword">in</span> mycol<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span> <span class="token string">"alexa"</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 除了 alexa 字段其他都返回</span>
   <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>除了 _id，你不能在一个对象中同时指定 0 和 1，如果你设置了一个字段为 0，则其他都为 1，反之亦然。</p>
 </li>
 <li><p><strong>指定条件查询</strong></p>
@@ -589,7 +588,7 @@ myresult <span class="token operator">=</span> mycol<span class="token punctuati
 <span class="token keyword">for</span> x <span class="token keyword">in</span> myresult<span class="token punctuation">:</span>
   <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>排序：**<code>sort()</code>** 方法第一个参数为要排序的字段，第二个字段指定排序规则，<strong>1</strong> 为升序，**-1** 为降序，默认为升序。</p>
+<li><p>排序：<strong><code>sort()</code></strong> 方法第一个参数为要排序的字段，第二个字段指定排序规则，<strong>1</strong> 为升序，<strong>-1</strong> 为降序，默认为升序。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymongo
  
 myclient <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">"mongodb://localhost:27017/"</span><span class="token punctuation">)</span>
@@ -599,7 +598,8 @@ mycol <span class="token operator">=</span> mydb<span class="token punctuation">
 mydoc <span class="token operator">=</span> mycol<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token string">"alexa"</span><span class="token punctuation">)</span>
 <span class="token comment"># mydoc = mycol.find().sort("alexa", -1) 降序</span>
 <span class="token keyword">for</span> x <span class="token keyword">in</span> mydoc<span class="token punctuation">:</span>
-  <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>修改</strong></p>
@@ -633,13 +633,14 @@ newvalues <span class="token operator">=</span> <span class="token punctuation">
  
 x <span class="token operator">=</span> mycol<span class="token punctuation">.</span>update_many<span class="token punctuation">(</span>myquery<span class="token punctuation">,</span> newvalues<span class="token punctuation">)</span>
  
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>modified_count<span class="token punctuation">,</span> <span class="token string">"文档已修改"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>modified_count<span class="token punctuation">,</span> <span class="token string">"文档已修改"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p><strong>删除</strong></p>
 </blockquote>
 <ul>
-<li><p>删除一个文档：**<code>delete_one()</code>** 该方法第一个参数为查询对象，指定要删除哪些数据。</p>
+<li><p>删除一个文档：<strong><code>delete_one()</code></strong> 该方法第一个参数为查询对象，指定要删除哪些数据。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymongo
  
 myclient <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">"mongodb://localhost:27017/"</span><span class="token punctuation">)</span>
@@ -654,7 +655,7 @@ mycol<span class="token punctuation">.</span>delete_one<span class="token punctu
 <span class="token keyword">for</span> x <span class="token keyword">in</span> mycol<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>删除多个文档：**<code>delete_many()</code>**</p>
+<li><p>删除多个文档：<strong><code>delete_many()</code></strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymongo
  
 myclient <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">"mongodb://localhost:27017/"</span><span class="token punctuation">)</span>
@@ -667,7 +668,7 @@ x <span class="token operator">=</span> mycol<span class="token punctuation">.</
  
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>deleted_count<span class="token punctuation">,</span> <span class="token string">"个文档已删除"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>删除集合中的所有文档：**<code>delete_many()</code>**如果传入的是一个空的查询对象，则会删除集合中的所有文档</p>
+<li><p>删除集合中的所有文档：<strong><code>delete_many()</code></strong>如果传入的是一个空的查询对象，则会删除集合中的所有文档</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymongo
  
 myclient <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">"mongodb://localhost:27017/"</span><span class="token punctuation">)</span>
@@ -676,13 +677,15 @@ mycol <span class="token operator">=</span> mydb<span class="token punctuation">
  
 x <span class="token operator">=</span> mycol<span class="token punctuation">.</span>delete_many<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
  
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>deleted_count<span class="token punctuation">,</span> <span class="token string">"个文档已删除"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>deleted_count<span class="token punctuation">,</span> <span class="token string">"个文档已删除"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h2 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2 MySQL"></a>2 MySQL</h2><ul>
 <li><p>PyMySQL 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库</p>
 </li>
 <li><p>PyMySQL 遵循 Python 数据库 API v2.0 规范，并包含了 pure-Python MySQL 客户端库。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ pip <span class="token function">install</span> PyMySQL<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ pip <span class="token function">install</span> PyMySQL<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="2-1-数据库连接"><a href="#2-1-数据库连接" class="headerlink" title="2.1 数据库连接"></a>2.1 数据库连接</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
  
@@ -705,7 +708,6 @@ data <span class="token operator">=</span> cursor<span class="token punctuation"
  
 <span class="token comment"># 关闭数据库连接</span>
 db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-2-创建数据库表"><a href="#2-2-创建数据库表" class="headerlink" title="2.2 创建数据库表"></a>2.2 创建数据库表</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
  
 <span class="token comment"># 打开数据库连接</span>
@@ -732,7 +734,6 @@ cursor<span class="token punctuation">.</span>execute<span class="token punctuat
  
 <span class="token comment"># 关闭数据库连接</span>
 db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-3-插入"><a href="#2-3-插入" class="headerlink" title="2.3 插入"></a>2.3 插入</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
  
 <span class="token comment"># 打开数据库连接</span>
@@ -766,7 +767,6 @@ sql = "INSERT INTO EMPLOYEE(FIRST_NAME, \
  
 <span class="token comment"># 关闭数据库连接</span>
 db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-4-查询"><a href="#2-4-查询" class="headerlink" title="2.4 查询"></a>2.4 查询</h3><ul>
 <li><p><strong>fetchone():</strong> 该方法获取下一个查询结果集。结果集是一个对象</p>
 </li>
@@ -805,7 +805,8 @@ sql <span class="token operator">=</span> "SELECT <span class="token operator">*
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Error: unable to fetch data"</span><span class="token punctuation">)</span>
  
 <span class="token comment"># 关闭数据库连接</span>
-db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="2-5-更新"><a href="#2-5-更新" class="headerlink" title="2.5 更新"></a>2.5 更新</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
  
@@ -831,7 +832,6 @@ sql <span class="token operator">=</span> <span class="token string">"UPDATE EMP
  
 <span class="token comment"># 关闭数据库连接</span>
 db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-6-删除"><a href="#2-6-删除" class="headerlink" title="2.6 删除"></a>2.6 删除</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
  
 <span class="token comment"># 打开数据库连接</span>
@@ -856,7 +856,6 @@ sql <span class="token operator">=</span> <span class="token string">"DELETE FRO
  
 <span class="token comment"># 关闭连接</span>
 db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="2-7-事务"><a href="#2-7-事务" class="headerlink" title="2.7 事务"></a>2.7 事务</h3><ul>
 <li><p>事务机制可以确保数据一致性。</p>
 </li>
@@ -910,58 +909,63 @@ sql <span class="token operator">=</span> <span class="token string">"DELETE FRO
         db<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">'select * from course'</span><span class="token punctuation">)</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>db<span class="token punctuation">)</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> db<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<h3 id="2-9-错误处理"><a href="#2-9-错误处理" class="headerlink" title="2.9 错误处理"></a>2.9 错误处理</h3><table>
+<h3 id="2-9-错误处理"><a href="#2-9-错误处理" class="headerlink" title="2.9 错误处理"></a>2.9 错误处理</h3><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left">异常</th>
-<th align="left">描述</th>
+<th style="text-align:left">异常</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">Warning</td>
-<td align="left">当有严重警告时触发，例如插入数据是被截断等等。必须是 StandardError 的子类。</td>
+<tbody>
+<tr>
+<td style="text-align:left">Warning</td>
+<td style="text-align:left">当有严重警告时触发，例如插入数据是被截断等等。必须是 StandardError 的子类。</td>
 </tr>
 <tr>
-<td align="left">Error</td>
-<td align="left">警告以外所有其他错误类。必须是 StandardError 的子类。</td>
+<td style="text-align:left">Error</td>
+<td style="text-align:left">警告以外所有其他错误类。必须是 StandardError 的子类。</td>
 </tr>
 <tr>
-<td align="left">InterfaceError</td>
-<td align="left">当有数据库接口模块本身的错误（而不是数据库的错误）发生时触发。 必须是Error的子类。</td>
+<td style="text-align:left">InterfaceError</td>
+<td style="text-align:left">当有数据库接口模块本身的错误（而不是数据库的错误）发生时触发。 必须是Error的子类。</td>
 </tr>
 <tr>
-<td align="left">DatabaseError</td>
-<td align="left">和数据库有关的错误发生时触发。 必须是Error的子类。</td>
+<td style="text-align:left">DatabaseError</td>
+<td style="text-align:left">和数据库有关的错误发生时触发。 必须是Error的子类。</td>
 </tr>
 <tr>
-<td align="left">DataError</td>
-<td align="left">当有数据处理时的错误发生时触发，例如：除零错误，数据超范围等等。 必须是DatabaseError的子类。</td>
+<td style="text-align:left">DataError</td>
+<td style="text-align:left">当有数据处理时的错误发生时触发，例如：除零错误，数据超范围等等。 必须是DatabaseError的子类。</td>
 </tr>
 <tr>
-<td align="left">OperationalError</td>
-<td align="left">指非用户控制的，而是操作数据库时发生的错误。例如：连接意外断开、 数据库名未找到、事务处理失败、内存分配错误等等操作数据库是发生的错误。 必须是DatabaseError的子类。</td>
+<td style="text-align:left">OperationalError</td>
+<td style="text-align:left">指非用户控制的，而是操作数据库时发生的错误。例如：连接意外断开、 数据库名未找到、事务处理失败、内存分配错误等等操作数据库是发生的错误。 必须是DatabaseError的子类。</td>
 </tr>
 <tr>
-<td align="left">IntegrityError</td>
-<td align="left">完整性相关的错误，例如外键检查失败等。必须是DatabaseError子类。</td>
+<td style="text-align:left">IntegrityError</td>
+<td style="text-align:left">完整性相关的错误，例如外键检查失败等。必须是DatabaseError子类。</td>
 </tr>
 <tr>
-<td align="left">InternalError</td>
-<td align="left">数据库的内部错误，例如游标（cursor）失效了、事务同步失败等等。 必须是DatabaseError子类。</td>
+<td style="text-align:left">InternalError</td>
+<td style="text-align:left">数据库的内部错误，例如游标（cursor）失效了、事务同步失败等等。 必须是DatabaseError子类。</td>
 </tr>
 <tr>
-<td align="left">ProgrammingError</td>
-<td align="left">程序错误，例如数据表（table）没找到或已存在、SQL语句语法错误、 参数数量错误等等。必须是DatabaseError的子类。</td>
+<td style="text-align:left">ProgrammingError</td>
+<td style="text-align:left">程序错误，例如数据表（table）没找到或已存在、SQL语句语法错误、 参数数量错误等等。必须是DatabaseError的子类。</td>
 </tr>
 <tr>
-<td align="left">NotSupportedError</td>
-<td align="left">不支持错误，指使用了数据库不支持的函数或API等。例如在连接对象上 使用.rollback()函数，然而数据库并不支持事务或者事务已关闭。 必须是DatabaseError的子类。</td>
+<td style="text-align:left">NotSupportedError</td>
+<td style="text-align:left">不支持错误，指使用了数据库不支持的函数或API等。例如在连接对象上 使用.rollback()函数，然而数据库并不支持事务或者事务已关闭。 必须是DatabaseError的子类。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="3-Redis"><a href="#3-Redis" class="headerlink" title="3 Redis"></a>3 Redis</h2><ul>
-<li>安装 Redis 客户端库：**<code>pip install redis</code>**</li>
+<li>安装 Redis 客户端库：<strong><code>pip install redis</code></strong></li>
 </ul>
 <h3 id="3-1-创建-Redis-客户端实例"><a href="#3-1-创建-Redis-客户端实例" class="headerlink" title="3.1 创建 Redis 客户端实例"></a>3.1 创建 Redis 客户端实例</h3>  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> redis
 
@@ -969,7 +973,6 @@ r <span class="token operator">=</span> redis<span class="token punctuation">.</
 
 <span class="token comment"># 指定密码</span>
 r <span class="token operator">=</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">6379</span><span class="token punctuation">,</span> db<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'your_password'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="3-2-键值对操作"><a href="#3-2-键值对操作" class="headerlink" title="3.2 键值对操作"></a>3.2 键值对操作</h3><ul>
 <li><p><strong>设置键值对</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">r<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'mykey'</span><span class="token punctuation">,</span> <span class="token string">'myvalue'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1003,7 +1006,8 @@ keys <span class="token operator">=</span> <span class="token punctuation">[</sp
 values <span class="token operator">=</span> r<span class="token punctuation">.</span>mget<span class="token punctuation">(</span>keys<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>批量删除多个键</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">r<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'key1'</span><span class="token punctuation">,</span> <span class="token string">'key2'</span><span class="token punctuation">,</span> <span class="token string">'key3'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">r<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'key1'</span><span class="token punctuation">,</span> <span class="token string">'key2'</span><span class="token punctuation">,</span> <span class="token string">'key3'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-3-哈希表操作"><a href="#3-3-哈希表操作" class="headerlink" title="3.3 哈希表操作"></a>3.3 哈希表操作</h3><ul>
 <li><p><strong>存储哈希表</strong></p>
@@ -1029,7 +1033,8 @@ r<span class="token punctuation">.</span>delete<span class="token punctuation">(
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">values <span class="token operator">=</span> r<span class="token punctuation">.</span>hmget<span class="token punctuation">(</span><span class="token string">'myhash'</span><span class="token punctuation">,</span> <span class="token string">'field1'</span><span class="token punctuation">,</span> <span class="token string">'field2'</span><span class="token punctuation">,</span> <span class="token string">'field3'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p><strong>批量删除哈希表字段</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">r<span class="token punctuation">.</span>hdel<span class="token punctuation">(</span><span class="token string">'myhash'</span><span class="token punctuation">,</span> <span class="token string">'field1'</span><span class="token punctuation">,</span> <span class="token string">'field2'</span><span class="token punctuation">,</span> <span class="token string">'field3'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">r<span class="token punctuation">.</span>hdel<span class="token punctuation">(</span><span class="token string">'myhash'</span><span class="token punctuation">,</span> <span class="token string">'field1'</span><span class="token punctuation">,</span> <span class="token string">'field2'</span><span class="token punctuation">,</span> <span class="token string">'field3'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-4-列表操作"><a href="#3-4-列表操作" class="headerlink" title="3.4 列表操作"></a>3.4 列表操作</h3><ul>
 <li><p><strong>添加元素到列表</strong></p>
@@ -1047,7 +1052,8 @@ r<span class="token punctuation">.</span>lpush<span class="token punctuation">(<
 </li>
 <li><p><strong>获取列表长度</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list_length <span class="token operator">=</span> r<span class="token punctuation">.</span>llen<span class="token punctuation">(</span><span class="token string">'mylist'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>list_length<span class="token punctuation">)</span>  <span class="token comment"># 输出 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list_length<span class="token punctuation">)</span>  <span class="token comment"># 输出 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-5-集合操作"><a href="#3-5-集合操作" class="headerlink" title="3.5 集合操作"></a>3.5 集合操作</h3><ul>
 <li><p><strong>添加元素到集合</strong></p>
@@ -1069,7 +1075,8 @@ r<span class="token punctuation">.</span>sadd<span class="token punctuation">(</
 r<span class="token punctuation">.</span>srem<span class="token punctuation">(</span><span class="token string">'myset'</span><span class="token punctuation">,</span> <span class="token string">'element3'</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 批量删除多个元素</span>
-r<span class="token punctuation">.</span>srem<span class="token punctuation">(</span><span class="token string">'myset'</span><span class="token punctuation">,</span> <span class="token string">'element1'</span><span class="token punctuation">,</span> <span class="token string">'element5'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+r<span class="token punctuation">.</span>srem<span class="token punctuation">(</span><span class="token string">'myset'</span><span class="token punctuation">,</span> <span class="token string">'element1'</span><span class="token punctuation">,</span> <span class="token string">'element5'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-6-有序集合操作"><a href="#3-6-有序集合操作" class="headerlink" title="3.6 有序集合操作"></a>3.6 有序集合操作</h3><ul>
 <li><p><strong>添加元素到有序集合</strong></p>
@@ -1081,7 +1088,8 @@ r<span class="token punctuation">.</span>srem<span class="token punctuation">(</
 </li>
 <li><p><strong>获取有序集合的长度</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">zset_length <span class="token operator">=</span> r<span class="token punctuation">.</span>zcard<span class="token punctuation">(</span><span class="token string">'myzset'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>zset_length<span class="token punctuation">)</span>  <span class="token comment"># 输出 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token keyword">print</span><span class="token punctuation">(</span>zset_length<span class="token punctuation">)</span>  <span class="token comment"># 输出 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-7-发布-订阅操作"><a href="#3-7-发布-订阅操作" class="headerlink" title="3.7 发布/订阅操作"></a>3.7 发布/订阅操作</h3><ul>
 <li><p><strong>发布消息</strong></p>
@@ -1092,7 +1100,8 @@ r<span class="token punctuation">.</span>srem<span class="token punctuation">(</
 pubsub<span class="token punctuation">.</span>subscribe<span class="token punctuation">(</span><span class="token string">'mychannel'</span><span class="token punctuation">)</span>
 
 <span class="token keyword">for</span> message <span class="token keyword">in</span> pubsub<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-8-事务"><a href="#3-8-事务" class="headerlink" title="3.8 事务"></a>3.8 事务</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 开启事务</span>
 pipe <span class="token operator">=</span> r<span class="token punctuation">.</span>pipeline<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1107,7 +1116,6 @@ pipe<span class="token punctuation">.</span>get<span class="token punctuation">(
 result <span class="token operator">=</span> pipe<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>  <span class="token comment"># 输出 [True, True, b'value1', b'value2']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="3-9-过期时间和持久化"><a href="#3-9-过期时间和持久化" class="headerlink" title="3.9 过期时间和持久化"></a>3.9 过期时间和持久化</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 设置键的过期时间（单位为秒）</span>
 r<span class="token punctuation">.</span>setex<span class="token punctuation">(</span><span class="token string">'mykey'</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token string">'myvalue'</span><span class="token punctuation">)</span>
 
@@ -1117,7 +1125,6 @@ ttl <span class="token operator">=</span> r<span class="token punctuation">.</sp
 
 <span class="token comment"># 持久化数据到磁盘</span>
 r<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="3-10-分布式锁"><a href="#3-10-分布式锁" class="headerlink" title="3.10 分布式锁"></a>3.10 分布式锁</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取分布式锁</span>
 lock_acquired <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'mylock'</span><span class="token punctuation">,</span> <span class="token string">'locked'</span><span class="token punctuation">,</span> nx<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> ex<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
 
@@ -1129,7 +1136,6 @@ lock_acquired <span class="token operator">=</span> r<span class="token punctuat
     r<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'mylock'</span><span class="token punctuation">)</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Failed to acquire lock. Another process holds the lock.'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>使用 Redis 的 set 方法来设置一个键值对作为分布式锁。参数nx=True表示只有当键不存在时才设置该键，即实现了原子性的加锁操作。参数ex=10设置了该键的过期时间为 10 秒，以防止锁被长时间占用。如果 lock_acquired 为 True，表示成功获取到了锁。在这种情况下，我们可以执行需要加锁的操作，然后使用 r.delete(‘mylock’) 释放锁，让其他进程有机会获取锁。如果 lock_acquired 为 False，表示获取锁失败，说明另一个进程已经持有了该锁。在这种情况下，我们可以执行相应的逻辑，比如等待一段时间后再尝试获取锁或执行备选方案。需要注意的是，在释放锁之前，确保只有获取锁的进程能够删除该键。这可以通过在设置锁时为其设置一个唯一的标识符来实现，以便在释放锁时进行验证。</p>
 <blockquote>
 <p><strong>参考：</strong></p>
@@ -1203,12 +1209,12 @@ lock_acquired <span class="token operator">=</span> r<span class="token punctuat
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
-                                </a>
-                            
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -1292,12 +1298,12 @@ lock_acquired <span class="token operator">=</span> r<span class="token punctuat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1345,12 +1351,12 @@ lock_acquired <span class="token operator">=</span> r<span class="token punctuat
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

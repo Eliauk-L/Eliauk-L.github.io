@@ -12,7 +12,7 @@ npm install -g hexo-cli
 hexo init &amp;lt;folder&amp;gt;
 
 2 基本指令
-**hexo new [layout] &amp;lt;title">
+hexo new [layout] &amp;lt;title&amp;g">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -283,12 +283,12 @@ hexo init &amp;lt;folder&amp;gt;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -358,60 +358,54 @@ hexo init &amp;lt;folder&amp;gt;
 <li><strong><code>hexo init &lt;folder&gt;</code></strong></li>
 </ul>
 <h2 id="2-基本指令"><a href="#2-基本指令" class="headerlink" title="2 基本指令"></a>2 基本指令</h2><ul>
-<li>**<code>hexo new [layout] &lt;title&gt;</code>**：新建一篇文章。</li>
-<li>**<code>hexo generate</code>**：生成静态文件。</li>
-<li>**<code>hexo publish [layout] &lt;filename&gt;</code>**：发表草稿。</li>
-<li>**<code>hexo server</code>**：启动服务器。 默认情况下，访问网址为： <code>http://localhost:4000/</code>。</li>
-<li>**<code>hexo deploy</code>**：部署你的网站。</li>
-<li>**<code>hexo render &lt;file1&gt; [file2] ...</code>**：渲染文件。</li>
-<li>**<code>hexo migrate &lt;type&gt;</code>**：从其他博客系统 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</li>
-<li>**<code>hexo clean</code>**：清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</li>
-<li>**<code>hexo list &lt;type&gt;</code>**：列出所有路由。</li>
-<li>**<code>hexo version</code>**：显示版本信息。</li>
-<li>**<code>hexo config [key] [value]</code>**：列出网站的配置（<code>_config.yml</code>）。 如果指定了 <code>key</code>，则只展示配置中对应 <code>key</code> 的值；如果同时指定了 <code>key</code> 和 <code>value</code>，则将配置中对应的 <code>key</code> 的值修改为 <code>value</code>。</li>
-<li>**<code>hexo --config custom.yml</code>**：自定义配置文件的路径</li>
-<li>**<code>hexo --draft</code>**：显示 <code>source/_drafts</code> 文件夹中的草稿文章。</li>
-<li>**<code>hexo --cwd /path/to/cwd</code>**：自定义当前工作目录（Current working directory）的路径。</li>
+<li><strong><code>hexo new [layout] &lt;title&gt;</code></strong>：新建一篇文章。</li>
+<li><strong><code>hexo generate</code></strong>：生成静态文件。</li>
+<li><strong><code>hexo publish [layout] &lt;filename&gt;</code></strong>：发表草稿。</li>
+<li><strong><code>hexo server</code></strong>：启动服务器。 默认情况下，访问网址为： <code>http://localhost:4000/</code>。</li>
+<li><strong><code>hexo deploy</code></strong>：部署你的网站。</li>
+<li><strong><code>hexo render &lt;file1&gt; [file2] ...</code></strong>：渲染文件。</li>
+<li><strong><code>hexo migrate &lt;type&gt;</code></strong>：从其他博客系统 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</li>
+<li><strong><code>hexo clean</code></strong>：清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</li>
+<li><strong><code>hexo list &lt;type&gt;</code></strong>：列出所有路由。</li>
+<li><strong><code>hexo version</code></strong>：显示版本信息。</li>
+<li><strong><code>hexo config [key] [value]</code></strong>：列出网站的配置（<code>_config.yml</code>）。 如果指定了 <code>key</code>，则只展示配置中对应 <code>key</code> 的值；如果同时指定了 <code>key</code> 和 <code>value</code>，则将配置中对应的 <code>key</code> 的值修改为 <code>value</code>。</li>
+<li><strong><code>hexo --config custom.yml</code></strong>：自定义配置文件的路径</li>
+<li><strong><code>hexo --draft</code></strong>：显示 <code>source/_drafts</code> 文件夹中的草稿文章。</li>
+<li><strong><code>hexo --cwd /path/to/cwd</code></strong>：自定义当前工作目录（Current working directory）的路径。</li>
 </ul>
 <h2 id="3-打开本地服务器"><a href="#3-打开本地服务器" class="headerlink" title="3 打开本地服务器"></a>3 打开本地服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
 hexo g
 hexo server<span class="token punctuation">(</span>hexo s<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="4-hexo部署"><a href="#4-hexo部署" class="headerlink" title="4 hexo部署"></a>4 hexo部署</h2><ul>
 <li>以github为例</li>
 </ul>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token key atrule">type</span><span class="token punctuation">:</span> git
   <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/Eliauk<span class="token punctuation">-</span>L/Eliauk<span class="token punctuation">-</span>L.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>安装<code>deploy-git</code></li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>部署</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
 hexo generate
 hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="5-布局"><a href="#5-布局" class="headerlink" title="5 布局"></a>5 布局</h2><ul>
-<li><p>Hexo有三种默认布局：**<code>post、page和draft</code>**</p>
+<li><p>Hexo有三种默认布局：<strong><code>post、page和draft</code></strong></p>
 </li>
 <li><p>发布文章</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX
 <span class="token comment"># 默认使用的是post布局，在source文件夹下的_post里面</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ul>
 <li>另起一页</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage
 <span class="token comment"># 系统会自动在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，</span>
 <span class="token comment"># 访问newpage对应的链接就是http://xxx.xxx/newpage</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>发布草稿</li>
 </ul>
@@ -421,9 +415,6 @@ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 
 <span class="token comment"># 将草稿发表到post中</span>
 hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -494,12 +485,12 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -583,12 +574,12 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -636,12 +627,12 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
                     <a href="/tags/Python/">
                         <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                     <a href="/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
