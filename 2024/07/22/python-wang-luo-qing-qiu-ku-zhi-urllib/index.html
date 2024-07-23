@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Python网络请求库之urllib, Jay&#39;s Blog">
     <meta name="description" content="Python网络请求库之urllib
-Python urllib 库用于操作网页 URL，并对网页的内容进行抓取处理。
+Python urllib 库是内置库，用于操作网页 URL，并对网页的内容进行抓取处理。
 urllib 包 包含以下几个模块：
 urllib.request - 打开和读取 URL。
-urllib.error ">
+urllib.e">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -280,12 +280,12 @@ urllib.error ">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                             <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
@@ -322,14 +322,14 @@ urllib.error ">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -353,7 +353,7 @@ urllib.error ">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Python网络请求库之urllib"><a href="#Python网络请求库之urllib" class="headerlink" title="Python网络请求库之urllib"></a>Python网络请求库之urllib</h1><ul>
-<li>Python <strong><code>urllib</code></strong> 库用于操作网页 URL，并对网页的内容进行抓取处理。</li>
+<li>Python <strong><code>urllib</code></strong> 库是内置库，用于操作网页 URL，并对网页的内容进行抓取处理。</li>
 <li>urllib 包 包含以下几个模块：<ul>
 <li><strong>urllib.request</strong> - 打开和读取 URL。</li>
 <li><strong>urllib.error</strong> - 包含 urllib.request 抛出的异常。</li>
@@ -467,6 +467,45 @@ reponse<span class="token operator">=</span>urllib<span class="token punctuation
 fh <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"./urllib_test_post_runoob.html"</span><span class="token punctuation">,</span><span class="token string">"wb"</span><span class="token punctuation">)</span>    <span class="token comment"># 将文件写入到当前目录中</span>
 fh<span class="token punctuation">.</span>write<span class="token punctuation">(</span>reponse<span class="token punctuation">)</span>
 fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="使用Cookie"><a href="#使用Cookie" class="headerlink" title="使用Cookie"></a>使用Cookie</h2><ul>
+<li><p>Cookie是当浏览某网站时，网站存储的信息文件，它记录了用户的ID、密码、浏览记录、浏览时间等信息。当同一用户再次访问该网站时，网站通过读取Cookie，获取用户的相关信息，比如用户名、密码，用于自动登录。</p>
+</li>
+<li><p>使用urllib操作网站Cookie需要用到<strong><code>urllib.request.HTTPCookieProcessor(cookie)</code></strong>。</p>
+</li>
+<li><p>使用Cookie需要创建一个<strong>opener</strong>。在 Python 的 http包中包含<strong>cookiejar</strong>模块，用于提供对Cookie 的支持。http.cookiejar 功能强大，我们可以利用本模块的CookieJar类的对象来捕获Cookie，并在后续连接请求时重新发送，比如可以实现模拟登录功能。</p>
+</li>
+<li><p>urllib获取cookie</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取cookie</span>
+<span class="token keyword">import</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>request
+
+cookie <span class="token operator">=</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">.</span>CookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookie<span class="token punctuation">)</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener <span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+response <span class="token operator">=</span> opener<span class="token punctuation">.</span><span class="token builtin">open</span> <span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> cookie<span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">"="</span><span class="token operator">+</span>item<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>urllib保存cookie</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#保存Cookie</span>
+filename <span class="token operator">=</span> <span class="token string">'saved_cookies.txt'</span>
+<span class="token comment"># FileCookieJar、MozillaCookieJar、LWPCookieJar均为保存Cookie信息，只是保存格式不同</span>
+cookie <span class="token operator">=</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">.</span>MozillacookieJar<span class="token punctuation">(</span>filename<span class="token punctuation">)</span>
+handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookie<span class="token punctuation">)</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+response <span class="token operator">=</span> opener<span class="token punctuation">.</span><span class="token builtin">open</span> <span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
+cookie<span class="token punctuation">.</span>save<span class="token punctuation">(</span>ignore_discard<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>ignore_expires<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>urllib使用cookie</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#使用Cookie</span>
+<span class="token keyword">import</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>request
+cookie <span class="token operator">=</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">.</span>MozillacookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cookie<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'saved_cookies.txt'</span><span class="token punctuation">,</span> ignore_discard<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>ignore_expires<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookie<span class="token punctuation">)</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+response <span class="token operator">=</span> opener<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="urllib-error"><a href="#urllib-error" class="headerlink" title="urllib.error"></a>urllib.error</h2><ul>
@@ -631,6 +670,7 @@ o <span class="token operator">=</span> urlparse<span class="token punctuation">
 <p><strong>参考：</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-urllib.html">https://www.runoob.com/python3/python-urllib.html</a></li>
+<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 
@@ -697,12 +737,12 @@ o <span class="token operator">=</span> urlparse<span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                                 <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
@@ -790,12 +830,12 @@ o <span class="token operator">=</span> urlparse<span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                     <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">

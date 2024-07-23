@@ -8,8 +8,8 @@
     <meta name="description" content="Python网络请求库之requests
 Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。
 
-向指定 URL 发送 HTTP 请求
-# 导入 ">
+安装：pip install requests
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -280,12 +280,12 @@ Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                             <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
@@ -322,14 +322,14 @@ Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -355,6 +355,8 @@ Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
                 <h1 id="Python网络请求库之requests"><a href="#Python网络请求库之requests" class="headerlink" title="Python网络请求库之requests"></a>Python网络请求库之requests</h1><ul>
 <li><p>Python <strong><code>requests</code></strong> 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。</p>
 </li>
+<li><p>安装：<strong><code>pip install requests</code></strong></p>
+</li>
 <li><p>向指定 URL 发送 HTTP 请求</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
 <span class="token keyword">import</span> requests
@@ -363,7 +365,13 @@ Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
 x <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.runoob.com/'</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 返回网页内容</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/delete'</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>put<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/put'</span><span class="token punctuation">,</span>data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'key'</span><span class="token punctuation">:</span><span class="token string">'value'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/delete'</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/get'</span><span class="token punctuation">)</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>options<span class="token punctuation">(</span><span class="token string">'http://httpbin.org/get'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>每次调用 requests 请求之后，会返回一个 response 对象，该对象包含了具体的响应信息，如状态码、响应头、响应内容</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>  <span class="token comment"># 获取响应状态码</span>
@@ -587,10 +595,53 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
+<h2 id="cookies参数"><a href="#cookies参数" class="headerlink" title="cookies参数"></a>cookies参数</h2><ul>
+<li><p>指定cookies参数操作Cookie，内容需要以dict形式传递。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.csdn.net/"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>cookies<span class="token punctuation">[</span><span class="token string">'uuid_tt_dd'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+my_cookies <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'test_cookie'</span><span class="token punctuation">:</span><span class="token string">'test'</span><span class="token punctuation">}</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.bing.com"</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span>my_cookies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="重定向与请求历史"><a href="#重定向与请求历史" class="headerlink" title="重定向与请求历史"></a>重定向与请求历史</h2><ul>
+<li>重定向是指将网络请求重新转向其他位置，例如网站迁移，访问原网址时自动转到新的网址，或者其他原因跳转到新的网址。</li>
+<li>默认情况下，除了head方法外，requests会自动处理所有的重定向,也可以手动设定allow_redirects参数为True 或者False来开启或禁止重定向，例如<code>r=requests.get('http://www.z.cn',allow_redirects=False)</code>。</li>
+<li>如果允许重定向，可以使用响应对象的history方法来查看跳转信息。</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> requests
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get <span class="token punctuation">(</span> <span class="token string">'http://github.com'</span> <span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> r<span class="token punctuation">.</span>url
+<span class="token string">'https://github.com/'</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> r<span class="token punctuation">.</span>status_code
+<span class="token number">200</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> r<span class="token punctuation">.</span>history
+<span class="token punctuation">[</span><span class="token operator">&lt;</span>Response <span class="token punctuation">[</span><span class="token number">301</span><span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>指定<strong>timeout</strong>参数来设定等待网站响应的时间（单位:秒)，超过设定时间之后停止等待。</p>
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><ul>
+<li><p>当某些网站对访问IP有限制（如地域限制或次数限制）时，我们可以使用代理来绕过限制。</p>
+</li>
+<li><p>requests使用代理只需指定proxies参数</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+
+proxie <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"http"</span> <span class="token punctuation">:</span> <span class="token string">"http://10.10.1.10:3128"</span><span class="token punctuation">,</span>
+    <span class="token string">"https"</span> <span class="token punctuation">:</span> <span class="token string">"http://10.10.1.10:1080"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://example.org"</span><span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>代理验证：<strong><code>http://user:password@host/</code></strong></p>
+</li>
+</ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-requests.html">https://www.runoob.com/python3/python-requests.html</a></li>
+<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 
@@ -657,12 +708,12 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                                 <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
@@ -712,18 +763,17 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/07/22/python-wang-luo-qing-qiu-ku-zhi-requests/">
+                <a href="/2024/07/23/scrapy-pa-chong-xi-lie-zhi-pa-chong-yuan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="Python网络请求库之requests">
+                        <img src="/medias/featureimages/45.jpg" class="responsive-img" alt="Scrapy爬虫系列之爬虫原理">
                         
-                        <span class="card-title">Python网络请求库之requests</span>
+                        <span class="card-title">Scrapy爬虫系列之爬虫原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -733,35 +783,38 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
-                        <span class="chip bg-color">网络请求</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
@@ -809,12 +862,12 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                     <a href="/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">
