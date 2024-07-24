@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Scrapy爬虫系列之CSS选择语法, Jay&#39;s Blog">
-    <meta name="description" content="CSS选择语法
-CSS指层叠样式表(Cascading Style Sheets)，用来定义如何显示HTML元素，一般和HTML文件一起使用，通过对HTML标签的修饰来解决内容与表现分离的问题。
-CSS规则由两个主要的部分构成:选择器以及一">
+    <meta name="keywords" content="Scrapy爬虫系列之元素提取BeautifulSoup, Jay&#39;s Blog">
+    <meta name="description" content="元素提取BeautifulSoup
+BeautifulSoup是一个可以从HTML或XML文件中提取数据的Python库，可以很方便地进行文档的导航、查找或修改。在爬虫工作中，常用的是查找功能。
+
+安装BeautifulSoup：pip i">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@ CSS规则由两个主要的部分构成:选择器以及一">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Scrapy爬虫系列之CSS选择语法 | Jay&#39;s Blog</title>
+    <title>Scrapy爬虫系列之元素提取BeautifulSoup | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -249,12 +250,12 @@ CSS规则由两个主要的部分构成:选择器以及一">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/42.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Scrapy爬虫系列之CSS选择语法</h1>
+                    <h1 class="description center-align post-title">Scrapy爬虫系列之元素提取BeautifulSoup</h1>
                 </div>
             </div>
         </div>
@@ -294,10 +295,6 @@ CSS规则由两个主要的部分构成:选择器以及一">
                                 <span class="chip bg-color">Scrapy</span>
                             </a>
                         
-                            <a href="/tags/CSS/">
-                                <span class="chip bg-color">CSS</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -319,7 +316,7 @@ CSS规则由两个主要的部分构成:选择器以及一">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-23
+                    2024-07-24
                 </div>
                 
 
@@ -328,14 +325,14 @@ CSS规则由两个主要的部分构成:选择器以及一">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    675
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -358,63 +355,202 @@ CSS规则由两个主要的部分构成:选择器以及一">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CSS选择语法"><a href="#CSS选择语法" class="headerlink" title="CSS选择语法"></a>CSS选择语法</h1><ul>
-<li>CSS指层叠样式表(Cascading Style Sheets)，用来定义如何显示HTML元素，一般和HTML文件一起使用，通过对HTML标签的修饰来解决内容与表现分离的问题。</li>
-<li><p>CSS规则由两个主要的部分构成:选择器以及一条或多条声明<br><strong><code>selector {declaration1;declaration2;... declarationN}</code></strong></p>
+                <h1 id="元素提取BeautifulSoup"><a href="#元素提取BeautifulSoup" class="headerlink" title="元素提取BeautifulSoup"></a>元素提取BeautifulSoup</h1><ul>
+<li><p>BeautifulSoup是一个可以从HTML或XML文件中提取数据的Python库，可以很方便地进行文档的导航、查找或修改。在爬虫工作中，常用的是查找功能。</p>
 </li>
-<li><p>选择器通常是需要改变样式的HTML元素，需要指定具体的标签。每条声明由一个属性和一个值组成。属性（Property）是我们希望设置的样式属性(Style Attribute)。每个属性有一个值。属性和值被冒号分开。</p>
+<li><p>安装BeautifulSoup：<strong><code>pip install beautifulsoup4</code></strong></p>
 </li>
-<li>CSS的选择器主要包括<strong>元素选择器、类选择器、ID选择器、属性选择器、后代选择器、子元素选择器、相邻兄弟选择器</strong>。</li>
+<li>安装解析器：<strong><code>pip install lxml</code></strong></li>
 </ul>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ltr<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>考试说明<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>考试说明<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>2018年第二学期高数考试说明<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>info<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>考试因故取消<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span> 
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>detail<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/detail/info.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">scr</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/cancel.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-                查看详情
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>info<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>下次补考时间:2019.1.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>freshman<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>一年级<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><ul>
-<li>最常见的CSS选择器是元素选择器。也就是说，文档中的元素就是基本的选择器，比如 p、h1、div、a。</li>
-<li>CSS元素选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231430070.png" alt="CSS元素选择器"></li>
+<h2 id="使用BeautifulSoup"><a href="#使用BeautifulSoup" class="headerlink" title="使用BeautifulSoup"></a>使用BeautifulSoup</h2><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407241257574.png" alt="html字符串"></p>
+<ul>
+<li><p>创建BeautifulSoup对象</p>
+<ul>
+<li><p>直接通过字符串进行创建</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html_doc<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+<span class="token comment"># BeautifulSoup 将使用指定的解析器来解析文档，若未指定，则自动选择合适的解析器进行解析，这里我们指定为lxml.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>通过打开文件来创建</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token comment"># 假设我们将HTML字符串中的HTML代码保存为index.html文件,</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 按照标准缩进格式结构输出</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>prettify<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<h2 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h2><ul>
-<li>类选择器允许以一种独立于文档元素的方式来指定元素，该选择器可以单独使用，也可以与其他元素结合使用。</li>
-<li>CSS类选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431429.png" alt="CSS类选择器"></li>
+</li>
 </ul>
-<h2 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h2><ul>
-<li>ID选择器与类选择器类似，不同的是ID选择器以<strong>“#”</strong>开始，并且由于在HTML文档中ID值是唯一的，因此比class更方便使用，但并不是每个标签都有ID。</li>
-<li>CSS ID选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431630.png" alt="CSS ID选择器"></li>
+<h2 id="BeautifulSoup对象"><a href="#BeautifulSoup对象" class="headerlink" title="BeautifulSoup对象"></a>BeautifulSoup对象</h2><ul>
+<li><p>BeautifulSoup将复杂HTML文档转换成一个复杂的树形结构，每个节点都是Python对象，所有对象可以归纳为4种:</p>
+<ul>
+<li><strong>Tag</strong></li>
+<li><strong>NavigableString</strong></li>
+<li><strong>BeautifulSoup</strong></li>
+<li><strong>Comment</strong></li>
 </ul>
-<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><ul>
-<li>选择具有某个属性的元素，不仅限于class和id属性</li>
-<li>CSS属性选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431071.png" alt="CSS属性选择器"></li>
+</li>
+<li><p><strong>Tag</strong></p>
+<ul>
+<li><p>Tag对象与XML或HTML原生文档中的标签相同，如<code>&lt;title&gt;、&lt;a&gt;、&lt;p&gt;</code>等，这些标签及其内容就构成了一个Tag对象。Tag对象使用BeautifulSoup对象加对应标签名来提取</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#提取title对象</span>
+title <span class="token operator">=</span> soup<span class="token punctuation">.</span>title
+<span class="token comment">#提取a对象</span>
+a <span class="token operator">=</span> soup<span class="token punctuation">.</span>a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Tag 对象有很多属性和方法，其中最重要和常用的两个属性是<strong>name和 attributes</strong>。每个tag都有自己的名字，可以通过.name来获取:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>title<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token comment"># title</span>
+<span class="token comment"># a</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Tag 也可以改变name值，如果做了更改，就会影响所有通过当前BeautifulSoup对象生成的HTML文档。</p>
+</li>
+<li><p>每个Tag 可能包含多个属性，如Tag <code>&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;b&gt;&lt;p&gt;</code>中有一个class 属性，值为“title”。属性的操作方式与字典相同:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>p
+<span class="token keyword">print</span> <span class="token punctuation">(</span>tag<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>tag<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>可以直接“点”取属性，比如使用.attrs来获取属性</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">.</span>attrs<span class="token punctuation">)</span>
+<span class="token comment">#{'class':['title']}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>Tag 中的属性可以增加、修改、删除</p>
+</li>
+<li><p>多值属性返回list，如果属性有多个值，但没有定义为多值属性，返回字符串</p>
+</li>
 </ul>
-<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><ul>
-<li>后代选择器(Descendant Selector）又称为包含选择器，可以选择作为某元素后代的元素。</li>
-<li>CSS后代选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431754.png" alt="CSS后代选择器"></li>
+</li>
+<li><p><strong>NavigableString</strong></p>
+<ul>
+<li><p>BeautifulSoup使用NavigableString类来包装Tag 中的字符串，可以通过.string 提取Tag 中的字符串数据:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span><span class="token string">'&lt;p class="page"&gt;This is a test&lt;/p&gt;'</span><span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>p
+<span class="token keyword">print</span> <span class="token punctuation">(</span>tag<span class="token punctuation">.</span>string<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Tag 中包含的字符串不能编辑，但是可以用<code>replace_with()</code>方法替换成其他的字符串</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tag<span class="token punctuation">.</span>string<span class="token punctuation">.</span>replace_with<span class="token punctuation">(</span><span class="token string">"xxx"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
-<h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2><ul>
-<li>只选择某个元素的子元素</li>
-<li>CSS子元素选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431295.png" alt="CSS子元素选择器"></li>
+</li>
+<li><p><strong>BeautifulSoup</strong></p>
+<p>BeautifulSoup对象表示的是一个文档的全部内容。大部分时候，可以把它当作一个Tag对象。因为BeautifulSoup对象并不是真正的HTML或XML 的标签，所以它没有name和 attribute属性。但有时查看它的.name属性是很有用的，所以BeautifulSoup对象被赋予了一个值为“[document]”的特殊属性.name。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token comment">#[document]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>Comment</strong></p>
+<ul>
+<li><code>bs4.element.Comment</code></li>
+<li>提取文档注释</li>
 </ul>
-<h2 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h2><ul>
-<li>选择紧接在另一个元素后的元素，而且二者有相同的父元素。</li>
-<li>CSS相邻兄弟选择器<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431921.png" alt="CSS相邻兄弟选择器"></li>
+</li>
 </ul>
-<h3 id="组合使用"><a href="#组合使用" class="headerlink" title="组合使用"></a>组合使用</h3><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231431545.png" alt="组合使用"></p>
+<h2 id="遍历文档树"><a href="#遍历文档树" class="headerlink" title="遍历文档树"></a>遍历文档树</h2><ul>
+<li><p><strong>子节点</strong></p>
+<ul>
+<li><p>获取第一个<code>&lt;p&gt;</code>标签：<code>soup.body.p</code></p>
+</li>
+<li><p>获取所有子节点</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>body
+<span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">.</span>contents<span class="token punctuation">)</span>
+<span class="token comment"># 以列表形式输出所有子节点</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Tag 的<code>.children</code>属性可以返回一个生成器，对子节点进行循环</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>body
+<span class="token keyword">for</span> i <span class="token keyword">in</span> tag<span class="token punctuation">.</span>children<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>如果Tag仅包含一个字符串，或者仅包含一个子节点，那么可使用<code>.string</code>来获取这个节点的字符串或者子节点的字符串:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>soup<span class="token punctuation">.</span>title<span class="token punctuation">.</span>string<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>soup<span class="token punctuation">.</span>head<span class="token punctuation">.</span>string<span class="token punctuation">)</span>
+<span class="token comment"># The Dormouse's story</span>
+<span class="token comment"># The Dormouse's story</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>多个节点的情况可以使用<code>.strings</code>属性循环获取内容,使用stripped_string去除换行和段首、段末的空白内容</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> string <span class="token keyword">in</span> soup<span class="token punctuation">.</span>strings<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">repr</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>父节点</p>
+<ul>
+<li>每个Tag或字符串都有父节点，HTML文档顶层节点<code>&lt;html&gt;</code>的父节点是BeautifulSoup对象。</li>
+<li>可以通过<code>.parent</code> 属性来获取某个元素的父节点。</li>
+<li>通过元素的<code>.parents</code>属性可以递归得到元素的所有父节点。</li>
+</ul>
+</li>
+<li><p>兄弟节点</p>
+<ul>
+<li>同一级，同一个元素的子节点</li>
+<li>可以使用<code>.next_sibling</code>和<code>.previous_sibling</code>属性来查询兄弟节点</li>
+</ul>
+</li>
+<li><p><strong>左右的字符串、换行、空白都可以视作一个节点。</strong></p>
+</li>
+<li><p>前后节点</p>
+<ul>
+<li>该节点前后位置的节点</li>
+<li>可以使用<code>.next_element</code>和<code>.previous_element</code>属性来访问前后节点</li>
+</ul>
+</li>
+</ul>
+<h2 id="搜索文档树"><a href="#搜索文档树" class="headerlink" title="搜索文档树"></a>搜索文档树</h2><ul>
+<li><p>字符串筛选</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 筛选所有&lt;b&gt;标签</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># [&lt;b&gt;The Dormouse's story&lt;/b&gt;]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>正则表达式：通过正则表达式search()方法来匹配内容</p>
+ <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html_doc<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">"^b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span> <span class="token punctuation">(</span>tag<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token comment"># body</span>
+<span class="token comment"># b</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>列表：匹配列表中任意一个标签元素</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>True条件：传入True 时，会返回所有的节点，但不包括字符串节点</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>自定义方法：该方法只能接收一个元素作为参数，若元素满足方法中的条件，则返回True，否则返回 False。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 筛选出既含有class属性又含有id属性的元素</span>
+<span class="token keyword">def</span> <span class="token function">has_class_and_id</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">return</span> tag<span class="token punctuation">.</span>has_attr<span class="token punctuation">(</span><span class="token string">"class"</span><span class="token punctuation">)</span> <span class="token keyword">and</span> tag<span class="token punctuation">.</span>has_attr<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>has_class_and_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>find_all()方法</p>
+<ul>
+<li><p><code>find_all(name,attrs,recursive,string,limit,**kwargs)</code></p>
+<ul>
+<li>name参数，可以查找所有名字为name的Tag，字符串对象会被自动忽略掉。类型可以为上述介绍的筛选参数的任意类型。</li>
+<li>kwargs参数，任何未被识别为Tag的参数都将作为Tag属性来筛选数据。</li>
+<li>limit参数，限制返回的结果数</li>
+<li>recursive参数，调用Tag 的find_all()方法时，BeautifulSoup 会检索当前Tag的所有子孙节点，如果只想搜索Tag的直接子节点，则可以使用参数recursive=False。</li>
+</ul>
+</li>
+<li><p>data-*属性不能作为属性直接被搜索，通过attr参数定义搜索</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">data_soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span><span class="token string">'&lt;div data-foo="value"&gt;foo!&lt;/div&gt;'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data_soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>attrs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"data-foo"</span><span class="token punctuation">:</span><span class="token string">"value"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用class 属性搜索时，由于和 Python 中的关键字class 冲突，因此在使用该属性时需要写作<strong><code>class_</code></strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html_doc<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span>class_<span class="token operator">=</span><span class="token string">'sister '</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>text参数，可以搜索文档中的字符串内容，还可以查找Tag。与 name参数的可选值一样，text参数接收字符串、正则表达式、列表、True。</p>
+</li>
+</ul>
+</li>
+<li><p>find()方法：返回一条结果。</p>
+</li>
+<li><p>BeautifulSoup支持大部分的CSS选择器,在Tag或BeautifulSoup对象的<strong><code>.select()</code></strong>方法中传入对应CSS语法的字符串参数即可找到目标Tag。返回列表。</p>
+</li>
+</ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
@@ -447,7 +583,7 @@ CSS规则由两个主要的部分构成:选择器以及一">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/23/scrapy-pa-chong-xi-lie-zhi-css-xuan-ze-yu-fa/">http://Eliauk-L.github.io/2024/07/23/scrapy-pa-chong-xi-lie-zhi-css-xuan-ze-yu-fa/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/24/scrapy-pa-chong-xi-lie-zhi-yuan-su-ti-qu-beautifulsoup/">http://Eliauk-L.github.io/2024/07/24/scrapy-pa-chong-xi-lie-zhi-yuan-su-ti-qu-beautifulsoup/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -501,10 +637,6 @@ CSS规则由两个主要的部分构成:选择器以及一">
                                     <span class="chip bg-color">Scrapy</span>
                                 </a>
                             
-                                <a href="/tags/CSS/">
-                                    <span class="chip bg-color">CSS</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -552,13 +684,13 @@ CSS规则由两个主要的部分构成:选择器以及一">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/07/24/scrapy-pa-chong-xi-lie-zhi-yuan-su-ti-qu-beautifulsoup/">
+                <a href="/2024/07/24/scrapy-pa-chong-xi-lie-zhi-selenium-cao-zong-liu-lan-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/42.jpg" class="responsive-img" alt="Scrapy爬虫系列之元素提取BeautifulSoup">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Scrapy爬虫系列之Selenium操纵浏览器">
                         
-                        <span class="card-title">Scrapy爬虫系列之元素提取BeautifulSoup</span>
+                        <span class="card-title">Scrapy爬虫系列之Selenium操纵浏览器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -598,8 +730,8 @@ CSS规则由两个主要的部分构成:选择器以及一">
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                    <a href="/tags/Scrapy/">
-                        <span class="chip bg-color">Scrapy</span>
+                    <a href="/tags/Selenium/">
+                        <span class="chip bg-color">Selenium</span>
                     </a>
                     
                 </div>
@@ -613,13 +745,13 @@ CSS规则由两个主要的部分构成:选择器以及一">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/23/scrapy-pa-chong-xi-lie-zhi-xpath-yu-fa/">
+                <a href="/2024/07/23/scrapy-pa-chong-xi-lie-zhi-css-xuan-ze-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="Scrapy爬虫系列之XPath语法">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy爬虫系列之CSS选择语法">
                         
-                        <span class="card-title">Scrapy爬虫系列之XPath语法</span>
+                        <span class="card-title">Scrapy爬虫系列之CSS选择语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -663,8 +795,8 @@ CSS规则由两个主要的部分构成:选择器以及一">
                         <span class="chip bg-color">Scrapy</span>
                     </a>
                     
-                    <a href="/tags/XPath/">
-                        <span class="chip bg-color">XPath</span>
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
                     </a>
                     
                 </div>
