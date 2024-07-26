@@ -1,0 +1,1327 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Analytic Geometry, Jay&#39;s Blog">
+    <meta name="description" content="Analytic GeometryNorms
+Norm: A norm on a vector space $V$ is a function 
+
+\left\| \cdot \right\|:V\rightarrow \mathbb{R}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Analytic Geometry | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Analytic Geometry</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/AnalyticGeometry/">
+                                <span class="chip bg-color">AnalyticGeometry</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-26
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Analytic-Geometry"><a href="#Analytic-Geometry" class="headerlink" title="Analytic Geometry"></a>Analytic Geometry</h1><h2 id="Norms"><a href="#Norms" class="headerlink" title="Norms"></a>Norms</h2><ul>
+<li><p><strong>Norm</strong>: A norm on a vector space $V$ is a function </p>
+<script type="math/tex; mode=display">
+\left\| \cdot \right\|:V\rightarrow \mathbb{R},\\
+x \mapsto \left\| x \right\|</script><p>which assigns each vector $x$ its length $∥x∥ ∈ \mathbb{R}$, such that for all $λ ∈ \mathbb{R}$ and $x, y ∈ V$ the following hold:</p>
+<ul>
+<li><em>Absolutely homogeneous</em>: $∥λx∥ = |λ|∥x∥$</li>
+<li><em>Triangle inequality</em>: $∥x + y∥ ⩽ ∥x∥ + ∥y∥$</li>
+<li><em>Positive definite</em>: $∥x∥ ⩾ 0$ and $∥x∥ = 0 \Leftrightarrow x = 0$</li>
+</ul>
+</li>
+<li><p><strong>Manhattan Norm</strong>: The <em>Manhattan norm</em> on $\mathbb R^n$ is defined for $ x ∈ \mathbb R^n$ as </p>
+<script type="math/tex; mode=display">
+\left\| x \right\|_1 := \sum_{i=1}^n |x_i|</script><p>where $| · |$ is the absolute value. All vectors $x ∈ \mathbb R^2$ with $∥x∥_1 = 1$. The Manhattan norm is also called <strong>$ℓ_1$ norm.</strong></p>
+</li>
+<li><p><strong>Euclidean Norm</strong>:  The <em>Euclidean norm</em> of $x ∈ \mathbb R^n$ is defined as</p>
+<script type="math/tex; mode=display">
+\left\| x \right\|_2 := \sqrt{\sum_{i=1}^n{x_i^2}}=\sqrt{x^Tx}</script><p>and computes the Euclidean distance of $x$ from the origin. All vectors $x ∈ \mathbb R^2$ with $∥x∥_2 = 1$. The Euclidean norm is also called <strong>$\ell_{2}$ norm.</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243925.png" alt="Manhattan Norm and Euclidean norm"></p>
+</li>
+</ul>
+<h2 id="Inner-Products"><a href="#Inner-Products" class="headerlink" title="Inner Products"></a>Inner Products</h2><ul>
+<li><p><strong>scalar product/dot product</strong>: $x^Ty=\sum_{i=1}^n{x_iy_i}$</p>
+</li>
+<li><p>A bilinear mapping $Ω$ is a mapping with two arguments, and it is linear in each argument, i.e., when we look at a vector space $V$ then it holds that for all $x, y, z ∈ V, λ, ψ ∈ \mathbb R$ that</p>
+<script type="math/tex; mode=display">
+\varOmega(\lambda x+\psi y,z)=\lambda\varOmega(x,z) + \psi\varOmega(y,z) \\
+\varOmega(x,\lambda y+\psi z)=\lambda\varOmega(x,y) + \psi\varOmega(x,z)</script><p>The first asserts that $Ω$ is linear in the first argument,and second asserts that $Ω$ is linear in the second argument.</p>
+</li>
+<li><p>Let $V$ be a vector space and $Ω : V×V → \mathbb R$ be a bilinear mapping that takes two vectors and maps them onto a real number. Then</p>
+<ul>
+<li>$Ω$ is called <strong>symmetric</strong> if $Ω(x, y) = Ω(y, x)$ for all $x, y ∈ V$, i.e., the order of the arguments does not matter.</li>
+<li>Ω is called <strong>positive definite</strong> if $∀x ∈ V\backslash \{0\} : Ω(x, x) &gt; 0 , Ω(0, 0) = 0 .$</li>
+</ul>
+</li>
+<li><p>Let V be a vector space and $Ω : V×V → \mathbb R$ be a bilinear mapping that takes two vectors and maps them onto a real number. Then</p>
+<ul>
+<li>A positive definite, symmetric bilinear mapping $Ω : V×V → \mathbb R$ is called an <strong>inner product</strong> on $V$. We typically write $⟨x, y⟩$ instead of $Ω(x, y)$.</li>
+<li>The pair $(V, ⟨·, ·⟩)$​ is called an <strong>inner product space or (real) vector space with inner product</strong>. If we use the dot product, we call $(V, ⟨·, ·⟩)$ a <strong>Euclidean vector space</strong>.</li>
+</ul>
+</li>
+<li><p>Consider an $n$-dimensional vector space $V$ with an inner product $⟨·, ·⟩ :V×V → \mathbb R$  and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. Recall that any vectors $x, y ∈ V$ can be written as linear combinations of the basis vectors so that $x =\sum_{i=1}^nψ_ib_i ∈ V$ and $y=\sum_{j=1}^nλ_jb_j ∈ V$ for suitable $ψ_i, λ_j ∈ \mathbb R$. Due to the bilinearity of the inner product, it holds for all $x, y ∈ V$ that</p>
+<script type="math/tex; mode=display">
+<x,y>=\left<\sum_{i=1}^nψ_ib_i,\sum_{j=1}^nλ_jb_j \right>=
+\sum_{i=1}^n\sum_{j=1}^nψ_i<b_i,b_j>λ_j=\hat x^TA \hat y</script><p>where $A_{ij} := ⟨b_i, b_j⟩$ and $\hat x, \hat y$ are the coordinates of $x$ and $y$ with respect to the basis $B$. This implies that the inner product $⟨·, ·⟩$ is uniquely determined through $A$. The symmetry of the inner product also means that $A$ is symmetric. Furthermore, the positive definiteness of the inner product implies that</p>
+<script type="math/tex; mode=display">
+\forall x\in V \backslash \{0\}:x^TAx > 0</script><p>A symmetric matrix $A ∈ \mathbb R^{n×n}$ that satisfies above equation is called <strong>symmetric, positive definite, or just positive definite</strong>. If only <strong>⩾</strong> holds  then A is called <strong>symmetric,positive semidefinite.</strong></p>
+<blockquote>
+<p>e.g. Consider the matrices</p>
+<script type="math/tex; mode=display">
+A_1=\left[\begin{matrix}
+9& 6\\
+6& 5
+\end{matrix}\right],
+A_2=\left[\begin{matrix}
+9& 6\\
+6& 3
+\end{matrix}\right],</script><p>$A_1$ is positive definite because it is symmetric and</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{split}
+x^TA_1x&=\left[\begin{matrix}
+x_1& x_2\end{matrix}\right]\left[\begin{matrix}
+9& 6\\
+6& 5
+\end{matrix}\right]\left[\begin{matrix}
+x_1\\
+x_2
+\end{matrix}\right]\\&=
+9x_1^2+12x_1x_2+5x_2^2=(3x_1+2x_2)^2+x_2^2>0
+\end{split}
+\end{equation}</script><p>for all $x ∈ V\backslash \{0\}$. In contrast, $A_2$ is symmetric but not positive definite because $x^TA_xx=9x_1^2+12x_1x_2+3x_2^2=(3x_1+2x_2)^2-x_2^2$ can be less<br>than 0.</p>
+</blockquote>
+</li>
+<li><p>For a real-valued, finite-dimensional vector space $V$ and an ordered basis $B$ of $V$, it holds that $⟨·, ·⟩ : V ×V → \mathbb R$ is an inner product if and only if there exists <strong>a symmetric, positive definite matrix $A ∈ \mathbb R^{n×n}$ with</strong></p>
+<script type="math/tex; mode=display">
+<x,y>=\hat x^TA\hat y</script><p>The following properties hold if $A ∈ \mathbb R^{n×n}$ is symmetric and positive definite:</p>
+<ul>
+<li><strong>The null space (kernel) of</strong> $A$ <strong>consists only of $0$</strong> because $x^⊤Ax &gt; 0$ for all $x \ne 0$. This implies that $Ax \ne 0$ if $x \ne 0$.</li>
+<li><strong>The diagonal elements $a_{ii}$ of $A$ are positive</strong> because $a_{ii} = e_i^TAe_i &gt; 0$,where $e_i$ is the ith vector of the standard basis in $\mathbb R_n$.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lengths-and-Distances"><a href="#Lengths-and-Distances" class="headerlink" title="Lengths and Distances"></a>Lengths and Distances</h2><ul>
+<li><p>Inner products and norms are closely related in the sense that any inner product induces a norm $||x||=\sqrt{<x,x>}$. However, not every norm is induced by an inner product. <strong>The Manhattan norm  is an example of a norm without a corresponding inner product.</strong></x,x></p>
+</li>
+<li><p><strong>Cauchy-Schwarz Inequality</strong>: For an inner product vector space $(V, ⟨·, ·⟩)$ the induced norm $∥ · ∥$ satisfies the Cauchy-Schwarz inequality</p>
+<script type="math/tex; mode=display">
+|<x,y>| \le \left\|x\right\| \left\|y\right\|</script></li>
+<li><p><strong>Distance and Metric</strong>: Consider an inner product space $(V, ⟨·, ·⟩)$. Then</p>
+<script type="math/tex; mode=display">
+d(x,y):=\left\| x-y \right\|=\sqrt {<x-y,x-y>}</script><p>is called the <strong>distance</strong> between $x and y$ for $x, y ∈ V$. If we use the dot product as the inner product, then the distance is called <strong>Euclidean distance</strong>. The mapping</p>
+<script type="math/tex; mode=display">
+d:V \times V \rightarrow \mathbb R\\
+(x,y) \mapsto d(x,y)</script><p>is called a <strong>metric</strong>.</p>
+</li>
+<li><p>A metric $d$ satisfies the following:</p>
+<ul>
+<li>$d$ is <em>positive definite</em>, i.e., $d(x, y) ⩾ 0$ for all $x, y ∈ V$ and $d(x, y) = 0 \Leftrightarrow x = y $.</li>
+<li>$d$ is <em>symmetric</em>, i.e., $d(x, y) = d(y, x)$ for all $x, y ∈ V$.</li>
+<li><em>Triangle inequality:</em> $d(x, z) ⩽ d(x, y) + d(y, z)$ for all $x, y, z ∈ V$.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Angles-and-Orthogonality"><a href="#Angles-and-Orthogonality" class="headerlink" title="Angles and Orthogonality"></a>Angles and Orthogonality</h2><ul>
+<li><p>Assume that $x \ne 0, y \ne 0$. Then</p>
+<script type="math/tex; mode=display">
+-1 \le \frac{<x,y>}{\left\|x\right\|\left\|y\right\|} \le 1</script><p>Therefore, there exists a unique $ω ∈ [0, π]$</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{<x,y>}{\left\|x\right\|\left\|y\right\|}</script><p>The number $ω$ is the angle between the vectors $x$ and $y$.</p>
+<blockquote>
+<p>e.g. $x=[1,1]^T,y=[1,2]^T$ . we use the dot product as the inner product</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{<x,y>}{\sqrt{<x,x>}{<y,y>}}
+=\frac{x^Ty}{\sqrt{x^Txy^Ty}}=\frac{3}{\sqrt{10}}</script></blockquote>
+</li>
+<li><p><strong>Orthogonality</strong>: Two vectors $x$ and $y$ are <em>orthogonal</em> if and only if $⟨x, y⟩ = 0$, and we write $x ⊥ y$. If additionally $∥x∥ = 1 = ∥y∥$,i.e., the vectors are unit vectors, then $x$ and $y$ are <em>orthonormal</em>.  The $0$-vector is orthogonal to every vector in the vector space.</p>
+</li>
+<li><p>Vectors that are orthogonal with respect to one inner product do not have to be orthogonal with respect to a different inner product.</p>
+</li>
+<li><p><strong>Orthogonal Matrix</strong>: A square matrix $A ∈ \mathbb R^{n×n}$ is an orthogonal matrix if and only if its columns are orthonormal so that</p>
+<script type="math/tex; mode=display">
+AA^T=I=A^TA</script><p>which implies that $ A^{-1}=A^T$ i.e., the inverse is obtained by simply transposing the matrix.</p>
+</li>
+<li><p>Transformations by orthogonal matrices are special because the length of a vector $x$ is not changed when transforming it using an orthogonal matrix $A$.</p>
+<script type="math/tex; mode=display">
+\left\|Ax\right\|^2=(Ax)^T(Ax)=x^TA^TAx=x^TIx=x^Tx=\left\|x\right\|^2</script><p>Moreover, the angle between any two vectors $x, y$, as measured by their inner product, is also unchanged when transforming both of them using an orthogonal matrix $A$.</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{(Ax)^T(Ay)}{\left\|Ax\right\|\left\|Ay\right\|}
+=\frac{x^TA^TAy}{\sqrt{x^TA^TAxy^TA^TAy}}=\frac{x^Ty}{\left\|x\right\|\left\|y\right\|}</script></li>
+</ul>
+<h2 id="Orthonormal-Basis"><a href="#Orthonormal-Basis" class="headerlink" title="Orthonormal Basis"></a>Orthonormal Basis</h2><ul>
+<li><p><strong>Orthonormal Basis</strong>: Consider an $n$-dimensional vector space $V$ and a basis {$b_1, . . . , b_n$} of $V$. If</p>
+<script type="math/tex; mode=display">
+<b_i,b_j>=0 ,\;for \;i\ne j\\
+<b_i,b_i>=1</script><p>for all $i, j = 1, . . . , n$ then the basis is called an <strong>orthonormal basis (ONB)</strong>. If only $<b_i,b_j>=0$ is satisfied, then the basis is called an <strong>orthogonal basis</strong>.</b_i,b_j></p>
+</li>
+<li><p>Assume we are given a set ${\tilde b_1, . . . , \tilde b_n}$ of non-orthogonal and unnormalized basis vectors. We concatenate them into a matrix $\tilde B = [\tilde b_1, . . . , \tilde b_n]$ and apply Gaussian elimination to the augmented matrix  $[\tilde B \tilde B^⊤|\tilde B]$ to obtain an orthonormal basis. This constructive way to iteratively build an orthonormal basis ${b_1, . . . , b_n}$ is called the <em>Gram-Schmidt process</em>.</p>
+</li>
+</ul>
+<h2 id="Orthogonal-Complement"><a href="#Orthogonal-Complement" class="headerlink" title="Orthogonal Complement"></a>Orthogonal Complement</h2><ul>
+<li><p>Consider a $D$-dimensional vector space $V$ and an $M$-dimensional subspace $U ⊆ V$. Then its <strong>orthogonal complement</strong> $U^⊥$ is a $(D−M)$-dimensional subspace of $V$ and contains all vectors in $V$ that are orthogonal to every vector in $U$. Furthermore, $U∩U^⊥ = {0}$ so that any vector $x ∈ V$ can be uniquely decomposed into</p>
+<script type="math/tex; mode=display">
+x=\sum_{m=1}^M{\lambda_mb_m}+\sum_{j=1}^{D-M}{\psi_jb_j^\bot},\lambda_m,\psi_j \in \mathbb R</script><p>where $(b_1, . . . , b_M)$ is a basis of $U$ and $(b^⊥_1 , . . . , b^⊥_{D−M})$ is a basis of $U^⊥$.</p>
+</li>
+<li><p>The orthogonal complement can also be used to describe a plane $U$ (two-dimensional subspace) in a three-dimensional vector space. The vector w with $∥w∥ = 1$, which is orthogonal to the plane $U$, is the basis vector of $U^⊥$. All vectors that are orthogonal to $w$ must (by construction) lie in the plane $U$. The vector w is called <strong>the normal vector</strong> of $U$.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243959.png" alt="orthogonal complement"></p>
+</li>
+<li><p>Orthogonal complements can be used to describe hyperplanes in $n$-dimensional vector and affine spaces.</p>
+</li>
+</ul>
+<h2 id="Inner-Product-of-Functions"><a href="#Inner-Product-of-Functions" class="headerlink" title="Inner Product of Functions"></a>Inner Product of Functions</h2><ul>
+<li><p>An inner product of two functions $u : \mathbb R → \mathbb R$ and $v : \mathbb R → \mathbb R$ can be defined as the definite integral</p>
+<script type="math/tex; mode=display">
+\left<u,v\right>=\int_a^b{u(x)v(x)dx},\; a,b< \infty</script></li>
+<li><p>It also holds that the collection of functions </p>
+<script type="math/tex; mode=display">
+\{1,cos(x),cos(2x),cos(3x),\cdots\}</script><p>is orthogonal if we integrate from $−π$ to $π$, i.e., any pair of functions are orthogonal to each other.</p>
+</li>
+</ul>
+<h2 id="Orthogonal-Projections"><a href="#Orthogonal-Projections" class="headerlink" title="Orthogonal Projections"></a>Orthogonal Projections</h2><ul>
+<li><p><strong>Projection</strong>: Let $V$ be a vector space and $U ⊆ V$ a subspace of $V$. A linear mapping $π : V → U$ is called a <strong>projection</strong> if $π^2 = π ◦ π = π$.</p>
+</li>
+<li><p>Since linear mappings can be expressed by transformation matrices, the preceding definition applies equally to a special kind of transformation matrices, the projection matrices $P_π$, which exhibit the property that $P^2_π = P_π$.</p>
+</li>
+<li><p>[<strong>Projection onto One-Dimensional Subspaces (Lines)</strong>]: Assume we are given a line (one-dimensional subspace) through the origin with basis vector $b ∈ \mathbb R^n$. The line is a one-dimensional subspace $U ⊆ \mathbb R^n$ spanned by $b$. When we project $x ∈ \mathbb R^n$ onto $U$, we seek the vector $π_U(x) ∈ U$ that is closest to x. Using geometric arguments, let us characterize some properties of the projection $π_U(x)$:</p>
+<ul>
+<li><p>The projection $π_U(x)$ is closest to $x$, where “closest” implies that the distance $∥x−π_U(x)∥$ is minimal. It follows that the segment $π_U(x)−x$ from $π_U(x)$ to $x$ is orthogonal to $U$, and therefore the basis vector $b$ of $U$. The orthogonality condition yields $⟨π_U(x) − x, b⟩ = 0$ since angles between vectors are defined via the inner product.</p>
+</li>
+<li><p>The projection $π_U(x)$ of $x$ onto $U$ must be an element of $U$ and, therefore, a multiple of the basis vector $b$ that spans $U$. Hence, $π_U(x) = λb$, for some $λ ∈ \mathbb R$.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243379.png" alt="projections onto one-dimensional subspaces"></p>
+</li>
+</ul>
+</li>
+<li><p>In the following three steps, we determine the coordinate $λ$, the projection $π_U(x) ∈ U$, and the projection matrix $P_π$ that maps any $x ∈ \mathbb R^n$ onto $U$:</p>
+<ol>
+<li><p>Finding the coordinate $λ$. The orthogonality condition yields</p>
+<script type="math/tex; mode=display">
+\left<x-\pi_U(x),b\right>=0 \xLeftrightarrow{\pi_U(x)=\lambda b}\left<x-\lambda b,b\right>=0</script><p>We can now exploit the bilinearity of the inner product and arrive at</p>
+<script type="math/tex; mode=display">
+\left<x,b\right>-\lambda\left<b,b\right>=0 \Leftrightarrow 
+\lambda = \frac{\left<x,b\right>}{\left<b,b\right>}
+=\frac{\left<x,b\right>}{\left\|b\right\|^2}</script><p>In the last step, we exploited the fact that inner products are symmetric. If we choose $⟨·, ·⟩$ to be the dot product, we obtain</p>
+<script type="math/tex; mode=display">
+\lambda = \frac{b^Tx}{b^Tb}=\frac{b^Tx}{\left\|b\right\|^2}</script><p>If $∥b∥ = 1$, then the coordinate $λ$ of the projection is given by $b^⊤x$.</p>
+</li>
+<li><p>Finding the projection point $π_U(x) ∈ U$. Since $π_U(x) = λb$, we immediately obtain </p>
+<script type="math/tex; mode=display">
+\pi_U(x)=\lambda b =\frac{\left<x,b\right>}{\left\|b\right\|^2}b
+=\frac{b^Tx}{\left\|b\right\|^2}b</script><p>where the last equality holds for the dot product only. We can also compute the length of $π_U(x)$ as</p>
+<script type="math/tex; mode=display">
+∥π_U(x)∥ = ∥λb∥ = |λ| ∥b∥</script><p>If we use the dot product as an inner product, we get</p>
+<script type="math/tex; mode=display">
+∥π_U(x)∥ = \frac{|b^Tx|}{\left\|b\right\|^2} ∥b∥
+= |cos\;\omega|∥x∥∥b∥ \frac{∥b∥}{\left\|b\right\|^2}
+=|cos\;\omega|∥x∥</script><p>Here, $ω$ is the angle between $x$ and $b$.</p>
+</li>
+<li><p>Finding the projection matrix $P_π$. We know that a projection is a linear mapping. Therefore, there exists a projection matrix $P_π$, such that $π_U(x) = P_πx$. With the dot product as inner product and</p>
+<script type="math/tex; mode=display">
+\pi_U(x)=\lambda b =b \lambda
+=b\frac{b^Tx}{\left\|b\right\|^2}
+=\frac{bb^T}{\left\|b\right\|^2}x</script><p>we immediately see that</p>
+<script type="math/tex; mode=display">
+P_\pi =\frac{bb^T}{\left\|b\right\|^2}</script><p>Note that $bb^⊤$ (and, consequently, $P_π$) is a symmetric matrix (of rank 1), and $∥b∥^2 = ⟨b, b⟩$ is a scalar.</p>
+</li>
+</ol>
+</li>
+<li><p>The projection $π_U(x) ∈ \mathbb R^n$ is still an $n$-dimensional vector and not a scalar.</p>
+</li>
+<li><p>(<strong>Projection onto General Subspaces</strong>): Assume that $(b_1, . . . , b_m)$ is an ordered basis of $U$. Any projection $π_U(x)$ onto $U$ is necessarily an element of $U$. Therefore, they can be represented as linear combinations of the basis vectors $b_1, . . . , b_m$ of $U$, such that $π_U(x) =\sum_{i=1}^m{\lambda_ib_i}$. We follow a three-step procedure to find the projection $π_U(x)$ and the projection matrix $P_π$:</p>
+<ol>
+<li><p>Find the coordinates $λ_1, . . . , λ_m$ of the projection (with respect to the basis of $U$), such that the linear combination</p>
+<script type="math/tex; mode=display">
+π_U(x) =\sum_{i=1}^m{\lambda_ib_i}=B\lambda\\
+B=[b_1,...,b_m]\in \mathbb R^{n\times m},\lambda=[\lambda_1,...,\lambda_m]^T \in \mathbb R^{m}</script><p>is closest to $x ∈ \mathbb R^n$. The vector connecting $π_U(x) ∈ U$ and $x ∈ \mathbb R^n$ must be orthogonal to all basis vectors of $U$. Therefore, we obtain $m$ simultaneous conditions (assuming the dot product as the inner product)</p>
+<script type="math/tex; mode=display">
+\left<b_1,x-\pi_U(x)\right>=b_1^T(x-\pi_U(x))=0\\
+\vdots\\
+\left<b_m,x-\pi_U(x)\right>=b_m^T(x-\pi_U(x))=0</script><p>which, with $π_U(x) = Bλ$, can be written as</p>
+<script type="math/tex; mode=display">
+b_1^T(x-B\lambda)=0\\
+\vdots\\
+b_m^T(x-B\lambda)=0</script><p>such that we obtain a homogeneous linear equation system</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}
+b_1^T\\
+\vdots\\
+b_m^T
+\end{matrix}\right]\left[\begin{matrix}
+x-B\lambda
+\end{matrix}\right]=0 \Leftrightarrow
+B^T(x-B\lambda)=0 \Leftrightarrow B^TB\lambda = B^Tx</script><p> The last expression is called <strong>normal equation</strong>. Since $b_1, . . . , b_m$ are a basis of $U$ and, therefore, linearly independent, $B^⊤B ∈ \mathbb R^{m×m}$ is regular and can be inverted. This allows us to solve for the coefficients/coordinates</p>
+<script type="math/tex; mode=display">
+\lambda = (B^TB)^{-1}B^Tx</script><p>The matrix $(B^⊤B)^{−1}B^⊤$ is also called the <strong>pseudo-inverse</strong> of $B$, which can be computed for non-square matrices $B$. It only requires that $B^⊤$B is positive definite, which is the case if $B$ is full rank. </p>
+</li>
+<li><p>Find the projection $π_U(x) ∈ U$. We already established that $π_U(x) =Bλ$.</p>
+<script type="math/tex; mode=display">
+\pi_U(x)=B(B^TB)^{-1}B^Tx</script></li>
+<li><p>Find the projection matrix Pπ. We can immediately see that the projection matrix that solves $P_πx = π_U(x)$ must be</p>
+<script type="math/tex; mode=display">
+P_\pi=B(B^TB)^{-1}B^T</script><p>If $dim(U) = 1$, then $B^⊤B ∈ \mathbb R$ is a scalar and we can rewrite the projection matrix in  $P_π = B(B^⊤B)^{−1}B^⊤$ as $P_π = \frac{BB^⊤}{B^TB}$.</p>
+</li>
+</ol>
+</li>
+<li><p>We just looked at projections of vectors $x$ onto a subspace $U$ with basis vectors ${b_1, . . . , b_k}$. If this basis is an <strong>ONB</strong>, the projection equation  simplifies greatly to</p>
+<script type="math/tex; mode=display">
+\pi_U(x)=BB^Tx</script><p>since $B^⊤B = I$ with coordinates $λ = B^⊤x$ . This means that we no longer have to compute the inverse, which saves computation time.</p>
+</li>
+<li><p><strong>Gram-Schmidt Orthogonalization</strong>: Projections are at the core of the Gram-Schmidt method that allows us to constructively transform any basis $(b_1, . . . , b_n)$ of an $n$-dimensional vector space $V$ into an orthogonal/orthonormal basis $(u_1, . . . , u_n)$ of $V$. This basis always exists and span$[b_1, . . . , b_n] =span[u_1, . . . , u_n]$. The Gram-Schmidt orthogonalization method iteratively  constructs an orthogonal basis $(u_1, . . . , u_n)$ from any basis $(b_1, . . . , b_n)$ of $V$ as follows:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+u_1&:=b_1\\
+u_k&:=b_k-\pi_{span[u_1,...,u_{k-1}]}(b_k),k=2,...,n
+\end{split}</script><p>the $k$th basis vector $b_k$ is projected onto the subspace spanned by the first $k − 1$constructed orthogonal vectors $u_1, . . . , u_{k−1}$; This projection is then subtracted from bk and yields a vector $u_k$ that is orthogonal to the $(k − 1)$-dimensional subspace spanned by<br>$u_1, . . . , u_{k−1}$. Repeating this procedure for all $n$ basis vectors $b_1, . . . , b_n$ yields an orthogonal basis $(u_1, . . . , u_n)$ of $V$. If we normalize the $u_k$, we obtain an ONB where $∥uk∥ = 1$ for $k = 1, . . . , n$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243141.png" alt="Gram-Schmidt Orthogonalization"></p>
+</li>
+<li><p><strong>Projection onto Affine Subspaces</strong>: </p>
+<script type="math/tex; mode=display">
+\pi_L(x)=x_0+\pi_U(x-x_0)</script><p>the distance of $x$ from the affine space $L$ is identical to the distance of $x − x_0$ from $U$</p>
+<script type="math/tex; mode=display">
+d(x,L)=\left\|x-\pi_L(x)\right\|=\left\|x-(x_0+\pi_U(x-x_0))\right\|
+\\=d(x-x_0,\pi_U(x-x_0))=d(x-x_0,U)</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243437.png" alt="Projection onto Affine Subspaces"></p>
+</li>
+</ul>
+<h2 id="Rotations"><a href="#Rotations" class="headerlink" title="Rotations"></a>Rotations</h2><ul>
+<li><p><strong>Rotations in $\mathbb R^2$</strong>: Consider the standard basis $\{e_1=\left[\begin{matrix}1\\0\end{matrix}\right],e_2=\left[\begin{matrix}0\\1\end{matrix}\right]\}$  of $\mathbb R^2$, which defines the standard coordinate system in $\mathbb R^2$. We aim to rotate this coordinate system by an angle $θ$. Note that the rotated vectors are still linearly independent and, therefore, are a basis of $\mathbb R^2$. This means that the rotation performs a basis change.  Rotations $Φ$ are linear mappings so that we can express them by ar <em>otation matrix</em> $R(θ)$. Trigonometry allows us to determine the coordinates of the rotated axes (the image of $Φ$) with respect to<br>the standard basis in $\mathbb R^2$. We obtain</p>
+<script type="math/tex; mode=display">
+\varPhi(e_1)=\left[\begin{matrix}cos \theta\\ sin\theta\end{matrix}\right],
+\varPhi(e_2)=\left[\begin{matrix}-sin \theta\\ cos\theta\end{matrix}\right]</script><p>Therefore, the rotation matrix that performs the basis change into the rotated coordinates $R(θ)$ is given as</p>
+<script type="math/tex; mode=display">
+R(\theta)=\left[\begin{matrix}\varPhi(e_1)&\varPhi(e_2)\end{matrix}\right]=\left[\begin{matrix}cos\theta&-sin\theta\\sin\theta&cos\theta\end{matrix}\right]</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243880.png" alt="Rotation of the standard basis in R^2"></p>
+</li>
+<li><p><strong>Rotations in $\mathbb R^3$</strong>: In $\mathbb R^3$ we can rotate any two-dimensional plane about a one-dimensional axis. There are therefore three (planar) rotations about the three standard basis vectors.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243360.png" alt="Rotation of a vector (gray) in R^3"></p>
+<ul>
+<li><p>Rotation about the $e_1$-axis:  the $e_1$ coordinate is fixed, and the counterclockwise rotation is performed in the $e_2e_3$ plane.</p>
+<script type="math/tex; mode=display">
+R_1(\theta)=\left[\begin{matrix}
+\varPhi(e_1)& \varPhi(e_2)& \varPhi(e_3)
+\end{matrix}\right]
+=\left[\begin{matrix}
+1& 0& 0\\
+0& cos\theta& -sin\theta\\
+0& sin\theta& cos\theta
+\end{matrix}\right]</script></li>
+<li><p>Rotation about the $e_2$-axis: If we rotate the $e_1e_3$ plane about the $e_2$ axis, we need to look at the $e_2$ axis from its “tip” toward the origin.</p>
+<script type="math/tex; mode=display">
+R_2(\theta)
+=\left[\begin{matrix}
+cos\theta& 0& sin\theta\\
+0& 1& 0\\
+-sin\theta& 0& cos\theta
+\end{matrix}\right]</script></li>
+<li><p>Rotation about the $e_3$-axis</p>
+<script type="math/tex; mode=display">
+R_3(\theta)
+=\left[\begin{matrix}
+cos\theta& -sin\theta& 0\\
+sin\theta& cos\theta& 0\\
+0& 0& 1\\
+\end{matrix}\right]</script></li>
+</ul>
+</li>
+<li><p><strong>Rotations in n Dimensions</strong>: The generalization of rotations from $2D$ and $3D$ to $n$-dimensional Euclidean vector spaces can be intuitively described as fixing $n − 2$ dimensions and restrict the rotation to a two-dimensional plane in the $n$-dimensional space. As in the three-dimensional case, we can rotate any plane (two-dimensional subspace of $\mathbb R^n$).</p>
+</li>
+<li><p><strong>Givens Rotation:</strong> Let $V$ be an $n$-dimensional Euclidean vector space and $Φ : V → V$ an automorphism with transformation matrix</p>
+<script type="math/tex; mode=display">
+R_{ij}(\theta):=
+\left[\begin{matrix}
+I_{i-1}& 0& \cdots& \cdots& 0\\
+0& cos\theta& 0& -sin\theta& 0\\
+0& 0&I_{j-i-1}& 0& 0\\
+0& sin\theta& 0& cos\theta& 0\\
+0& \cdots& \cdots& 0& I_{n-j}
+\end{matrix}\right] \in \mathbb R^{n\times n}</script><p>for $1 ⩽ i &lt; j ⩽ n$ and $θ ∈ R$. Then $R_{ij}(θ)$ is called a <em>Givens rotation</em>.<br>Essentially, $R_{ij}(θ)$ is the identity matrix $I_n$ with</p>
+<script type="math/tex; mode=display">
+r_{ii}=cos\theta,\;r_{ij}=-sin\theta,\;r_{ji}=sin\theta,\;r_{jj}=cos\theta</script></li>
+<li><p>Properties of Rotations</p>
+<ul>
+<li>Rotations preserve distances, i.e., $∥x−y∥ = ∥R_θ(x)−R_θ(y)∥$. In other words, rotations leave the distance between any two points unchanged after the transformation.</li>
+<li>Rotations preserve angles, i.e., the angle between $R_θx$ and $R_θy$ equals the angle between $x$ and $y$.</li>
+<li>Rotations in three (or more) dimensions are generally not commutative. Therefore, the order in which rotations are applied is important, even if they rotate about the same point. Only in two dimensions vector rotations are commutative, such that $R(ϕ)R(θ) = R(θ)R(ϕ)$ for all $ϕ, θ ∈ [0, 2π)$. They form an Abelian group (with multiplication) only if they rotate about the same point (e.g., the origin).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/07/26/analyticgeometry/">http://Eliauk-L.github.io/2024/07/26/analyticgeometry/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/AnalyticGeometry/">
+                                    <span class="chip bg-color">AnalyticGeometry</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/07/26/analyticgeometry/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="Analytic Geometry">
+                        
+                        <span class="card-title">Analytic Geometry</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/AnalyticGeometry/">
+                        <span class="chip bg-color">AnalyticGeometry</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/26/scrapy-pa-chong-xi-lie-zhi-scrapy-ming-ling-xing-yu-shell/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy命令行与Shell">
+                        
+                        <span class="card-title">Scrapy爬虫系列之Scrapy命令行与Shell</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

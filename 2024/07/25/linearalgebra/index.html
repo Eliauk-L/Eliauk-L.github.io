@@ -325,7 +325,7 @@ Geometr">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6.2k
                 </div>
                 
 
@@ -445,7 +445,7 @@ A+B:=\left[\begin{matrix}
 a_{11}+b_{11}& \cdots& a_{1n}+b_{1n}\\
 \vdots& & \vdots\\
 a_{m1}+b_{m1}& \cdots& a_{mn}+b_{mn}
-\end{matrix}\right]\in \R^{m\times n}</script></li>
+\end{matrix}\right]\in \mathbb R^{m\times n}</script></li>
 <li><p><strong>Matrix Multiplication</strong>: <strong><code>dot product</code></strong></p>
 <script type="math/tex; mode=display">
 C=AB\in R^{m\times k}\Leftrightarrow c_{ij}=\sum_{l=1}^n{a_{il}b_{lj}},i=1,\cdots,m, j=1,\cdots,k</script><blockquote>
@@ -535,7 +535,7 @@ AA^{-1}= I =A^{-1}A \\
 <li><strong>Gaussian elimination</strong>: transforme any system of linear equations into the particularly simple form. Key to Gaussian elimination are <strong>elementary transformations</strong>.</li>
 <li><strong>Elementary transformations</strong><ul>
 <li><strong><code>Exchange</code></strong> of two equations (rows in the matrix representing the system of equations)</li>
-<li><strong><code>Multiplication</code></strong> of an equation (row) with a constant $λ ∈ R \textbackslash {0}$</li>
+<li><strong><code>Multiplication</code></strong> of an equation (row) with a constant $λ ∈ R \backslash \{0\}$</li>
 <li><strong><code>Addition</code></strong> of two equations (rows)</li>
 </ul>
 </li>
@@ -787,17 +787,17 @@ x^{(k+1)} = Cx^{(k)} + d</script><p>for suitable $C$ and $d$ that reduces the re
 </li>
 <li><p>Some examples of sets with associated operations</p>
 <ul>
-<li><strong>$(\Z, +)$ is an Abelian group.</strong></li>
-<li>$(\N_0, +)$ is not a group: Although $(\N_0, +)$ possesses a neutral element(0), the inverse elements are missing.  $\N_0 := \N∪ {0}$</li>
-<li>$(\Z, ·)$ is not a group: Although $(\Z, ·)$ contains a neutral element (1), the inverse elements for any $z ∈ \Z, z \ne ±1$, are missing.</li>
-<li>$(\R, ·)$ is not a group since 0 does not possess an inverse element</li>
-<li><strong>$(\R\textbackslash\{0\}, ·)$ is Abelian</strong></li>
-<li>$(\R^n, +), (\Z^n, +), n ∈ \N$ <strong>are Abelian</strong> if $+$ is defined componentwise, i.e.,<br>$(x_1, · · · , x_n) + (y_1, · · · , y_n) = (x_1 + y_1, · · · , x_n + y_n)$<br>Then, $(x_1, · · · , x_n)^{−1}:= (−x_1, · · · , −x_n)$ is the inverse element and $e = (0, · · · , 0) $is the neutral element.</li>
-<li><strong>$(\R^{m×n}, +)$, the set of $m× n$-matrices is Abelian</strong> (with componentwise addition)</li>
-<li>$(\R^{n×n}, ·)$，the set of n×n-matrices with matrix multiplication<ul>
+<li><strong>$(\mathbb Z, +)$ is an Abelian group.</strong></li>
+<li>$(\mathbb N_0, +)$ is not a group: Although $(\mathbb N_0, +)$ possesses a neutral element(0), the inverse elements are missing.  $\mathbb N_0 := \mathbb N∪ \{0\}$</li>
+<li>$(\mathbb Z, ·)$ is not a group: Although $(\mathbb Z, ·)$ contains a neutral element (1), the inverse elements for any $z ∈ \mathbb Z, z \ne ±1$, are missing.</li>
+<li>$(\mathbb R, ·)$ is not a group since 0 does not possess an inverse element</li>
+<li><strong>$(\mathbb R\backslash\{0\}, ·)$ is Abelian</strong></li>
+<li>$(\mathbb R^n, +), (\mathbb Z^n, +), n ∈ \mathbb N$ <strong>are Abelian</strong> if $+$ is defined componentwise, i.e.,<br>$(x_1, · · · , x_n) + (y_1, · · · , y_n) = (x_1 + y_1, · · · , x_n + y_n)$<br>Then, $(x_1, · · · , x_n)^{−1}:= (−x_1, · · · , −x_n)$ is the inverse element and $e = (0, · · · , 0) $is the neutral element.</li>
+<li><strong>$(\mathbb R^{m×n}, +)$, the set of $m× n$-matrices is Abelian</strong> (with componentwise addition)</li>
+<li>$(\mathbb R^{n×n}, ·)$，the set of n×n-matrices with matrix multiplication<ul>
 <li>Closure and associativity follow directly from the definition of matrix multiplication.</li>
-<li>Neutral element: The <strong>identity matrix</strong> $I_n$ is the neutral element with respect to matrix multiplication “·” in $(\R^{n×n}, ·)$.</li>
-<li>Inverse element: If the inverse exists ($A$ is regular), then $A^{−1}$ is the inverse element of $A ∈ R^{n×n}$, and in exactly this case <strong>$(R^{n×n}, ·)$ is a group, called the general linear group $GL(n,\R)$.</strong> Since matrix multiplication is not commutative, <strong>the group is not Abelian.</strong></li>
+<li>Neutral element: The <strong>identity matrix</strong> $I_n$ is the neutral element with respect to matrix multiplication “·” in $(\mathbb R^{n×n}, ·)$.</li>
+<li>Inverse element: If the inverse exists ($A$ is regular), then $A^{−1}$ is the inverse element of $A ∈ R^{n×n}$, and in exactly this case <strong>$(R^{n×n}, ·)$ is a group, called the general linear group $GL(n,\mathbb R)$.</strong> Since matrix multiplication is not commutative, <strong>the group is not Abelian.</strong></li>
 </ul>
 </li>
 </ul>
@@ -805,15 +805,15 @@ x^{(k+1)} = Cx^{(k)} + d</script><p>for suitable $C$ and $d$ that reduces the re
 <li><p><strong>Vector Space</strong>: A real-valued vector space $V = (\nu, +, ·)$ is a set $\nu$ with two operations</p>
 <script type="math/tex; mode=display">
 +:\nu \times \nu \rightarrow \nu \\
-\cdot:\R \times \nu \rightarrow \nu</script><p>where</p>
+\cdot:\mathbb R \times \nu \rightarrow \nu</script><p>where</p>
 <ol>
 <li><p>$(\nu, +)$ is an Abelian group</p>
 </li>
 <li><p>Distributivity</p>
 <script type="math/tex; mode=display">
-∀λ ∈ \R, x, y ∈ \nu : λ · (x + y) = λ · x + λ · y \\
-∀λ, ψ ∈ \R, x ∈ \nu : (λ + ψ) · x = λ · x + ψ · x</script></li>
-<li><p>Associativity (outer operation): $∀λ, ψ ∈ \R, x ∈ \nu : λ·(ψ·x) = (λψ)·x$</p>
+∀λ ∈ \mathbb R, x, y ∈ \nu : λ · (x + y) = λ · x + λ · y \\
+∀λ, ψ ∈ \mathbb R, x ∈ \nu : (λ + ψ) · x = λ · x + ψ · x</script></li>
+<li><p>Associativity (outer operation): $∀λ, ψ ∈ \mathbb R, x ∈ \nu : λ·(ψ·x) = (λψ)·x$</p>
 </li>
 <li><p>Neutral element with respect to the outer operation: $∀x ∈ \nu : 1·x = x$</p>
 </li>
@@ -821,42 +821,42 @@ x^{(k+1)} = Cx^{(k)} + d</script><p>for suitable $C$ and $d$ that reduces the re
 </li>
 <li><p>Some important examples</p>
 <ul>
-<li>$V = \R^n, n ∈ \N$ is a vector space with operations defined as follows<ul>
-<li>Addition: $x+y = (x_1, . . . , x_n)+(y_1, . . . , y_n) = (x_1+y_1, . . . , x_n+y_n)$ for all $x, y ∈ \R^n$</li>
-<li>Multiplication by scalars: $λx = λ(x_1, . . . , x_n) = (λx_1, . . . , λx_n)$ for all $λ ∈ \R, x ∈ \R^{n}$</li>
+<li>$V = \mathbb R^n, n ∈ \mathbb N$ is a vector space with operations defined as follows<ul>
+<li>Addition: $x+y = (x_1, . . . , x_n)+(y_1, . . . , y_n) = (x_1+y_1, . . . , x_n+y_n)$ for all $x, y ∈ \mathbb R^n$</li>
+<li>Multiplication by scalars: $λx = λ(x_1, . . . , x_n) = (λx_1, . . . , λx_n)$ for all $λ ∈ \mathbb R, x ∈ \mathbb R^{n}$</li>
 </ul>
 </li>
-<li>$V = \C$, with the standard definition of addition of complex numbers.</li>
+<li>$V = \mathbb C$, with the standard definition of addition of complex numbers.</li>
 </ul>
 </li>
 <li><p>The elements $x ∈ V$ are called vectors. The neutral element of $(\nu, +)$ is the zero vector $\mathbf 0 = [0, . . . , 0]^⊤$, and the inner operation $+$ is called vector addition. The elements $λ ∈ R $are called scalars and the outer operation $·$ is a multiplication by scalars.</p>
 </li>
-<li><p>A “vector multiplication” $ab, a, b ∈ \R^n$, is not defined. We could define an element-wise multiplication, such that $c = ab$ with $c_j = a_jb_j$. Only the following multiplications for vectors are defined: $ab^⊤ ∈ \R^{n×n}$ (<strong>outer  product</strong>), $a^⊤b ∈ \R$ (<strong>inner/scalar/dot product</strong>).</p>
+<li><p>A “vector multiplication” $ab, a, b ∈ \mathbb R^n$, is not defined. We could define an element-wise multiplication, such that $c = ab$ with $c_j = a_jb_j$. Only the following multiplications for vectors are defined: $ab^⊤ ∈ \mathbb R^{n×n}$ (<strong>outer  product</strong>), $a^⊤b ∈ \mathbb R$ (<strong>inner/scalar/dot product</strong>).</p>
 </li>
 <li><p>By default, we write $x$ to denote a column vector, and a row vector is denoted by $x^⊤$, the transpose of $x$</p>
 </li>
 <li><p><strong>Vector Subspace</strong>： Let $V = (\nu, +, ·)$ be a vector space and $u ⊆ \nu, u \ne ∅$. Then $U = (u, +, ·)$ is called <strong>vector subspace</strong> of $V$ (or linear subspace) if U is a vector space with the vector space operations + and · restricted to $u×u$ and $\R×u$. We write $U ⊆ V$ to denote a subspace U of V.   U naturally inherits many properties directly from V</p>
 <ul>
 <li>For every vector space $V$, the trivial subspaces are $V$ itself and $\{0\}$.</li>
-<li>Not all subsets of $\R^2$ are subspaces. In A and C, the closure property is violated; B does not contain 0. Only D is a subspace.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251638848.png" alt="Vector Subspace"></li>
-<li>The solution set of a homogeneous system of linear equations $Ax = 0$ with $n $unknowns $x = [x_1, . . . , x_n]^⊤$ is a subspace of $\R^n$. And the solution of an inhomogeneous system of linear equations $Ax = b, b \ne 0$ is not a subspace of $\R^n$.</li>
+<li>Not all subsets of $\mathbb R^2$ are subspaces. In A and C, the closure property is violated; B does not contain 0. Only D is a subspace.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251638848.png" alt="Vector Subspace"></li>
+<li>The solution set of a homogeneous system of linear equations $Ax = 0$ with $n $unknowns $x = [x_1, . . . , x_n]^⊤$ is a subspace of $\mathbb R^n$. And the solution of an inhomogeneous system of linear equations $Ax = b, b \ne 0$ is not a subspace of $\mathbb R^n$.</li>
 <li>The intersection of arbitrarily many subspaces is a subspace itself.</li>
-<li>Every subspace $U ⊆ (\R^n, +, ·)$ is the solution space of a homogeneous system of linear equations $Ax = 0$ for $x ∈ \R^n$.</li>
+<li>Every subspace $U ⊆ (\mathbb R^n, +, ·)$ is the solution space of a homogeneous system of linear equations $Ax = 0$ for $x ∈ \mathbb R^n$.</li>
 </ul>
 </li>
 </ul>
 <h2 id="Linear-Independence"><a href="#Linear-Independence" class="headerlink" title="Linear Independence"></a>Linear Independence</h2><ul>
 <li><p><strong>Linear Combination</strong>: Consider a vector space $V$ and a finite number of vectors $x_1, . . . , x_k ∈ V$. Then, every $v ∈ V$ of the form</p>
 <script type="math/tex; mode=display">
-v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</script><p>with $λ_1, . . . , λ_k ∈ \R$ is <strong>a linear combination of the vectors</strong> $x_1, . . . , x_k$.</p>
+v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</script><p>with $λ_1, . . . , λ_k ∈ \mathbb R$ is <strong>a linear combination of the vectors</strong> $x_1, . . . , x_k$.</p>
 </li>
 <li><p>The <strong>0-vector</strong> can always be written as the linear combination of $k$ vectors $x_1, . . . , x_k $because $0 =\sum_{i=1}^k{0x_i}$ is always true.</p>
 </li>
-<li><p><strong>Linear (In)dependence</strong>: A vector space $V$ with $k ∈ \N$ and $x_1, . . . , x_k ∈ V$. If there is a non-trivial linear combination, such that $0 = \sum_{i=1}^k{\lambda_ix_i}$ with <strong>at least one</strong> $\mathbf λ_i \ne 0$, the vectors $x_1, . . . , x_k$ are <strong>linearly dependent</strong>. If only <strong>the trivial solution</strong> exists, i.e.,$λ_1 = . . . = λ_k = 0$ the vectors $x_1, . . . , x_k$ are <strong>linearly independent</strong>.</p>
+<li><p><strong>Linear (In)dependence</strong>: A vector space $V$ with $k ∈ \mathbb N$ and $x_1, . . . , x_k ∈ V$. If there is a non-trivial linear combination, such that $0 = \sum_{i=1}^k{\lambda_ix_i}$ with <strong>at least one</strong> $\mathbf λ_i \ne 0$, the vectors $x_1, . . . , x_k$ are <strong>linearly dependent</strong>. If only <strong>the trivial solution</strong> exists, i.e.,$λ_1 = . . . = λ_k = 0$ the vectors $x_1, . . . , x_k$ are <strong>linearly independent</strong>.</p>
 <ul>
 <li>$k$ vectors are either linearly dependent or linearly independent.</li>
 <li>If at least one of the vectors $x_1, . . . , x_k$ is $0$ then they are linearly dependent. The same holds if two vectors are identical.</li>
-<li>The vectors $\{x_1, . . . , x_k : x_i \ne 0, i = 1, . . . , k\}, k ⩾ 2$, are linearly dependent if and only if <strong>(at least) one of them is a linear combination of the others.</strong> In particular, if one vector is a multiple of another vector, i.e., $x_i = λx_j, λ ∈ \R$ then the set $\{x_1, . . . , x_k : x_i \ne 0, i = 1, . . . , k\}$ is linearly dependent.</li>
+<li>The vectors $\{x_1, . . . , x_k : x_i \ne 0, i = 1, . . . , k\}, k ⩾ 2$, are linearly dependent if and only if <strong>(at least) one of them is a linear combination of the others.</strong> In particular, if one vector is a multiple of another vector, i.e., $x_i = λx_j, λ ∈ \mathbb R$ then the set $\{x_1, . . . , x_k : x_i \ne 0, i = 1, . . . , k\}$ is linearly dependent.</li>
 <li>Use Gaussian elimination: Write all vectors as columns of a matrix $A$ and perform Gaussian elimination until the matrix is in row echelon form (the reduced row-echelon form is unnecessary here):<ul>
 <li>The pivot columns indicate the vectors, which are linearly independent of the vectors on the left. Note that there is an ordering of vectors when the matrix is built.</li>
 <li>The non-pivot columns can be expressed as linear combinations of the pivot columns on their left.</li>
@@ -887,14 +887,14 @@ v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</scri
 </li>
 <li><p>The dimension of a vector space is not necessarily the number of elements in a vector.</p>
 </li>
-<li><p>A basis of a subspace $U = span[x_1, . . . , x_m] ⊆ \R^n$ can be found by executing the following steps</p>
+<li><p>A basis of a subspace $U = span[x_1, . . . , x_m] ⊆ \mathbb R^n$ can be found by executing the following steps</p>
 <ol>
 <li>Write the spanning vectors as columns of a matrix $A$.</li>
 <li>Determine the row-echelon form of $A$.</li>
 <li>The spanning vectors associated with the pivot columns are a basis of $U$.</li>
 </ol>
 <blockquote>
-<p>e.g.  For a vector subspace $U ⊆ \R^5$, spanned by the vectors</p>
+<p>e.g.  For a vector subspace $U ⊆ \mathbb R^5$, spanned by the vectors</p>
 <script type="math/tex; mode=display">
 x_1 = \left[ \begin{matrix}
 1 \\
@@ -923,7 +923,7 @@ x_4 = \left[ \begin{matrix}
 -5 \\
 -6 \\
 1
-\end{matrix} \right] \in \R^5</script><p>To find out which vectors $x_1, . . . , x_4$ are a basis for $U$, we need to check whether $x_1, . . . , x_4$ are linearly independent.</p>
+\end{matrix} \right] \in \mathbb R^5</script><p>To find out which vectors $x_1, . . . , x_4$ are a basis for $U$, we need to check whether $x_1, . . . , x_4$ are linearly independent.</p>
 <p>Therefore, we need to solve $\sum_{i=1}^4{\lambda_ix_i}=0$,  which leads to a homogeneous system of equations with matrix</p>
 <script type="math/tex; mode=display">
 [x_1,x_2,x_3,x_4]=\left[\begin{matrix} 
@@ -943,22 +943,22 @@ x_4 = \left[ \begin{matrix}
 \end{matrix}\right]</script><p>We see from the row-echelon form that $x_1, x_2, x_4$ are linearly independent.Therefore, $\{x_1, x_2, x_4\}$ is abasis of $U$.</p>
 </blockquote>
 </li>
-<li><p><strong>Rank</strong>: The <strong>number of linearly independent columns</strong> of a matrix $A ∈ \R^{m×n}$ equals the number of linearly independent rows and is called the <strong>rank</strong> of $A$ and is denoted by $rk(A)$.</p>
+<li><p><strong>Rank</strong>: The <strong>number of linearly independent columns</strong> of a matrix $A ∈ \mathbb R^{m×n}$ equals the number of linearly independent rows and is called the <strong>rank</strong> of $A$ and is denoted by $rk(A)$.</p>
 <ul>
 <li>$rk(A) = rk(A^⊤)$, i.e., the column rank equals the row rank.</li>
-<li>The columns of $A ∈ \R^{m×n}$ span a subspace $U ⊆ \R^m$ with $dim(U) =rk(A)$.</li>
-<li>The rows of $A ∈ \R^{m×n}$ span a subspace $W ⊆ \R^n$ with $dim(W) =rk(A)$.</li>
-<li>For all $A ∈ \R^{n×n}$ it holds that $A$ is regular (invertible) if and only if $rk(A) = n$.</li>
-<li>For all $A ∈ \R^{m×n}$ and all $b ∈ \R^m$ it holds that the linear equation system $Ax = b$ can be solved if and only if $rk(A) = rk(A|b)$.</li>
-<li>For$A ∈ \R^{m×n}$ the subspace of solutions for $Ax = 0$ possesses dimension $n − rk(A)$.</li>
-<li>A matrix $A ∈ \R^{m×n}$  has <em>full rank</em> if its rank equals the largest possible  rank for a matrix of the same dimensions. This means that the rank of a full-rank matrix is the lesser of the number of rows and columns, i.e., $rk(A) = min(m,n)$. A matrix is said to be <em>rank deficient</em> if it does not  have full rank.</li>
+<li>The columns of $A ∈ \mathbb R^{m×n}$ span a subspace $U ⊆ \mathbb R^m$ with $dim(U) =rk(A)$.</li>
+<li>The rows of $A ∈ \mathbb R^{m×n}$ span a subspace $W ⊆ \mathbb R^n$ with $dim(W) =rk(A)$.</li>
+<li>For all $A ∈ \mathbb R^{n×n}$ it holds that $A$ is regular (invertible) if and only if $rk(A) = n$.</li>
+<li>For all $A ∈ \mathbb R^{m×n}$ and all $b ∈ \mathbb R^m$ it holds that the linear equation system $Ax = b$ can be solved if and only if $rk(A) = rk(A|b)$.</li>
+<li>For$A ∈ \mathbb R^{m×n}$ the subspace of solutions for $Ax = 0$ possesses dimension $n − rk(A)$.</li>
+<li>A matrix $A ∈ \mathbb R^{m×n}$  has <em>full rank</em> if its rank equals the largest possible  rank for a matrix of the same dimensions. This means that the rank of a full-rank matrix is the lesser of the number of rows and columns, i.e., $rk(A) = min(m,n)$. A matrix is said to be <em>rank deficient</em> if it does not  have full rank.</li>
 </ul>
 </li>
 </ul>
 <h2 id="Linear-Mappings"><a href="#Linear-Mappings" class="headerlink" title="Linear Mappings"></a>Linear Mappings</h2><ul>
 <li><p><strong>Linear Mapping</strong>: For vector spaces $V,W$, a mapping $Φ : V → W$ is called a linear mapping (or vector space homomorphism/linear transformation) if</p>
 <script type="math/tex; mode=display">
-\forall x,y \in V \; \forall \lambda ,\psi \in \R:\varPhi(\lambda x + \psi y) =\lambda \varPhi(x) + \psi \varPhi(y)</script><p>(added together and multiplied by a scalar) It turns out that we can represent linear mappings as matrices.</p>
+\forall x,y \in V \; \forall \lambda ,\psi \in \mathbb R:\varPhi(\lambda x + \psi y) =\lambda \varPhi(x) + \psi \varPhi(y)</script><p>(added together and multiplied by a scalar) It turns out that we can represent linear mappings as matrices.</p>
 </li>
 <li><p>Consider a mapping $Φ : V →W$, where $V,W$ can be arbitrary sets. Then $Φ$ is called</p>
 <ul>
@@ -977,7 +977,7 @@ x_4 = \left[ \begin{matrix}
 </li>
 </ul>
 <blockquote>
-<p>The mapping $Φ : \R^2 → \C, Φ(x) = x_1 + ix_2$, is a <strong>homomorphism</strong>:</p>
+<p>The mapping $Φ : \mathbb R^2 → \mathbb C, Φ(x) = x_1 + ix_2$, is a <strong>homomorphism</strong>:</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 \begin{split}
@@ -1017,7 +1017,7 @@ x_2
 <ul>
 <li>There exists a linear, bijective mapping between two vector spaces of the same dimension.</li>
 <li>Vector spaces of the same dimension are kind of the same thing, as they can be transformed into each other without incurring any loss.</li>
-<li>Treat $\R^{m×n}$ (the vector space of $m× n$-matrices) and $R^{mn}$ (the vector space of vectors of length $mn$) the same, as their dimensions are $mn$, and there exists a linear, bijective mapping that transforms one into the other.</li>
+<li>Treat $\mathbb R^{m×n}$ (the vector space of $m× n$-matrices) and $R^{mn}$ (the vector space of vectors of length $mn$) the same, as their dimensions are $mn$, and there exists a linear, bijective mapping that transforms one into the other.</li>
 </ul>
 </li>
 <li><p>Consider vector spaces $V,W,X$</p>
@@ -1041,7 +1041,7 @@ x = \alpha_1b_1 + \cdots + \alpha_nb_n</script><p>of $x$ with respect to $B$. Th
 \vdots\\
 \alpha_n
 \end{matrix}
-\right]\in \R^n</script><p>is the <strong>coordinate vector/coordinate representation</strong> of $x$ with respect to the ordered basis $B$​.  Different coordinate representations of a vector x, depending on the choice of basis.</p>
+\right]\in \mathbb R^n</script><p>is the <strong>coordinate vector/coordinate representation</strong> of $x$ with respect to the ordered basis $B$​.  Different coordinate representations of a vector x, depending on the choice of basis.</p>
 </li>
 <li><p><strong>Transformation Matrix</strong>: Consider vector spaces $V,W$ with corresponding (ordered) bases $B = (b_1, . . . , b_n)$ and $C = (c_1, . . . , c_m)$. Moreover, we consider a linear mapping $Φ : V →W$. For $j ∈ \{1, . . . , n\}$,</p>
 <script type="math/tex; mode=display">
@@ -1067,7 +1067,7 @@ A_\varPhi = [\alpha_1,\alpha_2,\alpha_3]
 \end{matrix}\right]</script><p>Linear Transformations of Vectors</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251639897.png" alt="Linear Transformations of Vectors"></p>
 <p>Three examples of linear transformations of the vectors shown as dots in (a); (b) Rotation by 45◦; (c) Stretching of the horizontal coordinates by 2; (d) Combination of reflection, rotation and stretching.</p>
-<p>We consider three linear transformations of a set of vectors in $\R^2$ with the transformation matrices</p>
+<p>We consider three linear transformations of a set of vectors in $\mathbb R^2$ with the transformation matrices</p>
 <script type="math/tex; mode=display">
 A_1 = \left[\begin{matrix}
 cos(\frac{\pi}{4})& -sin(\frac{\pi}{4})\\
@@ -1084,21 +1084,21 @@ A_3 = \frac{1}{2}\left[\begin{matrix}
 <ul>
 <li><p><strong>Basis Change</strong>: For a linear mapping $Φ : V →W$, ordered bases $B=(b_1,…,b_n),\tilde B=(\tilde{b_1},…,\tilde{b_n})$ of $V$ and $C=(c_1,…,c_m),\tilde C=(\tilde{c_1},…,\tilde{c_m})$ of $W$, and a transformation matrix $A_\varPhi$ of $\varPhi$  with respect to $B$ and $C$, the corresponding transformation matrix $\tilde A_Φ$ with respect to the bases $\tilde B$ and $\tilde C$ is given as</p>
 <script type="math/tex; mode=display">
-\tilde A_Φ = T^{-1}A_\varPhi S</script><p>$S ∈ \R^{n×n}$ is the transformation matrix of $id_V$ that maps coordinates with respect to<br>$\tilde B$ onto coordinates with respect to $B$, and $T ∈ \R^{m×m}$ is the transformation matrix of $id_W$that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$.</p>
+\tilde A_Φ = T^{-1}A_\varPhi S</script><p>$S ∈ \mathbb R^{n×n}$ is the transformation matrix of $id_V$ that maps coordinates with respect to<br>$\tilde B$ onto coordinates with respect to $B$, and $T ∈ \mathbb R^{m×m}$ is the transformation matrix of $id_W$that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$.</p>
 <ul>
 <li><p>we can write the vectors of the new basis $\tilde B$ of $V$as a linear combination of the basis vectors of $B$, such that</p>
 <script type="math/tex; mode=display">
 \tilde b_j=s_{1j}b_1+\cdots+s_{nj}b_n=\sum_{i=1}^n{s_{ij}b_i},j = 1,...,n</script><script type="math/tex; mode=display">
 \tilde c_k=t_{1k}c_1+\cdots+t_{mk}c_m=\sum_{l=1}^m{t_{lk}c_l},k = 1,...,m</script></li>
-<li><p>We define $S = ((s_{ij})) ∈ \R^{n×n}$ as the transformation matrix that maps coordinates with respect to $\tilde B$ onto coordinates with respect to $B$ and $T = ((t_{lk})) ∈ R^{m×m}$ as the transformation matrix that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$. </p>
+<li><p>We define $S = ((s_{ij})) ∈ \mathbb R^{n×n}$ as the transformation matrix that maps coordinates with respect to $\tilde B$ onto coordinates with respect to $B$ and $T = ((t_{lk})) ∈ R^{m×m}$ as the transformation matrix that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$. </p>
 </li>
 <li><p>In particular, the $j$th column of $S$ is the coordinate representation of $\tilde b_j$ with respect to $B$ and the $k$th column of $T$ is the coordinate representation of $\tilde c_k$ with respect to $C$. Both $S$ and $T$ are regular.</p>
 </li>
 </ul>
 </li>
-<li><p><strong>Equivalence</strong>: Two matrices $A, \tilde A ∈ R^{m×n}$ are <strong>equivalent</strong> if there exist regular matrices $S ∈ \R^{n×n}$ and $T ∈ \R^{m×m}$, such that $\tilde A = T^{-1}AS$.</p>
+<li><p><strong>Equivalence</strong>: Two matrices $A, \tilde A ∈ R^{m×n}$ are <strong>equivalent</strong> if there exist regular matrices $S ∈ \mathbb R^{n×n}$ and $T ∈ \mathbb R^{m×m}$, such that $\tilde A = T^{-1}AS$.</p>
 </li>
-<li><p><strong>Similarity</strong>: Two matrices $A, \tilde A ∈ \R^{n×n}$ are <strong>similar</strong> if there exists a regular matrix $S ∈ \R^{n×n}$ with $\tilde A = S^{−1}AS$.</p>
+<li><p><strong>Similarity</strong>: Two matrices $A, \tilde A ∈ \mathbb R^{n×n}$ are <strong>similar</strong> if there exists a regular matrix $S ∈ \mathbb R^{n×n}$ with $\tilde A = S^{−1}AS$.</p>
 </li>
 <li><p>Similar matrices are always equivalent. However, equivalent matrices are not necessarily similar.</p>
 </li>
@@ -1119,28 +1119,28 @@ Im(\varPhi):=\varPhi(V)=\{w\in W|\exists v\in V:\varPhi(v)=w \}</script><p>We al
 <li>$Φ$ is injective (one-to-one) if and only if $ker(Φ) = {0}$.</li>
 </ul>
 </li>
-<li><p><strong>Null Space and Column Space</strong>: Let us consider $A ∈ \R^{m×n}$ and a linear mapping $Φ : \R^n → \R^m, x \mapsto Ax$.</p>
+<li><p><strong>Null Space and Column Space</strong>: Let us consider $A ∈ \mathbb R^{m×n}$ and a linear mapping $Φ : \mathbb R^n → \mathbb R^m, x \mapsto Ax$.</p>
 <ul>
 <li><p>For $A = [a_1, . . . , a_n]$, where $a_i$ are the columns of $A$, we obtain</p>
 <script type="math/tex; mode=display">
 \begin{equation}
 \begin{split}
-Im(\varPhi) &=\{Ax:x\in \R^n \}=\{\sum_{i=1}^{n}{x_ia_i}:x_1, . . . , x_n \in \R\} \\
-&=span[a_1,...,a_n]\subseteq \R^m
+Im(\varPhi) &=\{Ax:x\in \mathbb R^n \}=\{\sum_{i=1}^{n}{x_ia_i}:x_1, . . . , x_n \in \mathbb R\} \\
+&=span[a_1,...,a_n]\subseteq \mathbb R^m
 \end{split}
-\end{equation}</script><p>the image is the span of the columns of $A$, also called the <strong>column space</strong>. Therefore, the column space (image) is a subspace of $\R^m$, where $m$ is the “height” of the matrix.</p>
+\end{equation}</script><p>the image is the span of the columns of $A$, also called the <strong>column space</strong>. Therefore, the column space (image) is a subspace of $\mathbb R^m$, where $m$ is the “height” of the matrix.</p>
 </li>
 <li><p>$rk(A) = dim(Im(Φ))$.</p>
 </li>
-<li><p>The kernel/null space $ker(Φ)$ is the general solution to the homogeneous system of linear equations $Ax = 0$ and captures all possible linear combinations of the elements in $\R^n$ that produce $0 ∈ \R^m$.</p>
+<li><p>The kernel/null space $ker(Φ)$ is the general solution to the homogeneous system of linear equations $Ax = 0$ and captures all possible linear combinations of the elements in $\mathbb R^n$ that produce $0 ∈ \mathbb R^m$.</p>
 </li>
-<li><p>The kernel is a subspace of $\R^n$, where $n$ is the “width” of the matrix.</p>
+<li><p>The kernel is a subspace of $\mathbb R^n$, where $n$ is the “width” of the matrix.</p>
 </li>
 </ul>
 <blockquote>
 <p>e.g.  The mapping</p>
 <script type="math/tex; mode=display">
-\varPhi:\R^4 \rightarrow \R^2, \left[\begin{matrix} 
+\varPhi:\mathbb R^4 \rightarrow \mathbb R^2, \left[\begin{matrix} 
 x_1\\
 x_2\\
 x_3\\
