@@ -1,0 +1,1259 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Scrapy爬虫系列之Scrapy管道, Jay&#39;s Blog">
+    <meta name="description" content="Scrapy管道
+管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为Item之后，会传递给Item Pipeline做进一步处理，包括:
+清洗数据
+检查抓取的数据是否有效
+去重
+保存数据
+
+
+一个项目可以">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Scrapy爬虫系列之Scrapy管道 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/50.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Scrapy爬虫系列之Scrapy管道</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                <span class="chip bg-color">爬虫</span>
+                            </a>
+                        
+                            <a href="/tags/Scrapy/">
+                                <span class="chip bg-color">Scrapy</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                爬虫
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Scrapy管道"><a href="#Scrapy管道" class="headerlink" title="Scrapy管道"></a>Scrapy管道</h1><ul>
+<li>管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为Item之后，会传递给Item Pipeline做进一步处理，包括:<ul>
+<li>清洗数据</li>
+<li>检查抓取的数据是否有效</li>
+<li>去重</li>
+<li>保存数据</li>
+</ul>
+</li>
+<li>一个项目可以包含多个管道,通过爬虫收集到的Item 会依次按指定顺序传递给管道进行处理。每一个管道都是实现一些指定方法的Python类。这些方法接收Item作为参数，判断此ltem是否进行下一步处理，还是丢弃。</li>
+</ul>
+<h2 id="自定义管道"><a href="#自定义管道" class="headerlink" title="自定义管道"></a>自定义管道</h2><ul>
+<li>重写方法<ul>
+<li><strong><code>process_item(self, item, spider)</code></strong>: process_item()是每个管道都必须实现的方法。数据处理工作都在此方法中进行，该方法返回一个有数据的dict、Item(或者继承类)，返回Twisted Deferred或抛出DropItem异常，丢弃的数据不会再传递到其他管道进行处理。其中，参数item对象是被爬取的Item，参数spider 代表爬取该Item的 Spider。</li>
+<li><strong><code>open_spider(self,spider)</code></strong>:当爬虫开启的时候执行此方法，一般做一些初始化工作，比如连接数据库。</li>
+<li><strong><code>close_spider(self, spider)</code></strong>:当爬虫关闭的时候执行此方法，可以做一些收尾工作、关闭数据库等。</li>
+<li><strong><code>from_crawl(cls, crawler)</code></strong>:该方法是一个类方法。调用此方法会通过初始化crawler对象返回一个Pipeline实例。通过crawler对象可以返回Scrapy的所有核心组件，如全局配置信息。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+
+<span class="token keyword">class</span> <span class="token class-name">JobboleArticlePipeline</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#当启动爬虫时，打开items.json文件，准备写入数据</span>
+    <span class="token keyword">def</span> <span class="token function">open_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span><span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'items.json'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">#当爬虫执行结束时，关闭打开的文件</span>
+    <span class="token keyword">def</span> <span class="token function">close_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">#将抓取到的数据做json序列化存储</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        line <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n"</span>
+        self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>编写完管道之后，需要启用管道，不然不会生效。只需要将管道添加到<strong><code>settings.py</code></strong>文件的ITEM_PIPELINES变量中</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'jobbole_article.pipelines.JobboleArticlePipeline'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="下载文件和图片"><a href="#下载文件和图片" class="headerlink" title="下载文件和图片"></a>下载文件和图片</h2><ul>
+<li><p>Scrapy提供了一些可重用的 Item Pipeline。这些管道有一些共同的方法和结构，通常叫作 MediaPipelines，而我们最常用的就是<strong><code>FilesPipeline</code></strong>和<strong><code>ImagesPipeline</code></strong>，分别用于下载文件和图片。这两种管道都包含以下特性:</p>
+<ul>
+<li><strong>避免重复下载最近下载过的数据</strong>。</li>
+<li>指定存储的位置，可使用本地文件系统或者云端存储。</li>
+</ul>
+</li>
+<li><p>ImagesPipeline还有一些额外特性:</p>
+<ul>
+<li>将下载的图片转换成通用的JPG格式和RGB模式。</li>
+<li>为下载的图片生成缩略图。</li>
+<li>检查图片的宽/高，确保能够满足最小要求。</li>
+</ul>
+</li>
+<li><p>管道同时会为计划中下载的文件URL保存一个内部队列,与包含同样文件的Response相关联，从而<strong>避免重复下载几个Item共用的图片</strong>。</p>
+</li>
+<li><p>在爬虫项目中，使用<strong>文件管道</strong>的工作流程如下</p>
+<ol>
+<li>在爬虫中，抓取到Item并把期望的URL放入<code>file_urls</code> 内。</li>
+<li>从爬虫内返回的Item进入 Item Pipeline 内。</li>
+<li>当Item进入 FilesPipeline 时，<code>file_urls</code>内的URL将被Scrapy内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些URL 会在抓取其他页面之前被处理。在这个管道内的Item 会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
+<li>当文件下载完成之后，下载的结果将会填充到<code>files</code>字段中。这个字段是由dict类型数据组成的列表，包含<em>下载路径、源地址(从file_urls中获取)、图片校验码(checksum)</em>。files字段中文件的顺序与file_urls文件 URL顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在files字段中。</li>
+</ol>
+<blockquote>
+<p><strong>示例代码</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># items.py</span>
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">class</span> <span class="token class-name">DownloadfileItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 文件名称</span>
+    file_name <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 发布时间</span>
+    release_date <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 文件URL</span>
+    file_urls <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 文件结果信息</span>
+    files <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+<span class="token comment"># settings.py</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'scrapy.pipelines.files.FilesPipeline'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+FILES_STORE <span class="token operator">=</span> <span class="token string">'D:\\scrapy \downloadfiles'</span>
+FILES_URLS_FIELD <span class="token operator">=</span> <span class="token string">'file_urls'</span>
+FILES_RESULT_FIELD <span class="token operator">=</span> <span class="token string">'files'</span>
+
+<span class="token comment"># spiders/getfile.py</span>
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> downloadfile<span class="token punctuation">.</span>items <span class="token keyword">import</span> DownloadfileItem
+<span class="token keyword">class</span> <span class="token class-name">Getfilespider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'getfile'</span>
+    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'szhrss.gov.cn'</span><span class="token punctuation">]</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'http://hrss.sz.gov.cn/wsbs/xzzx/rcyj/'</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">def</span> <span class="token function">parse</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    	files_list <span class="token operator">=</span> response<span class="token punctuation">.</span>css <span class="token punctuation">(</span><span class="token string">'.conRight_text_ull li'</span><span class="token punctuation">)</span>
+		<span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> files_list<span class="token punctuation">:</span>
+        item <span class="token operator">=</span> DownloadfileItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        item <span class="token punctuation">[</span><span class="token string">'file_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'a::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        item <span class="token punctuation">[</span> <span class="token string">'release_date '</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'span::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment">#由于获取到的url类似"./201501/P020170328745500534334.doc"</span>
+        <span class="token comment">#因此需要手动调整为完成的url格式</span>
+        url <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'a: :attr (href)'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment">#file_urls必须是list形式</span>
+        item<span class="token punctuation">[</span><span class="token string">'file_urls'</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token punctuation">[</span>response<span class="token punctuation">.</span>url <span class="token operator">+</span> url<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 D:\Scrapyldownloadfiles文件夹中会自动创建full文件夹,其中下载文件如图所示，文件名是根据文件URL自动生成的SHA1哈希值。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271200827.png" alt="文件下载结果"></p>
+<p><strong>自定义文件下载管道</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#pipelines.py</span>
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>pipelines<span class="token punctuation">.</span>files <span class="token keyword">import</span> FilesPipeline 
+<span class="token keyword">from</span> scrapy <span class="token keyword">import</span> Request
+
+<span class="token keyword">class</span> <span class="token class-name">DownloadfilePipeline</span><span class="token punctuation">(</span>FilesPipeline<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#修改file_path方法，使用提取的文件名保存文件</span>
+    <span class="token keyword">def</span> <span class="token function">file_path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> response<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> info<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token comment">#获取到Request中的item</span>
+        item <span class="token operator">=</span> request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span>
+        <span class="token comment">#文件UR工路径的最后部分是文件格式</span>
+        file_type <span class="token operator">=</span> request<span class="token punctuation">.</span>url<span class="token punctuation">.</span>split <span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token comment">#修改使用item中保存的文件名作为下载文件的文件名，文件格式使用提取到的</span>
+        <span class="token comment">#格式</span>
+        file_name <span class="token operator">=</span> <span class="token string">u'full/{0}.{1}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>item <span class="token punctuation">[</span><span class="token string">'file_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>file_type<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> file_name
+    <span class="token keyword">def</span> <span class="token function">get_media_requests</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> info<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token keyword">for</span> file_url <span class="token keyword">in</span> item<span class="token punctuation">[</span><span class="token string">'file_urls'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        	<span class="token comment">#为request带上meta参数，把item传递过去</span>
+        	<span class="token keyword">yield</span> Request<span class="token punctuation">(</span>file_url<span class="token punctuation">,</span>meta<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'item'</span><span class="token punctuation">:</span>item<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271200311.png" alt="修改下载文件名"></p>
+</blockquote>
+</li>
+<li><p>图片管道与文件管道的工作流程一致，不同的是资源URL存储由file_urls变更为<code>image_urls</code>,结果存储字段由files变为<code>images</code>，具体流程如下:</p>
+<ol>
+<li>在爬虫中，抓取到Item并把期望的URL放入<code>image_urls</code> 内。</li>
+<li>从爬虫内返回的Item进入 Item Pipeline 内。</li>
+<li>当Item进入FilesPipeline 时，<code>image_urls</code> 内的URL将被Scrapy 内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些URL会在抓取其他页面之前被处理。在这个管道内的Item会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
+<li>当文件下载完成之后，下载的结果将会填充到<code>images</code>字段中。这个字段是由 dict类型数据组成的列表，包含下载路径、源地址（从image_urls 中获取)、图片校验码(checksum)。images字段中文件的顺序与image_urls文件 URL顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在images字段中。</li>
+</ol>
+<blockquote>
+<p>示例代码</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># items.py</span>
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">class</span> <span class="token class-name">ImgpipelineItem</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+<span class="token comment">#小说名称</span>
+title <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#小说作者</span>
+author <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#小说类型</span>
+<span class="token builtin">type</span> <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#图片URL</span>
+image_urls <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#图片结果信息</span>
+images <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># settings.py</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'imgpipeline.pipelines.ImgpipelinePipeline'</span><span class="token punctuation">:</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token comment"># 自定义管道</span>
+    <span class="token string">'scrapy.pipeline.images.ImagesPipeline'</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 默认管道</span>
+<span class="token punctuation">}</span>
+IMAGES_STORE <span class="token operator">=</span> <span class="token string">'D:\\scrapy\\imgdownload'</span>
+IMAGES_URLS_FIELD <span class="token operator">=</span> <span class="token string">'image_urls'</span>
+IMAGES_RESULT_FIELD <span class="token operator">=</span> <span class="token string">'images'</span>
+<span class="token comment"># 图片缩略图</span>
+IMAGES_THUMBS <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'small'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">)</span> <span class="token punctuation">,</span>
+    <span class="token string">'big'</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 自定义管道 pipelines.py</span>
+<span class="token keyword">class</span> <span class="token class-name">DownloadimagePipeline</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment">#将小说信息保存为json文件</span>
+    <span class="token keyword">def</span> <span class="token function">open_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    	self<span class="token punctuation">.</span><span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span> <span class="token punctuation">(</span><span class="token string">'qidian.json'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">close_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    	self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#写入文件</span>
+    line <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps <span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token operator">+</span> <span class="token string">"\n"</span>
+    self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>write <span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> item
+
+<span class="token comment"># spiders/getimg.py</span>
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> imgpipeline<span class="token punctuation">.</span>items <span class="token keyword">import</span> ImgpipelineItem
+
+<span class="token keyword">class</span> <span class="token class-name">GetimgSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'getimg'</span>
+    allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'qidian.com'</span><span class="token punctuation">]</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'https://www.qidian.com/finish'</span><span class="token punctuation">]</span>
+    <span class="token keyword">def</span> <span class="token function">parse</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token keyword">for</span> novel <span class="token keyword">in</span> response<span class="token punctuation">.</span>css <span class="token punctuation">(</span><span class="token string">".all-img-list &gt; li"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            item <span class="token operator">=</span> ImgpipelineItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> novel<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//h4/a/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'author'</span><span class="token punctuation">]</span> <span class="token operator">=</span> novel<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'.name::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> novel<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'em+a::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            item<span class="token punctuation">[</span><span class="token string">'image_urls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'https:'</span> <span class="token operator">+</span> novel<span class="token punctuation">.</span>xpath <span class="token punctuation">(</span><span class="token string">'.//img/@src'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+    extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+            <span class="token keyword">yield</span> item
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+</li>
+</ul>
+<h2 id="存储数据库"><a href="#存储数据库" class="headerlink" title="存储数据库"></a>存储数据库</h2><ul>
+<li>将爬取的数据存储到数据库中，主要新增数据存储管道</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># pipelines.py</span>
+<span class="token keyword">import</span> pymongo
+<span class="token keyword">class</span> <span class="token class-name">LianjiaPipeline</span> <span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#设置存储文档名称</span>
+    collection_name <span class="token operator">=</span> <span class="token string">'secondhandhouse'</span>
+    
+    <span class="token keyword">def</span> <span class="token function">_init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mongo_uri<span class="token punctuation">,</span> mongo_db<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>mongo_uri <span class="token operator">=</span> mongo_uri
+        self<span class="token punctuation">.</span>mongo_db <span class="token operator">=</span> mongo_db
+        
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword">def</span> <span class="token function">from_crawler</span> <span class="token punctuation">(</span>cls<span class="token punctuation">,</span>crawler<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token keyword">return</span> cls <span class="token punctuation">(</span>
+            <span class="token comment">#通过crawler获取settings文件，获取其中的MongoDB配置信息</span>
+            mongo_uri<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MONGO_URI'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            mongo_db<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MONGO_DATABASE'</span><span class="token punctuation">,</span> <span class="token string">'lianjia'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">open_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token comment">#当爬虫打开时连接MongoDB数据库</span>
+        <span class="token comment">#先连接server，再连接指定数据库</span>
+        self<span class="token punctuation">.</span>client <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span>self<span class="token punctuation">.</span>mongo_uri<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>db <span class="token operator">=</span> self<span class="token punctuation">.</span>client<span class="token punctuation">[</span>self<span class="token punctuation">.</span>mongo_db<span class="token punctuation">]</span>
+        
+    <span class="token keyword">def</span> <span class="token function">close_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#爬虫结束时关闭数据库连接</span>
+    self<span class="token punctuation">.</span>client<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> process item <span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token comment">#将item插入数据库</span>
+    self<span class="token punctuation">.</span>db<span class="token punctuation">[</span>self<span class="token punctuation">.</span>collection_name<span class="token punctuation">]</span><span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> item
+
+<span class="token comment"># 在settings.py 激活pipeline</span>
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'lianjia.pipelines.LianjiaPipeline'</span><span class="token punctuation">:</span><span class="token number">300</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">#MongoDB配置信息</span>
+MONGO_URI <span class="token operator">=</span> <span class="token string">'localhost:27017'</span>
+MONGO_DATABASE <span class="token operator">=</span> <span class="token string">'lianjia'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>参考：</strong></p>
+<ol>
+<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/07/27/scrapy-pa-chong-xi-lie-zhi-scrapy-guan-dao/">http://Eliauk-L.github.io/2024/07/27/scrapy-pa-chong-xi-lie-zhi-scrapy-guan-dao/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                    <span class="chip bg-color">爬虫</span>
+                                </a>
+                            
+                                <a href="/tags/Scrapy/">
+                                    <span class="chip bg-color">Scrapy</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/07/27/scrapy-pa-chong-xi-lie-zhi-request-yu-response/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Scrapy爬虫系列之Request与Response">
+                        
+                        <span class="card-title">Scrapy爬虫系列之Request与Response</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/27/scrapy-pa-chong-xi-lie-zhi-scrapy-pa-chong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/39.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy爬虫">
+                        
+                        <span class="card-title">Scrapy爬虫系列之Scrapy爬虫</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

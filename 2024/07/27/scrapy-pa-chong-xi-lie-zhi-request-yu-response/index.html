@@ -4,14 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Scrapy爬虫系列之Scrapy命令行与Shell, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy命令行
-Scrapy提供了两种类型的命令:一种必须在Scrapy项目中运行，称为项目命令;另一种则不需要在 Scrapy 项目中运行，称为全局命令。
-
-7个全局命令：
-
-startproject:创建项目。
-settings:查">
+    <meta name="keywords" content="Scrapy爬虫系列之Request与Response, Jay&#39;s Blog">
+    <meta name="description" content="Request与Response
+Scrapy框架中，有两个主要的对象Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。
+Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +19,7 @@ settings:查">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Scrapy爬虫系列之Scrapy命令行与Shell | Jay&#39;s Blog</title>
+    <title>Scrapy爬虫系列之Request与Response | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -253,12 +249,12 @@ settings:查">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Scrapy爬虫系列之Scrapy命令行与Shell</h1>
+                    <h1 class="description center-align post-title">Scrapy爬虫系列之Request与Response</h1>
                 </div>
             </div>
         </div>
@@ -319,7 +315,7 @@ settings:查">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-26
+                    2024-07-27
                 </div>
                 
 
@@ -328,14 +324,14 @@ settings:查">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    10 分
                 </div>
                 
 
@@ -358,123 +354,384 @@ settings:查">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy命令行"><a href="#Scrapy命令行" class="headerlink" title="Scrapy命令行"></a>Scrapy命令行</h1><ul>
-<li><p>Scrapy提供了两种类型的命令:一种必须在Scrapy项目中运行，称为<strong>项目命令</strong>;另一种则不需要在 Scrapy 项目中运行，称为<strong>全局命令</strong>。</p>
+                <h1 id="Request与Response"><a href="#Request与Response" class="headerlink" title="Request与Response"></a>Request与Response</h1><ul>
+<li>Scrapy框架中，有两个主要的对象Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。</li>
+<li>Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一系列传递、处理，最终到达 Downloader下载器，下载器执行 Request 中的请求进行数据抓取，将生成的响应包装成一个Response对象，再经过传递、处理，最终返回发送Request 的 Spider，整个流程如图所示。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271201765.png" alt="传递Request与Response"></li>
+</ul>
+<h2 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h2><ul>
+<li><p>Request对象由Spider 生成，包含指定的HTTP请求信息，最终传递到Downloader下载器进行数据下载。</p>
 </li>
-<li><p>7个全局命令：</p>
+<li><p>Request类原型：<strong><code>class scrapy.http.Request(url[, callback, method='GET', headers, body, cookies, meta, encoding='utf-8', priority=0, dont_filter=False, errback, flags] )</code></strong></p>
 <ul>
-<li><strong><code>startproject</code></strong>:创建项目。</li>
-<li><strong><code>settings</code></strong>:查看设置信息。</li>
-<li><strong><code>runspider</code></strong>:运行爬虫。</li>
-<li><strong><code>shell</code></strong>:打开Shell调试。</li>
-<li><strong><code>fetch</code></strong>:下载网页信息。</li>
-<li><strong><code>view</code></strong>:使用浏览器打开指定网址。</li>
-<li><strong><code>version</code></strong>:查看版本号。</li>
-</ul>
+<li><p><strong>url(string)</strong>:请求URL。</p>
 </li>
-<li><p>7个项目命令：</p>
+<li><p><strong>callback(callable)</strong>:调用指定的方法处理请求生成的响应，如果不指定，就默认使用parse()方法处理响应。需要注意的是，一旦发生错误，errback 指定的异常处理方法将会代替该方法被调用。</p>
+</li>
+<li><p><strong>method(string)</strong>: HTTP请求方法，默认为GET。</p>
+</li>
+<li><p><strong>meta(dict)</strong>: Request.meta属性的初始值。</p>
+</li>
+<li><p><strong>body(str or unicode)</strong>:请求body。如果值为Unicode，那么将会用encoding 指定的编码方式转化为str类型。如果body 不指定，就会存储为空字符串，因此，无论 body指定为何种类型，最终都是存储为一个字符串。</p>
+</li>
+<li><p><strong>headers(dict)</strong>:请求头。如果指定为None，将不会发送请求头。</p>
+</li>
+<li><p><strong>cookies(dict or list)</strong>:请求cookies，可以用以下两种方式发送:</p>
+<ol>
+<li><p>使用字典发送</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://www.example.com"</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'currency'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span> <span class="token string">'country'</span><span class="token punctuation">:</span> <span class="token string">'UY'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用字典列表发送</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span>http <span class="token punctuation">:</span> <span class="token operator">/</span> <span class="token operator">/</span> www<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">,</span>
+cookies<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> 
+        <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'currency '</span><span class="token punctuation">,</span>
+        <span class="token string">'value'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span>
+        <span class="token string">'domain'</span> <span class="token punctuation">:</span> <span class="token string">'example.com'</span> <span class="token punctuation">,</span>
+        <span class="token string">'path'</span> <span class="token punctuation">:</span> <span class="token string">'/currency'</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 <ul>
-<li><strong><code>crawl</code></strong>:运行指定的爬虫。</li>
-<li><strong><code>check</code></strong>:检查爬虫代码。</li>
-<li><strong><code>list</code></strong>:列出所有的爬虫。</li>
-<li><strong><code>edit</code></strong>:使用默认的编辑器编辑爬虫文件。</li>
-<li><strong><code>parse</code></strong>:使用爬虫抓取指定的URL。</li>
-<li><strong><code>genspider</code></strong>:创建爬虫。</li>
-<li><code>bench</code>:快速的性能测试。</li>
+<li><p>第⒉种形式支持自定义cookies 中的domain与 path，这种情形通常是为了把 cookie保存到之后的请求中，在接下来的请求中发送出去。</p>
+</li>
+<li><p>当一些网站返回cookies 时，这些cookies将会存储在相对应的cookies域中，这是一个典型的浏览器行为。当我们不想将接收到的cookies 与现有的cookies合并时，我们可以指定Request.meta 中的<code>dont_merge_cookies</code>字段值为True.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://www.example.com"</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'currency'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span> <span class="token string">'country'</span><span class="token punctuation">:</span> <span class="token string">'UY'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>meta<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'dont_merge_cookies'</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 </li>
-<li><p><strong>使用startproject创建项目</strong></p>
+<li><p><strong>encoding(string)</strong>:请求的编码，默认为UTF-8。使用该指定的编码值对URL和body进行编码。</p>
+</li>
+<li><p><strong>priority(int)</strong>:请求的优先级，默认为0。调度器依据优先级来处理请求的顺序。</p>
+</li>
+<li><p><strong>dont_filter(boolean)</strong>:表明调度器不需过滤该请求，默认为False。当需要多次执行相同的请求时，可以指定为Tnue。在使用此参数时必须小心处理，否则会陷入死循环。</p>
+</li>
+<li><p><strong>errback(callable)</strong>:当处理请求抛出异常时调用该参数指定的方法。</p>
+</li>
+<li><p><strong>flags(list)</strong>:发送到请求的标志，可用于日志记录或类似目的。</p>
+</li>
+</ul>
+</li>
+<li><p>Request属性方法</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性或方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>请求的URL，注意这个属性值包含转义过的URL，可以与原始URL不同，可用replaceO方法替换</td>
+</tr>
+<tr>
+<td>method</td>
+<td>HTTP请求方式，如GET、POST、PUT等</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>一个字典形式的请求头信息</td>
+</tr>
+<tr>
+<td>body</td>
+<td>包含请求body的字符串，可用replace()方法替换</td>
+</tr>
+<tr>
+<td>meta</td>
+<td>包含在请求中的字典形式元数据。可以向其中添加在请求中会经常用到的属性</td>
+</tr>
+<tr>
+<td>copy()</td>
+<td>根据原Request复制一个新的Request</td>
+</tr>
+<tr>
+<td>replace([url,  method,  headers,  body,  cookies,  meta,  encoding,  dont_filter, callback, errback])</td>
+<td>通过关键字替换相对应的参数，返回一个与原Request具有相同成员的Request对象</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
-<li><strong><code>scrapy startproject &lt;project_name&gt; [project_dir]</code></strong></li>
-<li><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407261049364.png" alt="使用startproject创建项目"></li>
-<li>项目目录<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407261049147.png" alt="Scrapy项目目录"></li>
-<li>scrapy.cfg 为全局配置文件，包含定义项目设置的Python模块。</li>
-<li>item.py中定义Scrapy的输出内容。</li>
-<li>middlewares.py 中定义各种中间件，主要为了处理各种Request/Response。</li>
-<li>pipelines.py中定义管道，功能为如何处理抓取到的数据。</li>
-<li>setting.py为项目配置文件，所有的管道、中间件等其他参数必须在setting.py中激活才能生效。</li>
-<li>spiders子文件夹中存放所有的爬虫文件。</li>
+<li>新生成的 Request 的 meta 属性值为空，通常情况下根据启用的Scrapy 组件进行填充。Request.meta 属性除了可以填充自定义数据外，还包含一些Scrapy和内置扩展可识别的特定键值，这些特定键值对Request起到特殊的限制作用。</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p><strong>使用genspider创建爬虫</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dont_redirect</td>
+<td>True或False，若设定为Tnue，则禁止重定向</td>
+</tr>
+<tr>
+<td>dont_retry</td>
+<td>True或False，若设定为True，则禁止重新抓取失败的网页</td>
+</tr>
+<tr>
+<td>handle_httpstatus_list</td>
+<td>列表，指定处理更多的HTTP返回状态码，默认处理2xx的状态码</td>
+</tr>
+<tr>
+<td>handle_httpstatus_all</td>
+<td>True或False，若指定为True，则处理所有的HTTP返回码</td>
+</tr>
+<tr>
+<td>dont_merge_cookies</td>
+<td>True或False，若设定为True，则新的cookies不与现有的cookies合并</td>
+</tr>
+<tr>
+<td>cookiejar</td>
+<td>用来管理cookies</td>
+</tr>
+<tr>
+<td>dont_cache</td>
+<td>True或False，若设定为True，则禁止HTTP缓存</td>
+</tr>
+<tr>
+<td>redirect_urls</td>
+<td>list，允许重定向的URL</td>
+</tr>
+<tr>
+<td>bindaddress</td>
+<td>执行外部请求时的IP</td>
+</tr>
+<tr>
+<td>dont_obey_robotstxt</td>
+<td>True或False，设定为True时忽略网站Robots协议</td>
+</tr>
+<tr>
+<td>download_timeout</td>
+<td>设置下载超时，单位为秒</td>
+</tr>
+<tr>
+<td>download_maxsize</td>
+<td>设置可下载的最大数据</td>
+</tr>
+<tr>
+<td>download_latency</td>
+<td>只读属性值，记录了发送请求到获得响应的时间</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td>设定代理URL</td>
+</tr>
+<tr>
+<td>max_retry_times</td>
+<td>设定最大失败重试次数</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
-<li><p>进入项目目录执行：<strong><code>scrapy genspider [-t template] &lt;name&gt; &lt;domain&gt;</code></strong><br>其中-t可以指定使用的爬虫模板，<name>为爬虫名称，<domain>用于生成allowed_domains和start_urls Spider属性值。</domain></name></p>
-</li>
-<li><p>爬虫模板</p>
+<li><p>Request回调函数与错误处理</p>
 <ul>
-<li><strong>basic</strong>：基本爬虫模板</li>
-<li><strong>crawl</strong>：生成继承CrawlSpider爬虫类的Spider</li>
-<li><strong>csvfeed</strong>：生成继承CSVFeedSpider爬虫类的 Spider</li>
-<li><strong>xmlfeed</strong>：生成继承XMLFeedSpider爬虫类的 Spider</li>
+<li><p>当下载器处理完毕Request并生成Response 时，调用回调函数，也就是callback 指定的处理方法，调用的回调函数以该Response 作为第1个参数。</p>
+</li>
+<li><p>许多情况下，我们需要在不同的回调函数间传递参数，这时就可以使用<strong><code>Request.meta</code></strong>来处理参数的传递。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">parse_page1</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    item <span class="token operator">=</span> MyItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    item<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'.name::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    request <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span><span class="token string">"http://www.example.com/some_page.html"</span><span class="token punctuation">,</span> callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_page2<span class="token punctuation">)</span>
+    <span class="token comment"># 通过meta传递数据</span>
+    request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span> <span class="token operator">=</span> item
+    <span class="token keyword">yield</span> request
+    
+<span class="token keyword">def</span> <span class="token function">parse_page2</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> response<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span>
+    item <span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'.age::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>当下载器处理Request 抛出异常时，可以调用errback指定的异常处理方法</p>
+</li>
+<li><p>errback指定的异常处理方法接收一个Twisted Failure 实例作为第1个参数，可用于追踪连接超时、DNS错误等。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>spidermiddlewares<span class="token punctuation">.</span>httperror <span class="token keyword">import</span> HttpError
+<span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet<span class="token punctuation">.</span>error <span class="token keyword">import</span> DNSLookupError
+<span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet<span class="token punctuation">.</span>error <span class="token keyword">import</span> TimeoutError，TCPTimedOutError
+
+<span class="token keyword">class</span> <span class="token class-name">ErrbackSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">"errback_example"</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"http://www.httpbin.org/"</span> <span class="token punctuation">,</span> <span class="token comment">#正常HTTP 200返回</span>
+        <span class="token string">"http://www.httpbin.org/status/404"</span><span class="token punctuation">,</span> <span class="token comment">#404 Not found error</span>
+        <span class="token string">"http://www.httpbin.org/status/500"</span><span class="token punctuation">,</span> <span class="token comment"># 500服务器错误</span>
+        <span class="token string">"http://www.httpbin.org:12345/"</span><span class="token punctuation">,</span> <span class="token comment">#超时无响应错误</span>
+        <span class="token string">"http://www.httphttpbinbin.org/"</span> <span class="token punctuation">,</span><span class="token comment">#DNS 错误</span>
+    <span class="token punctuation">]</span>
+	
+    <span class="token keyword">def</span> <span class="token function">start_requests</span> <span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> u <span class="token keyword">in</span> self<span class="token punctuation">.</span>start_urls<span class="token punctuation">:</span>
+    	<span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>
+            u<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_httpbin<span class="token punctuation">,</span> 
+            errback<span class="token operator">=</span>self<span class="token punctuation">.</span>errback_httpbin<span class="token punctuation">,</span>
+            dont_filter<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">parse_httpbin</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'Got successful response from {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment">#其他处理</span>
+    <span class="token keyword">def</span> <span class="token function">errback_httpbin</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> failure<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token comment">#日志记录所有的异常信息</span>
+        self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token builtin">repr</span><span class="token punctuation">(</span>failure<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment">#假设我们需要对指定的异常类型做处理，</span>
+        <span class="token comment">#我们需要判断异常的类型</span>
+        <span class="token comment"># failure.check 查该异常类型是否在指定的参数列表中</span>
+        <span class="token keyword">if</span> failure<span class="token punctuation">.</span>check<span class="token punctuation">(</span>HttpError<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        	<span class="token comment"># HttpError由HttpErrorMiddleware中间件抛出</span>
+           <span class="token comment">#可以接收到非200状态码的 Response</span>
+        	response <span class="token operator">=</span> failure<span class="token punctuation">.</span>value<span class="token punctuation">.</span>response
+        	self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">'HttpError on %s'</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+		  <span class="token keyword">elif</span> failure<span class="token punctuation">.</span>check<span class="token punctuation">(</span>DNSLookupError<span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token comment">#此异常由请求Request抛出</span>
+             request <span class="token operator">=</span> failure<span class="token punctuation">.</span>request
+				self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">'DNSLookupError on %s'</span><span class="token punctuation">,</span>request<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+		  <span class="token keyword">elif</span> failure<span class="token punctuation">.</span>check<span class="token punctuation">(</span>TimeoutError<span class="token punctuation">,</span> TCPTimedoutError<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            request <span class="token operator">=</span> failure<span class="token punctuation">.</span>request
+            self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">'TimeoutError on %s '</span><span class="token punctuation">,</span> request<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
-<li><pre><code class="lang-shell">scrapy genspider -t crawl test test.com
-# 此时会在spider目录下生成一个名为test.py的爬虫文件
-</code></pre>
-</li>
 </ul>
-</li>
-<li><p><strong>使用crawl启动爬虫</strong>:<strong><code>scrapy crawl &lt;spidername&gt;</code></strong></p>
-</li>
-<li><p><strong>使用list查看爬虫</strong>:<strong><code>scrapy list</code></strong></p>
-</li>
-<li><p><strong>使用fetch获取数据</strong>:<strong><code>scrapy fetch [options] &lt;url&gt;</code></strong></p>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><ul>
+<li>Response表示一个HTTP响应,通常由Downloader下载器生成,最终传递给Spider进行处理。Spider接收 Response之后，从中提取出数据，可以根据不同类型的数据选择相应的Response子类进行处理。</li>
+<li><p>Response类原型：<strong><code>class scrapy.http.Response(url [, status=200,headers=None，body=b''，flags=None, request=None] )</code></strong></p>
 <ul>
-<li>该命令使用Scrapy默认的下载器下载指定的URL页面。</li>
-<li>如果在项目中运行此命令，会自动使用项目中 Spider 的相关设置，而在项目外运行则使用默认的设置。</li>
-<li>options说明<ul>
-<li>—spider=SPIDER:使用指定的Spider 代替默认值。</li>
-<li>—headers:打印返回Response 的 headers，默认打印Response 的 body部分。</li>
-<li>—no-redirect:取消重定向抓取，默认抓取重定向的URL数据。</li>
-<li>—nolog:取消日志的打印，直接显示数据。</li>
+<li><strong>url(string)</strong>:响应的URL。</li>
+<li><strong>status(integer)</strong>: HTTP响应码，默认为200。</li>
+<li><strong>headers(dict)</strong>:响应的头信息。</li>
+<li><strong>body(bytes)</strong>:响应body，可以使用response.txt转化为string类型进行访问。</li>
+<li><strong>flags(list)</strong>:用来初始化 Response.flags。</li>
+<li><strong>request(Request object)</strong>:初始化Response.request，表示生成该Response的Request。</li>
 </ul>
 </li>
-</ul>
+<li><p>Response属性方法</p>
 </li>
-<li><p><strong>使用runspider运行爬虫</strong>：<strong><code>scrapy runspider [options] spider.py</code></strong></p>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性或方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>该响应的url</td>
+</tr>
+<tr>
+<td>status</td>
+<td>响应码，如200、404</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>响应头信息，可以使用getO获取指定头信息，如<code>response.headers.get('User-Agent')</code>，或使用<code>getlist('name')</code>获取指定名称的全部头信息</td>
+</tr>
+<tr>
+<td>body</td>
+<td>响应body</td>
+</tr>
+<tr>
+<td>request</td>
+<td>生成response的Request对象。该属性是在所有请求和响应通过Downloader 中间件时由Scrapy引擎指定。这意味着:<br>(1)HTTP重定向原始的请求指向重定向之后的响应。<br>(2) Response.request.url并不总是等于Response.url。<br>(3）此属性仅在spider 代码及Spider 中间件中可用</td>
+</tr>
+<tr>
+<td>meta</td>
+<td>这个值与Response.request 的 meta 属性值一致。Response.meta具有传播性，无论是重定向还是重试，都可以得到原始的Request.meta属性值</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>包含response标志的列表，flags就是用于调试的标志</td>
+</tr>
+<tr>
+<td>copy()</td>
+<td>从当前Response复制一个新的Response</td>
+</tr>
+<tr>
+<td>replace([url , status,headers，body，flags, request,cls])</td>
+<td>返回一个修改了指定参数的Response对象</td>
+</tr>
+<tr>
+<td>urljoin(url)</td>
+<td>使用Response.url与相对url（相对地址）构成一个绝对url（全地址)</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
-<li>该命令可以在未创建项目时直接运行Spider爬虫文件。它比较有用的参数是—output=FILE或者-o FILE，将抓取结果保存到FILE文件中。</li>
-<li>适用于简单快速的爬虫任务。</li>
-</ul>
-</li>
-<li><p><strong>通过view使用浏览器打开URL</strong>：<strong><code>scrapy view &lt;url&gt; [options]</code></strong></p>
-</li>
-<li><p><strong>使用parse测试爬虫</strong>：<strong><code>scrapy parse [options] http://example.com/</code></strong></p>
+<li><p>Response子类</p>
 <ul>
-<li>parse是一个非常有用的命令，这个命令经常作为测试爬虫使用。可以为此命令指定Spider、Pipeline (管道)、回调函数等一系列爬虫参数。</li>
-<li>—spider=SPIDER:使用特定的爬虫处理。</li>
-<li>—a NAME=VALUE:设定爬虫参数。</li>
-<li>—callback or -c:处理Response 的回调函数。</li>
-<li>—meta or -m:为Request传的参数，例如– meta=’{“foo” : “bar”}’。</li>
-<li>—pipelines:使用管道处理Item。</li>
-<li>—rules or -r:使用CrawlSpider时指定的rules。</li>
-<li>—noitems:不显示爬取的Item。</li>
-<li>—nolinks:不显示解析的链接。</li>
+<li><p><strong><code>TextResponse</code></strong></p>
+<ul>
+<li><p><strong><code>class scrapy.http.TextResponse(url[, encoding[, ...]])</code></strong></p>
+</li>
+<li><p>TextResponse子类在Response基类的基础上添加了<strong>编码能力</strong>,因此适合用来<strong>处理二进制数据</strong>，如图像、音频、视频等媒体文件。</p>
+</li>
+<li><p>TextResponse相比于Response添加了一个构造参数encoding，其余参数与Response一致。</p>
+</li>
+<li><p><strong>encoding(string)</strong>:一个包含用于处理此响应的编码类型的字符串。如果你创建一个带有unicode数据的TextResponse对象,此对象将使用这个指定的编码类型进行编码处理(注意响应的body属性是一个字符串)。如果encoding 是None（默认值)，就在响应头信息和响应正文中查找编码类型进行使用。</p>
+</li>
+<li><p>还支持的属性和方法</p>
+</li>
 </ul>
 </li>
 </ul>
-<h1 id="Scrapy-Shell"><a href="#Scrapy-Shell" class="headerlink" title="Scrapy Shell"></a>Scrapy Shell</h1><ul>
-<li>Scrapy Shell是一个交互终端，可以在未启动Spider的情况下调试代码。该终端用来测试XPath或CSS表达式，测试其能否从抓取的网页中正确地提取数据。</li>
-<li>启动命令: <strong><code>scrapy shell &lt;url&gt;</code></strong><ul>
-<li>url为待爬取的网址，也可以打开本地文件（需加上路径）</li>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性或方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>响应体，unicode类型数据。与<code>response.body.decode(response.encoding)</code>结果一致，会在内存中保存第一次的处理结果，无须每次转化，因此可以随时使用response.text</td>
+</tr>
+<tr>
+<td>encoding</td>
+<td>一个表示该响应编码类型的字符串。该值通过以下方法顺序获取:<br>(1)构造参数encoding 指定的编码类型<br>(2)在响应头信息中Content-Type HTTP参数中指定的编码类型<br>(3)在response 响应体中声明的编码类型<br>(4)通过response 响应体推断编码类型<br></td>
+</tr>
+<tr>
+<td>selector</td>
+<td>与response 中 selector的使用方法一致，也支持xpath与css选择使用</td>
+</tr>
+<tr>
+<td>follow(url, callback=None, method=’GET’,headers=None, body=None, cookies=None,meta=None, encoding=None, priority=0,dont_filter=False, errback=None)</td>
+<td>根据url返回一个Request对象，用法与Request一致</td>
+</tr>
+<tr>
+<td>body_as_unicode</td>
+<td>与response.text效果相同的一个方法</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p><strong><code>HtmlResponse</code></strong></p>
+<ul>
+<li><strong><code>class scrapy.http.HtmlResponse(url[, ...])</code></strong></li>
+<li>HtmIResponse是TextResponse的子类，只不过是添加了一个通过查看HTML meta <code>http-equiv</code>属性来自动添加编码的功能。</li>
 </ul>
 </li>
-<li>与普通Python控制台相比，Scrapy Shell多了一些Scrapy爬虫中特有的功能<ul>
-<li><strong><code>shelp()</code></strong>:打印出所有可使用的属性与命令。</li>
-<li><strong><code>fetch(url[, redirect=True])</code></strong>:从给定的URL获取一个新的Response，同时更新所有相关的项目数据。当指定redirect=False时，不会获取重定向的数据。</li>
-<li><strong><code>fetch(request)</code></strong>:根据给定的Request 获取一个新的Response，同时更新所有相关的项目数据。</li>
-<li><strong><code>view(response)</code></strong>:使用指定的Response打开浏览器，方便检查抓取数据。当使用这条命令的时候，为使外部的图像或者表格等正确显示，会自动为Response中添加一个<code>&lt;base&gt;</code>标签，指定基准URL，也就是Response对应的URL。</li>
-</ul>
-</li>
-<li>使用Scrapy Shell下载页面时，会自动生成一些对象<ul>
-<li><strong><code>crawler</code></strong>:当前使用的crawler。</li>
-<li><strong><code>spider</code></strong>:处理当前页面使用的spider，当没有指定spider时，则是一个Spider对象。</li>
-<li><strong><code>request</code></strong>:获取最新页面所对应的Request。</li>
-<li><strong><code>response</code></strong>:获取最新页面所对应的Response。</li>
-<li><strong><code>settings</code></strong>:当前的Scrapy配置信息。</li>
+<li><p><strong><code>XMLResponse</code></strong></p>
+<ul>
+<li><strong><code>class scrapy.http.XMLResponse(url[, ...])</code></strong></li>
+<li>XmIResponse也是TextResponse 的一个子类，该类的自动添加编码功能来源于对XML声明行的检查。</li>
 </ul>
 </li>
 </ul>
@@ -510,7 +767,7 @@ settings:查">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/26/scrapy-pa-chong-xi-lie-zhi-scrapy-ming-ling-xing-yu-shell/">http://Eliauk-L.github.io/2024/07/26/scrapy-pa-chong-xi-lie-zhi-scrapy-ming-ling-xing-yu-shell/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/27/scrapy-pa-chong-xi-lie-zhi-request-yu-response/">http://Eliauk-L.github.io/2024/07/27/scrapy-pa-chong-xi-lie-zhi-request-yu-response/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,17 +864,18 @@ settings:查">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/26/analyticgeometry/">
+                <a href="/2024/07/27/scrapy-pa-chong-xi-lie-zhi-request-yu-response/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="Analytic Geometry">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Scrapy爬虫系列之Request与Response">
                         
-                        <span class="card-title">Analytic Geometry</span>
+                        <span class="card-title">Scrapy爬虫系列之Request与Response</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -627,34 +885,39 @@ settings:查">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mathematics/" class="post-category">
-                                    Mathematics
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mathematics/">
-                        <span class="chip bg-color">Mathematics</span>
-                    </a>
-                    
-                    <a href="/tags/AnalyticGeometry/">
-                        <span class="chip bg-color">AnalyticGeometry</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
@@ -668,13 +931,13 @@ settings:查">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/26/scrapy-pa-chong-xi-lie-zhi-scrapy-jian-jie/">
+                <a href="/2024/07/27/scrapy-pa-chong-xi-lie-zhi-scrapy-guan-dao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy简介">
+                        <img src="/medias/featureimages/50.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy管道">
                         
-                        <span class="card-title">Scrapy爬虫系列之Scrapy简介</span>
+                        <span class="card-title">Scrapy爬虫系列之Scrapy管道</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -685,7 +948,7 @@ settings:查">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-27
                             </span>
                         <span class="publish-author">
                             
