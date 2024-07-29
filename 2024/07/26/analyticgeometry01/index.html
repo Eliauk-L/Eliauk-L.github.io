@@ -4,15 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo基本命令, Jay&#39;s Blog">
-    <meta name="description" content="Hexo基本命令1 Hexo环境安装
-git安装
-nodejs安装
-npm install -g hexo-cli
-hexo init &amp;lt;folder&amp;gt;
+    <meta name="keywords" content="Analytic Geometry01, Jay&#39;s Blog">
+    <meta name="description" content="Analytic Geometry01Norms
+Norm: A norm on a vector space $V$ is a function 
 
-2 基本指令
-hexo new [layout] &amp;lt;title&amp;g">
+\left\| \cdot \right\|:V\rightarrow \mathbb{">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +20,7 @@ hexo new [layout] &amp;lt;title&amp;g">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo基本命令 | Jay&#39;s Blog</title>
+    <title>Analytic Geometry01 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -254,12 +250,12 @@ hexo new [layout] &amp;lt;title&amp;g">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo基本命令</h1>
+                    <h1 class="description center-align post-title">Analytic Geometry01</h1>
                 </div>
             </div>
         </div>
@@ -283,12 +279,16 @@ hexo new [layout] &amp;lt;title&amp;g">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
                             </a>
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/AnalyticGeometry/">
+                                <span class="chip bg-color">AnalyticGeometry</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -299,8 +299,8 @@ hexo new [layout] &amp;lt;title&amp;g">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
                             </a>
                         
                     </div>
@@ -312,7 +312,7 @@ hexo new [layout] &amp;lt;title&amp;g">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-29
+                    2024-07-26
                 </div>
                 
 
@@ -321,14 +321,14 @@ hexo new [layout] &amp;lt;title&amp;g">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    458
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    8 分
                 </div>
                 
 
@@ -351,74 +351,141 @@ hexo new [layout] &amp;lt;title&amp;g">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hexo基本命令"><a href="#Hexo基本命令" class="headerlink" title="Hexo基本命令"></a>Hexo基本命令</h1><h2 id="1-Hexo环境安装"><a href="#1-Hexo环境安装" class="headerlink" title="1 Hexo环境安装"></a>1 Hexo环境安装</h2><ul>
-<li><strong>git安装</strong></li>
-<li><strong>nodejs安装</strong></li>
-<li><strong><code>npm install -g hexo-cli</code></strong></li>
-<li><strong><code>hexo init &lt;folder&gt;</code></strong></li>
-</ul>
-<h2 id="2-基本指令"><a href="#2-基本指令" class="headerlink" title="2 基本指令"></a>2 基本指令</h2><ul>
-<li><strong><code>hexo new [layout] &lt;title&gt;</code></strong>：新建一篇文章。</li>
-<li><strong><code>hexo generate</code></strong>：生成静态文件。</li>
-<li><strong><code>hexo publish [layout] &lt;filename&gt;</code></strong>：发表草稿。</li>
-<li><strong><code>hexo server</code></strong>：启动服务器。 默认情况下，访问网址为： <code>http://localhost:4000/</code>。</li>
-<li><strong><code>hexo deploy</code></strong>：部署你的网站。</li>
-<li><strong><code>hexo render &lt;file1&gt; [file2] ...</code></strong>：渲染文件。</li>
-<li><strong><code>hexo migrate &lt;type&gt;</code></strong>：从其他博客系统 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</li>
-<li><strong><code>hexo clean</code></strong>：清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</li>
-<li><strong><code>hexo list &lt;type&gt;</code></strong>：列出所有路由。</li>
-<li><strong><code>hexo version</code></strong>：显示版本信息。</li>
-<li><strong><code>hexo config [key] [value]</code></strong>：列出网站的配置（<code>_config.yml</code>）。 如果指定了 <code>key</code>，则只展示配置中对应 <code>key</code> 的值；如果同时指定了 <code>key</code> 和 <code>value</code>，则将配置中对应的 <code>key</code> 的值修改为 <code>value</code>。</li>
-<li><strong><code>hexo --config custom.yml</code></strong>：自定义配置文件的路径</li>
-<li><strong><code>hexo --draft</code></strong>：显示 <code>source/_drafts</code> 文件夹中的草稿文章。</li>
-<li><strong><code>hexo --cwd /path/to/cwd</code></strong>：自定义当前工作目录（Current working directory）的路径。</li>
-</ul>
-<h2 id="3-打开本地服务器"><a href="#3-打开本地服务器" class="headerlink" title="3 打开本地服务器"></a>3 打开本地服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo g
-hexo server<span class="token punctuation">(</span>hexo s<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-hexo部署"><a href="#4-hexo部署" class="headerlink" title="4 hexo部署"></a>4 hexo部署</h2><ul>
-<li>以github为例</li>
-</ul>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/Eliauk<span class="token punctuation">-</span>L/Eliauk<span class="token punctuation">-</span>L.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Analytic-Geometry01"><a href="#Analytic-Geometry01" class="headerlink" title="Analytic Geometry01"></a>Analytic Geometry01</h1><h2 id="Norms"><a href="#Norms" class="headerlink" title="Norms"></a>Norms</h2><ul>
+<li><p><strong>Norm</strong>: A norm on a vector space $V$ is a function </p>
+<script type="math/tex; mode=display">
+\left\| \cdot \right\|:V\rightarrow \mathbb{R},\\
+x \mapsto \left\| x \right\|</script><p>which assigns each vector $x$ its length $∥x∥ ∈ \mathbb{R}$, such that for all $λ ∈ \mathbb{R}$ and $x, y ∈ V$ the following hold:</p>
 <ul>
-<li>安装<code>deploy-git</code></li>
+<li><em>Absolutely homogeneous</em>: $∥λx∥ = |λ|∥x∥$</li>
+<li><em>Triangle inequality</em>: $∥x + y∥ ⩽ ∥x∥ + ∥y∥$</li>
+<li><em>Positive definite</em>: $∥x∥ ⩾ 0$ and $∥x∥ = 0 \Leftrightarrow x = 0$</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>部署</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo generate
-hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-布局"><a href="#5-布局" class="headerlink" title="5 布局"></a>5 布局</h2><ul>
-<li><p>Hexo有三种默认布局：<strong><code>post、page和draft</code></strong></p>
 </li>
-<li><p>发布文章</p>
+<li><p><strong>Manhattan Norm</strong>: The <em>Manhattan norm</em> on $\mathbb R^n$ is defined for $ x ∈ \mathbb R^n$ as </p>
+<script type="math/tex; mode=display">
+\left\| x \right\|_1 := \sum_{i=1}^n |x_i|</script><p>where $| · |$ is the absolute value. All vectors $x ∈ \mathbb R^2$ with $∥x∥_1 = 1$. The Manhattan norm is also called <strong>$ℓ_1$ norm.</strong></p>
+</li>
+<li><p><strong>Euclidean Norm</strong>:  The <em>Euclidean norm</em> of $x ∈ \mathbb R^n$ is defined as</p>
+<script type="math/tex; mode=display">
+\left\| x \right\|_2 := \sqrt{\sum_{i=1}^n{x_i^2}}=\sqrt{x^Tx}</script><p>and computes the Euclidean distance of $x$ from the origin. All vectors $x ∈ \mathbb R^2$ with $∥x∥_2 = 1$. The Euclidean norm is also called <strong>$\ell_{2}$ norm.</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243925.png" alt="Manhattan Norm and Euclidean norm"></p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX
-<span class="token comment"># 默认使用的是post布局，在source文件夹下的_post里面</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="Inner-Products"><a href="#Inner-Products" class="headerlink" title="Inner Products"></a>Inner Products</h2><ul>
+<li><p><strong>scalar product/dot product</strong>: $x^Ty=\sum_{i=1}^n{x_iy_i}$</p>
+</li>
+<li><p>A bilinear mapping $Ω$ is a mapping with two arguments, and it is linear in each argument, i.e., when we look at a vector space $V$ then it holds that for all $x, y, z ∈ V, λ, ψ ∈ \mathbb R$ that</p>
+<script type="math/tex; mode=display">
+\varOmega(\lambda x+\psi y,z)=\lambda\varOmega(x,z) + \psi\varOmega(y,z) \\
+\varOmega(x,\lambda y+\psi z)=\lambda\varOmega(x,y) + \psi\varOmega(x,z)</script><p>The first asserts that $Ω$ is linear in the first argument,and second asserts that $Ω$ is linear in the second argument.</p>
+</li>
+<li><p>Let $V$ be a vector space and $Ω : V×V → \mathbb R$ be a bilinear mapping that takes two vectors and maps them onto a real number. Then</p>
 <ul>
-<li>另起一页</li>
+<li>$Ω$ is called <strong>symmetric</strong> if $Ω(x, y) = Ω(y, x)$ for all $x, y ∈ V$, i.e., the order of the arguments does not matter.</li>
+<li>Ω is called <strong>positive definite</strong> if $∀x ∈ V\backslash \{0\} : Ω(x, x) &gt; 0 , Ω(0, 0) = 0 .$</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage
-<span class="token comment"># 系统会自动在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，</span>
-<span class="token comment"># 访问newpage对应的链接就是http://xxx.xxx/newpage</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Let V be a vector space and $Ω : V×V → \mathbb R$ be a bilinear mapping that takes two vectors and maps them onto a real number. Then</p>
 <ul>
-<li>发布草稿</li>
+<li>A positive definite, symmetric bilinear mapping $Ω : V×V → \mathbb R$ is called an <strong>inner product</strong> on $V$. We typically write $⟨x, y⟩$ instead of $Ω(x, y)$.</li>
+<li>The pair $(V, ⟨·, ·⟩)$​ is called an <strong>inner product space or (real) vector space with inner product</strong>. If we use the dot product, we call $(V, ⟨·, ·⟩)$ a <strong>Euclidean vector space</strong>.</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft
-<span class="token comment"># 在source/_draft中新建一个newdraft.md文件，如果想要预览，那么可以使用 </span>
-<span class="token comment"># hexo server --draft</span>
-
-<span class="token comment"># 将草稿发表到post中</span>
-hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Consider an $n$-dimensional vector space $V$ with an inner product $⟨·, ·⟩ :V×V → \mathbb R$  and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. Recall that any vectors $x, y ∈ V$ can be written as linear combinations of the basis vectors so that $x =\sum_{i=1}^nψ_ib_i ∈ V$ and $y=\sum_{j=1}^nλ_jb_j ∈ V$ for suitable $ψ_i, λ_j ∈ \mathbb R$. Due to the bilinearity of the inner product, it holds for all $x, y ∈ V$ that</p>
+<script type="math/tex; mode=display">
+<x,y>=\left<\sum_{i=1}^nψ_ib_i,\sum_{j=1}^nλ_jb_j \right>=
+\sum_{i=1}^n\sum_{j=1}^nψ_i<b_i,b_j>λ_j=\hat x^TA \hat y</script><p>where $A_{ij} := ⟨b_i, b_j⟩$ and $\hat x, \hat y$ are the coordinates of $x$ and $y$ with respect to the basis $B$. This implies that the inner product $⟨·, ·⟩$ is uniquely determined through $A$. The symmetry of the inner product also means that $A$ is symmetric. Furthermore, the positive definiteness of the inner product implies that</p>
+<script type="math/tex; mode=display">
+\forall x\in V \backslash \{0\}:x^TAx > 0</script><p>A symmetric matrix $A ∈ \mathbb R^{n×n}$ that satisfies above equation is called <strong>symmetric, positive definite, or just positive definite</strong>. If only <strong>⩾</strong> holds  then A is called <strong>symmetric,positive semidefinite.</strong></p>
 <blockquote>
-<p><strong>参考：</strong></p>
+<p>e.g. Consider the matrices</p>
+<script type="math/tex; mode=display">
+A_1=\left[\begin{matrix}
+9& 6\\
+6& 5
+\end{matrix}\right],
+A_2=\left[\begin{matrix}
+9& 6\\
+6& 3
+\end{matrix}\right],</script><p>$A_1$ is positive definite because it is symmetric and</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{split}
+x^TA_1x&=\left[\begin{matrix}
+x_1& x_2\end{matrix}\right]\left[\begin{matrix}
+9& 6\\
+6& 5
+\end{matrix}\right]\left[\begin{matrix}
+x_1\\
+x_2
+\end{matrix}\right]\\&=
+9x_1^2+12x_1x_2+5x_2^2=(3x_1+2x_2)^2+x_2^2>0
+\end{split}
+\end{equation}</script><p>for all $x ∈ V\backslash \{0\}$. In contrast, $A_2$ is symmetric but not positive definite because $x^TA_xx=9x_1^2+12x_1x_2+3x_2^2=(3x_1+2x_2)^2-x_2^2$ can be less<br>than 0.</p>
+</blockquote>
+</li>
+<li><p>For a real-valued, finite-dimensional vector space $V$ and an ordered basis $B$ of $V$, it holds that $⟨·, ·⟩ : V ×V → \mathbb R$ is an inner product if and only if there exists <strong>a symmetric, positive definite matrix $A ∈ \mathbb R^{n×n}$ with</strong></p>
+<script type="math/tex; mode=display">
+<x,y>=\hat x^TA\hat y</script><p>The following properties hold if $A ∈ \mathbb R^{n×n}$ is symmetric and positive definite:</p>
+<ul>
+<li><strong>The null space (kernel) of</strong> $A$ <strong>consists only of $0$</strong> because $x^⊤Ax &gt; 0$ for all $x \ne 0$. This implies that $Ax \ne 0$ if $x \ne 0$.</li>
+<li><strong>The diagonal elements $a_{ii}$ of $A$ are positive</strong> because $a_{ii} = e_i^TAe_i &gt; 0$,where $e_i$ is the ith vector of the standard basis in $\mathbb R_n$.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lengths-and-Distances"><a href="#Lengths-and-Distances" class="headerlink" title="Lengths and Distances"></a>Lengths and Distances</h2><ul>
+<li><p>Inner products and norms are closely related in the sense that any inner product induces a norm $||x||=\sqrt{<x,x>}$. However, not every norm is induced by an inner product. <strong>The Manhattan norm  is an example of a norm without a corresponding inner product.</strong></x,x></p>
+</li>
+<li><p><strong>Cauchy-Schwarz Inequality</strong>: For an inner product vector space $(V, ⟨·, ·⟩)$ the induced norm $∥ · ∥$ satisfies the Cauchy-Schwarz inequality</p>
+<script type="math/tex; mode=display">
+|<x,y>| \le \left\|x\right\| \left\|y\right\|</script></li>
+<li><p><strong>Distance and Metric</strong>: Consider an inner product space $(V, ⟨·, ·⟩)$. Then</p>
+<script type="math/tex; mode=display">
+d(x,y):=\left\| x-y \right\|=\sqrt {<x-y,x-y>}</script><p>is called the <strong>distance</strong> between $x and y$ for $x, y ∈ V$. If we use the dot product as the inner product, then the distance is called <strong>Euclidean distance</strong>. The mapping</p>
+<script type="math/tex; mode=display">
+d:V \times V \rightarrow \mathbb R\\
+(x,y) \mapsto d(x,y)</script><p>is called a <strong>metric</strong>.</p>
+</li>
+<li><p>A metric $d$ satisfies the following:</p>
+<ul>
+<li>$d$ is <em>positive definite</em>, i.e., $d(x, y) ⩾ 0$ for all $x, y ∈ V$ and $d(x, y) = 0 \Leftrightarrow x = y $.</li>
+<li>$d$ is <em>symmetric</em>, i.e., $d(x, y) = d(y, x)$ for all $x, y ∈ V$.</li>
+<li><em>Triangle inequality:</em> $d(x, z) ⩽ d(x, y) + d(y, z)$ for all $x, y, z ∈ V$.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Angles-and-Orthogonality"><a href="#Angles-and-Orthogonality" class="headerlink" title="Angles and Orthogonality"></a>Angles and Orthogonality</h2><ul>
+<li><p>Assume that $x \ne 0, y \ne 0$. Then</p>
+<script type="math/tex; mode=display">
+-1 \le \frac{<x,y>}{\left\|x\right\|\left\|y\right\|} \le 1</script><p>Therefore, there exists a unique $ω ∈ [0, π]$</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{<x,y>}{\left\|x\right\|\left\|y\right\|}</script><p>The number $ω$ is the angle between the vectors $x$ and $y$.</p>
+<blockquote>
+<p>e.g. $x=[1,1]^T,y=[1,2]^T$ . we use the dot product as the inner product</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{<x,y>}{\sqrt{<x,x>}{<y,y>}}
+=\frac{x^Ty}{\sqrt{x^Txy^Ty}}=\frac{3}{\sqrt{10}}</script></blockquote>
+</li>
+<li><p><strong>Orthogonality</strong>: Two vectors $x$ and $y$ are <em>orthogonal</em> if and only if $⟨x, y⟩ = 0$, and we write $x ⊥ y$. If additionally $∥x∥ = 1 = ∥y∥$,i.e., the vectors are unit vectors, then $x$ and $y$ are <em>orthonormal</em>.  The $0$-vector is orthogonal to every vector in the vector space.</p>
+</li>
+<li><p>Vectors that are orthogonal with respect to one inner product do not have to be orthogonal with respect to a different inner product.</p>
+</li>
+<li><p><strong>Orthogonal Matrix</strong>: A square matrix $A ∈ \mathbb R^{n×n}$ is an orthogonal matrix if and only if its columns are orthonormal so that</p>
+<script type="math/tex; mode=display">
+AA^T=I=A^TA</script><p>which implies that $ A^{-1}=A^T$ i.e., the inverse is obtained by simply transposing the matrix.</p>
+</li>
+<li><p>Transformations by orthogonal matrices are special because the length of a vector $x$ is not changed when transforming it using an orthogonal matrix $A$.</p>
+<script type="math/tex; mode=display">
+\left\|Ax\right\|^2=(Ax)^T(Ax)=x^TA^TAx=x^TIx=x^Tx=\left\|x\right\|^2</script><p>Moreover, the angle between any two vectors $x, y$, as measured by their inner product, is also unchanged when transforming both of them using an orthogonal matrix $A$.</p>
+<script type="math/tex; mode=display">
+cos \omega = \frac{(Ax)^T(Ay)}{\left\|Ax\right\|\left\|Ay\right\|}
+=\frac{x^TA^TAy}{\sqrt{x^TA^TAxy^TA^TAy}}=\frac{x^Ty}{\left\|x\right\|\left\|y\right\|}</script></li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58608526/article/details/124652412">https://blog.csdn.net/qq_58608526/article/details/124652412</a></li>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
 </ol>
 </blockquote>
 
@@ -447,7 +514,7 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/06/29/hexo-ji-ben-ming-ling/">http://Eliauk-L.github.io/2024/06/29/hexo-ji-ben-ming-ling/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/26/analyticgeometry01/">http://Eliauk-L.github.io/2024/07/26/analyticgeometry01/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -485,12 +552,16 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
                                 </a>
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/AnalyticGeometry/">
+                                    <span class="chip bg-color">AnalyticGeometry</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -540,13 +611,13 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/07/01/python-xue-xi-02-chu-shi-python/">
+                <a href="/2024/07/26/analyticgeometry02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Python学习02-初始Python">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Analytic Geometry02">
                         
-                        <span class="card-title">Python学习02-初始Python</span>
+                        <span class="card-title">Analytic Geometry02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -557,14 +628,14 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
                                 </a>
                             
                             
@@ -574,12 +645,16 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/AnalyticGeometry/">
+                        <span class="chip bg-color">AnalyticGeometry</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -593,13 +668,13 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/06/29/python-xue-xi-01-huan-jing-an-zhuang/">
+                <a href="/2024/07/26/scrapy-pa-chong-xi-lie-zhi-scrapy-ming-ling-xing-yu-shell/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Python学习01-环境安装">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy命令行与Shell">
                         
-                        <span class="card-title">Python学习01-环境安装</span>
+                        <span class="card-title">Scrapy爬虫系列之Scrapy命令行与Shell</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -610,14 +685,14 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
                                 </a>
                             
                             
@@ -635,8 +710,12 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-                        <span class="chip bg-color">环境安装</span>
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
@@ -760,6 +839,13 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

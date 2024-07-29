@@ -4,15 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo基本命令, Jay&#39;s Blog">
-    <meta name="description" content="Hexo基本命令1 Hexo环境安装
-git安装
-nodejs安装
-npm install -g hexo-cli
-hexo init &amp;lt;folder&amp;gt;
-
-2 基本指令
-hexo new [layout] &amp;lt;title&amp;g">
+    <meta name="keywords" content="Matrix Decompositions01, Jay&#39;s Blog">
+    <meta name="description" content="Matrix Decompositions01Determinant and Trace
+Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +18,7 @@ hexo new [layout] &amp;lt;title&amp;g">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo基本命令 | Jay&#39;s Blog</title>
+    <title>Matrix Decompositions01 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -254,12 +248,12 @@ hexo new [layout] &amp;lt;title&amp;g">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/55.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo基本命令</h1>
+                    <h1 class="description center-align post-title">Matrix Decompositions01</h1>
                 </div>
             </div>
         </div>
@@ -283,12 +277,16 @@ hexo new [layout] &amp;lt;title&amp;g">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
                             </a>
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/AnalyticGeometry/">
+                                <span class="chip bg-color">AnalyticGeometry</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -299,8 +297,8 @@ hexo new [layout] &amp;lt;title&amp;g">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
                             </a>
                         
                     </div>
@@ -312,7 +310,7 @@ hexo new [layout] &amp;lt;title&amp;g">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-29
+                    2024-07-29
                 </div>
                 
 
@@ -321,14 +319,14 @@ hexo new [layout] &amp;lt;title&amp;g">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    458
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    19 分
                 </div>
                 
 
@@ -351,74 +349,313 @@ hexo new [layout] &amp;lt;title&amp;g">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hexo基本命令"><a href="#Hexo基本命令" class="headerlink" title="Hexo基本命令"></a>Hexo基本命令</h1><h2 id="1-Hexo环境安装"><a href="#1-Hexo环境安装" class="headerlink" title="1 Hexo环境安装"></a>1 Hexo环境安装</h2><ul>
-<li><strong>git安装</strong></li>
-<li><strong>nodejs安装</strong></li>
-<li><strong><code>npm install -g hexo-cli</code></strong></li>
-<li><strong><code>hexo init &lt;folder&gt;</code></strong></li>
-</ul>
-<h2 id="2-基本指令"><a href="#2-基本指令" class="headerlink" title="2 基本指令"></a>2 基本指令</h2><ul>
-<li><strong><code>hexo new [layout] &lt;title&gt;</code></strong>：新建一篇文章。</li>
-<li><strong><code>hexo generate</code></strong>：生成静态文件。</li>
-<li><strong><code>hexo publish [layout] &lt;filename&gt;</code></strong>：发表草稿。</li>
-<li><strong><code>hexo server</code></strong>：启动服务器。 默认情况下，访问网址为： <code>http://localhost:4000/</code>。</li>
-<li><strong><code>hexo deploy</code></strong>：部署你的网站。</li>
-<li><strong><code>hexo render &lt;file1&gt; [file2] ...</code></strong>：渲染文件。</li>
-<li><strong><code>hexo migrate &lt;type&gt;</code></strong>：从其他博客系统 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</li>
-<li><strong><code>hexo clean</code></strong>：清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</li>
-<li><strong><code>hexo list &lt;type&gt;</code></strong>：列出所有路由。</li>
-<li><strong><code>hexo version</code></strong>：显示版本信息。</li>
-<li><strong><code>hexo config [key] [value]</code></strong>：列出网站的配置（<code>_config.yml</code>）。 如果指定了 <code>key</code>，则只展示配置中对应 <code>key</code> 的值；如果同时指定了 <code>key</code> 和 <code>value</code>，则将配置中对应的 <code>key</code> 的值修改为 <code>value</code>。</li>
-<li><strong><code>hexo --config custom.yml</code></strong>：自定义配置文件的路径</li>
-<li><strong><code>hexo --draft</code></strong>：显示 <code>source/_drafts</code> 文件夹中的草稿文章。</li>
-<li><strong><code>hexo --cwd /path/to/cwd</code></strong>：自定义当前工作目录（Current working directory）的路径。</li>
-</ul>
-<h2 id="3-打开本地服务器"><a href="#3-打开本地服务器" class="headerlink" title="3 打开本地服务器"></a>3 打开本地服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo g
-hexo server<span class="token punctuation">(</span>hexo s<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-hexo部署"><a href="#4-hexo部署" class="headerlink" title="4 hexo部署"></a>4 hexo部署</h2><ul>
-<li>以github为例</li>
-</ul>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/Eliauk<span class="token punctuation">-</span>L/Eliauk<span class="token punctuation">-</span>L.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>安装<code>deploy-git</code></li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>部署</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo generate
-hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-布局"><a href="#5-布局" class="headerlink" title="5 布局"></a>5 布局</h2><ul>
-<li><p>Hexo有三种默认布局：<strong><code>post、page和draft</code></strong></p>
+                <h1 id="Matrix-Decompositions01"><a href="#Matrix-Decompositions01" class="headerlink" title="Matrix Decompositions01"></a>Matrix Decompositions01</h1><h2 id="Determinant-and-Trace"><a href="#Determinant-and-Trace" class="headerlink" title="Determinant and Trace"></a>Determinant and Trace</h2><ul>
+<li><p><strong>Determinants</strong> $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{n×n}$.</p>
 </li>
-<li><p>发布文章</p>
+<li><p>For any square matrix $A ∈ \mathbb R^{n×n}$ it holds that $A$ is invertible if and only if $det(A) \ne 0$.</p>
 </li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new XXX
-<span class="token comment"># 默认使用的是post布局，在source文件夹下的_post里面</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li><p>Determinants</p>
 <ul>
-<li>另起一页</li>
+<li>For $n=1$,    $det(A)=det(a_{11})=a_{11}$</li>
+<li>For $n=2$,    $det(A)=\left|\begin{matrix}a_{11}&amp;a_{12}\\a_{21}&amp;a_{22}\end{matrix}\right|=a_{11}a_{22}-a_{12}a_{21}$</li>
+<li>For $n=3$,   $\left|\begin{matrix}a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\a_{31}&amp;a_{32}&amp;a_{33}\end{matrix}\right|=a_{11}a_{22}a_{33}+a_{21}a_{32}a_{13}+a_{31}a_{12}a_{23}-a_{31}a_{22}a_{13}-a_{11}a_{32}a_{23}-a_{21}a_{12}a_{33}$</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page newpage
-<span class="token comment"># 系统会自动在source文件夹下创建一个newpage文件夹，以及newpage文件夹中的index.md，</span>
-<span class="token comment"># 访问newpage对应的链接就是http://xxx.xxx/newpage</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>发布草稿</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new draft newdraft
-<span class="token comment"># 在source/_draft中新建一个newdraft.md文件，如果想要预览，那么可以使用 </span>
-<span class="token comment"># hexo server --draft</span>
-
-<span class="token comment"># 将草稿发表到post中</span>
-hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p><strong>参考：</strong></p>
+</li>
+<li><p>We call a square matrix $T$ an <em>upper-triangular</em> matrix if $T_{ij} = 0$ for $i &gt; j$, i.e., the matrix is zero below its diagonal. Analogously, we define a <em>lower-triangular</em> matrix as a matrix with zeros above its diagonal. <strong>For a triangular matrix $T ∈ \mathbb R^{n×n}$, the determinant is the product of the diagonal elements</strong>, i.e.,</p>
+<script type="math/tex; mode=display">
+det(T)=\prod_{i=1}^{n}{T_{ii}}</script></li>
+<li><p><strong>Laplace Expansion</strong>: Consider a matrix $A ∈ \mathbb R^{n×n}$. Then, for all $j = 1, . . . , n$:</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58608526/article/details/124652412">https://blog.csdn.net/qq_58608526/article/details/124652412</a></li>
+<li><p>Expansion along column $j$</p>
+<script type="math/tex; mode=display">
+det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{kj}det(A_{k,j})}</script></li>
+<li><p>Expansion along row $j$</p>
+<script type="math/tex; mode=display">
+det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{jk}det(A_{j,k})}</script></li>
+</ol>
+<p>Here $A_{k,j} ∈ \mathbb R^{(n−1)×(n−1)}$ is the submatrix of $A$ that we obtain when deleting row $k$ and column $j$.  ($det(A_{k,j})$ is called a <em>minor</em> and $(−1)^{k+j} det(A_{k,j})$ a <em>cofactor</em>.)</p>
+<blockquote>
+<p>e.g. </p>
+<script type="math/tex; mode=display">
+A=\left[\begin{matrix}
+1& 2& 3\\
+3& 1& 2\\
+0& 0& 1
+\end{matrix}\right]</script><script type="math/tex; mode=display">
+\begin{split}
+det(A)&=\left|\begin{matrix}
+1& 2& 3\\
+3& 1& 2\\
+0& 0& 1
+\end{matrix}\right| \\&= 
+(-1)^{1+1} \cdot1\left|\begin{matrix}
+1& 2\\
+0& 1
+\end{matrix}\right| + 
+(-1)^{1+2} \cdot2\left|\begin{matrix}
+3& 2\\
+0& 1
+\end{matrix}\right| +
+(-1)^{1+3} \cdot3\left|\begin{matrix}
+3& 1\\
+0& 0
+\end{matrix}\right| \\&= 
+1(1-0)-2(3-0)+3(0-0)=-5
+\end{split}</script></blockquote>
+</li>
+<li><p>For $A ∈ \mathbb R^{n×n}$ the determinant exhibits the following properties:</p>
+<ul>
+<li>The determinant of a matrix product is the product of the corresponding determinants, $det(AB) = det(A)det(B)$.</li>
+<li>Determinants are invariant to transposition, i.e., $det(A) = det(A^⊤)$.</li>
+<li>If $A$ is regular (invertible), then $det(A^{−1}) =\frac{1}{det(A)}$ .</li>
+<li>Similar matrices possess the same determinant. Therefore, for a linear mapping $Φ : V → V$ all transformation matrices $A_Φ$ of $Φ$ have the same determinant. Thus, the determinant is invariant to the choice of basis of a linear mapping.</li>
+<li>Adding a multiple of a column/row to another one does not change $det(A)$.</li>
+<li>Multiplication of a column/row with $λ ∈ \mathbb R$ scales $det(A)$ by $λ$. In particular, $det(λA) = λ^n det(A)$.</li>
+<li>Swapping two rows/columns changes the sign of $det(A)$.</li>
+</ul>
+</li>
+<li><p>We can use Gaussian elimination to compute $det(A)$ by bringing $A$ into row-echelon form.<br>We can stop Gaussian elimination when we have $A$ in a triangular form where the elements below the diagonal are all $0$.</p>
+</li>
+<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ has $det(A) \ne 0$ if and only if $rk(A) = n$. In other words, $A$ is invertible if and only if it is full rank.</p>
+</li>
+<li><p>The <strong>trace</strong> of a square matrix $A ∈ \mathbb R^{n×n}$ is defined as </p>
+<script type="math/tex; mode=display">
+tr(A):=\sum_{i=1}^{n}{a_ii}</script><p>i.e. , the trace is the sum of the diagonal elements of $A$.</p>
+</li>
+<li><p>The trace satisfies the following properties:</p>
+<ul>
+<li>$tr(A+B)=tr(A)+tr(B)\;for\;A,B\in\mathbb R^{n\times n}$</li>
+<li>$tr(\alpha A)=\alpha tr(A),\;\alpha\in\mathbb R\;for\;A\in \mathbb R^{n\times n}$</li>
+<li>$tr(I_n)=n$</li>
+<li>$tr(AB)=tr(BA)\;for\;A\in\mathbb R^{n\times k},B\in\mathbb R^{k\times n}$</li>
+</ul>
+</li>
+<li><p>The trace is invariant under cyclic permutations</p>
+<script type="math/tex; mode=display">
+tr(AKL)=tr(KLA),for\;A ∈ \mathbb R^{a×k},K ∈ \mathbb R^{k×l}, L ∈ \mathbb R^{l×a}.</script><p>This property generalizes to products of an arbitrary number of matrices.</p>
+<p>As a special case , it follows that for two vectors $x, y ∈ \mathbb R^n$</p>
+<script type="math/tex; mode=display">
+tr(xy^T)=tr(y^Tx)=y^Tx\in \mathbb R</script></li>
+<li><p><strong>Matrix representations of linear mappings are basis dependent the trace of a linear mapping $Φ$ is independent of the basis.</strong> For a given basis of $V$, we can describe $Φ$ by means of the transformation matrix $A$. Then the trace of $Φ$ is the trace of $A$. For a different basis of $V$, it holds that the corresponding transformation matrix $B$ of $Φ$ can be obtained by a basis change of the form $S^{−1}AS$ for suitable $S$ . For the corresponding trace of $Φ$, this means</p>
+<script type="math/tex; mode=display">
+tr(B)=tr(S^{-1}AS)=tr(ASS^{-1})=tr(A)</script></li>
+<li><p><strong>Characteristic Polynomial</strong>:  For $λ ∈ \mathbb R$ and a square matrix $A ∈ \mathbb R^{n×n}$</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p_A(\lambda)&:=det(A-\lambda I)\\
+&=c_0+c_1\lambda+c_2\lambda^2+\cdots+c_{n-1}\lambda^{n-1}+(-1)^n\lambda^n
+\end{split}</script><p>$c_0, . . . , c_{n−1} ∈ \mathbb R$, is the <em>characteristic polynomial</em> of $A$. In particular,</p>
+<script type="math/tex; mode=display">
+c_0=det(A),\\
+c_{n-1}=(-1)^{n-1}tr(A)</script></li>
+</ul>
+<h2 id="Eigenvalues-and-Eigenvectors"><a href="#Eigenvalues-and-Eigenvectors" class="headerlink" title="Eigenvalues and Eigenvectors"></a>Eigenvalues and Eigenvectors</h2><ul>
+<li><p>Let $A ∈ \mathbb R^{n×n}$ be a square matrix. Then $λ ∈ \mathbb R$ is an <strong><em>eigenvalue</em></strong> of $A$ and $x ∈ \mathbb R^n\backslash\{0\}$ is the corresponding <strong><em>eigenvector</em></strong> of $A$ if</p>
+<script type="math/tex; mode=display">
+Ax=\lambda x</script></li>
+<li><p>The following statements are equivalent</p>
+<ul>
+<li>$λ$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$.</li>
+<li>There exists an $x ∈ \mathbb R^n\backslash\{0\}$ with $Ax = λx$, or equivalently, $(A −λI_n)x = 0$ can be solved non-trivially, i.e., $x \ne 0$.</li>
+<li>$rk(A-\lambda I_n) &lt; n$</li>
+<li>$det(A-\lambda I_n)=0$</li>
+</ul>
+</li>
+<li><p><strong>Collinearity and Codirection</strong>: Two vectors that point in <strong>the same direction</strong> are called <strong><em>codirected</em></strong>. Two vectors are <strong><em>collinear</em></strong> if they point in the same or the opposite direction.</p>
+</li>
+<li><p><strong>Non-uniqueness of eigenvectors</strong>:  If $x$ is an eigenvector of $A$ associated with eigenvalue $λ$, then for any $c ∈ \mathbb R\backslash\{0\}$ it holds that $cx$ is an eigenvector of $A$ with the same eigenvalue since</p>
+<script type="math/tex; mode=display">
+A(cx)=cAx=c\lambda x=\lambda(cx)</script><p>Thus, all vectors that are <em>collinear</em> to $x$ are also eigenvectors of $A$.</p>
+</li>
+<li><p>$λ ∈ \mathbb R$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$ if and only if $λ$ is a root of the characteristic polynomial $p_A(λ)$ of $A$.</p>
+</li>
+<li><p>Let a square matrix $A$ have an eigenvalue $λ_i$. The algebraic multiplicity of $λ_i$ is the number of times the root appears in the characteristic polynomial.</p>
+</li>
+<li><p><strong>Eigenspace and Eigenspectrum</strong>: For $A ∈ \mathbb R^{n×n}$, the set of all eigenvectors of $A $ associated with an eigenvalue $λ$ spans a subspace of $\mathbb R^n$, which is called the <strong>eigenspace</strong> of $A$ with respect to $λ$ and is denoted by $E_λ$. The set of all eigenvalues of $A$ is called the <strong>eigenspectrum</strong>, or just <strong>spectrum</strong>, of $A$.<br>If $λ$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$, then the corresponding eigenspace $E_λ$ is the solution space of the homogeneous system of linear equations $(A−λI)x = 0$.</p>
+</li>
+<li><p>The identity matrix $I ∈ \mathbb R^{n×n}$ has characteristic polynomial $p_I(λ) = det(I−λI) = (1−λ)^n = 0$, which has only one eigenvalue $λ = 1$ that occurs $n $times. Moreover, $Ix = λx = 1x$ holds for all vectors $x ∈ \mathbb R^n\backslash\{0\}$.Because of this, the sole eigenspace $E_1$ of the identity matrix spans $n$ dimensions, and all $n$ standard basis vectors of $\mathbb R^n$ are eigenvectors of $I$.</p>
+</li>
+<li><p>Useful properties regarding eigenvalues and eigenvectors include the following:</p>
+<ul>
+<li><p>A matrix $A$ and its transpose $A^⊤$ possess <strong>the same eigenvalues</strong>, but not necessarily the same eigenvectors.</p>
+</li>
+<li><p>The eigenspace $E_λ$ is the null space of $A− λI$ since</p>
+<script type="math/tex; mode=display">
+Ax=\lambda x \Leftrightarrow Ax-\lambda x = 0
+\Leftrightarrow (A-\lambda I)x=0
+\Leftrightarrow x\in ker(A-\lambda I)</script></li>
+<li><p>Similar matrices possess the same eigenvalues.Therefore, a linear mapping $Φ$ has eigenvalues that are independent of the choice of basis of its transformation matrix. <strong>This makes eigenvalues, together with the determinant and the trace, key characteristic parameters of a linear mapping as they are all invariant under basis change.</strong></p>
+</li>
+<li><p>Symmetric, positive definite matrices always have positive, real eigenvalues.</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>e.g. Computing Eigenvalues, Eigenvectors, and Eigenspaces</p>
+<p>the $2 × 2$ matrix $A=\left[\begin{matrix}4&amp; 2\\1&amp;3\end{matrix}\right]$</p>
+<p><strong>Step 1: Characteristic Polynomial.</strong>From our definition of the eigenvector $x \ne 0$ and eigenvalue $λ$ of $A$, there will be a vector such that $Ax = λx$, i.e., $(A−λI)x = 0$. Since $x \ne 0$, this requires that the kernel (null space) of $A − λI$ contains more elements than just $0$. This means that $A− λI$ is not invertible and therefore $det(A− λI) = 0$. Hence, we<br>need to compute the roots of the characteristic polynomial  to find the eigenvalues.</p>
+<p><strong>Step 2: Eigenvalues.</strong> The characteristic polynomial is</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p_A(\lambda)&=det(A-\lambda I)\\
+&=det(\left[\begin{matrix}4& 2\\1&3\end{matrix}\right]-\left[\begin{matrix}\lambda& 0\\0&\lambda\end{matrix}\right])=
+\left|\begin{matrix}4-\lambda& 2\\1&3-\lambda\end{matrix}\right|\\
+&=(4-\lambda)(3-\lambda)-2
+\end{split}</script><p>We factorize the characteristic polynomial and obtain</p>
+<script type="math/tex; mode=display">
+p(λ) = (4 − λ)(3 − λ) − 2 · 1 = 10 − 7λ + λ^2 = (2 − λ)(5 − λ)</script><p>giving the roots $λ_1 = 2$ and $λ_2 = 5$.</p>
+<p><strong>Step 3: Eigenvectors and Eigenspaces.</strong> We find the eigenvectors that correspond to these eigenvalues by looking at vectors $x$ such that</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}4-\lambda& 2\\1&3-\lambda\end{matrix}\right]x=0</script><p>For $λ = 5$ we obtain</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}4-5& 2\\1&3-5\end{matrix}\right]
+\left[\begin{matrix}x_1\\x_2\end{matrix}\right]=
+\left[\begin{matrix}-1& 2\\1&-2\end{matrix}\right]
+\left[\begin{matrix}x_1\\x_2\end{matrix}\right]
+=0</script><p>We solve this homogeneous system and obtain a solution space</p>
+<script type="math/tex; mode=display">
+E_5=span[\left[\begin{matrix}2\\1\end{matrix}\right]]</script><p>This eigenspace is one-dimensional as it possesses a single basis vector.</p>
+<p>Analogously, we find the eigenvector for $λ = 2$ by solving the homogeneous system of equations</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}4-2& 2\\1&3-2\end{matrix}\right]
+\left[\begin{matrix}x_1\\x_2\end{matrix}\right]=
+\left[\begin{matrix}2& 2\\1&1\end{matrix}\right]
+\left[\begin{matrix}x_1\\x_2\end{matrix}\right]
+=0</script><p>This means any vector $x =\left[\begin{matrix}x_1\\x_2\end{matrix}\right]$， where $x2 = −x1$, such as $\left[\begin{matrix}-1\\1\end{matrix}\right]$ is an eigenvector with eigenvalue $2$. The corresponding eigenspace is given as</p>
+<script type="math/tex; mode=display">
+E_2=span[\left[\begin{matrix}1\\-1\end{matrix}\right]]</script></blockquote>
+<ul>
+<li><p>Let $λ_i$ be an eigenvalue of a square matrix $A$. Then the <em>geometric multiplicity</em> of $λ_i$ is the number of linearly independent eigenvectors associated with $λ_i$. In other words, it is the dimensionality of the eigenspace spanned by the eigenvectors associated with $λ_i$.</p>
+</li>
+<li><p>A specific eigenvalue’s geometric multiplicity must be at least one because every eigenvalue has at least one associated eigenvector. An eigenvalue’s geometric multiplicity cannot exceed its algebraic multiplicity, but it may be lower.</p>
+</li>
+<li><p>The eigenvectors $x_1, . . . , x_n$ of a matrix $A ∈ \mathbb R^{n×n}$ with $n$ distinct eigenvalues $λ_1, . . . , λ_n$ are linearly independent. This theorem states that eigenvectors of a matrix with $n$ distinct eigenvalues form a basis of $\mathbb R^n$.</p>
+</li>
+<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ is <strong><em>defective</em></strong> if it possesses fewer than $n$ linearly independent eigenvectors. Specifically, a defective matrix has at least one eigenvalue $λ_i$ with an algebraic multiplicity $m &gt; 1$ and a geometric multiplicity of less than $m$.</p>
+</li>
+<li><p>Given a matrix $A ∈ \mathbb R^{m×n}$, we can always obtain <em>a symmetric, positive semidefinite matrix</em> $S ∈ \mathbb R^{n×n}$ by defining</p>
+<script type="math/tex; mode=display">
+S:=A^TA</script><p>If $rk(A) = n$, then $S := A^⊤A$ is symmetric, positive definite.</p>
+</li>
+<li><p><strong>Spectral Theorem</strong>: If $A ∈ \mathbb R^{n×n}$ is symmetric, there exists an orthonormal basis of the corresponding vector space $V$ consisting of eigenvectors of $A$, and each eigenvalue is real.</p>
+</li>
+<li><p>The determinant of a matrix $A ∈ \mathbb R^{n×n}$ is the product of its eigenvalues, i.e.,</p>
+<script type="math/tex; mode=display">
+det(A)=\prod_{i=1}^n{\lambda_i}</script><p>where $λ_i ∈ \mathbb C$ are (possibly repeated) eigenvalues of $A$.</p>
+</li>
+<li><p>The trace of a matrix $A ∈ \mathbb R^{n×n}$ is the sum of its eigenvalues, i.e.,</p>
+<script type="math/tex; mode=display">
+tr(A)=\sum_{i=1}^n{\lambda_i}</script><p>where $λ_i ∈ \mathbb C$ are (possibly repeated) eigenvalues of $A$.</p>
+</li>
+<li><p>Google uses the eigenvector corresponding to the maximal eigenvalue of a matrix $A$ to determine the rank of a page for search.</p>
+</li>
+</ul>
+<h2 id="Cholesky-Decomposition"><a href="#Cholesky-Decomposition" class="headerlink" title="Cholesky Decomposition"></a>Cholesky Decomposition</h2><ul>
+<li><strong>Cholesky Decomposition</strong>： A symmetric, positive definite matrix $A$ can be factorized into a product $A = LL^⊤$, where $L$ is a <em>lower-triangular</em> matrix with <em>positive diagonal elements</em>:<script type="math/tex; mode=display">
+\left[\begin{matrix}
+a_{11}&\cdots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\cdots&a_{nn}
+\end{matrix}\right] = 
+\left[\begin{matrix}
+l_{11}&\cdots&0\\
+\vdots&\ddots&\vdots\\
+l_{n1}&\cdots&l_{nn}
+\end{matrix}\right]
+\left[\begin{matrix}
+l_{11}&\cdots&l_{n1}\\
+\vdots&\ddots&\vdots\\
+0&\cdots&l_{nn}
+\end{matrix}\right]</script>$L$ is called the <em>Cholesky factor</em> of $A$, and $L$ is unique.</li>
+</ul>
+<blockquote>
+<p>e.g. <strong>Cholesky Factorization</strong></p>
+<p>Consider a symmetric, positive definite matrix $A ∈ \mathbb R^{3×3}$. We are interested in finding its Cholesky factorization $A = LL^⊤$, i.e.,</p>
+<script type="math/tex; mode=display">
+A=\left[\begin{matrix}
+a_{11}&a_{21}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&a_{32}&a_{33}\\
+\end{matrix}\right] = LL^T =
+\left[\begin{matrix}
+l_{11}&0&0\\
+l_{21}&l_{22}&0\\
+l_{31}&l_{32}&l_{33}\\
+\end{matrix}\right]
+\left[\begin{matrix}
+l_{11}&l_{21}&l_{31}\\
+0&l_{22}&l_{32}\\
+0&0&l_{33}\\
+\end{matrix}\right]</script><script type="math/tex; mode=display">
+A=\left[\begin{matrix}
+l_{11}^2&l_{21}l_{11}&l_{31}l_{11}\\
+l_{21}l_{11}&l_{21}^2+l_{22}^2&l_{31}l_{21}+l_{32}l_{22}\\
+l_{31}l_{11}&l_{31}l_{21}+l_{32}l_{22}&l_{31}^2+l_{32}^2+l_{33}^2\\
+\end{matrix}\right]</script><p>Comparing the left-hand side and the right-hand side shows that there is a simple pattern in the diagonal elements $l_{ii}$:</p>
+<script type="math/tex; mode=display">
+l_{11}=\sqrt{a_{11}},\;l_{22}=\sqrt{a_{22}-l_{22}^2},\;l_{33}=\sqrt{a_{33}-(l_{31}^2+l_{32}^2)}</script><p>Similarly for the elements below the diagonal ($l_{ij}$, where $i &gt; j$), there is also a repeating pattern:</p>
+<script type="math/tex; mode=display">
+l_{21}=\frac{1}{l_{11}}a_{21},\;l_{31}=\frac{1}{l_{11}}a_{31},\;l_{32}=\frac{1}{l_{22}}(a_{32}-l_{31}l_{21})</script></blockquote>
+<ul>
+<li>Given the Cholesky decomposition $A = LL^⊤$, we know that $det(A) = det(L) det(L^⊤) = det(L)^2$. Since $L$ is a triangular matrix, the determinant is simply the product of its diagonal entries so that $det(A) =\prod_i{l_{ii}^2}$</li>
+</ul>
+<h2 id="Eigendecomposition-and-Diagonalization"><a href="#Eigendecomposition-and-Diagonalization" class="headerlink" title="Eigendecomposition and Diagonalization"></a>Eigendecomposition and Diagonalization</h2><ul>
+<li><p>A <em>diagonal matrix</em> is a matrix that has value zero on all off-diagonal elements, i.e., they are of the form</p>
+<script type="math/tex; mode=display">
+D=\left[\begin{matrix}
+c_1&\cdots&0\\
+\vdots&\ddots&\vdots\\
+0&\cdots&c_n
+\end{matrix}\right]</script><p>They allow fast computation of determinants, powers, and inverses. The determinant is the product of its diagonal entries, a matrix power $D^k$ is given by each diagonal element raised to the power $k$, and the inverse $D^{−1}$ is the reciprocal of its diagonal elements if all of them are nonzero.</p>
+</li>
+<li><p><strong>Diagonalizable</strong>: A matrix $A ∈ \mathbb R^{n×n}$ is <em>diagonalizable</em> if it is similar to a diagonal matrix, i.e., if there exists an invertible matrix $P ∈ \mathbb R^{n×n}$ such that $D = P^{−1}AP$.</p>
+</li>
+<li><p>Let $A ∈ \mathbb R^{n×n}$, let $λ_1, . . . , λ_n$ be a set of scalars, and let $p_1, . . . , p_n$ be a set of vectors in $\mathbb R^{n×n}$. We define $P := [p_1, . . . , p_n]$ and let $D ∈ \mathbb R^{n×n}$ be a diagonal matrix with diagonal entries $λ_1, . . . , λ_n$. Then we can show that</p>
+<script type="math/tex; mode=display">
+AP=PD</script><p>if and only if $λ_1, . . . , λ_n$ are the eigenvalues of $A$ and $p_1, . . . , p_n$ are corresponding eigenvectors of $A$.<br>Our definition of diagonalization requires that $P ∈ \mathbb R^{n×n}$ is invertible, i.e., $P$ has full rank . This requires us to have $n$ linearly independent eigenvectors $p_1, . . . , p_n$, i.e., the $p_i$ form a basis of $\mathbb R^{n×n}$.</p>
+</li>
+<li><p><strong>Eigendecomposition</strong>: A square matrix $A ∈ \mathbb R^{n×n}$ can be factored into</p>
+<script type="math/tex; mode=display">
+A=PDP^{-1}</script><p>where $P ∈ \mathbb R^{n×n}$ and $D$ is a <em>diagonal matrix</em> whose diagonal entries are <em>the eigenvalues</em> of $A$, if and only if the eigenvectors of $A$ form a basis of $\mathbb R^{n×n}$.<br>It implies that only <em>non-defective</em> matrices can be diagonalized and that the columns of $P $are the $n$ eigenvectors of $A$.</p>
+<blockquote>
+<p>e.g. $A=\frac{1}{2}\left[\begin{matrix}<br>5&amp;-2\\<br>-2&amp;5<br>\end{matrix}\right]$</p>
+<p><strong>Step 1: Compute eigenvalues and eigenvectors.</strong> The characteristic polynomial of $A$ is</p>
+<script type="math/tex; mode=display">
+\begin{split}
+det(A− λI) &= det(\left[\begin{matrix}
+\frac{5}{2}-\lambda&-1\\
+-1&\frac{5}{2}-\lambda
+\end{matrix}\right]) \\
+&=(\frac{5}{2}-\lambda)^2-1=\lambda^2-5\lambda+\frac{21}{4}=(\lambda-\frac{7}{2})(\lambda-\frac{3}{2})
+\end{split}</script><p>Therefore, the eigenvalues of $A$ are $\lambda_1=\frac{7}{2}$and $\lambda_2=\frac{3}{2}$  (the roots of the characteristic polynomial), and the associated (normalized) eigenvectors are obtained via</p>
+<script type="math/tex; mode=display">
+Ap_1=\frac{7}{2}p_1,\;Ap_2=\frac{3}{2}p_2</script><p>This yields</p>
+<script type="math/tex; mode=display">
+p_1=\frac{1}{\sqrt{2}}\left[\begin{matrix}1\\-1\end{matrix}\right],\;\;
+p_2=\frac{1}{\sqrt{2}}\left[\begin{matrix}1\\1\end{matrix}\right]</script><p><strong>Step 2: Check for existence.</strong> The eigenvectors $p_1, p_2$ form a basis of $\mathbb R^2$. Therefore, $A$ can be diagonalized.</p>
+<p><strong>Step 3: Construct the matrix $P$ to diagonalize $A$</strong>. We collect the eigenvectors of $A$ in $P$ so that</p>
+<script type="math/tex; mode=display">
+P=[p_1,p_2]=\frac{1}{\sqrt{2}}\left[\begin{matrix}1&1\\-1&1\end{matrix}\right]</script><p>We then obtain</p>
+<script type="math/tex; mode=display">
+P^{-1}AP=\left[\begin{matrix}\frac{7}{2}&0\\0&\frac{3}{2}\end{matrix}\right]</script></blockquote>
+</li>
+<li><p><strong>A symmetric matrix $S ∈ \mathbb R^{n×n}$ can always be diagonalized.</strong></p>
+</li>
+<li><p>Diagonal matrices $D$ can efficiently be raised to a power. Therefore, we can find a matrix power for a matrix $A ∈ \mathbb R^{n×n}$ via the eigenvalue decomposition (if it exists) so that</p>
+<script type="math/tex; mode=display">
+A^k=(PDP^{-1})^k=PD^kP^{-1}</script></li>
+<li><p>Assume that the eigendecomposition $A = PDP^{−1}$ exists. Then,</p>
+<script type="math/tex; mode=display">
+\begin{split}
+det(A) &= det(PDP^{−1}) = det(P) det(D) det(P^{−1})\\
+&=det(D)=\prod_i{d_{ii}}
+\end{split}</script></li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
 </ol>
 </blockquote>
 
@@ -447,7 +684,7 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/06/29/hexo-ji-ben-ming-ling/">http://Eliauk-L.github.io/2024/06/29/hexo-ji-ben-ming-ling/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/29/matrixdecompositions01/">http://Eliauk-L.github.io/2024/07/29/matrixdecompositions01/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -485,12 +722,16 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
                                 </a>
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/AnalyticGeometry/">
+                                    <span class="chip bg-color">AnalyticGeometry</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -536,17 +777,18 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/01/python-xue-xi-02-chu-shi-python/">
+                <a href="/2024/07/29/matrixdecompositions01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Python学习02-初始Python">
+                        <img src="/medias/featureimages/55.jpg" class="responsive-img" alt="Matrix Decompositions01">
                         
-                        <span class="card-title">Python学习02-初始Python</span>
+                        <span class="card-title">Matrix Decompositions01</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -556,30 +798,35 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/AnalyticGeometry/">
+                        <span class="chip bg-color">AnalyticGeometry</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -593,13 +840,13 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/06/29/python-xue-xi-01-huan-jing-an-zhuang/">
+                <a href="/2024/07/28/scrapy-pa-chong-xi-lie-zhi-scrapy-pei-zhi-yu-nei-zhi-fu-wu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Python学习01-环境安装">
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy配置与内置服务">
                         
-                        <span class="card-title">Python学习01-环境安装</span>
+                        <span class="card-title">Scrapy爬虫系列之Scrapy配置与内置服务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -610,14 +857,14 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                    爬虫
                                 </a>
                             
                             
@@ -635,8 +882,12 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-                        <span class="chip bg-color">环境安装</span>
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Scrapy/">
+                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
@@ -760,6 +1011,13 @@ hexo publish draft newdraft<span aria-hidden="true" class="line-numbers-rows"><s
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
