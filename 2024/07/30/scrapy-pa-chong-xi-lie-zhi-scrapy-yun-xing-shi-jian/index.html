@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Matrix Decompositions02, Jay&#39;s Blog">
-    <meta name="description" content="Matrix Decompositions02Singular Value Decomposition(SVD)
-SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
+    <meta name="keywords" content="Scrapy爬虫系列之Scrapy运行实践, Jay&#39;s Blog">
+    <meta name="description" content="Scrapy运行实践脚本运行Scrapy
+Scrapy 是建立在 Twisted 异步网络库之上的，因此需要在 Twisted 反应器内运行它。
+
+scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Matrix Decompositions02 | Jay&#39;s Blog</title>
+    <title>Scrapy爬虫系列之Scrapy运行实践 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -248,12 +250,12 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/56.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Matrix Decompositions02</h1>
+                    <h1 class="description center-align post-title">Scrapy爬虫系列之Scrapy运行实践</h1>
                 </div>
             </div>
         </div>
@@ -277,16 +279,20 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mathematics/">
-                                <span class="chip bg-color">Mathematics</span>
-                            </a>
-                        
-                            <a href="/tags/AnalyticGeometry/">
-                                <span class="chip bg-color">AnalyticGeometry</span>
-                            </a>
-                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                <span class="chip bg-color">爬虫</span>
+                            </a>
+                        
+                            <a href="/tags/Scrapy/">
+                                <span class="chip bg-color">Scrapy</span>
                             </a>
                         
                     </div>
@@ -297,8 +303,8 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Mathematics/" class="post-category">
-                                Mathematics
+                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
+                                爬虫
                             </a>
                         
                     </div>
@@ -319,14 +325,14 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    795
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    4 分
                 </div>
                 
 
@@ -349,197 +355,187 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Matrix-Decompositions02"><a href="#Matrix-Decompositions02" class="headerlink" title="Matrix Decompositions02"></a>Matrix Decompositions02</h1><h2 id="Singular-Value-Decomposition-SVD"><a href="#Singular-Value-Decomposition-SVD" class="headerlink" title="Singular Value Decomposition(SVD)"></a>Singular Value Decomposition(SVD)</h2><ul>
-<li><p><strong>SVD Theorem</strong>:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix of rank $r ∈ [0, min(m,n)]$. The SVD of $A$ is a decomposition of the form<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732879.png" alt="SVD"><br>with an orthogonal matrix $U ∈ \mathbb R^{m×m}$ with column vectors $u_i, i = 1, . . . ,m$, and an orthogonal matrix $V ∈ \mathbb R^{n×n}$ with column vectors $v_j, j = 1, . . . , n$. Moreover, $Σ$ is an $m× n$ matrix with $Σ_{ii} = σ_i ⩾ 0$ and $Σ_{ij} = 0, i \ne j$.</p>
-<ul>
-<li><p>The diagonal entries $σ_i, i = 1, . . . , r$, of $Σ$ are called the <strong><em>singular values</em></strong>, $u_i$ are called the <em>left-singular vectors</em>, and $v_j$ are called the <em>right-singular vectors</em> . By convention, the singular values are ordered, i.e., $σ_1 ⩾ σ_2 ⩾ σ_r ⩾ 0$.</p>
+                <h1 id="Scrapy运行实践"><a href="#Scrapy运行实践" class="headerlink" title="Scrapy运行实践"></a>Scrapy运行实践</h1><h2 id="脚本运行Scrapy"><a href="#脚本运行Scrapy" class="headerlink" title="脚本运行Scrapy"></a>脚本运行Scrapy</h2><ul>
+<li><p>Scrapy 是建立在 <code>Twisted</code> 异步网络库之上的，因此需要在 Twisted 反应器内运行它。</p>
 </li>
-<li><p>The <em>singular value matrix</em> Σ is unique, but it requires some attention. Observe that the $Σ ∈ \mathbb R^{m×n}$ is rectangular. In particular, $Σ$ is of the same size as $A$ .This means that $Σ$ has a diagonal submatrix that contains the singular values and needs additional zero padding. Specifically, if $m &gt; n$, then the matrix $Σ$ has diagonal structure up to row $n $and then consists of $0^⊤$ row vectors from $n + 1$ to $m$ below so that</p>
-<script type="math/tex; mode=display">
-\varSigma = \left[\begin{matrix}
-\sigma_1& 0& 0\\
-0& \ddots& 0\\
-0& 0& \sigma_n\\
-0& \cdots& 0\\
-\vdots& & \vdots\\
-0& \cdots& 0
-\end{matrix}\right]</script><p>If $m &lt; n$, the matrix $Σ$ has a diagonal structure up to column m and columns that consist of $0$ from $m+ 1$ to $n$:</p>
-<script type="math/tex; mode=display">
-\varSigma = \left[\begin{matrix}
-\sigma_1& 0& 0& 0& \cdots& 0\\
-0& \ddots& 0& \vdots& & \vdots\\
-0& 0& \sigma_m& 0& \cdots& 0
-\end{matrix}\right]</script></li>
+<li><p><strong><code>scrapy.crawler.CrawlerProcess</code></strong>:启动一个 Twisted 反应器，配置日志记录并设置关闭处理程序</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerProcess
+
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+
+process <span class="token operator">=</span> CrawlerProcess<span class="token punctuation">(</span>
+    settings<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">"FEEDS"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"items.json"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"format"</span><span class="token punctuation">:</span> <span class="token string">"json"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider<span class="token punctuation">)</span>
+process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the crawling is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>get_project_settings</code> 获取具有项目设置的 <code>Settings</code> 实例</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerProcess
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
+
+process <span class="token operator">=</span> CrawlerProcess<span class="token punctuation">(</span>get_project_settings<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 'followall' is the name of one of the spiders of the project.</span>
+process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span><span class="token string">"followall"</span><span class="token punctuation">,</span> domain<span class="token operator">=</span><span class="token string">"scrapy.org"</span><span class="token punctuation">)</span>
+process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the crawling is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong><code>scrapy.crawler.CrawlerRunner</code></strong>: 此类是一个薄包装器，它封装了一些简单的帮助程序以运行多个爬虫，但它不会以任何方式启动或干扰现有的反应器。</p>
+<ul>
+<li><p>使用此类，应在调度爬虫后显式运行反应器。如果您的应用程序已经在使用 Twisted 并且您想在同一反应器中运行 Scrapy，建议使用 <code>CrawlerRunner</code> 。</p>
+</li>
+<li><p>在Spider完成后，还必须自己关闭<code>Twisted</code>反应器。这可以通过向 <code>CrawlerRunner.crawl</code> 方法返回的延迟添加回调来实现。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet <span class="token keyword">import</span> reactor
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerRunner
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>log <span class="token keyword">import</span> configure_logging
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+configure_logging<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"LOG_FORMAT"</span><span class="token punctuation">:</span> <span class="token string">"%(levelname)s: %(message)s"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+runner <span class="token operator">=</span> CrawlerRunner<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+d <span class="token operator">=</span> runner<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider<span class="token punctuation">)</span>
+d<span class="token punctuation">.</span>addBoth<span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token keyword">_</span><span class="token punctuation">:</span> reactor<span class="token punctuation">.</span>stop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+reactor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the crawling is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
-<li><p>The SVD exists for any matrix $A ∈ \mathbb R^{m×n}$.</p>
+</ul>
+<h2 id="在同一进程中运行多个Spider"><a href="#在同一进程中运行多个Spider" class="headerlink" title="在同一进程中运行多个Spider"></a>在同一进程中运行多个Spider</h2><ul>
+<li>默认情况下，当运行 <code>scrapy crawl</code> 时，Scrapy 会为每个进程运行一个蜘蛛。但是，Scrapy 支持使用内部 API 为每个进程运行多个蜘蛛。</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerProcess
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider1</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your first spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider2</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your second spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+settings <span class="token operator">=</span> get_project_settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+process <span class="token operator">=</span> CrawlerProcess<span class="token punctuation">(</span>settings<span class="token punctuation">)</span>
+process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider1<span class="token punctuation">)</span>
+process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider2<span class="token punctuation">)</span>
+process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until all crawling jobs are finished</span>
+<span class="token comment">#===================================</span>
+
+<span class="token keyword">import</span> scrapy
+<span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet <span class="token keyword">import</span> reactor
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerRunner
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>log <span class="token keyword">import</span> configure_logging
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
+
+configure_logging<span class="token punctuation">(</span><span class="token punctuation">)</span>
+settings <span class="token operator">=</span> get_project_settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+runner <span class="token operator">=</span> CrawlerRunner<span class="token punctuation">(</span>settings<span class="token punctuation">)</span>
+runner<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider1<span class="token punctuation">)</span>
+runner<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider2<span class="token punctuation">)</span>
+d <span class="token operator">=</span> runner<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d<span class="token punctuation">.</span>addBoth<span class="token punctuation">(</span><span class="token keyword">lambda</span> <span class="token keyword">_</span><span class="token punctuation">:</span> reactor<span class="token punctuation">.</span>stop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+reactor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until all crawling jobs are finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>通过链接延迟来按顺序运行Spider</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet <span class="token keyword">import</span> reactor<span class="token punctuation">,</span> defer
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerRunner
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>log <span class="token keyword">import</span> configure_logging
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider1</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your first spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MySpider2</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Your second spider definition</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+settings <span class="token operator">=</span> get_project_settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+configure_logging<span class="token punctuation">(</span>settings<span class="token punctuation">)</span>
+runner <span class="token operator">=</span> CrawlerRunner<span class="token punctuation">(</span>settings<span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@defer<span class="token punctuation">.</span>inlineCallbacks</span>
+<span class="token keyword">def</span> <span class="token function">crawl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">yield</span> runner<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider1<span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> runner<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>MySpider2<span class="token punctuation">)</span>
+    reactor<span class="token punctuation">.</span>stop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+crawl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+reactor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the last crawl call is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>The SVD of a matrix can be interpreted as a decomposition of a corresponding linear mapping $Φ : \mathbb R^n → \mathbb R^m$ into three operations;Assume we are given a transformation matrix of a linear mapping $Φ : \mathbb R^n → \mathbb R^m$ with respect to the standard bases $B$ and $C$ of $\mathbb R^n$ and $\mathbb R^m$, respectively. Moreover, assume a second basis $\tilde B$ of $\mathbb R^n$ and $\tilde C$ of $\mathbb R^m$. Then</p>
-<ol>
-<li>The matrix $V$ performs a basis change in the domain $\mathbb R^n$ from $\tilde B$ (represented by the red and orange vectors $v_1$ and $v_2$ in the top-left of Figure) to the standard basis $B$. $V^⊤ = V^{−1}$ performs a basis change from $B$ to $\tilde B$. The red and orange vectors are now aligned with the canonical basis in the bottom-left of Figure.</li>
-<li>Having changed the coordinate system to $\tilde B$, $Σ$ scales the new coordinates by the singular values $σ_i$ (and adds or deletes dimensions), i.e., $Σ$ is the transformation matrix of $Φ$ with respect to $\tilde B$ and $\tilde C$, represented by the red and orange vectors being stretched and lying in the $e_1$-$e_2$ plane, which is now embedded in a third dimension in the bottom-right of Figure.</li>
-<li>$U$ performs a basis change in the codomain $\mathbb R^m$ from $\tilde C$ into the canonical basis of $\mathbb R^m$, represented by a rotation of the red and orange vectors out of the $e_1$-$e_2$ plane. This is shown in the top-right of Figure.</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732634.png" alt="SVD is interpreted as linear mapping"></p>
-</li>
-<li><p>Compare the eigendecomposition of an SPD matrix</p>
-<script type="math/tex; mode=display">
-S=S^T=PDP^T</script><p>with the corresponding SVD</p>
-<script type="math/tex; mode=display">
-S=U\varSigma V^T</script><p>If we set</p>
-<script type="math/tex; mode=display">
-U = P = V , D = Σ,</script><p>we see that the SVD of SPD matrices is their eigendecomposition.</p>
+</ul>
+<h2 id="多进程运行Spider"><a href="#多进程运行Spider" class="headerlink" title="多进程运行Spider"></a>多进程运行Spider</h2><ul>
+<li><p>利用<code>multiprocessing</code>多进程运行Spider</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerProcess
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
+<span class="token keyword">from</span> utils<span class="token punctuation">.</span>propertyutil <span class="token keyword">import</span> readpy
+<span class="token keyword">from</span> crawlsoftware<span class="token punctuation">.</span>spiders<span class="token punctuation">.</span>crawl_spider <span class="token keyword">import</span> CustomSpider
+
+<span class="token keyword">class</span> <span class="token class-name">RunSpider</span><span class="token punctuation">(</span>multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spidername<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>spidername <span class="token operator">=</span> spidername
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 创建一个新的CrawlerProcess实例</span>
+        process <span class="token operator">=</span> CrawlerProcess<span class="token punctuation">(</span>get_project_settings<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span>CustomSpider<span class="token punctuation">,</span> name<span class="token operator">=</span>self<span class="token punctuation">.</span>spidername<span class="token punctuation">)</span>
+        process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">'''
+多进程
+'''</span>
+<span class="token comment"># 自定义方法获取待运行的Spider配置信息</span>
+crawl_settings <span class="token operator">=</span> readpy<span class="token punctuation">(</span><span class="token string">'./custom_settings/crawl_settings.py'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">pool_crawl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    processes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span> spider <span class="token keyword">in</span> crawl_settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'CRAWL_MODULES'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        process <span class="token operator">=</span> RunSpider<span class="token punctuation">(</span>spider<span class="token punctuation">)</span>
+        process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        processes<span class="token punctuation">.</span>append<span class="token punctuation">(</span>process<span class="token punctuation">)</span>
+
+    <span class="token comment"># 等待所有的Spider实例完成</span>
+    <span class="token keyword">for</span> process <span class="token keyword">in</span> processes<span class="token punctuation">:</span>
+        process<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">spider_crawl</span><span class="token punctuation">(</span>spider_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"爬虫启动：</span><span class="token interpolation"><span class="token punctuation">{</span>spider_name<span class="token punctuation">}</span></span><span class="token string">，当前时间：</span><span class="token interpolation"><span class="token punctuation">{</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+    process <span class="token operator">=</span> RunSpider<span class="token punctuation">(</span>spider_name<span class="token punctuation">)</span>
+    process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pool_crawl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    end_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'耗时{}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>end_time <span class="token operator">-</span> start_time<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <blockquote>
-<p>e.g. <strong>Computing the SVD</strong></p>
-<script type="math/tex; mode=display">
-A=\left[\begin{matrix}
-1& 0& 1\\
--2& 1& 0
-\end{matrix}\right]</script><p>The SVD requires us to compute the right-singular vectors $v_j$, the singular values $σ_k$, and the left-singular vectors $u_i$.</p>
-<p><strong>Step 1: Right-singular vectors as the eigenbasis of $A^⊤A$.</strong></p>
-<p>We start by computing</p>
-<script type="math/tex; mode=display">
-A^TA=\left[\begin{matrix}
-1& -2\\
-0& 1\\
-1& 0
-\end{matrix}\right]
-\left[\begin{matrix}
-1& 0& 1\\
--2& 1& 0
-\end{matrix}\right]=
-\left[\begin{matrix}
-5& -2& 1\\
--2& 1& 0\\
-1& 0& 1
-\end{matrix}\right]</script><p>We compute the singular values and right-singular vectors $v_j$ through the <strong>eigenvalue decomposition</strong> of $A^⊤A$, which is given as</p>
-<script type="math/tex; mode=display">
-A^TA=\left[\begin{matrix}
-\frac{5}{\sqrt{30}}& 0& \frac{-1}{\sqrt{6}}\\
-\frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{5}}& \frac{-2}{\sqrt{6}}\\
-\frac{1}{\sqrt{30}}& \frac{2}{\sqrt{5}}& \frac{1}{\sqrt{6}}
-\end{matrix}\right]
-\left[\begin{matrix}
-6& 0& 0\\
-0& 1& 0\\
-0& 0& 0
-\end{matrix}\right]
-\left[\begin{matrix}
-\frac{5}{\sqrt{30}}& \frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{30}}\\
-0& \frac{1}{\sqrt{5}}& \frac{2}{\sqrt{5}}\\
-\frac{-1}{\sqrt{6}}& \frac{-2}{\sqrt{6}}& \frac{1}{\sqrt{6}}
-\end{matrix}\right]
-=PDP^T</script><p>and we obtain the right-singular vectors as the columns of $P$ so that</p>
-<script type="math/tex; mode=display">
-V=P=\left[\begin{matrix}
-\frac{5}{\sqrt{30}}& 0& \frac{-1}{\sqrt{6}}\\
-\frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{5}}& \frac{-2}{\sqrt{6}}\\
-\frac{1}{\sqrt{30}}& \frac{2}{\sqrt{5}}& \frac{1}{\sqrt{6}}
-\end{matrix}\right]</script><p><strong>Step 2: Singular-value matrix.</strong></p>
-<p>As the singular values $σ_i$ are the square roots of the eigenvalues of $A^⊤A$ we obtain them straight from $D$. Since $rk(A) = 2$, there are only two nonzero singular values: $σ1 = \sqrt6$and $σ_2 = 1$. The singular value matrix must be the same size as $A$, and we obtain</p>
-<script type="math/tex; mode=display">
-\varSigma = \left[\begin{matrix}
-\sqrt 6& 0& 0\\
-0& 1& 0
-\end{matrix}\right]</script><p><strong>Step 3: Left-singular vectors as the normalized image of the right-singular vectors.</strong></p>
-<p>We find the left-singular vectors by computing the image of the right-singular vectors under $A$ and normalizing them by dividing them by their corresponding singular value. We obtain</p>
-<script type="math/tex; mode=display">
-\begin{split}
-u_1&=\frac{1}{\sigma_1}Av_1=\frac{1}{\sqrt 6}\left[\begin{matrix}
-1& 0& 1\\
--2& 1& 0
-\end{matrix}\right]\left[\begin{matrix}
-\frac{5}{\sqrt{30}}\\
-\frac{-2}{\sqrt{30}}\\
-\frac{1}{\sqrt{30}}\\
-\end{matrix}\right]=\left[\begin{matrix}
-\frac{1}{\sqrt{5}}\\
-\frac{-2}{\sqrt{5}}
-\end{matrix}\right]\\
-u_2&=\frac{1}{\sigma_2}Av_2=\frac{1}{1}\left[\begin{matrix}
-1& 0& 1\\
--2& 1& 0
-\end{matrix}\right]\left[\begin{matrix}
-0\\
-\frac{1}{\sqrt{5}}\\
-\frac{2}{\sqrt{5}}\\
-\end{matrix}\right]=\left[\begin{matrix}
-\frac{2}{\sqrt{5}}\\
-\frac{1}{\sqrt{5}}
-\end{matrix}\right]\\
-U&=[u_1,u_2]=\frac{1}{\sqrt 5}\left[\begin{matrix}
-1& 2\\
--2& 1
-\end{matrix}\right]
-\end{split}</script><p>Note that on a computer the approach illustrated here has poor numerical behavior, and the SVD of $A$ is normally computed without resorting to the eigenvalue decomposition of $A^⊤A$.</p>
-</blockquote>
-<ul>
-<li><p><strong>Eigenvalue Decomposition vs. Singular Value Decomposition</strong></p>
-<ul>
-<li>the eigendecomposition $A = PDP^{−1}$ and the SVD $A = UΣV^⊤$</li>
-<li>The SVD always exists for any matrix $\mathbb R^{m×n}$. The eigendecomposition is only defined for square matrices $\mathbb R^{n×n}$ and only exists if we can find a basis of eigenvectors of $\mathbb R^n$.</li>
-<li>The vectors in the eigendecomposition matrix $P$ are not necessarily orthogonal, i.e., the change of basis is not a simple rotation and scaling. On the other hand, the vectors in the matrices $U$ and $V$ in the SVD are orthonormal, so they do represent rotations.</li>
-<li>Both the eigendecomposition and the SVD are compositions of three linear mappings:<ul>
-<li>Change of basis in the domain</li>
-<li>Independent scaling of each new basis vector and mapping from domain to codomain</li>
-<li>Change of basis in the codomain</li>
-</ul>
-</li>
-<li>A key difference between the eigendecomposition and the SVD is that in the SVD, domain and codomain can be vector spaces of different dimensions.</li>
-<li>In the SVD, the left- and right-singular vector matrices $U$ and $V$ are generally not inverse of each other (they perform basis changes in different vector spaces). In the eigendecomposition, the basis change matrices $P$ and $P^{−1}$ are inverses of each other.</li>
-<li>In the SVD, the entries in the diagonal matrix $Σ$ are all real and non-negative, which is not generally true for the diagonal matrix in the eigendecomposition.</li>
-<li>The SVD and the eigendecomposition are closely related through their projections<ul>
-<li>The left-singular vectors of $A$ are eigenvectors of $AA^⊤$</li>
-<li>The right-singular vectors of $A$ are eigenvectors of $A^⊤A$.</li>
-<li>The nonzero singular values of $A$ are the square roots of the nonzero eigenvalues of both $AA^⊤$ and $A^⊤A$.</li>
-</ul>
-</li>
-<li>For symmetric matrices $A ∈ \mathbb R^{n×n}$, the eigenvalue decomposition and the SVD are one and the same, which follows from the spectral theorem.</li>
-</ul>
-</li>
-<li><p>Different versions of SVD in the literature</p>
-<ul>
-<li><p><strong><em>the full SVD</em></strong>: having two square left- and right-singular vector matrices, but a non-square singular value matrix.</p>
-</li>
-<li><p><strong><em>the reduced SVD</em></strong>:  Some authors define the SVD a bit differently and focus on square singular matrices. Then, for $A ∈ \mathbb R^{m×n}$ and $m ⩾ n$,</p>
-<script type="math/tex; mode=display">
-\underset{m\times n}{A}=\underset{m\times n}{U}\;\underset{n\times n}{\varSigma}\;\underset{n\times n}{V^T}</script></li>
-<li><p><strong><em>the truncated SVD</em></strong>: matrix approximation techniques using the SVD</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Matrix-Approximation"><a href="#Matrix-Approximation" class="headerlink" title="Matrix Approximation"></a>Matrix Approximation</h2><ul>
-<li><p>We construct a rank-$1$ matrix $A_i ∈ \mathbb R^{m×n}$ as </p>
-<script type="math/tex; mode=display">
-A_i:=u_iv_i^T</script><p>which is formed by the outer product of the $i$th orthogonal column vector of $U$ and $V$.</p>
-<p>A matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ can be written as a sum of rank-$1$ matrices $A_i$ so that</p>
-<script type="math/tex; mode=display">
-A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the outer-product matrices $A_i$ are weighted by the ith singular value $σ_i$.</p>
-<p>We summed up the $r$ individual rank-$1$ matrices to obtain a rank-$r$ matrix $A$; If the<br>sum does not run over all matrices $A_i, i = 1, . . . , r$, but only up to an intermediate value $k &lt; r$, we obtain a <strong><em>rank-$k$ approximation</em></strong></p>
-<script type="math/tex; mode=display">
-\hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}=\sum_{i=1}^k{\sigma_iA_i}</script><p>of $A$ with $rk(\hat A(k)) = k$</p>
-<p>To measure the difference (error) between $A$ and its rank-$k$ approximation $\hat A(k)$, we need the notion of a norm.</p>
-</li>
-<li><p>Figure shows low-rank approximations $\hat A(k)$ of an original image $A$ of Stonehenge. The shape of the rocks becomes increasingly visible and clearly recognizable in the rank-$5 $approximation. While the original image requires $1, 432 · 1, 910 = 2, 735, 120$ numbers,<br>the rank-$5$ approximation requires us only to store the five singular values and the five left- and right-singular vectors ($1, 432$ and $1, 910$-dimensional each) for a total of $5 · (1, 432+1, 910+1) = 16, 715$ numbers – just above $0.6%$ of the original.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732935.png" alt="low-rank approximations of image"></p>
-</li>
-<li><p><strong>Spectral Norm of a Matrix</strong>: For $x ∈ \mathbb R^n\backslash\{0\}$, the <em>spectral norm</em> of a matrix $A ∈ \mathbb R^{m×n}$ is defined as</p>
-<script type="math/tex; mode=display">
-\left\|A\right\|_2=\underset{x}{max}\frac{\left\|Ax\right\|_2}{\left\|x\right\|_2}</script><p>The spectral norm determines how long any vector $x$ can at most become when multiplied by $A$.</p>
-</li>
-<li><p>The spectral norm of $A$ is its <em>largest singular value</em> $σ_1$.</p>
-</li>
-<li><p><strong>Eckart-Young Theorem</strong>: Consider a matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ and let $B ∈ \mathbb R^{m×n}$ be a matrix of rank $k$. For any $k ⩽ r$ with $\hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}$ it holds that</p>
-<script type="math/tex; mode=display">
-\hat A(k)=argmin_{rk(B)=k}\left\|A-B\right\|_2,\\\left\|A-\hat A(k)\right\|_2=\sigma_{k+1}</script><p>The Eckart-Young theorem states explicitly how much error we introduce by approximating $A$ using a rank-$k$ approximation. We can interpret the rank-$k$ approximation obtained with the SVD as a projection of the full-rank matrix $A$ onto a lower-dimensional space of rank-at-most-$k$ matrices. Of all possible projections, the SVD minimizes the error (with respect to the spectral norm) between $A$ and any rank-$k$ approximation.</p>
-</li>
-</ul>
-<blockquote>
-<p><strong>Bibliography:</strong></p>
+<p><strong>参考：</strong></p>
 <ol>
-<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+<li><a target="_blank" rel="noopener" href="https://docs.scrapy.org/en/latest/topics/practices.html">https://docs.scrapy.org/en/latest/topics/practices.html</a></li>
 </ol>
 </blockquote>
 
@@ -568,7 +564,7 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/30/matrixdecompositions02/">http://Eliauk-L.github.io/2024/07/30/matrixdecompositions02/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/30/scrapy-pa-chong-xi-lie-zhi-scrapy-yun-xing-shi-jian/">http://Eliauk-L.github.io/2024/07/30/scrapy-pa-chong-xi-lie-zhi-scrapy-yun-xing-shi-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -606,16 +602,20 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mathematics/">
-                                    <span class="chip bg-color">Mathematics</span>
-                                </a>
-                            
-                                <a href="/tags/AnalyticGeometry/">
-                                    <span class="chip bg-color">AnalyticGeometry</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                    <span class="chip bg-color">爬虫</span>
+                                </a>
+                            
+                                <a href="/tags/Scrapy/">
+                                    <span class="chip bg-color">Scrapy</span>
                                 </a>
                             
                         </div>
@@ -661,9 +661,10 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/07/30/scrapy-pa-chong-xi-lie-zhi-scrapy-yun-xing-shi-jian/">
                     <div class="card-image">
@@ -681,9 +682,9 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -696,6 +697,7 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -726,13 +728,13 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/30/scrapy-pa-chong-xi-lie-zhi-mo-ni-deng-lu/">
+                <a href="/2024/07/30/matrixdecompositions02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="Scrapy爬虫系列之模拟登录">
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="Matrix Decompositions02">
                         
-                        <span class="card-title">Scrapy爬虫系列之模拟登录</span>
+                        <span class="card-title">Matrix Decompositions02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -749,8 +751,8 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
-                                    爬虫
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
                                 </a>
                             
                             
@@ -760,20 +762,16 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/AnalyticGeometry/">
+                        <span class="chip bg-color">AnalyticGeometry</span>
+                    </a>
+                    
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                    <a href="/tags/Scrapy/">
-                        <span class="chip bg-color">Scrapy</span>
                     </a>
                     
                 </div>
@@ -897,13 +895,6 @@ A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the 
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
