@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Matrix Decompositions01, Jay&#39;s Blog">
-    <meta name="description" content="Matrix Decompositions01Determinant and Trace
-Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
+    <meta name="keywords" content="Matrix Decompositions02, Jay&#39;s Blog">
+    <meta name="description" content="Matrix Decompositions02Singular Value Decomposition(SVD)
+SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Matrix Decompositions01 | Jay&#39;s Blog</title>
+    <title>Matrix Decompositions02 | Jay&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -248,12 +248,12 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/55.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/56.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Matrix Decompositions01</h1>
+                    <h1 class="description center-align post-title">Matrix Decompositions02</h1>
                 </div>
             </div>
         </div>
@@ -310,7 +310,7 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-29
+                    2024-07-30
                 </div>
                 
 
@@ -319,14 +319,14 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    12 分
                 </div>
                 
 
@@ -349,308 +349,192 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Matrix-Decompositions01"><a href="#Matrix-Decompositions01" class="headerlink" title="Matrix Decompositions01"></a>Matrix Decompositions01</h1><h2 id="Determinant-and-Trace"><a href="#Determinant-and-Trace" class="headerlink" title="Determinant and Trace"></a>Determinant and Trace</h2><ul>
-<li><p><strong>Determinants</strong> $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{n×n}$.</p>
-</li>
-<li><p>For any square matrix $A ∈ \mathbb R^{n×n}$ it holds that $A$ is invertible if and only if $det(A) \ne 0$.</p>
-</li>
-<li><p>Determinants</p>
+                <h1 id="Matrix-Decompositions02"><a href="#Matrix-Decompositions02" class="headerlink" title="Matrix Decompositions02"></a>Matrix Decompositions02</h1><h2 id="Singular-Value-Decomposition-SVD"><a href="#Singular-Value-Decomposition-SVD" class="headerlink" title="Singular Value Decomposition(SVD)"></a>Singular Value Decomposition(SVD)</h2><ul>
+<li><p><strong>SVD Theorem</strong>:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix of rank $r ∈ [0, min(m,n)]$. The SVD of $A$ is a decomposition of the form<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732879.png" alt="SVD"><br>with an orthogonal matrix $U ∈ \mathbb R^{m×m}$ with column vectors $u_i, i = 1, . . . ,m$, and an orthogonal matrix $V ∈ \mathbb R^{n×n}$ with column vectors $v_j, j = 1, . . . , n$. Moreover, $Σ$ is an $m× n$ matrix with $Σ_{ii} = σ_i ⩾ 0$ and $Σ_{ij} = 0, i \ne j$.</p>
 <ul>
-<li>For $n=1$,    $det(A)=det(a_{11})=a_{11}$</li>
-<li>For $n=2$,    $det(A)=\left|\begin{matrix}a_{11}&amp;a_{12}\\a_{21}&amp;a_{22}\end{matrix}\right|=a_{11}a_{22}-a_{12}a_{21}$</li>
-<li>For $n=3$,   $\left|\begin{matrix}a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\a_{31}&amp;a_{32}&amp;a_{33}\end{matrix}\right|=a_{11}a_{22}a_{33}+a_{21}a_{32}a_{13}+a_{31}a_{12}a_{23}-a_{31}a_{22}a_{13}-a_{11}a_{32}a_{23}-a_{21}a_{12}a_{33}$</li>
+<li><p>The diagonal entries $σ_i, i = 1, . . . , r$, of $Σ$ are called the <strong><em>singular values</em></strong>, $u_i$ are called the <em>left-singular vectors</em>, and $v_j$ are called the <em>right-singular vectors</em> . By convention, the singular values are ordered, i.e., $σ_1 ⩾ σ_2 ⩾ σ_r ⩾ 0$.</p>
+</li>
+<li><p>The <em>singular value matrix</em> Σ is unique, but it requires some attention. Observe that the $Σ ∈ \mathbb R^{m×n}$ is rectangular. In particular, $Σ$ is of the same size as $A$ .This means that $Σ$ has a diagonal submatrix that contains the singular values and needs additional zero padding. Specifically, if $m &gt; n$, then the matrix $Σ$ has diagonal structure up to row $n $and then consists of $0^⊤$ row vectors from $n + 1$ to $m$ below so that</p>
+<script type="math/tex; mode=display">
+\varSigma = \left[\begin{matrix}
+\sigma_1& 0& 0\\
+0& \ddots& 0\\
+0& 0& \sigma_n\\
+0& \cdots& 0\\
+\vdots& & \vdots\\
+0& \cdots& 0
+\end{matrix}\right]</script><p>If $m &lt; n$, the matrix $Σ$ has a diagonal structure up to column m and columns that consist of $0$ from $m+ 1$ to $n$:</p>
+<script type="math/tex; mode=display">
+\varSigma = \left[\begin{matrix}
+\sigma_1& 0& 0& 0& \cdots& 0\\
+0& \ddots& 0& \vdots& & \vdots\\
+0& 0& \sigma_m& 0& \cdots& 0
+\end{matrix}\right]</script></li>
 </ul>
 </li>
-<li><p>We call a square matrix $T$ an <em>upper-triangular</em> matrix if $T_{ij} = 0$ for $i &gt; j$, i.e., the matrix is zero below its diagonal. Analogously, we define a <em>lower-triangular</em> matrix as a matrix with zeros above its diagonal. <strong>For a triangular matrix $T ∈ \mathbb R^{n×n}$, the determinant is the product of the diagonal elements</strong>, i.e.,</p>
-<script type="math/tex; mode=display">
-det(T)=\prod_{i=1}^{n}{T_{ii}}</script></li>
-<li><p><strong>Laplace Expansion</strong>: Consider a matrix $A ∈ \mathbb R^{n×n}$. Then, for all $j = 1, . . . , n$:</p>
+<li><p>The SVD exists for any matrix $A ∈ \mathbb R^{m×n}$.</p>
+</li>
+<li><p>The SVD of a matrix can be interpreted as a decomposition of a corresponding linear mapping $Φ : \mathbb R^n → \mathbb R^m$ into three operations;Assume we are given a transformation matrix of a linear mapping $Φ : \mathbb R^n → \mathbb R^m$ with respect to the standard bases $B$ and $C$ of $\mathbb R^n$ and $\mathbb R^m$, respectively. Moreover, assume a second basis $\tilde B$ of $\mathbb R^n$ and $\tilde C$ of $\mathbb R^m$. Then</p>
 <ol>
-<li><p>Expansion along column $j$</p>
-<script type="math/tex; mode=display">
-det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{kj}det(A_{k,j})}</script></li>
-<li><p>Expansion along row $j$</p>
-<script type="math/tex; mode=display">
-det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{jk}det(A_{j,k})}</script></li>
+<li>The matrix $V$ performs a basis change in the domain $\mathbb R^n$ from $\tilde B$ (represented by the red and orange vectors $v_1$ and $v_2$ in the top-left of Figure) to the standard basis $B$. $V^⊤ = V^{−1}$ performs a basis change from $B$ to $\tilde B$. The red and orange vectors are now aligned with the canonical basis in the bottom-left of Figure.</li>
+<li>Having changed the coordinate system to $\tilde B$, $Σ$ scales the new coordinates by the singular values $σ_i$ (and adds or deletes dimensions), i.e., $Σ$ is the transformation matrix of $Φ$ with respect to $\tilde B$ and $\tilde C$, represented by the red and orange vectors being stretched and lying in the $e_1$-$e_2$ plane, which is now embedded in a third dimension in the bottom-right of Figure.</li>
+<li>$U$ performs a basis change in the codomain $\mathbb R^m$ from $\tilde C$ into the canonical basis of $\mathbb R^m$, represented by a rotation of the red and orange vectors out of the $e_1$-$e_2$ plane. This is shown in the top-right of Figure.</li>
 </ol>
-<p>Here $A_{k,j} ∈ \mathbb R^{(n−1)×(n−1)}$ is the submatrix of $A$ that we obtain when deleting row $k$ and column $j$.  ($det(A_{k,j})$ is called a <em>minor</em> and $(−1)^{k+j} det(A_{k,j})$ a <em>cofactor</em>.)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732634.png" alt="SVD is interpreted as linear mapping"></p>
+</li>
+<li><p>Compare the eigendecomposition of an SPD matrix</p>
+<script type="math/tex; mode=display">
+S=S^T=PDP^T</script><p>with the corresponding SVD</p>
+<script type="math/tex; mode=display">
+S=U\varSigma V^T</script><p>If we set</p>
+<script type="math/tex; mode=display">
+U = P = V , D = Σ,</script><p>we see that the SVD of SPD matrices is their eigendecomposition.</p>
+</li>
+</ul>
 <blockquote>
-<p>e.g. </p>
+<p>e.g. <strong>Computing the SVD</strong></p>
 <script type="math/tex; mode=display">
 A=\left[\begin{matrix}
-1& 2& 3\\
-3& 1& 2\\
-0& 0& 1
-\end{matrix}\right]</script><script type="math/tex; mode=display">
+1& 0& 1\\
+-2& 1& 0
+\end{matrix}\right]</script><p>The SVD requires us to compute the right-singular vectors $v_j$, the singular values $σ_k$, and the left-singular vectors $u_i$.</p>
+<p><strong>Step 1: Right-singular vectors as the eigenbasis of $A^⊤A$.</strong></p>
+<p>We start by computing</p>
+<script type="math/tex; mode=display">
+A^TA=\left[\begin{matrix}
+1& -2\\
+0& 1\\
+1& 0
+\end{matrix}\right]
+\left[\begin{matrix}
+1& 0& 1\\
+-2& 1& 0
+\end{matrix}\right]=
+\left[\begin{matrix}
+5& -2& 1\\
+-2& 1& 0\\
+1& 0& 1
+\end{matrix}\right]</script><p>We compute the singular values and right-singular vectors $v_j$ through the <strong>eigenvalue decomposition</strong> of $A^⊤A$, which is given as</p>
+<script type="math/tex; mode=display">
+A^TA=\left[\begin{matrix}
+\frac{5}{\sqrt{30}}& 0& \frac{-1}{\sqrt{6}}\\
+\frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{5}}& \frac{-2}{\sqrt{6}}\\
+\frac{1}{\sqrt{30}}& \frac{2}{\sqrt{5}}& \frac{1}{\sqrt{6}}
+\end{matrix}\right]
+\left[\begin{matrix}
+6& 0& 0\\
+0& 1& 0\\
+0& 0& 0
+\end{matrix}\right]
+\left[\begin{matrix}
+\frac{5}{\sqrt{30}}& \frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{30}}\\
+0& \frac{1}{\sqrt{5}}& \frac{2}{\sqrt{5}}\\
+\frac{-1}{\sqrt{6}}& \frac{-2}{\sqrt{6}}& \frac{1}{\sqrt{6}}
+\end{matrix}\right]
+=PDP^T</script><p>and we obtain the right-singular vectors as the columns of $P$ so that</p>
+<script type="math/tex; mode=display">
+V=P=\left[\begin{matrix}
+\frac{5}{\sqrt{30}}& 0& \frac{-1}{\sqrt{6}}\\
+\frac{-2}{\sqrt{30}}& \frac{1}{\sqrt{5}}& \frac{-2}{\sqrt{6}}\\
+\frac{1}{\sqrt{30}}& \frac{2}{\sqrt{5}}& \frac{1}{\sqrt{6}}
+\end{matrix}\right]</script><p><strong>Step 2: Singular-value matrix.</strong></p>
+<p>As the singular values $σ_i$ are the square roots of the eigenvalues of $A^⊤A$ we obtain them straight from $D$. Since $rk(A) = 2$, there are only two nonzero singular values: $σ1 = \sqrt6$and $σ_2 = 1$. The singular value matrix must be the same size as $A$, and we obtain</p>
+<script type="math/tex; mode=display">
+\varSigma = \left[\begin{matrix}
+\sqrt 6& 0& 0\\
+0& 1& 0
+\end{matrix}\right]</script><p><strong>Step 3: Left-singular vectors as the normalized image of the right-singular vectors.</strong></p>
+<p>We find the left-singular vectors by computing the image of the right-singular vectors under $A$ and normalizing them by dividing them by their corresponding singular value. We obtain</p>
+<script type="math/tex; mode=display">
 \begin{split}
-det(A)&=\left|\begin{matrix}
-1& 2& 3\\
-3& 1& 2\\
-0& 0& 1
-\end{matrix}\right| \\&= 
-(-1)^{1+1} \cdot1\left|\begin{matrix}
+u_1&=\frac{1}{\sigma_1}Av_1=\frac{1}{\sqrt 6}\left[\begin{matrix}
+1& 0& 1\\
+-2& 1& 0
+\end{matrix}\right]\left[\begin{matrix}
+\frac{5}{\sqrt{30}}\\
+\frac{-2}{\sqrt{30}}\\
+\frac{1}{\sqrt{30}}\\
+\end{matrix}\right]=\left[\begin{matrix}
+\frac{1}{\sqrt{5}}\\
+\frac{-2}{\sqrt{5}}
+\end{matrix}\right]\\
+u_2&=\frac{1}{\sigma_2}Av_2=\frac{1}{1}\left[\begin{matrix}
+1& 0& 1\\
+-2& 1& 0
+\end{matrix}\right]\left[\begin{matrix}
+0\\
+\frac{1}{\sqrt{5}}\\
+\frac{2}{\sqrt{5}}\\
+\end{matrix}\right]=\left[\begin{matrix}
+\frac{2}{\sqrt{5}}\\
+\frac{1}{\sqrt{5}}
+\end{matrix}\right]\\
+U&=[u_1,u_2]=\frac{1}{\sqrt 5}\left[\begin{matrix}
 1& 2\\
-0& 1
-\end{matrix}\right| + 
-(-1)^{1+2} \cdot2\left|\begin{matrix}
-3& 2\\
-0& 1
-\end{matrix}\right| +
-(-1)^{1+3} \cdot3\left|\begin{matrix}
-3& 1\\
-0& 0
-\end{matrix}\right| \\&= 
-1(1-0)-2(3-0)+3(0-0)=-5
-\end{split}</script></blockquote>
-</li>
-<li><p>For $A ∈ \mathbb R^{n×n}$ the determinant exhibits the following properties:</p>
-<ul>
-<li>The determinant of a matrix product is the product of the corresponding determinants, $det(AB) = det(A)det(B)$.</li>
-<li>Determinants are invariant to transposition, i.e., $det(A) = det(A^⊤)$.</li>
-<li>If $A$ is regular (invertible), then $det(A^{−1}) =\frac{1}{det(A)}$ .</li>
-<li>Similar matrices possess the same determinant. Therefore, for a linear mapping $Φ : V → V$ all transformation matrices $A_Φ$ of $Φ$ have the same determinant. Thus, the determinant is invariant to the choice of basis of a linear mapping.</li>
-<li>Adding a multiple of a column/row to another one does not change $det(A)$.</li>
-<li>Multiplication of a column/row with $λ ∈ \mathbb R$ scales $det(A)$ by $λ$. In particular, $det(λA) = λ^n det(A)$.</li>
-<li>Swapping two rows/columns changes the sign of $det(A)$.</li>
-</ul>
-</li>
-<li><p>We can use Gaussian elimination to compute $det(A)$ by bringing $A$ into row-echelon form.<br>We can stop Gaussian elimination when we have $A$ in a triangular form where the elements below the diagonal are all $0$.</p>
-</li>
-<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ has $det(A) \ne 0$ if and only if $rk(A) = n$. In other words, $A$ is invertible if and only if it is full rank.</p>
-</li>
-<li><p>The <strong>trace</strong> of a square matrix $A ∈ \mathbb R^{n×n}$ is defined as </p>
-<script type="math/tex; mode=display">
-tr(A):=\sum_{i=1}^{n}{a_ii}</script><p>i.e. , the trace is the sum of the diagonal elements of $A$.</p>
-</li>
-<li><p>The trace satisfies the following properties:</p>
-<ul>
-<li>$tr(A+B)=tr(A)+tr(B)\;for\;A,B\in\mathbb R^{n\times n}$</li>
-<li>$tr(\alpha A)=\alpha tr(A),\;\alpha\in\mathbb R\;for\;A\in \mathbb R^{n\times n}$</li>
-<li>$tr(I_n)=n$</li>
-<li>$tr(AB)=tr(BA)\;for\;A\in\mathbb R^{n\times k},B\in\mathbb R^{k\times n}$</li>
-</ul>
-</li>
-<li><p>The trace is invariant under cyclic permutations</p>
-<script type="math/tex; mode=display">
-tr(AKL)=tr(KLA),for\;A ∈ \mathbb R^{a×k},K ∈ \mathbb R^{k×l}, L ∈ \mathbb R^{l×a}.</script><p>This property generalizes to products of an arbitrary number of matrices.</p>
-<p>As a special case , it follows that for two vectors $x, y ∈ \mathbb R^n$</p>
-<script type="math/tex; mode=display">
-tr(xy^T)=tr(y^Tx)=y^Tx\in \mathbb R</script></li>
-<li><p><strong>Matrix representations of linear mappings are basis dependent the trace of a linear mapping $Φ$ is independent of the basis.</strong> For a given basis of $V$, we can describe $Φ$ by means of the transformation matrix $A$. Then the trace of $Φ$ is the trace of $A$. For a different basis of $V$, it holds that the corresponding transformation matrix $B$ of $Φ$ can be obtained by a basis change of the form $S^{−1}AS$ for suitable $S$ . For the corresponding trace of $Φ$, this means</p>
-<script type="math/tex; mode=display">
-tr(B)=tr(S^{-1}AS)=tr(ASS^{-1})=tr(A)</script></li>
-<li><p><strong>Characteristic Polynomial</strong>:  For $λ ∈ \mathbb R$ and a square matrix $A ∈ \mathbb R^{n×n}$</p>
-<script type="math/tex; mode=display">
-\begin{split}
-p_A(\lambda)&:=det(A-\lambda I)\\
-&=c_0+c_1\lambda+c_2\lambda^2+\cdots+c_{n-1}\lambda^{n-1}+(-1)^n\lambda^n
-\end{split}</script><p>$c_0, . . . , c_{n−1} ∈ \mathbb R$, is the <em>characteristic polynomial</em> of $A$. In particular,</p>
-<script type="math/tex; mode=display">
-c_0=det(A),\\
-c_{n-1}=(-1)^{n-1}tr(A)</script></li>
-</ul>
-<h2 id="Eigenvalues-and-Eigenvectors"><a href="#Eigenvalues-and-Eigenvectors" class="headerlink" title="Eigenvalues and Eigenvectors"></a>Eigenvalues and Eigenvectors</h2><ul>
-<li><p>Let $A ∈ \mathbb R^{n×n}$ be a square matrix. Then $λ ∈ \mathbb R$ is an <strong><em>eigenvalue</em></strong> of $A$ and $x ∈ \mathbb R^n\backslash\{0\}$ is the corresponding <strong><em>eigenvector</em></strong> of $A$ if</p>
-<script type="math/tex; mode=display">
-Ax=\lambda x</script></li>
-<li><p>The following statements are equivalent</p>
-<ul>
-<li>$λ$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$.</li>
-<li>There exists an $x ∈ \mathbb R^n\backslash\{0\}$ with $Ax = λx$, or equivalently, $(A −λI_n)x = 0$ can be solved non-trivially, i.e., $x \ne 0$.</li>
-<li>$rk(A-\lambda I_n) &lt; n$</li>
-<li>$det(A-\lambda I_n)=0$</li>
-</ul>
-</li>
-<li><p><strong>Collinearity and Codirection</strong>: Two vectors that point in <strong>the same direction</strong> are called <strong><em>codirected</em></strong>. Two vectors are <strong><em>collinear</em></strong> if they point in the same or the opposite direction.</p>
-</li>
-<li><p><strong>Non-uniqueness of eigenvectors</strong>:  If $x$ is an eigenvector of $A$ associated with eigenvalue $λ$, then for any $c ∈ \mathbb R\backslash\{0\}$ it holds that $cx$ is an eigenvector of $A$ with the same eigenvalue since</p>
-<script type="math/tex; mode=display">
-A(cx)=cAx=c\lambda x=\lambda(cx)</script><p>Thus, all vectors that are <em>collinear</em> to $x$ are also eigenvectors of $A$.</p>
-</li>
-<li><p>$λ ∈ \mathbb R$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$ if and only if $λ$ is a root of the characteristic polynomial $p_A(λ)$ of $A$.</p>
-</li>
-<li><p>Let a square matrix $A$ have an eigenvalue $λ_i$. The algebraic multiplicity of $λ_i$ is the number of times the root appears in the characteristic polynomial.</p>
-</li>
-<li><p><strong>Eigenspace and Eigenspectrum</strong>: For $A ∈ \mathbb R^{n×n}$, the set of all eigenvectors of $A $ associated with an eigenvalue $λ$ spans a subspace of $\mathbb R^n$, which is called the <strong>eigenspace</strong> of $A$ with respect to $λ$ and is denoted by $E_λ$. The set of all eigenvalues of $A$ is called the <strong>eigenspectrum</strong>, or just <strong>spectrum</strong>, of $A$.<br>If $λ$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$, then the corresponding eigenspace $E_λ$ is the solution space of the homogeneous system of linear equations $(A−λI)x = 0$.</p>
-</li>
-<li><p>The identity matrix $I ∈ \mathbb R^{n×n}$ has characteristic polynomial $p_I(λ) = det(I−λI) = (1−λ)^n = 0$, which has only one eigenvalue $λ = 1$ that occurs $n $times. Moreover, $Ix = λx = 1x$ holds for all vectors $x ∈ \mathbb R^n\backslash\{0\}$.Because of this, the sole eigenspace $E_1$ of the identity matrix spans $n$ dimensions, and all $n$ standard basis vectors of $\mathbb R^n$ are eigenvectors of $I$.</p>
-</li>
-<li><p>Useful properties regarding eigenvalues and eigenvectors include the following:</p>
-<ul>
-<li><p>A matrix $A$ and its transpose $A^⊤$ possess <strong>the same eigenvalues</strong>, but not necessarily the same eigenvectors.</p>
-</li>
-<li><p>The eigenspace $E_λ$ is the null space of $A− λI$ since</p>
-<script type="math/tex; mode=display">
-Ax=\lambda x \Leftrightarrow Ax-\lambda x = 0
-\Leftrightarrow (A-\lambda I)x=0
-\Leftrightarrow x\in ker(A-\lambda I)</script></li>
-<li><p>Similar matrices possess the same eigenvalues.Therefore, a linear mapping $Φ$ has eigenvalues that are independent of the choice of basis of its transformation matrix. <strong>This makes eigenvalues, together with the determinant and the trace, key characteristic parameters of a linear mapping as they are all invariant under basis change.</strong></p>
-</li>
-<li><p>Symmetric, positive definite matrices always have positive, real eigenvalues.</p>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>e.g. Computing Eigenvalues, Eigenvectors, and Eigenspaces</p>
-<p>the $2 × 2$ matrix $A=\left[\begin{matrix}4&amp; 2\\1&amp;3\end{matrix}\right]$</p>
-<p><strong>Step 1: Characteristic Polynomial.</strong>From our definition of the eigenvector $x \ne 0$ and eigenvalue $λ$ of $A$, there will be a vector such that $Ax = λx$, i.e., $(A−λI)x = 0$. Since $x \ne 0$, this requires that the kernel (null space) of $A − λI$ contains more elements than just $0$. This means that $A− λI$ is not invertible and therefore $det(A− λI) = 0$. Hence, we<br>need to compute the roots of the characteristic polynomial  to find the eigenvalues.</p>
-<p><strong>Step 2: Eigenvalues.</strong> The characteristic polynomial is</p>
-<script type="math/tex; mode=display">
-\begin{split}
-p_A(\lambda)&=det(A-\lambda I)\\
-&=det(\left[\begin{matrix}4& 2\\1&3\end{matrix}\right]-\left[\begin{matrix}\lambda& 0\\0&\lambda\end{matrix}\right])=
-\left|\begin{matrix}4-\lambda& 2\\1&3-\lambda\end{matrix}\right|\\
-&=(4-\lambda)(3-\lambda)-2
-\end{split}</script><p>We factorize the characteristic polynomial and obtain</p>
-<script type="math/tex; mode=display">
-p(λ) = (4 − λ)(3 − λ) − 2 · 1 = 10 − 7λ + λ^2 = (2 − λ)(5 − λ)</script><p>giving the roots $λ_1 = 2$ and $λ_2 = 5$.</p>
-<p><strong>Step 3: Eigenvectors and Eigenspaces.</strong> We find the eigenvectors that correspond to these eigenvalues by looking at vectors $x$ such that</p>
-<script type="math/tex; mode=display">
-\left[\begin{matrix}4-\lambda& 2\\1&3-\lambda\end{matrix}\right]x=0</script><p>For $λ = 5$ we obtain</p>
-<script type="math/tex; mode=display">
-\left[\begin{matrix}4-5& 2\\1&3-5\end{matrix}\right]
-\left[\begin{matrix}x_1\\x_2\end{matrix}\right]=
-\left[\begin{matrix}-1& 2\\1&-2\end{matrix}\right]
-\left[\begin{matrix}x_1\\x_2\end{matrix}\right]
-=0</script><p>We solve this homogeneous system and obtain a solution space</p>
-<script type="math/tex; mode=display">
-E_5=span[\left[\begin{matrix}2\\1\end{matrix}\right]]</script><p>This eigenspace is one-dimensional as it possesses a single basis vector.</p>
-<p>Analogously, we find the eigenvector for $λ = 2$ by solving the homogeneous system of equations</p>
-<script type="math/tex; mode=display">
-\left[\begin{matrix}4-2& 2\\1&3-2\end{matrix}\right]
-\left[\begin{matrix}x_1\\x_2\end{matrix}\right]=
-\left[\begin{matrix}2& 2\\1&1\end{matrix}\right]
-\left[\begin{matrix}x_1\\x_2\end{matrix}\right]
-=0</script><p>This means any vector $x =\left[\begin{matrix}x_1\\x_2\end{matrix}\right]$， where $x2 = −x1$, such as $\left[\begin{matrix}-1\\1\end{matrix}\right]$ is an eigenvector with eigenvalue $2$. The corresponding eigenspace is given as</p>
-<script type="math/tex; mode=display">
-E_2=span[\left[\begin{matrix}1\\-1\end{matrix}\right]]</script></blockquote>
-<ul>
-<li><p>Let $λ_i$ be an eigenvalue of a square matrix $A$. Then the <em>geometric multiplicity</em> of $λ_i$ is the number of linearly independent eigenvectors associated with $λ_i$. In other words, it is the dimensionality of the eigenspace spanned by the eigenvectors associated with $λ_i$.</p>
-</li>
-<li><p>A specific eigenvalue’s geometric multiplicity must be at least one because every eigenvalue has at least one associated eigenvector. An eigenvalue’s geometric multiplicity cannot exceed its algebraic multiplicity, but it may be lower.</p>
-</li>
-<li><p>The eigenvectors $x_1, . . . , x_n$ of a matrix $A ∈ \mathbb R^{n×n}$ with $n$ distinct eigenvalues $λ_1, . . . , λ_n$ are linearly independent. This theorem states that eigenvectors of a matrix with $n$ distinct eigenvalues form a basis of $\mathbb R^n$.</p>
-</li>
-<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ is <strong><em>defective</em></strong> if it possesses fewer than $n$ linearly independent eigenvectors. Specifically, a defective matrix has at least one eigenvalue $λ_i$ with an algebraic multiplicity $m &gt; 1$ and a geometric multiplicity of less than $m$.</p>
-</li>
-<li><p>Given a matrix $A ∈ \mathbb R^{m×n}$, we can always obtain <em>a symmetric, positive semidefinite matrix</em> $S ∈ \mathbb R^{n×n}$ by defining</p>
-<script type="math/tex; mode=display">
-S:=A^TA</script><p>If $rk(A) = n$, then $S := A^⊤A$ is symmetric, positive definite.</p>
-</li>
-<li><p><strong>Spectral Theorem</strong>: If $A ∈ \mathbb R^{n×n}$ is symmetric, there exists an orthonormal basis of the corresponding vector space $V$ consisting of eigenvectors of $A$, and each eigenvalue is real.</p>
-</li>
-<li><p>The determinant of a matrix $A ∈ \mathbb R^{n×n}$ is the product of its eigenvalues, i.e.,</p>
-<script type="math/tex; mode=display">
-det(A)=\prod_{i=1}^n{\lambda_i}</script><p>where $λ_i ∈ \mathbb C$ are (possibly repeated) eigenvalues of $A$.</p>
-</li>
-<li><p>The trace of a matrix $A ∈ \mathbb R^{n×n}$ is the sum of its eigenvalues, i.e.,</p>
-<script type="math/tex; mode=display">
-tr(A)=\sum_{i=1}^n{\lambda_i}</script><p>where $λ_i ∈ \mathbb C$ are (possibly repeated) eigenvalues of $A$.</p>
-</li>
-<li><p>Google uses the eigenvector corresponding to the maximal eigenvalue of a matrix $A$ to determine the rank of a page for search.</p>
-</li>
-</ul>
-<h2 id="Cholesky-Decomposition"><a href="#Cholesky-Decomposition" class="headerlink" title="Cholesky Decomposition"></a>Cholesky Decomposition</h2><ul>
-<li><strong>Cholesky Decomposition</strong>： A symmetric, positive definite matrix $A$ can be factorized into a product $A = LL^⊤$, where $L$ is a <em>lower-triangular</em> matrix with <em>positive diagonal elements</em>:<script type="math/tex; mode=display">
-\left[\begin{matrix}
-a_{11}&\cdots&a_{1n}\\
-\vdots&\ddots&\vdots\\
-a_{n1}&\cdots&a_{nn}
-\end{matrix}\right] = 
-\left[\begin{matrix}
-l_{11}&\cdots&0\\
-\vdots&\ddots&\vdots\\
-l_{n1}&\cdots&l_{nn}
+-2& 1
 \end{matrix}\right]
-\left[\begin{matrix}
-l_{11}&\cdots&l_{n1}\\
-\vdots&\ddots&\vdots\\
-0&\cdots&l_{nn}
-\end{matrix}\right]</script>$L$ is called the <em>Cholesky factor</em> of $A$, and $L$ is unique.</li>
-</ul>
-<blockquote>
-<p>e.g. <strong>Cholesky Factorization</strong></p>
-<p>Consider a symmetric, positive definite matrix $A ∈ \mathbb R^{3×3}$. We are interested in finding its Cholesky factorization $A = LL^⊤$, i.e.,</p>
-<script type="math/tex; mode=display">
-A=\left[\begin{matrix}
-a_{11}&a_{21}&a_{13}\\
-a_{21}&a_{22}&a_{23}\\
-a_{31}&a_{32}&a_{33}\\
-\end{matrix}\right] = LL^T =
-\left[\begin{matrix}
-l_{11}&0&0\\
-l_{21}&l_{22}&0\\
-l_{31}&l_{32}&l_{33}\\
-\end{matrix}\right]
-\left[\begin{matrix}
-l_{11}&l_{21}&l_{31}\\
-0&l_{22}&l_{32}\\
-0&0&l_{33}\\
-\end{matrix}\right]</script><script type="math/tex; mode=display">
-A=\left[\begin{matrix}
-l_{11}^2&l_{21}l_{11}&l_{31}l_{11}\\
-l_{21}l_{11}&l_{21}^2+l_{22}^2&l_{31}l_{21}+l_{32}l_{22}\\
-l_{31}l_{11}&l_{31}l_{21}+l_{32}l_{22}&l_{31}^2+l_{32}^2+l_{33}^2\\
-\end{matrix}\right]</script><p>Comparing the left-hand side and the right-hand side shows that there is a simple pattern in the diagonal elements $l_{ii}$:</p>
-<script type="math/tex; mode=display">
-l_{11}=\sqrt{a_{11}},\;l_{22}=\sqrt{a_{22}-l_{22}^2},\;l_{33}=\sqrt{a_{33}-(l_{31}^2+l_{32}^2)}</script><p>Similarly for the elements below the diagonal ($l_{ij}$, where $i &gt; j$), there is also a repeating pattern:</p>
-<script type="math/tex; mode=display">
-l_{21}=\frac{1}{l_{11}}a_{21},\;l_{31}=\frac{1}{l_{11}}a_{31},\;l_{32}=\frac{1}{l_{22}}(a_{32}-l_{31}l_{21})</script></blockquote>
+\end{split}</script><p>Note that on a computer the approach illustrated here has poor numerical behavior, and the SVD of $A$ is normally computed without resorting to the eigenvalue decomposition of $A^⊤A$.</p>
+</blockquote>
 <ul>
-<li>Given the Cholesky decomposition $A = LL^⊤$, we know that $det(A) = det(L) det(L^⊤) = det(L)^2$. Since $L$ is a triangular matrix, the determinant is simply the product of its diagonal entries so that $det(A) =\prod_i{l_{ii}^2}$</li>
+<li><p><strong>Eigenvalue Decomposition vs. Singular Value Decomposition</strong></p>
+<ul>
+<li>the eigendecomposition $A = PDP^{−1}$ and the SVD $A = UΣV^⊤$</li>
+<li>The SVD always exists for any matrix $\mathbb R^{m×n}$. The eigendecomposition is only defined for square matrices $\mathbb R^{n×n}$ and only exists if we can find a basis of eigenvectors of $\mathbb R^n$.</li>
+<li>The vectors in the eigendecomposition matrix $P$ are not necessarily orthogonal, i.e., the change of basis is not a simple rotation and scaling. On the other hand, the vectors in the matrices $U$ and $V$ in the SVD are orthonormal, so they do represent rotations.</li>
+<li>Both the eigendecomposition and the SVD are compositions of three linear mappings:<ul>
+<li>Change of basis in the domain</li>
+<li>Independent scaling of each new basis vector and mapping from domain to codomain</li>
+<li>Change of basis in the codomain</li>
 </ul>
-<h2 id="Eigendecomposition-and-Diagonalization"><a href="#Eigendecomposition-and-Diagonalization" class="headerlink" title="Eigendecomposition and Diagonalization"></a>Eigendecomposition and Diagonalization</h2><ul>
-<li><p>A <em>diagonal matrix</em> is a matrix that has value zero on all off-diagonal elements, i.e., they are of the form</p>
-<script type="math/tex; mode=display">
-D=\left[\begin{matrix}
-c_1&\cdots&0\\
-\vdots&\ddots&\vdots\\
-0&\cdots&c_n
-\end{matrix}\right]</script><p>They allow fast computation of determinants, powers, and inverses. The determinant is the product of its diagonal entries, a matrix power $D^k$ is given by each diagonal element raised to the power $k$, and the inverse $D^{−1}$ is the reciprocal of its diagonal elements if all of them are nonzero.</p>
 </li>
-<li><p><strong>Diagonalizable</strong>: A matrix $A ∈ \mathbb R^{n×n}$ is <em>diagonalizable</em> if it is similar to a diagonal matrix, i.e., if there exists an invertible matrix $P ∈ \mathbb R^{n×n}$ such that $D = P^{−1}AP$.</p>
+<li>A key difference between the eigendecomposition and the SVD is that in the SVD, domain and codomain can be vector spaces of different dimensions.</li>
+<li>In the SVD, the left- and right-singular vector matrices $U$ and $V$ are generally not inverse of each other (they perform basis changes in different vector spaces). In the eigendecomposition, the basis change matrices $P$ and $P^{−1}$ are inverses of each other.</li>
+<li>In the SVD, the entries in the diagonal matrix $Σ$ are all real and non-negative, which is not generally true for the diagonal matrix in the eigendecomposition.</li>
+<li>The SVD and the eigendecomposition are closely related through their projections<ul>
+<li>The left-singular vectors of $A$ are eigenvectors of $AA^⊤$</li>
+<li>The right-singular vectors of $A$ are eigenvectors of $A^⊤A$.</li>
+<li>The nonzero singular values of $A$ are the square roots of the nonzero eigenvalues of both $AA^⊤$ and $A^⊤A$.</li>
+</ul>
 </li>
-<li><p>Let $A ∈ \mathbb R^{n×n}$, let $λ_1, . . . , λ_n$ be a set of scalars, and let $p_1, . . . , p_n$ be a set of vectors in $\mathbb R^{n×n}$. We define $P := [p_1, . . . , p_n]$ and let $D ∈ \mathbb R^{n×n}$ be a diagonal matrix with diagonal entries $λ_1, . . . , λ_n$. Then we can show that</p>
-<script type="math/tex; mode=display">
-AP=PD</script><p>if and only if $λ_1, . . . , λ_n$ are the eigenvalues of $A$ and $p_1, . . . , p_n$ are corresponding eigenvectors of $A$.<br>Our definition of diagonalization requires that $P ∈ \mathbb R^{n×n}$ is invertible, i.e., $P$ has full rank . This requires us to have $n$ linearly independent eigenvectors $p_1, . . . , p_n$, i.e., the $p_i$ form a basis of $\mathbb R^{n×n}$.</p>
+<li>For symmetric matrices $A ∈ \mathbb R^{n×n}$, the eigenvalue decomposition and the SVD are one and the same, which follows from the spectral theorem.</li>
+</ul>
 </li>
-<li><p><strong>Eigendecomposition</strong>: A square matrix $A ∈ \mathbb R^{n×n}$ can be factored into</p>
-<script type="math/tex; mode=display">
-A=PDP^{-1}</script><p>where $P ∈ \mathbb R^{n×n}$ and $D$ is a <em>diagonal matrix</em> whose diagonal entries are <em>the eigenvalues</em> of $A$, if and only if the eigenvectors of $A$ form a basis of $\mathbb R^{n×n}$.<br>It implies that only <em>non-defective</em> matrices can be diagonalized and that the columns of $P $are the $n$ eigenvectors of $A$.</p>
-<blockquote>
-<p>e.g. $A=\frac{1}{2}\left[\begin{matrix}<br>5&amp;-2\\<br>-2&amp;5<br>\end{matrix}\right]$</p>
-<p><strong>Step 1: Compute eigenvalues and eigenvectors.</strong> The characteristic polynomial of $A$ is</p>
-<script type="math/tex; mode=display">
-\begin{split}
-det(A− λI) &= det(\left[\begin{matrix}
-\frac{5}{2}-\lambda&-1\\
--1&\frac{5}{2}-\lambda
-\end{matrix}\right]) \\
-&=(\frac{5}{2}-\lambda)^2-1=\lambda^2-5\lambda+\frac{21}{4}=(\lambda-\frac{7}{2})(\lambda-\frac{3}{2})
-\end{split}</script><p>Therefore, the eigenvalues of $A$ are $\lambda_1=\frac{7}{2}$and $\lambda_2=\frac{3}{2}$  (the roots of the characteristic polynomial), and the associated (normalized) eigenvectors are obtained via</p>
-<script type="math/tex; mode=display">
-Ap_1=\frac{7}{2}p_1,\;Ap_2=\frac{3}{2}p_2</script><p>This yields</p>
-<script type="math/tex; mode=display">
-p_1=\frac{1}{\sqrt{2}}\left[\begin{matrix}1\\-1\end{matrix}\right],\;\;
-p_2=\frac{1}{\sqrt{2}}\left[\begin{matrix}1\\1\end{matrix}\right]</script><p><strong>Step 2: Check for existence.</strong> The eigenvectors $p_1, p_2$ form a basis of $\mathbb R^2$. Therefore, $A$ can be diagonalized.</p>
-<p><strong>Step 3: Construct the matrix $P$ to diagonalize $A$</strong>. We collect the eigenvectors of $A$ in $P$ so that</p>
-<script type="math/tex; mode=display">
-P=[p_1,p_2]=\frac{1}{\sqrt{2}}\left[\begin{matrix}1&1\\-1&1\end{matrix}\right]</script><p>We then obtain</p>
-<script type="math/tex; mode=display">
-P^{-1}AP=\left[\begin{matrix}\frac{7}{2}&0\\0&\frac{3}{2}\end{matrix}\right]</script></blockquote>
+<li><p>Different versions of SVD in the literature</p>
+<ul>
+<li><p><strong><em>the full SVD</em></strong>: having two square left- and right-singular vector matrices, but a non-square singular value matrix.</p>
 </li>
-<li><p><strong>A symmetric matrix $S ∈ \mathbb R^{n×n}$ can always be diagonalized.</strong></p>
+<li><p><strong><em>the reduced SVD</em></strong>:  Some authors define the SVD a bit differently and focus on square singular matrices. Then, for $A ∈ \mathbb R^{m×n}$ and $m ⩾ n$,</p>
+<script type="math/tex; mode=display">
+\underset{m\times n}{A}=\underset{m\times n}{U}\;\underset{n\times n}{\varSigma}\;\underset{n\times n}{V^T}</script></li>
+<li><p><strong><em>the truncated SVD</em></strong>: matrix approximation techniques using the SVD</p>
 </li>
-<li><p>Diagonal matrices $D$ can efficiently be raised to a power. Therefore, we can find a matrix power for a matrix $A ∈ \mathbb R^{n×n}$ via the eigenvalue decomposition (if it exists) so that</p>
+</ul>
+</li>
+</ul>
+<h2 id="Matrix-Approximation"><a href="#Matrix-Approximation" class="headerlink" title="Matrix Approximation"></a>Matrix Approximation</h2><ul>
+<li><p>We construct a rank-$1$ matrix $A_i ∈ \mathbb R^{m×n}$ as </p>
 <script type="math/tex; mode=display">
-A^k=(PDP^{-1})^k=PD^kP^{-1}</script></li>
-<li><p>Assume that the eigendecomposition $A = PDP^{−1}$ exists. Then,</p>
+A_i:=u_iv_i^T</script><p>which is formed by the outer product of the $i$th orthogonal column vector of $U$ and $V$.</p>
+<p>A matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ can be written as a sum of rank-$1$ matrices $A_i$ so that</p>
 <script type="math/tex; mode=display">
-\begin{split}
-det(A) &= det(PDP^{−1}) = det(P) det(D) det(P^{−1})\\
-&=det(D)=\prod_i{d_{ii}}
-\end{split}</script></li>
+A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the outer-product matrices $A_i$ are weighted by the ith singular value $σ_i$.</p>
+<p>We summed up the $r$ individual rank-$1$ matrices to obtain a rank-$r$ matrix $A$; If the<br>sum does not run over all matrices $A_i, i = 1, . . . , r$, but only up to an intermediate value $k &lt; r$, we obtain a <strong><em>rank-$k$ approximation</em></strong></p>
+<script type="math/tex; mode=display">
+\hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}=\sum_{i=1}^k{\sigma_iA_i}</script><p>of $A$ with $rk(\hat A(k)) = k$</p>
+<p>To measure the difference (error) between $A$ and its rank-$k$ approximation $\hat A(k)$, we need the notion of a norm.</p>
+</li>
+<li><p>Figure shows low-rank approximations $\hat A(k)$ of an original image $A$ of Stonehenge. The shape of the rocks becomes increasingly visible and clearly recognizable in the rank-$5 $approximation. While the original image requires $1, 432 · 1, 910 = 2, 735, 120$ numbers,<br>the rank-$5$ approximation requires us only to store the five singular values and the five left- and right-singular vectors ($1, 432$ and $1, 910$-dimensional each) for a total of $5 · (1, 432+1, 910+1) = 16, 715$ numbers – just above $0.6%$ of the original.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732935.png" alt="low-rank approximations of image"></p>
+</li>
+<li><p><strong>Spectral Norm of a Matrix</strong>: For $x ∈ \mathbb R^n\backslash\{0\}$, the <em>spectral norm</em> of a matrix $A ∈ \mathbb R^{m×n}$ is defined as</p>
+<script type="math/tex; mode=display">
+\left\|A\right\|_2=\underset{x}{max}\frac{\left\|Ax\right\|_2}{\left\|x\right\|_2}</script><p>The spectral norm determines how long any vector $x$ can at most become when multiplied by $A$.</p>
+</li>
+<li><p>The spectral norm of $A$ is its <em>largest singular value</em> $σ_1$.</p>
+</li>
+<li><p><strong>Eckart-Young Theorem</strong>: Consider a matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ and let $B ∈ \mathbb R^{m×n}$ be a matrix of rank $k$. For any $k ⩽ r$ with $\hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}$ it holds that</p>
+<script type="math/tex; mode=display">
+\hat A(k)=argmin_{rk(B)=k}\left\|A-B\right\|_2,\\\left\|A-\hat A(k)\right\|_2=\sigma_{k+1}</script><p>The Eckart-Young theorem states explicitly how much error we introduce by approximating $A$ using a rank-$k$ approximation. We can interpret the rank-$k$ approximation obtained with the SVD as a projection of the full-rank matrix $A$ onto a lower-dimensional space of rank-at-most-$k$ matrices. Of all possible projections, the SVD minimizes the error (with respect to the spectral norm) between $A$ and any rank-$k$ approximation.</p>
+</li>
 </ul>
 <blockquote>
 <p><strong>Bibliography:</strong></p>
@@ -684,7 +568,7 @@ det(A) &= det(PDP^{−1}) = det(P) det(D) det(P^{−1})\\
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eliauk-L.github.io/2024/07/29/matrixdecompositions01/">http://Eliauk-L.github.io/2024/07/29/matrixdecompositions01/</a>
+                    <a href="http://Eliauk-L.github.io/2024/07/30/matrixdecompositions02/">http://Eliauk-L.github.io/2024/07/30/matrixdecompositions02/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -777,9 +661,68 @@ det(A) &= det(PDP^{−1}) = det(P) det(D) det(P^{−1})\\
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/07/30/matrixdecompositions02/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/56.jpg" class="responsive-img" alt="Matrix Decompositions02">
+                        
+                        <span class="card-title">Matrix Decompositions02</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/AnalyticGeometry/">
+                        <span class="chip bg-color">AnalyticGeometry</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/07/30/scrapy-pa-chong-xi-lie-zhi-mo-ni-deng-lu/">
                     <div class="card-image">
@@ -797,69 +740,8 @@ det(A) &= det(PDP^{−1}) = det(P) det(D) det(P^{−1})\\
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-30
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%88%AC%E8%99%AB/" class="post-category">
-                                    爬虫
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                    <a href="/tags/Scrapy/">
-                        <span class="chip bg-color">Scrapy</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/07/28/scrapy-pa-chong-xi-lie-zhi-scrapy-pei-zhi-yu-nei-zhi-fu-wu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="Scrapy爬虫系列之Scrapy配置与内置服务">
-                        
-                        <span class="card-title">Scrapy爬虫系列之Scrapy配置与内置服务</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-30
                             </span>
                         <span class="publish-author">
                             
