@@ -1,0 +1,1425 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vector Calculus, Jay&#39;s Blog">
+    <meta name="description" content="Vector Calculus
+A function $f$​ is a quantity that relates two quantities to each other. These quantities are typically ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vector Calculus | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vector Calculus</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/VectorCalculus/">
+                                <span class="chip bg-color">VectorCalculus</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    36 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Vector-Calculus"><a href="#Vector-Calculus" class="headerlink" title="Vector Calculus"></a>Vector Calculus</h1><ul>
+<li><p>A function $f$​ is a quantity that relates two quantities to each other. These quantities are typically inputs $x ∈ \mathbb R^D$ and targets (function values) $f(x)$, which we assume are real-valued if not stated otherwise. Here $\mathbb R^D$ is the domain of $f$ and the function values $f(x)$ are the <em>image/codomain</em> of $f$.</p>
+</li>
+<li><p>We often write</p>
+<script type="math/tex; mode=display">
+f\;:\;\mathbb R^D \rightarrow \mathbb R\\
+x \mapsto f(x)</script><p>to specify a function, where specifies that $f$ is a mapping from $\mathbb R^D$ to $R$ and  the explicit assignment of an input $x$ to a function value $f(x)$. A function $f$ assigns every input $x $exactly one function value $f(x)$.</p>
+<blockquote>
+<p>e.g. the dot product as a special case of an inner product</p>
+<p>the function $f(x) = x^⊤x, x ∈ \mathbb R^2$, would bespecified as</p>
+<script type="math/tex; mode=display">
+f\;:\;\mathbb R^2 \rightarrow \mathbb R\\
+x \mapsto x_1^2 + x_2^2</script></blockquote>
+</li>
+</ul>
+<h2 id="Differentiation-of-Univariate-Functions"><a href="#Differentiation-of-Univariate-Functions" class="headerlink" title="Differentiation of Univariate Functions"></a>Differentiation of Univariate Functions</h2><ul>
+<li><p><strong>Difference Quotient</strong>: The <em>difference quotient</em></p>
+<script type="math/tex; mode=display">
+\frac{\delta_y}{\delta_x}=\frac{f(x+\delta_x)-f(x)}{\delta_x}</script><p>computes the slope of the secant line through two points on the graph of $f$<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011901845.png" alt="Difference Quotient"></p>
+</li>
+<li><p><strong>Derivative</strong>: More formally, for $h &gt; 0$ the derivative of $f$ at $x$ is defined as the limit</p>
+<script type="math/tex; mode=display">
+\frac{df}{dx}:=\underset{x\rightarrow 0}{\lim}\frac{f(x+h)-f(x)}{h}</script><p>and the secant in Figure becomes a tangent. The derivative of $f$ points in the direction of steepest ascent of $f$.</p>
+</li>
+<li><p><strong>Taylor Polynomial</strong>: The <em>Taylor polynomial</em> of degree $n$ of $f : \mathbb R → \mathbb R$ at $x_0$ is defined as</p>
+<script type="math/tex; mode=display">
+T_n(x):=\sum_{k=0}^n{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}</script><p>where $f^{(k)}(x_0)$ is the $k$th derivative of $f$ at $x_0$ (which we assume exists) and $\frac{f^{(k)}(x_0)}{k!}$ are the coefficients of the polynomial.</p>
+</li>
+<li><p><strong>Taylor Series</strong>: For a smooth function $f ∈ C^∞, f : \mathbb R → \mathbb R$, the <em>Taylor series</em> of $f$ at $x_0$ is defined as</p>
+<script type="math/tex; mode=display">
+T_\infty(x)=\sum_{x=0}^\infty{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}</script><p>For $x_0 = 0$, we obtain the <em>Maclaurin series</em> as a special instance of the Taylor series. If $f(x) = T_∞(x)$, then $f$ is called <em>analytic</em>.</p>
+</li>
+<li><p>In general, a Taylor polynomial of degree $n$ is an approximation of a function, which does not need to be a polynomial. The Taylor poly-nomial is similar to $f$ in a neighborhood around $x_0$. However, a Taylor polynomial of degree $n$ is an exact representation of a polynomial $f$ of degree $k ⩽ n$ since all derivatives $f(i), i &gt; k$ vanish.</p>
+</li>
+</ul>
+<blockquote>
+<p>e.g. Taylor Polynomial</p>
+<p>We consider the polynomial $f(x)=x^4$, and seek the Taylor polynomial $T_6$, evaluated at $x_0 = 1$. We start by computing the coefficients $f^{(k)}(1)$ for $k = 0, . . . , 6$:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f(1) &= 1 \\
+f^{′}(1) &= 4 \\
+f^{′′}(1) &= 12 \\
+f^{(3)}(1) &= 24 \\
+f^{(4)}(1) &= 24 \\
+f^{(5)}(1) &= 0 \\
+f^{(6)}(1) &= 0 \\
+\end{split}</script><p>Therefore, the desired Taylor polynomial is</p>
+<script type="math/tex; mode=display">
+\begin{split}
+T_6(x)&=\sum_{k=0}^6{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}\\
+1+4(x-1)+6(x-1)^2+4(x-1)^3+(x-1)^4+0
+\end{split}</script><p>Multiplying out and re-arranging yields</p>
+<script type="math/tex; mode=display">
+\begin{split}
+T_6(x) &= (1 − 4 + 6 − 4 + 1) + x(4 − 12 + 12 − 4)\\&+ x^2(6 − 12 + 6) + x^3(4 − 4) + x^4\\
+&=x^4=f(x)
+\end{split}</script><p>e.g. Taylor Series</p>
+<script type="math/tex; mode=display">
+f(x) = sin(x) + cos(x) ∈ C^∞</script><p>We seek a Taylor series expansion of f at $x_0 = 0$, which is the Maclaurin series expansion of $f$. We obtain the following derivatives</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f(0) &= \sin(0)+\cos(0)=1 \\
+f^{′}(0) &= \cos(0)-\sin(0)=1 \\
+f^{′′}(0) &= -\sin(0)-\cos(0)=-1 \\
+f^{(3)}(0) &= -\cos(0)+\sin(0)=-1 \\
+f^{(4)}(0) &= \sin(0)+\cos(0)=f(0)=1 \\
+\vdots
+\end{split}</script><p>The coefficients in our Taylor series are only $±1$ (since $sin(0) = 0$), each of which occurs twice before switching to the other one. Furthermore, $f^{(k+4)}(0) = f^{(k)}(0)$.</p>
+<p>Therefore, the full Taylor series expansion of f at $x_0 = 0$ is given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+T_\infty(x)&=\sum_{x=0}^\infty{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}\\
+&=1+x-\frac{1}{2!}x^2-\frac{1}{3!}x^3+\frac{1}{4!}x^4+\frac{1}{5!}x^5-\cdots\\
+&={\color{orange} {1-\frac{1}{2!}x^2+\frac{1}{4!}x^4\mp\cdots} }+{\color{blue} {x-\frac{1}{3!}x^3+\frac{1}{5!}x^5\mp\cdots} }\\
+&={\color{orange} {\sum_{k=0}^\infty{(-1)^k\frac{1}{(2k)!}x^{2k}}}}+{\color{blue} {\sum_{k=0}^\infty{(-1)^k\frac{1}{(2k+1)!}x^{2k+1}}}}\\
+&={\color{orange} {\cos(x)}}+{\color{blue} {\sin(x)}}
+\end{split}</script><p>where we used the power series representations</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\cos(x)&=\sum_{k=0}^\infty{(-1)^k\frac{1}{(2k)!}x^{2k}}\\
+\sin(x)&=\sum_{k=0}^\infty{(-1)^k\frac{1}{(2k+1)!}x^{2k+1}}
+\end{split}</script></blockquote>
+<ul>
+<li><p>A Taylor series is a special case of a power series</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=0}^\infty{a_k(x-c)^k}</script><p>where $a_k$ are coefficients and $c$ is a constant.</p>
+</li>
+<li><p>In the following, we briefly state basic differentiation rules, where we denote the derivative of $f$ by $f^′$.</p>
+<ul>
+<li><strong>Product rule</strong>: ${(f(x)g(x))}^{′}=f^{′}(x)g(x)+f(x)g^{′}(x)$</li>
+<li><strong>Quotient rule</strong>: ${\left(\frac{f(x)}{g(x)}\right)}^{′}=\frac{f^{′}(x)g(x)-f(x)g^{′}(x)}{g(x)^2}$</li>
+<li><strong>Sum rule</strong>: ${(f(x)+g(x))}^{′}=f^{′}(x)+g^{′}(x)$</li>
+<li><strong>Chain rule</strong>: $\left(g(f(x))\right)^′= (g◦f)^′(x) = g^′(f(x))f^′(x)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="Partial-Differentiation-and-Gradients"><a href="#Partial-Differentiation-and-Gradients" class="headerlink" title="Partial Differentiation and Gradients"></a>Partial Differentiation and Gradients</h2><ul>
+<li><p>We consider the general case where the function $f$ depends on one or more variables $x ∈ \mathbb R^n$, e.g., $f(x) = f(x_1, x_2)$. The generalization of the derivative to functions of several variables is the <strong><em>gradient</em></strong>.</p>
+</li>
+<li><p>We find the gradient of the function f with respect to $x$ by <em>varying one variable at a time and keeping the others constant</em>. The gradient is then the collection of these <em>partial derivatives</em>.</p>
+</li>
+<li><p><strong>Partial Derivative</strong>: For a function $f : \mathbb R^n → \mathbb R, x \mapsto f(x), x ∈ \mathbb R^n$ of $n$ variables $x_1, . . . , x_n$ we define the <em>partial derivatives</em> as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial f}{\partial x_1}&=\underset{h\rightarrow 0}{\lim}\frac{f(x_1+h,x_2,...,x_n)-f(x)}{h}\\
+\vdots\\
+\frac{\partial f}{\partial x_n}&=\underset{h\rightarrow 0}{\lim}\frac{f(x_1,,...,x_{n-1},x_n+h)-f(x)}{h}\\
+\end{split}</script></li>
+</ul>
+<p>and collect them in the row vector</p>
+<script type="math/tex; mode=display">
+\nabla_xf=grad\,f=\frac{d\,f}{d\,x}=\left[\begin{matrix}\frac{\partial f(x)}{\partial x_1}&\frac{\partial f(x)}{\partial x_2}&\cdots&\frac{\partial f(x)}{\partial x_n},\end{matrix}\right]\in \mathbb R^{1\times n}</script><p>where $n$ is the number of variables and $1$ is the dimension of the image/ range/codomain off. Here, we defined the column vector $x = [x_1, . . . , x_n]^⊤∈ \mathbb R^n$. The row vector is called the <em>gradient of $f$ or the Jacobian</em>.</p>
+<ul>
+<li><p>It is not uncommon in the literature to define the gradient vector as a column vector, following the convention that vectors are generally column vectors. The reason why we define the gradient vector as a row vector is twofold: First, we can consistently generalize the gradient to vector-valued functions $f : \mathbb R^n → \mathbb R^m$ (then the gradient becomes a matrix). Second, we can immediately apply the multi-variate chain rule without paying attention to the dimension of the gradient.</p>
+</li>
+<li><p>Basic Rules of Partial Differentiation</p>
+<ul>
+<li><strong>Product rule</strong>:  $\frac{\partial}{\partial_x}(f(x)g(x))=\frac{\partial f}{\partial x}g(x)+f(x)\frac{\partial g}{\partial x}$</li>
+<li><strong>Sum rule</strong>:  $\frac{\partial}{\partial_x}(f(x)+g(x))=\frac{\partial f}{\partial x}+\frac{\partial g}{\partial x}$</li>
+<li><strong>Chain rule</strong>:  $\frac{\partial}{\partial_x}(g◦f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f}\frac{\partial f}{\partial x}$</li>
+</ul>
+</li>
+<li><p>Consider a function $f : \mathbb R^2 → \mathbb R$ of two variables $x_1, x_2$. Furthermore, $x_1(t)$ and $x_2(t)$ are themselves functions of $t$. To compute the gradient of $f$ with respect to $t$, we need to apply the chain rule  for multivariate functions as</p>
+<script type="math/tex; mode=display">
+\frac{d\,f}{d\,t}=\left[\begin{matrix}\frac{\partial f}{\partial x_1}&\frac{\partial f}{\partial x_2}\end{matrix}\right]
+\left[\begin{matrix}\frac{\partial x_1(t)}{\partial t}\\\frac{\partial x_2(t)}{\partial t}\end{matrix}\right]=
+\frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial t}+\frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial t}</script><p>where $d$ denotes the gradient and $∂$ partial derivatives.</p>
+</li>
+<li><p>If $f(x_1, x_2)$ is a function of $x_1$ and $x_2$, where $x_1(s, t)$ and $x_2(s, t)$ are themselves functions of two variables $s$ and $t$, the chain rule yields the partial derivatives</p>
+<script type="math/tex; mode=display">
+\frac{\partial f}{\partial s}=
+\frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial s}+\frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial s}\\
+\frac{\partial f}{\partial t}=
+\frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial t}+\frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial t}\\</script><p>and the gradient is obtained by the matrix multiplication</p>
+<script type="math/tex; mode=display">
+\frac{d\,f}{d(s,t)}=\frac{\partial f}{\partial x}\frac{\partial x}{\partial (s,t)}=\underset{=\frac{\partial f}{\partial x}}{\underbrace{\left[\begin{matrix}\frac{\partial f}{\partial x_1}&\frac{\partial f}{\partial x_2}\end{matrix}\right]}}
+\underset{=\frac{\partial x}{\partial (s,t)}}{\underbrace{\left[\begin{matrix}\frac{\partial x_1}{\partial s}&\frac{\partial x_1}{\partial t}\\\frac{\partial x_2}{\partial s}&\frac{\partial x_2}{\partial t}\end{matrix}\right]}}</script></li>
+<li><p>The chain rule can be written as a matrix multiplication. This compact way of writing the chain rule as a matrix multiplication only makes sense if the gradient is defined as a row vector.</p>
+</li>
+<li><p>The definition of the partial derivatives as the limit of the corresponding difference quotient  can be exploited when numerically checking the correctness of gradients in computer programs. When we compute gradients and implement them, we can use finite differences to numerically test our computation and implementation.</p>
+</li>
+</ul>
+<h2 id="Gradients-of-Vector-Valued-Functions"><a href="#Gradients-of-Vector-Valued-Functions" class="headerlink" title="Gradients of Vector-Valued Functions"></a>Gradients of Vector-Valued Functions</h2><ul>
+<li><p>For a function $f : \mathbb R^n → \mathbb R^m$ and a vector $x = [x_1, . . . , x_n]^⊤ ∈ \mathbb R^n$, the corresponding vector of function values is given as</p>
+<script type="math/tex; mode=display">
+f(x)=\left[\begin{matrix}f_1(x)\\\vdots\\f_m(x)\end{matrix}\right]\in \mathbb R^m</script><p>Writing the vector-valued function in this way allows us to view a vector- valued function $f : \mathbb R^n → \mathbb R^m$ as a vector of functions $[f_1, . . . , f_m]^⊤$, $f_i : \mathbb R^n → \mathbb R$ that map onto $\mathbb R$.</p>
+<p>Therefore, the partial derivative of a vector-valued function $f : \mathbb R^n → \mathbb R^m$ with respect to $x_i ∈ \mathbb R, i = 1, . . . n$, is given as the vector</p>
+<script type="math/tex; mode=display">
+\frac{\partial f}{\partial x_i}=\left[\begin{matrix}\frac{\partial f_1}{\partial x_i}\\\vdots\\\frac{\partial f_m}{\partial x_i}\end{matrix}\right]=
+\left[\begin{matrix}
+\underset{h\rightarrow 0}{\lim}\frac{f_1(x_1,...,x_{i-1},x_i+h,...,x_n)-f_1(x)}{h}\\
+\vdots\\
+\underset{h\rightarrow 0}{\lim}\frac{f_m(x_1,...,x_{i-1},x_i+h,...,x_n)-f_m(x)}{h}
+\end{matrix}\right]\in \mathbb R^m</script><p>every partial derivative $∂f/∂x_i$ is itself a column vector. Therefore, we obtain the gradient of $f : \mathbb R^n → \mathbb R^m$ with respect to $x ∈ \mathbb R^n$ by collecting these partial derivatives:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{d\,f(x)}{d\, x}&=\left[\begin{matrix}\frac{\partial f(x))}{\partial x_1}&\cdots&\frac{\partial f(x)}{\partial x_n}\end{matrix}\right]\\&=
+\left[\begin{matrix}\frac{\partial f_1(x))}{\partial x_1}&\cdots&\frac{\partial f_1(x)}{\partial x_n}\\
+\vdots&&\vdots\\
+\frac{\partial f_m(x))}{\partial x_1}&\cdots&\frac{\partial f_m(x)}{\partial x_n}
+\end{matrix}\right]\in \mathbb R^{m\times n}
+\end{split}</script></li>
+<li><p><strong>Jacobian</strong>:  The collection of all first-order partial derivatives of a vector-valued function $f : \mathbb R^n → \mathbb R^m$ is called the <strong><em>Jacobian</em></strong>. The Jacobian $J$ is an $m× n$ matrix, which we define and arrange as follows:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+J&=\nabla_xf=\frac{d\,f}{d\,x}=\left[\begin{matrix}\frac{\partial f(x)}{\partial x_1}&\cdots&\frac{\partial f(x)}{\partial x_n}\end{matrix}\right]\\
+&=\left[\begin{matrix}\frac{\partial f_1(x))}{\partial x_1}&\cdots&\frac{\partial f_1(x)}{\partial x_n}\\
+\vdots&&\vdots\\
+\frac{\partial f_m(x))}{\partial x_1}&\cdots&\frac{\partial f_m(x)}{\partial x_n}
+\end{matrix}\right],\\
+x&=\left[\begin{matrix}x_1\\
+\vdots\\
+x_n\end{matrix}\right],J(i,j)=\frac{\partial f_i}{\partial x_i}
+\end{split}</script><p>As a special case of above equation, a function $f : \mathbb R^n → \mathbb R^1$, which maps a vector x ∈ Rn onto a scalar (e.g.,$ f(x) =\sum_{i=1}^{n}{x_i}$), possesses a Jacobian that is a row vector (matrix of dimension $1 × n$).</p>
+</li>
+<li><p>We use the <em>numerator layout</em> of the derivative, i.e., the derivative $df/dx$ of $f ∈ \mathbb R^m$ with respect to $x ∈ \mathbb R^n$ is an $m ×n$ matrix, where the elements of $f$ define the rows and the elements of $x$ define the columns of the corresponding Jacobian. There exists also the <em>denominator layou</em>t, which is the transpose of the numerator layout.</p>
+</li>
+<li><p>Figure summarizes the dimensions of those derivatives. If $f : \mathbb R → \mathbb R$ the gradient is simply a scalar (top-left entry). For $f : \mathbb R^D → \mathbb R$ the gradient is a $1 × D$ row vector (top-right entry). For $f : \mathbb R → \mathbb R^E$, the gradient is an $E × 1$ column vector, and for $f : \mathbb R^D → \mathbb R^E$ the gradient is an $E ×D$ matrix.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942507.png" alt="Dimensionality of (partial) derivatives"></p>
+</li>
+</ul>
+<blockquote>
+<p>e.g. </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942571.png" alt="Gradient of a Vector-Valued Function"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942069.png" alt="Chain Rule"></p>
+<p><strong>Gradient of a Least-Squares Loss in a Linear Model</strong><br>Let us consider the linear model</p>
+<script type="math/tex; mode=display">
+y = \varPhi\theta</script><p>where $\theta\in\mathbb R^D$ is a parameter vector, $Φ ∈ \mathbb R^{N×D}$ are input features and $y ∈ \mathbb R^N$ are the corresponding observations. We define the functions</p>
+<script type="math/tex; mode=display">
+L(e):=\left\|e\right\|^2\\
+e(\theta):=y-\varPhi\theta</script><p>We seek $\frac{∂L}{∂θ}$ , and we will use the chain rule for this purpose. L is called <strong>aleast-squares loss function</strong>.</p>
+<p>Before we start our calculation, we determine the dimensionality of the gradient as</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial \theta}\in \mathbb R ^{1\times D}</script><p>The chain rule allows us to compute the gradient as</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial \theta}=\frac{\partial L}{\partial e}\frac{\partial e}{\partial \theta}</script><p>where the $d$th element is given by</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial \theta}[1,d]=\sum_{n=1}^N{\frac{\partial L}{\partial e}[n]}\frac{\partial e}{\partial \theta}[n,d]</script><p>We know that $∥e∥^2 = e^⊤e$  and determine</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial e}=2e^T\in\mathbb R^{1\times N}</script><p>Furthermore, we obtain</p>
+<script type="math/tex; mode=display">
+\frac{\partial e}{\partial \theta}=-\varPhi\in\mathbb R^{N\times D}</script><p>such that our desired derivative is</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial \theta}=-2e^T\varPhi=\underset{1\times N}{\underbrace{-2(y^T-\theta^T\varPhi^T)}}\underset{N\times D}{\underbrace{\varPhi}}\in\mathbb R^{1\times D}</script></blockquote>
+<h2 id="Gradients-of-Matrices"><a href="#Gradients-of-Matrices" class="headerlink" title="Gradients of Matrices"></a>Gradients of Matrices</h2><ul>
+<li><p>We will encounter situations where we need to take gradients of matrices with respect to vectors (or other matrices), which results in a multidimensional tensor. We can think of this tensor as a multidimensional array that collects partial derivatives. For example, if we compute the gradient of an $m× n$ matrix $A$ with respect to a $p × q$ matrix $B$, the resulting Jacobian would be $(m×n)×(p×q)$, i.e., a four-dimensional tensor $J$, whose entries<br>are given as $J_{ijkl} = ∂A_{ij}/∂B_{kl}$.</p>
+</li>
+<li><p>Since matrices represent linear mappings, we can exploit the fact that there is a vector-space isomorphism (linear, invertible mapping) between the space $\mathbb R^{m×n}$ of $m × n$ matrices and the space $\mathbb R^{mn}$ of $mn$ vectors. Therefore, we can re-shape our matrices into vectors of lengths $mn$ and $pq$, respectively. The gradient using these $mn$ vectors results in a Jacobian<br>of size $mn × pq$. Figure visualizes both approaches. In practical applications, it is often desirable to re-shape the matrix into a vector and continue working with this Jacobian matrix: The chain rule boils down to simple matrix multiplication, whereas in the case of a Jacobian tensor, we will need to pay more attention to what dimensions we need to sum out.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943293.png" alt="Visualization of gradient computation of a matrix with respect to a vector"></p>
+</li>
+</ul>
+<blockquote>
+<p>e.g. <strong>Gradient of Vectors with Respect to Matrices</strong></p>
+<p>Let us consider the following example, where</p>
+<script type="math/tex; mode=display">
+f = Ax,\;\;f\in\mathbb R^M,\;\;A\in\mathbb R^{M\times N},\;\;x\in\mathbb R^N</script><p>and where we seek the gradient $df/dA$. Let us start again by determining the dimension of the gradient as</p>
+<script type="math/tex; mode=display">
+\frac{d\,f}{d\,A}\in\mathbb R^{M\times(M\times N)}</script><p>By definition, the gradient is the collection of the partial derivatives:</p>
+<script type="math/tex; mode=display">
+\frac{d\,f}{d\,A}=
+\left[\begin{matrix}
+\frac{\partial f_1}{\partial A}\\
+\vdots\\
+\frac{\partial f_M}{\partial A}
+\end{matrix}\right],\;\;\frac{\partial f_i}{\partial A}\in\mathbb R^{1\times(M\times N)}</script><p>To compute the partial derivatives, it will be helpful to explicitly write out the matrix vector multiplication:</p>
+<script type="math/tex; mode=display">
+f_i=\sum_{j=1}^N{A_{ij}x_j},i=1,...,M</script><p>and the partial derivatives are then given as</p>
+<script type="math/tex; mode=display">
+\frac{\partial f_i}{\partial A_{iq}}=x_q</script><p>This allows us to compute the partial derivatives of $f_i$ with respect to a row of $A$, which is given as</p>
+<script type="math/tex; mode=display">
+\frac{\partial f_i}{\partial A_{i,:}}=x^T\in\mathbb R^{1\times1\times N}\\
+\frac{\partial f_i}{\partial A_{k\ne i,:}}=0^T\in\mathbb R^{1\times1\times N}\\</script><p>where we have to pay attention to the correct dimensionality. Since $f_i$ maps onto $\mathbb R$ and each row of $A$ is of size $1×N$, we obtain a $1 × 1 ×N$-sized tensor as the partial derivative of $f_i$ with respect to a row of $A$.</p>
+<p>We stack the partial derivatives and get the desired gradientin via</p>
+<script type="math/tex; mode=display">
+\frac{\partial f_i}{\partial A}=\left[\begin{matrix}
+0^T\\
+\vdots\\
+0^T\\
+x^T\\
+0^T\\
+\vdots\\
+0^T
+\end{matrix}\right]\in \mathbb R^{1\times(M\times N)}</script><p>e.g. <strong>Gradient of Matrices with Respect to Matrices</strong></p>
+<p>Consider a matrix $R ∈\mathbb R^{M×N}$ and $f :\mathbb R^{M×N} →\mathbb R^{N×N}$ with</p>
+<script type="math/tex; mode=display">
+f(R)=R^TR=:K\in\mathbb R^{N\times N}</script><p>where we seek the gradient $dK/dR$.</p>
+<p>To solve this hard problem, let us first write down what we already know: The gradient has the dimensions</p>
+<script type="math/tex; mode=display">
+\frac{d\,K}{d\,R}\in\mathbb R^{(N\times N)\times(M\times N)}</script><p>which is a tensor. Moreover,</p>
+<script type="math/tex; mode=display">
+\frac{d\,K_{pq}}{d\,R}\in\mathbb R^{1\times(M\times N)}</script><p>for $p, q = 1, . . . ,N$, where $K_{pq}$ is the $(p, q)$th entry of $K = f(R)$. Denoting the $i$th column of $R$ by $r_i$, every entry of $K$ is given by the dot product of two columns of $R$, i.e.,</p>
+<script type="math/tex; mode=display">
+K_{pq}=r_p^Tr_q=\sum_{m=1}^M{R_{mp}R_{mq}}</script><p>When we now compute the partial derivative $\frac{∂K_{pq}}{∂R_{ij}}$ we obtain</p>
+<script type="math/tex; mode=display">
+\frac{\partial K_{pq}}{\partial R_{ij}}=\sum_{m=1}^M{\frac{\partial}{\partial R_{ij}}R_{mp}R_{mq}}=\partial_{pqij},\\
+\partial_{pqij}=\begin{cases}
+R_{iq}\;\;\;\;if\;j=p,p\ne q\\
+R_{ip}\;\;\;\;if\;j=q,p\ne q\\
+2R_{iq}\;\;\;\;if\;j=p,p = q\\
+0\;\;\;\;otherwise
+\end{cases}</script><p>we know that the desired gradient has the dimension $(N × N) × (M × N)$, and every single entry of this tensor is given by $∂_{pqij}$,where $p, q, j = 1, . . . ,N$ and $i = 1, . . . ,M$.</p>
+</blockquote>
+<h2 id="Useful-Identities-for-Computing-Gradients"><a href="#Useful-Identities-for-Computing-Gradients" class="headerlink" title="Useful Identities for Computing Gradients"></a>Useful Identities for Computing Gradients</h2><ul>
+<li><p>we use $tr(·)$ as the trace , $det(·)$ as the determinant  and $f(X)^{−1}$ as the inverse of $f(X)$, assuming it exists.</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\frac{\partial}{\partial X}f(X)^T=\left(\frac{\partial f(X)}{\partial X}\right)^T\\
+&\frac{\partial}{\partial X}tr(f(X))=tr\left(\frac{\partial f(X)}{\partial X}\right)\\
+&\frac{\partial}{\partial X}det(f(X))=det(f(X))\,tr\left(f(X)^{-1}\frac{\partial f(X)}{\partial X}\right)\\
+&\frac{\partial}{\partial X}f(X)^{-1}=-f(X)^{-1}\frac{\partial f(X)}{\partial X}f(X)^{-1}\\
+&\frac{\partial a^TX^{-1}b}{\partial X}=-(X^{-1})^Tab^T(X^{-1})^T\\
+&\frac{\partial x^Ta}{\partial x}=a^T\\
+&\frac{\partial a^Tx}{\partial x}=a^T\\
+&\frac{\partial a^TXb}{\partial X}=a^Tb\\
+&\frac{\partial x^TBx}{\partial x}=x^T(B+B^T)\\
+&\frac{\partial}{\partial s}(x-As)^TW(x-As)=-2(x-As)^TWA\;\;for\;symmetic\;W
+\end{split}</script></li>
+<li><p>The trace of a $D×D×E×F$ tensor would be an $E×F$-dimensional matrix.</p>
+</li>
+<li><p>When we “transpose” a tensor, we mean swapping the first two dimensions.</p>
+</li>
+</ul>
+<h2 id="Backpropagation-and-Automatic-Differentiation"><a href="#Backpropagation-and-Automatic-Differentiation" class="headerlink" title="Backpropagation and Automatic Differentiation"></a>Backpropagation and Automatic Differentiation</h2><ul>
+<li><p>Writing out the gradient in the explicit way is often impractical since it often results in a very lengthy expression for a derivative. For training deep neural network models, the backpropagation algorithm is an efficient way to compute the gradient of an error function with respect to the parameters of the model.</p>
+</li>
+<li><p><strong>Gradients in a Deep Network</strong>: An area where the chain rule is used to an extreme is deep learning, where the function value $y$ is computed as a many-level function composition</p>
+<script type="math/tex; mode=display">
+y=(f_K◦f_{K-1}◦\cdots◦f_1)(x)=f_K(f_{K-1}(\cdots(f_1(x))\cdots))</script><p>where $x$ are the inputs (e.g., images), $y$ are the observations (e.g., class labels), and every function $f_i, i = 1, . . . ,K$, possesses its own parameters.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943244.png" alt="Forward pass in a multi-layer neural network"></p>
+<p>In neural networks with multiple layers, we have functions $f_i(x_{i−1}) = σ(A_{i−1}x_{i−1} + b_{i−1})$ in the $i$th layer. Here $x_{i−1}$ is the output of layer $i − 1$ and $σ$ an activation function, such as the logistic sigmoid $\frac{1}{1+e^{-x}}$ , $tanh$ or a rectified linear unit (ReLU). In order to train these models, we require the gradient of a loss function $L$ with respect to all model parameters $A_j, b_j$ for $j = 1, . . . ,K$. This also requires us to compute the gradient of $L$ with<br>respect to the inputs of each layer. For example, if we have inputs $x$ and<br>observations $y$ and a network structure defined by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f_0&:=x\\
+f_i&:=\sigma_i(A_{i-1}f_{i-1}+b_{i-1}),\;\;i=1,...,K
+\end{split}</script><p>see also Figure  for a visualization, we may be interested in finding $A_j, b_j$ for $j = 0, . . . ,K − 1$, such that the squared loss</p>
+<script type="math/tex; mode=display">
+L(\theta)=\left\|y-f_K(\theta,x)\right\|^2</script><p>is minimized, where $θ = \{A_0, b_0, . . . ,A_{K−1}, b_{K−1}\}$.</p>
+<p>To obtain the gradients with respect to the parameter set $θ$, we require the partial derivatives of L with respect to the parameters $θ_j = {A_j, b_j}$ of each layer $j = 0, . . . ,K− 1$. The chain rule allows us to determine the partial derivatives as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial L}{\partial \theta_{K-1}}&=\frac{\partial L}{\partial f_K}{\color{blue} {\frac{\partial f_k}{\partial \theta_{K-1}}}}\\
+\frac{\partial L}{\partial \theta_{K-2}}&=\frac{\partial L}{\partial f_K}{\color{orange}{\frac{\partial f_k}{\partial \theta_{K-1}}}}{\color{blue}{\frac{\partial f_{k-1}}{\partial \theta_{K-2}}}}\\
+\frac{\partial L}{\partial \theta_{K-3}}&=\frac{\partial L}{\partial f_K}{\color{orange}{\frac{\partial f_k}{\partial \theta_{K-1}}\frac{\partial f_{k-1}}{\partial \theta_{K-2}}}}{\color{blue}{\frac{\partial f_{k-2}}{\partial \theta_{K-3}}}}\\
+\frac{\partial L}{\partial \theta_{i}}&=\frac{\partial L}{\partial f_K}{\color{orange}{\frac{\partial f_k}{\partial \theta_{K-1}}\cdots\frac{\partial f_{i+2}}{\partial \theta_{i+1}}}}{\color{blue}{\frac{\partial f_{i+1}}{\partial \theta_{i}}}}\\
+\end{split}</script><p>The ${\color{orange}{orange}}$ terms are partial derivatives of the output of a layer with respect to its inputs, whereas the ${\color{blue}{blue}}$ terms are partial derivatives of the output of a layer with respect to its parameters. Assuming, we have already computed the partial derivatives $∂L/∂θ_{i+1}$, then most of the computation can be reused to compute $∂L/∂θ_i$. The additional terms that we need to compute are indicated by the boxes. Figure visualizes that the gradients are passed backward through the network.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943586.png" alt="Backward pass in a multi-layer neural network"></p>
+</li>
+<li><p><strong>Automatic Differentiation</strong>: It turns out that backpropagation is a special case of a general technique in numerical analysis called <em>automatic differentiation</em>. We can think of automatic differentation as a set of techniques to numerically (in contrast to symbolically) evaluate the exact (up to machine precision) gradient of a function by working with <em>intermediate variables</em> and applying the <em>chain rule</em>. Automatic differentiation applies to general computer programs and has forward and reverse modes.</p>
+</li>
+<li><p>Figure shows a simple graph representing the data flow from inputs $x$ to outputs $y$ via some intermediate variables $a, b$. If we were to compute the derivative $dy/dx$, we would apply the chain rule and obtain</p>
+<script type="math/tex; mode=display">
+\frac{d\,y}{d\,x}=\frac{d\,y}{d\,b}\frac{d\,b}{d\,a}\frac{d\,a}{d\,x}</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943096.png" alt="the flow of data from x to y"></p>
+<p>Intuitively, the forward and reverse mode differ in the order of multiplication. Due to the associativity of matrix multiplication, we can choose between</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{d\,y}{d\,x}&=\left(\frac{d\,y}{d\,b}\frac{d\,b}{d\,a}\right)\frac{d\,a}{d\,x}  \\
+\frac{d\,y}{d\,x}&=\frac{d\,y}{d\,b}\left(\frac{d\,b}{d\,a}\frac{d\,a}{d\,x}\right)
+\end{split}</script><p>The first equation would be the <strong><em>reverse</em></strong> mode because gradients are propagated backward through the graph, i.e., reverse to the data flow. And the second equation would be the <strong><em>forward</em></strong> mode, where the gradients flow with the data from left to right through the graph.</p>
+</li>
+<li><p>In the context of neural networks, where the input dimensionality is often much higher than the dimensionality of the labels, the reverse mode is computationally significantly cheaper than the forward mode.</p>
+</li>
+</ul>
+<blockquote>
+<p>e.g Consider the function $f(x) =\sqrt{x^2 + \exp(x^2)} + \cos(x^2 + \exp(x^2))$</p>
+<p>If we were to implement a function f on a computer, we would be able to save some computation by using intermediate variables</p>
+<script type="math/tex; mode=display">
+\begin{split}
+a&=x^2\\
+b&=\exp(a)\\
+c&=a+b\\
+d&=\sqrt c\\
+e&=\cos(c)\\
+f&=d+e
+\end{split}</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943083.png" alt="Computation graph with inputs x, function values f"></p>
+<p>This is the same kind of thinking process that occurs when applying the chain rule. Note that the preceding set of equations requires fewer operations than a direct implementation of the function $f(x)$ as defined. The corresponding computation graph in Figure shows the flow of data and computations required to obtain the function value $f$.</p>
+<p>The set of equations that include intermediate variables can be thought of as a computation graph, a representation that is widely used in implementations of neural network software libraries.We can directly compute the derivatives of the intermediate variables with respect to their corresponding inputs.</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial a}{\partial x}&=2x\\
+\frac{\partial b}{\partial a}&=\exp(a)\\
+\frac{\partial c}{\partial a}&=1=\frac{\partial c}{\partial b}\\
+\frac{\partial d}{\partial c}&=\frac{1}{2\sqrt c}\\
+\frac{\partial e}{\partial c}&=-\sin(c)\\
+\frac{\partial f}{\partial d}&=1=\frac{\partial f}{\partial e}\\
+\end{split}</script><p>By looking at the computation graph in Figure , we can compute $∂f/∂x$ by working backward from the output and obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial f}{\partial c}&=\frac{\partial f}{\partial d}\frac{\partial d}{\partial c}+\frac{\partial f}{\partial e}\frac{\partial e}{\partial c}\\
+\frac{\partial f}{\partial b}&=\frac{\partial f}{\partial c}\frac{\partial c}{\partial b}\\
+\frac{\partial f}{\partial a}&=\frac{\partial f}{\partial b}\frac{\partial b}{\partial a}+\frac{\partial f}{\partial c}\frac{\partial c}{\partial a}\\
+\frac{\partial f}{\partial x}&=\frac{\partial f}{\partial a}\frac{\partial a}{\partial x}
+\end{split}</script><p>Note that we implicitly applied the chain rule to obtain $∂f/∂x$. By substituting the results of the derivatives of the elementary functions, we get</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial f}{\partial c}&=1\cdot \frac{1}{2\sqrt c}+1\cdot(-\sin(c))\\
+\frac{\partial f}{\partial b}&=\frac{\partial f}{\partial c}\cdot 1\\
+\frac{\partial f}{\partial a}&=\frac{\partial f}{\partial b}\exp(a)+\frac{\partial f}{\partial c}\cdot 1\\
+\frac{\partial f}{\partial x}&=\frac{\partial f}{\partial a}\cdot 2x
+\end{split}</script></blockquote>
+<ul>
+<li>Let $x_1, . . . , x_d$be the input variables to the function, $x_{d+1}, . . . , x_{D−1}$ be the intermediate variables, and $x_D$ the output variable. Then the computation graph can be expressed as follows:<script type="math/tex; mode=display">
+For\;\;i = d + 1, . . . ,D : x_i = g_i(x_{Pa(x_i)}) ,</script>where the $g_i(·)$ are elementary functions and $x_{Pa(x_i)}$ are the parent nodes of the variable $x_i$​ in the graph. Given a function defined in this way, we can use the chain rule to compute the derivative of the function in a step-by-step fashion. Recall that by definition $f = x_D$ and hence<script type="math/tex; mode=display">
+\frac{\partial f}{\partial x_D}=1</script>For other variables $x_i$, we apply the chain rule<script type="math/tex; mode=display">
+\frac{\partial f}{\partial x_i}=\sum_{x_j:x_i\in Pa(x_j)}{\frac{\partial f}{\partial x_j}\frac{\partial x_j}{\partial x_i}}=\sum_{x_j:x_i\in Pa(x_j)}{\frac{\partial f}{\partial x_j}\frac{\partial g_j}{\partial x_i}}</script>where $Pa(x_j)$ is the set of parent nodes of $x_j$ in the computation graph.</li>
+</ul>
+<h2 id="Higher-Order-Derivatives"><a href="#Higher-Order-Derivatives" class="headerlink" title="Higher-Order Derivatives"></a>Higher-Order Derivatives</h2><ul>
+<li><p>Consider a function $f : \mathbb R^2 → \mathbb R$ of two variables $x, y$. We use the following notation for higher-order partial derivatives (and for gradients)</p>
+<ul>
+<li>$\frac{\partial^2f}{\partial x^2}$is the second partial derivative of $f$ with respect to $x$.</li>
+<li>$\frac{\partial^nf}{\partial x^n}$is the $n$th partial derivative of $f$ with respect to $x$.</li>
+<li>$\frac{\partial^2f}{\partial y \partial x}=\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)$is the partial derivative obtained by first partial differentiating with respect to $x$ and then with respect to $y$.</li>
+<li>$\frac{\partial^2f}{\partial x \partial y}$is the partial derivative obtained by first partial differentiating by $y$ and then $x$.</li>
+</ul>
+</li>
+<li><p>The Hessian is the collection of all second-order partial derivatives. If $f(x, y)$ is a twice (continuously) differentiable function, then</p>
+<script type="math/tex; mode=display">
+\frac{\partial^2f}{\partial x \partial y}=\frac{\partial^2f}{\partial y \partial x}</script><p>the order of differentiation does not matter, and the corresponding Hessian matrix</p>
+<script type="math/tex; mode=display">
+H=\left[\begin{matrix}
+\frac{\partial^2f}{\partial x^2}& \frac{\partial^2f}{\partial x \partial y}\\
+\frac{\partial^2f}{\partial x \partial y}& \frac{\partial^2f}{\partial y^2}
+\end{matrix}\right]</script><p>is symmetric.The Hessian is denoted as $∇^2_{x,y}f(x, y)$. Generally, for $x ∈ \mathbb R^n$ and $f : \mathbb R^n → \mathbb R$, the Hessian is an $n × n$ matrix. The Hessian measures the curvature of the function locally around $(x, y)$.</p>
+</li>
+<li><p><strong>Hessian of a Vector Field</strong>: If $f : \mathbb R^n → \mathbb R^m$ is a vector field, the Hessian is an $(m× n × n)$-tensor</p>
+</li>
+</ul>
+<h2 id="Linearization-and-Multivariate-Taylor-Series"><a href="#Linearization-and-Multivariate-Taylor-Series" class="headerlink" title="Linearization and Multivariate Taylor Series"></a>Linearization and Multivariate Taylor Series</h2><ul>
+<li><p>The gradient $∇f$ of a function $f$ is often used for a locally linear approximation of $f$ around $x_0$:</p>
+<script type="math/tex; mode=display">
+f(x)\approx f(x_0)+(\nabla_xf)(x_0)(x-x_0)</script><p>Here $(∇_xf)(x_0)$ is the gradient of f with respect to $x$, evaluated at $x_0$.</p>
+</li>
+<li><p><strong>Multivariate Taylor Series</strong>: We consider a function</p>
+<script type="math/tex; mode=display">
+f:\mathbb R^D\rightarrow \mathbb R\\
+x\mapsto f(x),x\in \mathbb R^D</script><p>that is smooth at $x_0$. When we define the difference vector $δ := x − x_0$, the <em>multivariate Taylor</em> series of $f$ at $(x_0)$ is defined as</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=0}^\infty{\frac{D^k_xf(x_0)}{k!}\delta^k}</script><p>where $D^k_xf(x_0)$ is the $k$-th (total) derivative of $f$ with respect to $x$, eval-uated at $x_0$.</p>
+</li>
+<li><p><strong>Taylor Polynomial</strong>: The <em>Taylor polynomial</em> of degree $n$ of $f$ at $x_0$ contains the first $n + 1$ components of the series and isdefined as</p>
+<script type="math/tex; mode=display">
+T_n(x)=\sum_{k=0}^n{\frac{D^k_xf(x_0)}{k!}\delta^k}</script><p>We used the slightly sloppy notation of $δ^k$, which is not defined for vectors $x ∈ \mathbb R^D, D &gt; 1$, and $k &gt; 1$.Note that both $D^k_xf$ and $δ^k$ are $k$-th order tensors, i.e., $k$-dimensional arrays. The $k$th-order tensor $\delta^k\in\mathbb R^{\overset{k\;times}{\overbrace{D\times D\times \cdots\times D}}}$ is obtained as a $k$-fold outer product, denoted by $⊗$, of the vector $δ ∈ \mathbb R^D$. For example,</p>
+<script type="math/tex; mode=display">
+\delta^2:=\delta ⊗\delta=\delta\delta^T,\;\;\;\delta^2[i,j]=\delta[i]\delta[j]\\
+\delta^3:=\delta ⊗\delta⊗\delta,\;\;\;\delta^3[i,j,k]=\delta[i]\delta[j]\delta[k]</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943286.png" alt="Outer products"></p>
+<p>In general, we obtain the terms</p>
+<script type="math/tex; mode=display">
+D^k_xf(x_0)\delta^k=\sum_{i_1=1}^D\cdots\sum_{i_k=1}^DD^k_xf(x_0)[i_1,...,i_k]\delta[i_1]\cdots\delta[i_k]</script><p>in the Taylor series, where $D^k_xf(x_0)\delta^k$ contains $k$-th order polynomials.</p>
+</li>
+<li><p>Now that we defined the Taylor series for vector fields, let us explicitly write down the first terms <script type="math/tex">D^k_xf(x_0)\delta^k</script> of the Taylor series expansion for $k = 0, . . . , 3$ and $δ := x − x_0$:<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943666.png" alt="the Taylor series for vector fields"></p>
+</li>
+</ul>
+<p>​        Here, $H(x_0)$ is the Hessian of $f$ evaluated at $x_0$.</p>
+<blockquote>
+<p>e.g. <strong>Taylor Series Expansion of a Function with Two Variables</strong></p>
+<p>Consider the function $f(x,y)=x^2+2xy+y^3$</p>
+<p>We want to compute the Taylor series expansion of f at $(x_0, y_0) = (1, 2)$. Before we start, let us discuss what to expect: The function is a polynomial of degree $3$. We are looking for a Taylor series expansion, which itself is a linear combination of polynomials. Therefore, we do not expect the Taylor series expansion to contain terms of fourth or higher order to express a third-order polynomial. This means that it should be sufficient to determine the first four terms  for an exact alternative representation.</p>
+<p>To determine the Taylor series expansion, we start with the constant term and the first-order derivatives, which are given by</p>
+<script type="math/tex; mode=display">
+f(1,2)=13\\
+\frac{\partial f}{\partial x}=2x+2y\;\Rightarrow \;\frac{\partial f}{\partial x}(1,2)=6\\
+\frac{\partial f}{\partial y}=2x+3y^2\;\Rightarrow \;\frac{\partial f}{\partial x}(1,2)=14\\</script><p>Therefore, we obtain</p>
+<script type="math/tex; mode=display">
+D^1_{x,y}f(1,2)=\nabla_{x,y}f(1,2)=\left[\begin{matrix}\frac{\partial f}{\partial x}(1,2)&\frac{\partial f}{\partial y}(1,2)\end{matrix}\right]=\left[\begin{matrix}6&14\end{matrix}\right]\in\mathbb R^{1\times 2}</script><p>such that</p>
+<script type="math/tex; mode=display">
+\frac{D^1_{x,y}f(1,2)}{1!}\delta=\left[\begin{matrix}6&14\end{matrix}\right]\left[\begin{matrix}x-1\\y-2\end{matrix}\right]=6(x-1)+14(y-2)</script><p>Note that $D^1_{x,y}f(1,2)\delta$ contains only linear terms, i.e., first-order polynomials.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943551.png" alt="The second-order partial derivatives"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943403.png" alt="The third-order derivatives01"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943835.png" alt="the (exact) Taylor series expansion"></p>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/01/vectorcalculus/">http://Eliauk-L.github.io/2024/08/01/vectorcalculus/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/VectorCalculus/">
+                                    <span class="chip bg-color">VectorCalculus</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/01/vectorcalculus/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Vector Calculus">
+                        
+                        <span class="card-title">Vector Calculus</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/VectorCalculus/">
+                        <span class="chip bg-color">VectorCalculus</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/31/numpy-xue-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Numpy学习">
+                        
+                        <span class="card-title">Numpy学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Numpy/">
+                        <span class="chip bg-color">Numpy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
