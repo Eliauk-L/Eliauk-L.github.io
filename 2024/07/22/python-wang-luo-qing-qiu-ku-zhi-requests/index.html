@@ -5,11 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Python网络请求库之requests, Jay&#39;s Blog">
-    <meta name="description" content="Python网络请求库之requests
-Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。
+    <meta name="description" content="Python 网络请求库之 requests
+Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib 模块更简洁。
 
-安装：pip install requests
-">
+安装：pip install reques">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -352,8 +351,8 @@ Python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Python网络请求库之requests"><a href="#Python网络请求库之requests" class="headerlink" title="Python网络请求库之requests"></a>Python网络请求库之requests</h1><ul>
-<li><p>Python <strong><code>requests</code></strong> 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib模块更简洁。</p>
+                <h1 id="Python-网络请求库之-requests"><a href="#Python-网络请求库之-requests" class="headerlink" title="Python 网络请求库之 requests"></a>Python 网络请求库之 requests</h1><ul>
+<li><p>Python <strong><code>requests</code></strong> 是一个常用的 HTTP 请求库，可以方便地向网站发送 HTTP 请求，并获取响应结果。比 urllib 模块更简洁。</p>
 </li>
 <li><p>安装：<strong><code>pip install requests</code></strong></p>
 </li>
@@ -452,7 +451,7 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 </tr>
 <tr>
 <td style="text-align:left">ok</td>
-<td style="text-align:left">检查 “status_code” 的值，如果小于400，则返回 True，如果不小于 400，则返回 False</td>
+<td style="text-align:left">检查 “status_code” 的值，如果小于 400，则返回 True，如果不小于 400，则返回 False</td>
 </tr>
 <tr>
 <td style="text-align:left">raise_for_status()</td>
@@ -519,31 +518,31 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>delete(<em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left"><strong>delete(_url_, _args_)</strong></td>
 <td style="text-align:left">发送 DELETE 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>get(<em>url</em>, <em>params, args</em>)</strong></td>
+<td style="text-align:left"><strong>get(_url_, _params, args_)</strong></td>
 <td style="text-align:left">发送 GET 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>head(<em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left"><strong>head(_url_, _args_)</strong></td>
 <td style="text-align:left">发送 HEAD 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>patch(<em>url</em>, <em>data, args</em>)</strong></td>
+<td style="text-align:left"><strong>patch(_url_, _data, args_)</strong></td>
 <td style="text-align:left">发送 PATCH 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>post(<em>url</em>, <em>data, json, args</em>)</strong></td>
+<td style="text-align:left"><strong>post(_url_, _data, json, args_)</strong></td>
 <td style="text-align:left">发送 POST 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>put(<em>url</em>, <em>data, args</em>)</strong></td>
+<td style="text-align:left"><strong>put(_url_, _data, args_)</strong></td>
 <td style="text-align:left">发送 PUT 请求到指定 url</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>request(<em>method</em>, <em>url</em>, <em>args</em>)</strong></td>
+<td style="text-align:left"><strong>request(_method_, _url_, _args_)</strong></td>
 <td style="text-align:left">向指定的 url 发送指定的请求方法</td>
 </tr>
 </tbody>
@@ -554,12 +553,12 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
 <span class="token keyword">import</span> requests
 
- 
+
 kw <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'s'</span><span class="token punctuation">:</span><span class="token string">'python 教程'</span><span class="token punctuation">}</span>
 
 <span class="token comment"># 设置请求头</span>
 headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"</span><span class="token punctuation">}</span>
- 
+
 <span class="token comment"># params 接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()</span>
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.runoob.com/"</span><span class="token punctuation">,</span> params <span class="token operator">=</span> kw<span class="token punctuation">,</span> headers <span class="token operator">=</span> headers<span class="token punctuation">)</span>
 
@@ -580,7 +579,7 @@ response <span class="token operator">=</span> requests<span class="token punctu
 <li><strong>url</strong> 请求 url。</li>
 <li><strong>data</strong> 参数为要发送到指定 url 的字典、元组列表、字节或文件对象。</li>
 <li><strong>json</strong> 参数为要发送到指定 url 的 JSON 对象。</li>
-<li><strong>args</strong> 为其他参数，比如 cookies、headers、verify等。</li>
+<li><strong>args</strong> 为其他参数，比如 cookies、headers、verify 等。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入 requests 包</span>
 <span class="token keyword">import</span> requests
@@ -595,8 +594,8 @@ x <span class="token operator">=</span> requests<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="cookies参数"><a href="#cookies参数" class="headerlink" title="cookies参数"></a>cookies参数</h2><ul>
-<li><p>指定cookies参数操作Cookie，内容需要以dict形式传递。</p>
+<h2 id="cookies-参数"><a href="#cookies-参数" class="headerlink" title="cookies 参数"></a>cookies 参数</h2><ul>
+<li><p>指定 cookies 参数操作 Cookie，内容需要以 dict 形式传递。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
 r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.csdn.net/"</span><span class="token punctuation">)</span>
@@ -607,8 +606,8 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 </ul>
 <h2 id="重定向与请求历史"><a href="#重定向与请求历史" class="headerlink" title="重定向与请求历史"></a>重定向与请求历史</h2><ul>
 <li>重定向是指将网络请求重新转向其他位置，例如网站迁移，访问原网址时自动转到新的网址，或者其他原因跳转到新的网址。</li>
-<li>默认情况下，除了head方法外，requests会自动处理所有的重定向,也可以手动设定allow_redirects参数为True 或者False来开启或禁止重定向，例如<code>r=requests.get('http://www.z.cn',allow_redirects=False)</code>。</li>
-<li>如果允许重定向，可以使用响应对象的history方法来查看跳转信息。</li>
+<li>默认情况下，除了 head 方法外，requests 会自动处理所有的重定向,也可以手动设定 allow_redirects 参数为 True 或者 False 来开启或禁止重定向，例如<code>r=requests.get('http://www.z.cn',allow_redirects=False)</code>。</li>
+<li>如果允许重定向，可以使用响应对象的 history 方法来查看跳转信息。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> requests
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
@@ -623,9 +622,9 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 <span class="token punctuation">[</span><span class="token operator">&lt;</span>Response <span class="token punctuation">[</span><span class="token number">301</span><span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h2><p>指定<strong>timeout</strong>参数来设定等待网站响应的时间（单位:秒)，超过设定时间之后停止等待。</p>
 <h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><ul>
-<li><p>当某些网站对访问IP有限制（如地域限制或次数限制）时，我们可以使用代理来绕过限制。</p>
+<li><p>当某些网站对访问 IP 有限制（如地域限制或次数限制）时，我们可以使用代理来绕过限制。</p>
 </li>
-<li><p>requests使用代理只需指定proxies参数</p>
+<li><p>requests 使用代理只需指定 proxies 参数</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
 proxie <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -641,7 +640,7 @@ requests<span class="token punctuation">.</span>get<span class="token punctuatio
 <p><strong>参考：</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-requests.html">https://www.runoob.com/python3/python-requests.html</a></li>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

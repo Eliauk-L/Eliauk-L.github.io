@@ -362,18 +362,18 @@
 <li><p>元组中的<strong>元素值是不允许修改</strong>的，但我们可以对元组进行<strong>连接组合</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">34.56</span><span class="token punctuation">)</span>
 tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">,</span> <span class="token string">'xyz'</span><span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 以下修改元组元素操作是非法的。</span>
 <span class="token comment"># tup1[0] = 100</span>
- 
+
 <span class="token comment"># 创建一个新的元组</span>
 tup3 <span class="token operator">=</span> tup1 <span class="token operator">+</span> tup2
 <span class="token keyword">print</span><span class="token punctuation">(</span>tup3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>元组中的元素值是<strong>不允许删除</strong>的，但可以使用<strong>del语句来删除整个元组</strong></p>
+<li><p>元组中的元素值是<strong>不允许删除</strong>的，但可以使用<strong>del 语句来删除整个元组</strong></p>
 </li>
 </ul>
 <h2 id="1-元组运算符"><a href="#1-元组运算符" class="headerlink" title="1 元组运算符"></a>1 元组运算符</h2><div class="table-container">
@@ -420,9 +420,38 @@ tup3 <span class="token operator">=</span> tup1 <span class="token operator">+</
 <li><p><code>tup = "a", "b", "c", "d"</code></p>
 </li>
 </ul>
-<h2 id="3-元组内置函数"><a href="#3-元组内置函数" class="headerlink" title="3 元组内置函数"></a>3 元组内置函数</h2><ul>
-<li>| 函数                                                         | 描述                                                   |<br>| —————————————————————————————— | ——————————————————————————— |<br>| <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-cmp.html">cmp(tuple1, tuple2)</a> | 比较两个元组元素。Python 3.X 的版本中已经没有 cmp 函数 |<br>| <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-len.html">len(tuple)</a> | 计算元组元素个数。                                     |<br>| <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-max.html"> max(tuple)</a> | 返回元组中元素最大值。                                 |<br>| <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-min.html"> min(tuple)</a> | 返回元组中元素最小值。                                 |<br>| <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-tuple.html"> tuple(seq)</a> | 将列表转换为元组。                                     |</li>
-</ul>
+<h2 id="3-元组内置函数"><a href="#3-元组内置函数" class="headerlink" title="3 元组内置函数"></a>3 元组内置函数</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-cmp.html">cmp(tuple1, tuple2)</a></td>
+<td>比较两个元组元素。Python 3.X 的版本中已经没有 cmp 函数</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-len.html">len(tuple)</a></td>
+<td>计算元组元素个数。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-max.html"> max(tuple)</a></td>
+<td>返回元组中元素最大值。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-min.html"> min(tuple)</a></td>
+<td>返回元组中元素最小值。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-tuple-tuple.html"> tuple(seq)</a></td>
+<td>将列表转换为元组。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="4-命名元组"><a href="#4-命名元组" class="headerlink" title="4 命名元组"></a>4 命名元组</h2><ul>
 <li><p><code>collections.namedtuple()</code> 函数通过使用一个普通的元组对象来实现通过名称来访问元素.实际上是一个返回 Python 中标准元组类型子类的一个工厂方法，支持所有的普通元组操作</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> collections <span class="token keyword">import</span> namedtuple
@@ -434,7 +463,7 @@ Subscriber<span class="token punctuation">(</span>addr<span class="token operato
 <span class="token string">'jonesy@example.com'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sub<span class="token punctuation">.</span>joined
 <span class="token string">'2012-10-19'</span>
-<span class="token comment"># 你需要传递一个类型名和你需要的字段给它，然后它就会返回一个类，你可以初始化这个类，为你定义的字段传递值等。 </span>
+<span class="token comment"># 你需要传递一个类型名和你需要的字段给它，然后它就会返回一个类，你可以初始化这个类，为你定义的字段传递值等。</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span>
 <span class="token number">2</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> addr<span class="token punctuation">,</span> joined <span class="token operator">=</span> sub

@@ -9,8 +9,8 @@
 爬虫运行基本流程
 
 
-给定URL，发送HTTP请求，即 Request（请求）。
-服务器响应请求，得">
+给定 URL，发送 HTTP 请求，即 Request（请求）。
+服务器响应请">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -327,7 +327,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    651
+                    654
                 </div>
                 
 
@@ -361,42 +361,42 @@
 <h2 id="爬虫运行基本流程"><a href="#爬虫运行基本流程" class="headerlink" title="爬虫运行基本流程"></a>爬虫运行基本流程</h2><ul>
 <li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231425523.png" alt="爬虫基本流程"></p>
 <ol>
-<li>给定URL，发送HTTP请求，即 Request（请求）。</li>
-<li>服务器响应请求，得到一个Response(响应)。</li>
-<li>分析返回数据，根据指定规则提取数据，产生 Data 与URL两部分数据。</li>
-<li>将Data 保存到数据库、文件等，URL保存到待爬取列表中，继续爬取。</li>
+<li>给定 URL，发送 HTTP 请求，即 Request（请求）。</li>
+<li>服务器响应请求，得到一个 Response(响应)。</li>
+<li>分析返回数据，根据指定规则提取数据，产生 Data 与 URL 两部分数据。</li>
+<li>将 Data 保存到数据库、文件等，URL 保存到待爬取列表中，继续爬取。</li>
 <li>重复步骤(1)~ (4)。</li>
 </ol>
 </li>
 <li><p>一个爬虫系统中应包含以下部分。</p>
 <ol>
-<li>URL管理器:负责管理待爬取的网页URL。</li>
-<li>数据下载器:根据URL下载数据。</li>
+<li>URL 管理器:负责管理待爬取的网页 URL。</li>
+<li>数据下载器:根据 URL 下载数据。</li>
 <li>数据分析器:分析筛选下载的数据。</li>
 <li>数据保存器:将筛选出的数据保存到文件或数据库。</li>
 <li>调度器:负责整个系统的调度。</li>
 </ol>
 </li>
-<li><p>发送的Request中应包含</p>
+<li><p>发送的 Request 中应包含</p>
 <ul>
-<li>请求URL，需爬取的网页地址。</li>
-<li>请求方式，爬虫一般用到POST、GET两种方式。</li>
-<li>请求头，一个请求的头部信息，包含User-Agent、Cookie等信息。</li>
+<li>请求 URL，需爬取的网页地址。</li>
+<li>请求方式，爬虫一般用到 POST、GET 两种方式。</li>
+<li>请求头，一个请求的头部信息，包含 User-Agent、Cookie 等信息。</li>
 <li>请求体，请求时提交的数据，如登录时的用户名、密码。</li>
 </ul>
 </li>
-<li>Response应包含响应信息<ul>
+<li>Response 应包含响应信息<ul>
 <li>响应状态，2**代表成功，3**代表重定向，4**客户端错误，5**服务器错误，等等。</li>
-<li>响应头，包含Cookie、类型等。</li>
+<li>响应头，包含 Cookie、类型等。</li>
 <li>响应体，最主要的部分，爬取的数据从中提取，一般类型有网页、图片、文件等。</li>
 </ul>
 </li>
 </ul>
-<h2 id="HTTP请求过程"><a href="#HTTP请求过程" class="headerlink" title="HTTP请求过程"></a>HTTP请求过程</h2><p>一次HTTP请求可以简单理解为请求-响应过程，客户端向服务器发送请求，服务器向客户端返回响应。过程如下。<br>(1）连接:当我们输入URL 访问时，首先要建立一个socket连接，因为socket 是通过P和端口建立的，所以之前还有一个DNS解析过程，把URL变成IP。若URL里不包含端口号，则使用默认端口号。<br>(2）请求:连接成功建立后，开始向 Web 服务器发送请求，请求常用的是GET或POST命令。<br>(3）响应:Web服务器收到请求后，进行处理。Web服务器根据请求信息查找文件，如果找到该文件，就把该文件内容传送给相应的Web浏览器。<br>(4）断开连接:当响应结束后，Web浏览器显示响应的信息，同时与Web服务器断开连接。</p>
+<h2 id="HTTP-请求过程"><a href="#HTTP-请求过程" class="headerlink" title="HTTP 请求过程"></a>HTTP 请求过程</h2><p>一次 HTTP 请求可以简单理解为请求-响应过程，客户端向服务器发送请求，服务器向客户端返回响应。过程如下。<br>(1）连接:当我们输入 URL 访问时，首先要建立一个 socket 连接，因为 socket 是通过 P 和端口建立的，所以之前还有一个 DNS 解析过程，把 URL 变成 IP。若 URL 里不包含端口号，则使用默认端口号。<br>(2）请求:连接成功建立后，开始向 Web 服务器发送请求，请求常用的是 GET 或 POST 命令。<br>(3）响应:Web 服务器收到请求后，进行处理。Web 服务器根据请求信息查找文件，如果找到该文件，就把该文件内容传送给相应的 Web 浏览器。<br>(4）断开连接:当响应结束后，Web 浏览器显示响应的信息，同时与 Web 服务器断开连接。</p>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

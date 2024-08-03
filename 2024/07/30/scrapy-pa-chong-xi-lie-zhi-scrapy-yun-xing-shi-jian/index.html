@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Scrapy运行实践, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy运行实践脚本运行Scrapy
+    <meta name="description" content="Scrapy 运行实践脚本运行 Scrapy
 Scrapy 是建立在 Twisted 异步网络库之上的，因此需要在 Twisted 反应器内运行它。
 
-scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器">
+scrapy.crawler.CrawlerProcess:启动一个 Twisted 反">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -325,7 +325,7 @@ scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    795
+                    797
                 </div>
                 
 
@@ -355,7 +355,7 @@ scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy运行实践"><a href="#Scrapy运行实践" class="headerlink" title="Scrapy运行实践"></a>Scrapy运行实践</h1><h2 id="脚本运行Scrapy"><a href="#脚本运行Scrapy" class="headerlink" title="脚本运行Scrapy"></a>脚本运行Scrapy</h2><ul>
+                <h1 id="Scrapy-运行实践"><a href="#Scrapy-运行实践" class="headerlink" title="Scrapy 运行实践"></a>Scrapy 运行实践</h1><h2 id="脚本运行-Scrapy"><a href="#脚本运行-Scrapy" class="headerlink" title="脚本运行 Scrapy"></a>脚本运行 Scrapy</h2><ul>
 <li><p>Scrapy 是建立在 <code>Twisted</code> 异步网络库之上的，因此需要在 Twisted 反应器内运行它。</p>
 </li>
 <li><p><strong><code>scrapy.crawler.CrawlerProcess</code></strong>:启动一个 Twisted 反应器，配置日志记录并设置关闭处理程序</p>
@@ -380,6 +380,8 @@ process<span class="token punctuation">.</span>crawl<span class="token punctuati
 process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the crawling is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><code>get_project_settings</code> 获取具有项目设置的 <code>Settings</code> 实例</p>
+</li>
+</ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerProcess
 <span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>project <span class="token keyword">import</span> get_project_settings
 
@@ -388,12 +390,12 @@ process <span class="token operator">=</span> CrawlerProcess<span class="token p
 <span class="token comment"># 'followall' is the name of one of the spiders of the project.</span>
 process<span class="token punctuation">.</span>crawl<span class="token punctuation">(</span><span class="token string">"followall"</span><span class="token punctuation">,</span> domain<span class="token operator">=</span><span class="token string">"scrapy.org"</span><span class="token punctuation">)</span>
 process<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the crawling is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<ul>
 <li><p><strong><code>scrapy.crawler.CrawlerRunner</code></strong>: 此类是一个薄包装器，它封装了一些简单的帮助程序以运行多个爬虫，但它不会以任何方式启动或干扰现有的反应器。</p>
 <ul>
 <li><p>使用此类，应在调度爬虫后显式运行反应器。如果您的应用程序已经在使用 Twisted 并且您想在同一反应器中运行 Scrapy，建议使用 <code>CrawlerRunner</code> 。</p>
 </li>
-<li><p>在Spider完成后，还必须自己关闭<code>Twisted</code>反应器。这可以通过向 <code>CrawlerRunner.crawl</code> 方法返回的延迟添加回调来实现。</p>
+<li><p>在 Spider 完成后，还必须自己关闭<code>Twisted</code>反应器。这可以通过向 <code>CrawlerRunner.crawl</code> 方法返回的延迟添加回调来实现。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet <span class="token keyword">import</span> reactor
 <span class="token keyword">import</span> scrapy
 <span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerRunner
@@ -413,7 +415,7 @@ reactor<span class="token punctuation">.</span>run<span class="token punctuation
 </ul>
 </li>
 </ul>
-<h2 id="在同一进程中运行多个Spider"><a href="#在同一进程中运行多个Spider" class="headerlink" title="在同一进程中运行多个Spider"></a>在同一进程中运行多个Spider</h2><ul>
+<h2 id="在同一进程中运行多个-Spider"><a href="#在同一进程中运行多个-Spider" class="headerlink" title="在同一进程中运行多个 Spider"></a>在同一进程中运行多个 Spider</h2><ul>
 <li>默认情况下，当运行 <code>scrapy crawl</code> 时，Scrapy 会为每个进程运行一个蜘蛛。但是，Scrapy 支持使用内部 API 为每个进程运行多个蜘蛛。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
@@ -451,7 +453,7 @@ d<span class="token punctuation">.</span>addBoth<span class="token punctuation">
 
 reactor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until all crawling jobs are finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li><p>通过链接延迟来按顺序运行Spider</p>
+<li><p>通过链接延迟来按顺序运行 Spider</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet <span class="token keyword">import</span> reactor<span class="token punctuation">,</span> defer
 <span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>crawler <span class="token keyword">import</span> CrawlerRunner
 <span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>log <span class="token keyword">import</span> configure_logging
@@ -479,8 +481,8 @@ crawl<span class="token punctuation">(</span><span class="token punctuation">)</
 reactor<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># the script will block here until the last crawl call is finished</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="多进程运行Spider"><a href="#多进程运行Spider" class="headerlink" title="多进程运行Spider"></a>多进程运行Spider</h2><ul>
-<li><p>利用<code>multiprocessing</code>多进程运行Spider</p>
+<h2 id="多进程运行-Spider"><a href="#多进程运行-Spider" class="headerlink" title="多进程运行 Spider"></a>多进程运行 Spider</h2><ul>
+<li><p>利用<code>multiprocessing</code>多进程运行 Spider</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
 <span class="token keyword">import</span> time
 <span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime

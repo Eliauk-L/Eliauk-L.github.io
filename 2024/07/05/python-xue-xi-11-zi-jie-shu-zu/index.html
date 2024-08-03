@@ -319,7 +319,7 @@ bytes 类型表示的是不可变的二进制序列
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    575
+                    576
                 </div>
                 
 
@@ -356,10 +356,10 @@ bytes 类型表示的是不可变的二进制序列
 </li>
 <li><p>处理传输二进制数据，比如图像文件、音频文件、视频文件</p>
 </li>
-<li><p>创建bytes对象</p>
+<li><p>创建 bytes 对象</p>
 <ul>
-<li><strong>使用 b 前缀</strong>   <code>x = b"hello"</code></li>
-<li><strong>bytes()函数</strong>   <code>x = bytes("hello", encoding="utf-8")</code></li>
+<li><strong>使用 b 前缀</strong> <code>x = b"hello"</code></li>
+<li><strong>bytes()函数</strong> <code>x = bytes("hello", encoding="utf-8")</code></li>
 </ul>
 </li>
 <li><p>与字符串类型类似，bytes 类型也支持许多操作和方法，如切片、拼接、查找、替换等等。由于 bytes 类型是不可变的，因此在进行修改操作时需要<strong>创建一个新的 bytes 对象</strong></p>
@@ -417,7 +417,7 @@ bytes 类型表示的是不可变的二进制序列
 <span class="token string">b'68656C6C6F'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>h<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'ascii'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 以Unicode形式输出</span>
 68656C6C6F<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-Base64编解码"><a href="#3-Base64编解码" class="headerlink" title="3 Base64编解码"></a>3 Base64编解码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token comment"># Some byte data</span>
+<h2 id="3-Base64-编解码"><a href="#3-Base64-编解码" class="headerlink" title="3 Base64 编解码"></a>3 Base64 编解码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token comment"># Some byte data</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s <span class="token operator">=</span> <span class="token string">b'hello'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> base64
 
@@ -430,11 +430,11 @@ bytes 类型表示的是不可变的二进制序列
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
 <span class="token string">b'hello'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li><p>Base64编码仅仅用于<strong>面向字节的数据</strong>比如字节字符串和字节数组。</p>
+<li><p>Base64 编码仅仅用于<strong>面向字节的数据</strong>比如字节字符串和字节数组。</p>
 </li>
 <li><p>编码处理的输出结果总是一个字节字符串。</p>
 </li>
-<li><p>混合使用Base64编码的数据和Unicode文本</p>
+<li><p>混合使用 Base64 编码的数据和 Unicode 文本</p>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'ascii'</span><span class="token punctuation">)</span>

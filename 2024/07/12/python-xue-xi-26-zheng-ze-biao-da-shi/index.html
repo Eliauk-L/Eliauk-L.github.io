@@ -360,25 +360,25 @@ re.m">
 <li><p><strong><code>re.match</code> 尝试从字符串的==起始位置==匹配一个模式，如果不是起始位置匹配成功的话，match() 就返回 None。</strong></p>
 </li>
 <li><p><strong><code>re.match(pattern, string, flags=0)</code></strong></p>
-<p>| 参数    | 描述                                                         |<br>| :——— | :—————————————————————————————- |<br>| pattern | 匹配的正则表达式                                             |<br>| string  | 要匹配的字符串。                                             |<br>| flags   | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="#26.4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
+<p>| 参数    | 描述                                                                                                                                           |<br>| :——— | :——————————————————————————————————————————————————————————————————————- |<br>| pattern | 匹配的正则表达式                                                                                                                               |<br>| string  | 要匹配的字符串。                                                                                                                               |<br>| flags   | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="#26.4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
 </li>
 <li><p>匹配成功 <strong>re.match</strong> 方法返回一个匹配的对象，否则返回 <strong>None</strong>。</p>
 </li>
 <li><p>使用 <strong>group(num)</strong> 或 <strong>groups()</strong> 匹配对象函数来获取匹配表达式。</p>
-<p>| 匹配对象方法 | 描述                                                         |<br>| :—————- | :—————————————————————————————- |<br>| group(num=0) | 匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。 |<br>| groups()     | 返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。     |</p>
+<p>| 匹配对象方法 | 描述                                                                                                       |<br>| :—————- | :————————————————————————————————————————————————————- |<br>| group(num=0) | 匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。 |<br>| groups()     | 返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。                                                   |</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
- 
+
 <span class="token keyword">import</span> re
 <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'www'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>span<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 在起始位置匹配</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">'com'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token comment"># 不在起始位置匹配</span>
 <span class="token comment"># (0, 3)</span>
 <span class="token comment"># None</span>
- 
+
 line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span>
 <span class="token comment"># .* 表示任意匹配除换行符（\n、\r）之外的任何单个或多个字符</span>
 <span class="token comment"># (.*?) 表示"非贪婪"模式，只保存第一个匹配到的子串</span>
 matchObj <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span> <span class="token string">r'(.*) are (.*?) .*'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
- 
+
 <span class="token keyword">if</span> matchObj<span class="token punctuation">:</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group() : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"matchObj.group(1) : "</span><span class="token punctuation">,</span> matchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -393,24 +393,24 @@ matchObj.group(2) :  smarter
 </li>
 </ul>
 <blockquote>
-<p><strong>re.search</strong> </p>
+<p><strong>re.search</strong></p>
 </blockquote>
 <ul>
 <li><p>re.search 扫描整个字符串并返回第一个成功的匹配。</p>
 </li>
 <li><p><strong><code>re.search(pattern, string, flags=0)</code></strong></p>
 </li>
-<li><p>匹配成功re.search方法返回一个匹配的对象，否则返回None。</p>
+<li><p>匹配成功 re.search 方法返回一个匹配的对象，否则返回 None。</p>
 </li>
-<li><p>使用group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
+<li><p>使用 group(num) 或 groups() 匹配对象函数来获取匹配表达式。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
- 
+
 <span class="token keyword">import</span> re
- 
+
 line <span class="token operator">=</span> <span class="token string">"Cats are smarter than dogs"</span>
- 
+
 searchObj <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span> <span class="token string">r'(.*) are (.*?) .*'</span><span class="token punctuation">,</span> line<span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token operator">|</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
- 
+
 <span class="token keyword">if</span> searchObj<span class="token punctuation">:</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"searchObj.group() : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"searchObj.group(1) : "</span><span class="token punctuation">,</span> searchObj<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -425,7 +425,7 @@ searchObj.group(2) :  smarter
 </li>
 </ul>
 <blockquote>
-<p><strong>re.match 与 re.search的区别</strong></p>
+<p><strong>re.match 与 re.search 的区别</strong></p>
 </blockquote>
 <ul>
 <li><strong>re.match</strong> 只匹配字符串的==开始==，如果字符串开始不符合正则表达式，则匹配失败，函数返回 None，而 <strong>re.search</strong> 匹配==整个==字符串，直到找到一个匹配。</li>
@@ -443,17 +443,17 @@ searchObj.group(2) :  smarter
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
 <span class="token keyword">import</span> re
- 
+
 phone <span class="token operator">=</span> <span class="token string">"2004-959-559 # 这是一个电话号码"</span>
- 
+
 <span class="token comment"># 删除注释</span>
 num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'#.*$'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"电话号码 : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 移除非数字的内容</span>
 num <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\D'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"电话号码 : "</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span>
-<span class="token comment"># 电话号码 :  2004-959-559 </span>
+<span class="token comment"># 电话号码 :  2004-959-559</span>
 <span class="token comment"># 电话号码 :  2004959559</span>
 
 <span class="token comment"># repl 参数是一个函数</span>
@@ -462,7 +462,7 @@ num <span class="token operator">=</span> re<span class="token punctuation">.</s
 <span class="token keyword">def</span> <span class="token function">double</span><span class="token punctuation">(</span>matched<span class="token punctuation">)</span><span class="token punctuation">:</span>
     value <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>matched<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
- 
+
 s <span class="token operator">=</span> <span class="token string">'A23G4HFD567'</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'(?P&lt;value&gt;\d+)'</span><span class="token punctuation">,</span> double<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment">#  A46G8HFD1134</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -530,13 +530,13 @@ s <span class="token operator">=</span> <span class="token string">'A23G4HFD567'
 <li><strong>endpos</strong> 可选参数，指定字符串的结束位置，默认为字符串的长度。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 result1 <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'\d+'</span><span class="token punctuation">,</span><span class="token string">'runoob 123 google 456'</span><span class="token punctuation">)</span>
- 
+
 pattern <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'\d+'</span><span class="token punctuation">)</span>   <span class="token comment"># 查找数字</span>
 result2 <span class="token operator">=</span> pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'runoob 123 google 456'</span><span class="token punctuation">)</span>
 result3 <span class="token operator">=</span> pattern<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'run88oob123google456'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
- 
+
 <span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>result3<span class="token punctuation">)</span>
@@ -554,31 +554,31 @@ result <span class="token operator">=</span> re<span class="token punctuation">.
 <li><p><strong>re.finditer</strong>在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。</p>
 </li>
 <li><p><strong><code>re.finditer(pattern, string, flags=0)</code></strong></p>
-<p>| 参数    | 描述                                                         |<br>| :——— | :—————————————————————————————- |<br>| pattern | 匹配的正则表达式                                             |<br>| string  | 要匹配的字符串。                                             |<br>| flags   | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="##4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
+<p>| 参数    | 描述                                                                                                                                         |<br>| :——— | :—————————————————————————————————————————————————————————————————————- |<br>| pattern | 匹配的正则表达式                                                                                                                             |<br>| string  | 要匹配的字符串。                                                                                                                             |<br>| flags   | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="##4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
-it <span class="token operator">=</span> re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span><span class="token string">"12a32bc43jf3"</span><span class="token punctuation">)</span> 
-<span class="token keyword">for</span> <span class="token keyword">match</span> <span class="token keyword">in</span> it<span class="token punctuation">:</span> 
+
+it <span class="token operator">=</span> re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span><span class="token string">r"\d+"</span><span class="token punctuation">,</span><span class="token string">"12a32bc43jf3"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token keyword">match</span> <span class="token keyword">in</span> it<span class="token punctuation">:</span>
     <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
 <span class="token triple-quoted-string string">'''
-12 
-32 
-43 
+12
+32
+43
 3
 '''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>re.split</strong>按照能够匹配的子串将字符串分割后返回列表</p>
 </li>
 <li><p><strong><code>re.split(pattern, string[, maxsplit=0, flags=0])</code></strong></p>
-<p>| 参数     | 描述                                                         |<br>| :———- | :—————————————————————————————- |<br>| pattern  | 匹配的正则表达式                                             |<br>| string   | 要匹配的字符串。                                             |<br>| maxsplit | 分割次数，maxsplit=1 分割一次，默认为 0，不限制次数。        |<br>| flags    | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="##4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
+<p>| 参数     | 描述                                                                                                                                         |<br>| :———- | :—————————————————————————————————————————————————————————————————————- |<br>| pattern  | 匹配的正则表达式                                                                                                                             |<br>| string   | 要匹配的字符串。                                                                                                                             |<br>| maxsplit | 分割次数，maxsplit=1 分割一次，默认为 0，不限制次数。                                                                                        |<br>| flags    | 标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。参见：<a href="##4 正则表达式修饰符 - 可选标志">正则表达式修饰符 - 可选标志</a> |</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span class="token keyword">import</span> re
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\W+'</span><span class="token punctuation">,</span> <span class="token string">'runoob, runoob, runoob.'</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'(\W+)'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">)</span> 
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'(\W+)'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">', '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">', '</span><span class="token punctuation">,</span> <span class="token string">'runoob'</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\W+'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> 
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\W+'</span><span class="token punctuation">,</span> <span class="token string">' runoob, runoob, runoob.'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">'runoob, runoob, runoob.'</span><span class="token punctuation">]</span>
- 
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'a*'</span><span class="token punctuation">,</span> <span class="token string">'hello world'</span><span class="token punctuation">)</span>   <span class="token comment"># 对于一个找不到匹配的字符串而言，split 不会对其作出分割</span>
 <span class="token punctuation">[</span><span class="token string">'hello world'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -596,7 +596,7 @@ it <span class="token operator">=</span> re<span class="token punctuation">.</sp
 <li><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。</p>
 </li>
 <li><p>以下标志可以单独使用，也可以通过按位或（|）组合使用。</p>
-<p>| 修饰符                | 描述                                                         | 实例                                                         |<br>| :—————————— | :—————————————————————————————- | :—————————————————————————————- |<br>| re.IGNORECASE 或 re.I | 使匹配对大小写不敏感                                         | import re<br>pattern = re.compile(r’apple’, flags=re.IGNORECASE)<br>result = pattern.match(‘Apple’)<br>print(result.group())  # 输出: ‘Apple’ |<br>| re.MULTILINE 或 re.M  | 多行匹配，影响 <strong>^</strong> 和 <strong>$</strong>，使它们匹配字符串的每一行的开头和结尾。 | import re <br>pattern = re.compile(r’^\d+’, flags=re.MULTILINE) text = ‘123\n456\n789’ <br>result = pattern.findall(text) <br>print(result)  # 输出: [‘123’, ‘456’, ‘789’] |<br>| re.DOTALL 或 re.S：   | 使 <strong>.</strong> 匹配包括换行符在内的任意字符。                      | import re <br>pattern = re.compile(r’a.b’, flags=re.DOTALL) <br>result = pattern.match(‘a\nb’) <br>print(result.group())  # 输出: ‘a\nb’ |<br>| re.ASCII              | 使 \w, \W, \b, \B, \d, \D, \s, \S 仅匹配 ASCII 字符。        | import re <br>pattern = re.compile(r’\w+’, flags=re.ASCII) <br>result = pattern.match(‘Hello123’) <br>print(result.group())  # 输出: ‘Hello123’ |<br>| re.VERBOSE 或 re.X    | 忽略空格和注释，可以更清晰地组织复杂的正则表达式。           | import re <br>pattern = re.compile(r’’’    \d+  # 匹配数字    [a-z]+  # 匹配小写字母 ‘’’, flags=re.VERBOSE) <br>result = pattern.match(‘123abc’) <br>print(result.group())  # 输出: ‘123abc’ |</p>
+<p>| 修饰符                | 描述                                                                  | 实例                                                                                                                                                                                      |<br>| :—————————— | :—————————————————————————————————— | :———————————————————————————————————————————————————————————————————————————————————————————— |<br>| re.IGNORECASE 或 re.I | 使匹配对大小写不敏感                                                  | import re<br>pattern = re.compile(r’apple’, flags=re.IGNORECASE)<br>result = pattern.match(‘Apple’)<br>print(result.group()) # 输出: ‘Apple’                                           |<br>| re.MULTILINE 或 re.M  | 多行匹配，影响 <strong>^</strong> 和 <strong>$</strong>，使它们匹配字符串的每一行的开头和结尾。 | import re <br>pattern = re.compile(r’^\d+’, flags=re.MULTILINE) text = ‘123\n456\n789’ <br>result = pattern.findall(text) <br>print(result) # 输出: [‘123’, ‘456’, ‘789’]           |<br>| re.DOTALL 或 re.S：   | 使 <strong>.</strong> 匹配包括换行符在内的任意字符。                               | import re <br>pattern = re.compile(r’a.b’, flags=re.DOTALL) <br>result = pattern.match(‘a\nb’) <br>print(result.group()) # 输出: ‘a\nb’                                             |<br>| re.ASCII              | 使 \w, \W, \b, \B, \d, \D, \s, \S 仅匹配 ASCII 字符。                 | import re <br>pattern = re.compile(r’\w+’, flags=re.ASCII) <br>result = pattern.match(‘Hello123’) <br>print(result.group()) # 输出: ‘Hello123’                                      |<br>| re.VERBOSE 或 re.X    | 忽略空格和注释，可以更清晰地组织复杂的正则表达式。                    | import re <br>pattern = re.compile(r’’’ \d+ # 匹配数字 [a-z]+ # 匹配小写字母 ‘’’, flags=re.VERBOSE) <br>result = pattern.match(‘123abc’) <br>print(result.group()) # 输出: ‘123abc’ |</p>
 </li>
 </ul>
 <h2 id="5-正则表达式模式"><a href="#5-正则表达式模式" class="headerlink" title="5 正则表达式模式"></a>5 正则表达式模式</h2><ol>
@@ -611,10 +611,10 @@ it <span class="token operator">=</span> re<span class="token punctuation">.</sp
 <li><p>反斜杠本身需要使用反斜杠转义。</p>
 </li>
 <li><p>由于正则表达式通常都包含反斜杠，所以最好使用原始字符串来表示它们。模式元素(如 r’\t’，等价于 \\t )匹配相应的特殊字符。</p>
-<p>| 模式         | 描述                                                         |<br>| :—————- | :—————————————————————————————- |<br>| ^            | 匹配字符串的<strong>开头</strong>                                         |<br>| $            | 匹配字符串的<strong>末尾</strong>。                                       |<br>| .            | 匹配<strong>任意字符</strong>，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。 |<br>| […]        | 用来匹配所包含的<strong>任意一个字符</strong>，例如 [amk] 匹配 ‘a’，’m’或’k’ |<br>| <sup><a href="#fn_..." id="reffn_...">...</a></sup>       | <strong>不在</strong>[]中的字符：[\^abc] 匹配除了a,b,c之外的字符。        |<br>| re<em>          | 匹配<strong>0个或多个</strong>的表达式。                                  |<br>| re+          | 匹配<strong>1个或多个</strong>的表达式。                                  |<br>| re?          | 匹配0个或1个由前面的正则表达式定义的片段，<strong>非贪婪</strong>方式     |<br>| re{ n}       | 匹配<strong>n个前面表达式</strong>。例如，”o{2}”不能匹配”Bob”中的”o”，但是能匹配”food”中的两个o。 |<br>| re{ n,}      | <strong>精确匹配n个前面表达式</strong>。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o</em>“。 |<br>| re{ n, m}    | 匹配 n 到 m 次由前面的正则表达式定义的片段，<strong>贪婪方式</strong>     |<br>| a| b        | 匹配a或b                                                     |<br>| (re)         | <strong>匹配括号内的表达式，也表示一个组</strong>                         |<br>| (?<name>exp) | 匹配 exp表达式,并捕获文本到名称为 name 的组里                |<br>| (?imx)       | 正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。 |<br>| (?-imx)      | 正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。     |<br>| (?: re)      | 类似 (…), 但是不表示一个组                                 |<br>| (?imx: re)   | 在括号中使用i, m, 或 x 可选标志                              |<br>| (?-imx: re)  | 在括号中不使用i, m, 或 x 可选标志                            |<br>| (?#…)      | 注释.                                                        |<br>| (?= re)      | 前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。 |<br>| (?! re)      | 前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。 |<br>| (?&gt; re)      | 匹配的独立模式，省去回溯。                                   |<br>| \w           | 匹配数字字母下划线                                           |<br>| \W           | 匹配非数字字母下划线                                         |<br>| \s           | 匹配任意空白字符，等价于 [\t\n\r\f]。                        |<br>| \S           | 匹配任意非空字符                                             |<br>| \d           | 匹配任意数字，等价于 [0-9]。                                 |<br>| \D           | 匹配任意非数字                                               |<br>| \A           | 匹配字符串开始                                               |<br>| \Z           | 匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。 |<br>| \z           | 匹配字符串结束                                               |<br>| \G           | 匹配最后匹配完成的位置。                                     |<br>| \b           | 匹配一个单词边界，也就是指<strong>单词和空格间的位置</strong>包括单词和特殊字符边界，比如 <strong>$，#…</strong> 等。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。 |<br>| \B           | 匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。 |<br>| \n, \t, 等。 | 匹配一个换行符。匹配一个制表符, 等                           |<br>| \1…\9      | 匹配<strong>第n个分组</strong>的内容。                                    |<br>| \10          | 匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。 |</name></p>
+<p>| 模式         | 描述                                                                                                                                                                      |<br>| :—————- | :———————————————————————————————————————————————————————————————————————————————————— |<br>| ^            | 匹配字符串的<strong>开头</strong>                                                                                                                                                      |<br>| $            | 匹配字符串的<strong>末尾</strong>。                                                                                                                                                    |<br>| .            | 匹配<strong>任意字符</strong>，除了换行符，当 re.DOTALL 标记被指定时，则可以匹配包括换行符的任意字符。                                                                                 |<br>| […]        | 用来匹配所包含的<strong>任意一个字符</strong>，例如 [amk] 匹配 ‘a’，’m’或’k’                                                                                                           |<br>| <sup><a href="#fn_..." id="reffn_...">...</a></sup>       | <strong>不在</strong>[]中的字符：[\^abc] 匹配除了 a,b,c 之外的字符。                                                                                                                   |<br>| re*         | 匹配<strong>0 个或多个</strong>的表达式。                                                                                                                                              |<br>| re+          | 匹配<strong>1 个或多个</strong>的表达式。                                                                                                                                              |<br>| re?          | 匹配 0 个或 1 个由前面的正则表达式定义的片段，<strong>非贪婪</strong>方式                                                                                                              |<br>| re{ n}       | 匹配<strong>n 个前面表达式</strong>。例如，”o{2}”不能匹配”Bob”中的”o”，但是能匹配”food”中的两个 o。                                                                                    |<br>| re{ n,}      | <strong>精确匹配 n 个前面表达式</strong>。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有 o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o*“。                                    |<br>| re{ n, m}    | 匹配 n 到 m 次由前面的正则表达式定义的片段，<strong>贪婪方式</strong>                                                                                                                  |<br>| a| b        | 匹配 a 或 b                                                                                                                                                               |<br>| (re)         | <strong>匹配括号内的表达式，也表示一个组</strong>                                                                                                                                      |<br>| (?<name>exp) | 匹配 exp 表达式,并捕获文本到名称为 name 的组里                                                                                                                            |<br>| (?imx)       | 正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。                                                                                                             |<br>| (?-imx)      | 正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。                                                                                                                  |<br>| (?: re)      | 类似 (…), 但是不表示一个组                                                                                                                                              |<br>| (?imx: re)   | 在括号中使用 i, m, 或 x 可选标志                                                                                                                                          |<br>| (?-imx: re)  | 在括号中不使用 i, m, 或 x 可选标志                                                                                                                                        |<br>| (?#…)      | 注释.                                                                                                                                                                     |<br>| (?= re)      | 前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。 |<br>| (?! re)      | 前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。                                                                                            |<br>| (?&gt; re)      | 匹配的独立模式，省去回溯。                                                                                                                                                |<br>| \w           | 匹配数字字母下划线                                                                                                                                                        |<br>| \W           | 匹配非数字字母下划线                                                                                                                                                      |<br>| \s           | 匹配任意空白字符，等价于 [\t\n\r\f]。                                                                                                                                     |<br>| \S           | 匹配任意非空字符                                                                                                                                                          |<br>| \d           | 匹配任意数字，等价于 [0-9]。                                                                                                                                              |<br>| \D           | 匹配任意非数字                                                                                                                                                            |<br>| \A           | 匹配字符串开始                                                                                                                                                            |<br>| \Z           | 匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。                                                                                                              |<br>| \z           | 匹配字符串结束                                                                                                                                                            |<br>| \G           | 匹配最后匹配完成的位置。                                                                                                                                                  |<br>| \b           | 匹配一个单词边界，也就是指<strong>单词和空格间的位置</strong>包括单词和特殊字符边界，比如 <strong>$，#…</strong> 等。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。         |<br>| \B           | 匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。                                                                                            |<br>| \n, \t, 等。 | 匹配一个换行符。匹配一个制表符, 等                                                                                                                                        |<br>| \1…\9      | 匹配<strong>第 n 个分组</strong>的内容。                                                                                                                                               |<br>| \10          | 匹配第 n 个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。                                                                                                     |</name></p>
 <p>| 字符匹配实例 | 描述           |<br>| :—————- | :——————- |<br>| python       | 匹配 “python”. |</p>
-<p>| 字符类实例    | 描述                                                         |<br>| :—————— | :—————————————————————————————- |<br>| [Pp]ython     | 匹配 “Python” 或 “python”                                    |<br>| rub[ye]       | 匹配 “ruby” 或 “rube”                                        |<br>| [aeiou]       | 匹配中括号内的任意一个字母                                   |<br>| [0-9]         | 匹配任何数字。类似于 [0123456789]                            |<br>| [a-z]         | 匹配任何小写字母                                             |<br>| [A-Z]         | 匹配任何大写字母                                             |<br>| [a-zA-Z0-9]   | 匹配任何字母及数字                                           |<br>| <sup><a href="#fn_aeiou" id="reffn_aeiou">aeiou</a></sup>      | 除了aeiou字母以外的所有字符                                  |<br>| <sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup>        | 匹配除了数字外的字符                                         |<br>| (?P<name>exp) | import re  <br>pattern = re.compile(r’(?P<here>[a-z]+) ([a-z]+)’, re.I) <br>m = pattern.match(‘Hello World word helo’) <br>print (m.group(‘here’)) # 输出：Hello |</here></name></p>
-<p> | 特殊字符类实例 | 描述                                                         |<br> | :——————- | :—————————————————————————————- |<br> | .              | 匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。 |<br> | \d             | 匹配一个数字字符。等价于 [0-9]。                             |<br> | \D             | 匹配一个非数字字符。等价于 [\^0-9]。                         |<br> | \s             | 匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。 |<br> | \S             | 匹配任何非空白字符。等价于 [\^ \f\n\r\t\v]。                 |<br> | \w             | 匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。         |<br> | \W             | 匹配任何非单词字符。等价于 ‘[\^A-Za-z0-9_]’。                |</p>
+<p>| 字符类实例    | 描述                                                                                                                                                                  |<br>| :—————— | :—————————————————————————————————————————————————————————————————————————————————— |<br>| [Pp]ython     | 匹配 “Python” 或 “python”                                                                                                                                             |<br>| rub[ye]       | 匹配 “ruby” 或 “rube”                                                                                                                                                 |<br>| [aeiou]       | 匹配中括号内的任意一个字母                                                                                                                                            |<br>| [0-9]         | 匹配任何数字。类似于 [0123456789]                                                                                                                                     |<br>| [a-z]         | 匹配任何小写字母                                                                                                                                                      |<br>| [A-Z]         | 匹配任何大写字母                                                                                                                                                      |<br>| [a-zA-Z0-9]   | 匹配任何字母及数字                                                                                                                                                    |<br>| <sup><a href="#fn_aeiou" id="reffn_aeiou">aeiou</a></sup>      | 除了 aeiou 字母以外的所有字符                                                                                                                                         |<br>| <sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup>        | 匹配除了数字外的字符                                                                                                                                                  |<br>| (?P<name>exp) | import re <br>pattern = re.compile(r’(?P<here>[a-z]+) ([a-z]+)’, re.I) <br>m = pattern.match(‘Hello World word helo’) <br>print (m.group(‘here’)) # 输出：Hello |</here></name></p>
+<p>| 特殊字符类实例 | 描述                                                                                      |<br>| :——————- | :———————————————————————————————————————————— |<br>| .              | 匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。 |<br>| \d             | 匹配一个数字字符。等价于 [0-9]。                                                          |<br>| \D             | 匹配一个非数字字符。等价于 [\^0-9]。                                                      |<br>| \s             | 匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。                    |<br>| \S             | 匹配任何非空白字符。等价于 [\^ \f\n\r\t\v]。                                              |<br>| \w             | 匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。                                      |<br>| \W             | 匹配任何非单词字符。等价于 ‘[\^A-Za-z0-9_]’。                                             |</p>
 </li>
 </ol>
 <h2 id="6-常用实例"><a href="#6-常用实例" class="headerlink" title="6 常用实例"></a>6 常用实例</h2><ul>
@@ -658,46 +658,46 @@ y<span class="token operator">=</span> re<span class="token punctuation">.</span
 </li>
 <li><p><strong>检查一个字符串是否包含数字</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 <span class="token keyword">def</span> <span class="token function">contains_digit</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> <span class="token builtin">any</span><span class="token punctuation">(</span>char<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> char <span class="token keyword">in</span> s<span class="token punctuation">)</span>
- 
+
 s <span class="token operator">=</span> <span class="token string">"Hello123"</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>contains_digit<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>验证电子邮件地址</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 <span class="token keyword">def</span> <span class="token function">validate_email</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> re<span class="token punctuation">.</span><span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
- 
+
 email <span class="token operator">=</span> <span class="token string">"test@example.com"</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>validate_email<span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: &lt;re.Match object; span=(0, 15), match='test@example.com'&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong>提取URL</strong></p>
+<li><p><strong>提取 URL</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 <span class="token keyword">def</span> <span class="token function">extract_urls</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
- 
+
 text <span class="token operator">=</span> <span class="token string">"https://www.example.com and http://www.example.org"</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>extract_urls<span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: ['https://www.example.com', 'http://www.example.org']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>替换字符串中的电话号码</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 <span class="token keyword">def</span> <span class="token function">replace_phone_number</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\d{3}-\d{2}-\d{4}'</span><span class="token punctuation">,</span> <span class="token string">'******'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span>
- 
+
 s <span class="token operator">=</span> <span class="token string">"My phone number is 123-45-6789."</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>replace_phone_number<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: My phone number is ******.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>分割标题大小写的字符串</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
- 
+
 <span class="token keyword">def</span> <span class="token function">split_capitalized_words</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r'(?&lt;!^)(?=[A-Z])'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span>
- 
+
 s <span class="token operator">=</span> <span class="token string">"HelloWorldXMLHTTPRequest"</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>split_capitalized_words<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: ['Hello', 'World', 'XML', 'HTTP', 'Request']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>

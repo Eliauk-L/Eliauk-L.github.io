@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Scrapy配置与内置服务, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy配置与内置服务Scrapy框架中可以通过一系列的配置来定制组件，包括核心(Core)、插件（Extension)、管道(Pipeline）及 Spider组件。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合理的配">
+    <meta name="description" content="Scrapy 配置与内置服务Scrapy 框架中可以通过一系列的配置来定制组件，包括核心(Core)、插件（Extension)、管道(Pipeline）及 Spider 组件。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -352,31 +352,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy配置与内置服务"><a href="#Scrapy配置与内置服务" class="headerlink" title="Scrapy配置与内置服务"></a>Scrapy配置与内置服务</h1><p>Scrapy框架中可以通过一系列的配置来定制组件，包括<strong>核心(Core)、插件（Extension)、管道(Pipeline）及 Spider组件</strong>。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合理的配置才能使Scrapy正常工作。</p>
-<h2 id="Scrapy配置简介"><a href="#Scrapy配置简介" class="headerlink" title="Scrapy配置简介"></a>Scrapy配置简介</h2><ul>
+                <h1 id="Scrapy-配置与内置服务"><a href="#Scrapy-配置与内置服务" class="headerlink" title="Scrapy 配置与内置服务"></a>Scrapy 配置与内置服务</h1><p>Scrapy 框架中可以通过一系列的配置来定制组件，包括<strong>核心(Core)、插件（Extension)、管道(Pipeline）及 Spider 组件</strong>。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合理的配置才能使 Scrapy 正常工作。</p>
+<h2 id="Scrapy-配置简介"><a href="#Scrapy-配置简介" class="headerlink" title="Scrapy 配置简介"></a>Scrapy 配置简介</h2><ul>
 <li><p>配置的基础结构提供了键值映射方式的全局命名空间，也就是说可以从任何位置访问这些属性。通过代码可以从中提取配置值。可以通过不同的机制来设定配置信息。</p>
 </li>
 <li><p><strong>命令行选项（优先级最高）</strong></p>
 <ul>
-<li>执行命令行命令时，如果在项目内执行，默认就使用<strong>项目内配置</strong>，即settings.py 中的配置信息，如果在项目外执行，就使用<strong>默认的命令行配置</strong>。不过在任何地方执行命令行命令，都可以使用命令行参数<code>-s</code> (或<code>--set</code>）来覆盖一个(或更多)配置信息，因为命令行的参数配置具有<strong>最高的优先级</strong></li>
+<li>执行命令行命令时，如果在项目内执行，默认就使用<strong>项目内配置</strong>，即 settings.py 中的配置信息，如果在项目外执行，就使用<strong>默认的命令行配置</strong>。不过在任何地方执行命令行命令，都可以使用命令行参数<code>-s</code> (或<code>--set</code>）来覆盖一个(或更多)配置信息，因为命令行的参数配置具有<strong>最高的优先级</strong></li>
 <li><strong><code>scrapy crawl myspider -s LOG_FILE=scrapy.log</code></strong></li>
 </ul>
 </li>
 <li><p><strong>每个爬虫内配置</strong></p>
 <ul>
-<li><p>项目内每一个编写的爬虫默认使用的都是项目配置，即 settings.py中的配置。但我们仍然可以为每一个爬虫设定不同的配置，比如有些爬虫需要调用某些中间件，而有些爬虫则不需要，只需要设定<code>custom_settings</code>即可。</p>
+<li><p>项目内每一个编写的爬虫默认使用的都是项目配置，即 settings.py 中的配置。但我们仍然可以为每一个爬虫设定不同的配置，比如有些爬虫需要调用某些中间件，而有些爬虫则不需要，只需要设定<code>custom_settings</code>即可。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">class</span> <span class="token class-name">MySpider</span> <span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     name <span class="token operator">=</span> <span class="token string">'myspider'</span>
     custom_settings <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'SOME_SETTING'</span><span class="token punctuation">:</span> <span class="token string">'some value'</span> 
+        <span class="token string">'SOME_SETTING'</span><span class="token punctuation">:</span> <span class="token string">'some value'</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
 <li><p><strong>项目设置模块</strong></p>
 <ul>
-<li><p>通过scrapy startproject命令创建项目之后，都会生成一个settings.py文件，该文件就是该项目的配置文件。</p>
+<li><p>通过 scrapy startproject 命令创建项目之后，都会生成一个 settings.py 文件，该文件就是该项目的配置文件。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Scrapy settings for crawlsoftware project</span>
 <span class="token comment">#</span>
 <span class="token comment"># For simplicity, this file contains only settings considered important or</span>
@@ -413,7 +413,7 @@ CONCURRENT_REQUESTS <span class="token operator">=</span> <span class="token num
 <span class="token comment"># 对单个IP设置最大的请求并发数</span>
 <span class="token comment"># CONCURRENT_REQUESTS_PER_IP = 16</span>
 
-<span class="token comment"># 禁用Cookie，默认True启用，建议为False </span>
+<span class="token comment"># 禁用Cookie，默认True启用，建议为False</span>
 <span class="token comment"># COOKIES_ENABLED = False</span>
 
 <span class="token comment"># Disable Telnet Console (enabled by default)</span>
@@ -487,7 +487,7 @@ ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuat
 </li>
 <li><p><strong>默认的命令行配置</strong></p>
 <ul>
-<li><p>在项目内使用命令行时，默认的配置为项目配置，在项目外使用命令行时，默认使用Scrapy全局配置。</p>
+<li><p>在项目内使用命令行时，默认的配置为项目配置，在项目外使用命令行时，默认使用 Scrapy 全局配置。</p>
 </li>
 <li><p>在项目中使用</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&gt;</span>scrapy settings <span class="token parameter variable">--get</span> BOT_NAME
@@ -507,25 +507,25 @@ scrapybot<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 </li>
 </ul>
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><ul>
-<li><p>日志是查看程序运行状态的主要方法，特别是程序运行出错时，主要根据日志来检查错误，进行修正。Scrapy使用 Python 内置的日志系统记录事件日志，在使用日志功能之前需要先进行一些配置。</p>
+<li><p>日志是查看程序运行状态的主要方法，特别是程序运行出错时，主要根据日志来检查错误，进行修正。Scrapy 使用 Python 内置的日志系统记录事件日志，在使用日志功能之前需要先进行一些配置。</p>
 <ul>
-<li><code>LOG_FILE</code>:指定日志文件，如果为None，就使用标准错误输出。</li>
-<li><code>LOG_ENABLED</code>:是否启用日志，为True时启用日志，为False时不启用。</li>
-<li><code>LOG_ENCODING</code>:使用指定的编码方式输出日志，默认为UTF-8。</li>
-<li><code>LOG_LEVEL</code>:日志记录的最低级别。可选的级别有CRITICAL、ERROR、WARNING、INFO、DEBUG。默认为DEBUG，打印所有记录。</li>
+<li><code>LOG_FILE</code>:指定日志文件，如果为 None，就使用标准错误输出。</li>
+<li><code>LOG_ENABLED</code>:是否启用日志，为 True 时启用日志，为 False 时不启用。</li>
+<li><code>LOG_ENCODING</code>:使用指定的编码方式输出日志，默认为 UTF-8。</li>
+<li><code>LOG_LEVEL</code>:日志记录的最低级别。可选的级别有 CRITICAL、ERROR、WARNING、INFO、DEBUG。默认为 DEBUG，打印所有记录。</li>
 <li><code>LOG_FORMAT</code>:日志输出格式，默认为”%(asctime)s [%(name)s] %(levelname)s:%(message)s’。</li>
 <li><code>LOG_DATEFORMAT</code>:日志日期记录格式，默认格式为%Y-%m-%d %H:%M:%S’。</li>
-<li><code>LOG_STDOUT</code>:默认为False，如果为True，那么表示进程所有的标准输出（及错误）将被重定向到log中。例如执行print ‘hello’，其将会在Scrapy log中显示。</li>
+<li><code>LOG_STDOUT</code>:默认为 False，如果为 True，那么表示进程所有的标准输出（及错误）将被重定向到 log 中。例如执行 print ‘hello’，其将会在 Scrapy log 中显示。</li>
 </ul>
 </li>
-<li><p>Log使用</p>
+<li><p>Log 使用</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">import</span> logging
 logger<span class="token operator">=</span>logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">'LogTest'</span><span class="token punctuation">)</span>
 logger<span class="token punctuation">.</span>warning <span class="token punctuation">(</span><span class="token string">'warning message '</span><span class="token punctuation">)</span>
 <span class="token comment"># WARNING: LogTest : warning message</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>在每一个Scrapy爬虫实例中都提供了一个可以直接使用的logger</p>
+<li><p>在每一个 Scrapy 爬虫实例中都提供了一个可以直接使用的 logger</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">class</span> <span class="token class-name">MySpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
     name <span class="token operator">=</span> <span class="token string">'myspider'</span>
@@ -533,7 +533,7 @@ logger<span class="token punctuation">.</span>warning <span class="token punctua
     <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
     	self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">'Parse function called on %s'</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>默认的logger使用的是爬虫名称，也可以自己指定名称</p>
+<li><p>默认的 logger 使用的是爬虫名称，也可以自己指定名称</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> logging
 <span class="token keyword">import</span> scrapy
 
@@ -542,15 +542,15 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
 <span class="token keyword">class</span> <span class="token class-name">MySpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
     name <span class="token operator">=</span> <span class="token string">'myspider'</span>
     start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://quotes.toscrape.com'</span><span class="token punctuation">]</span>
-    
+
     <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
     	self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>info <span class="token punctuation">(</span><span class="token string">'Parse function called on %s'</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h2><ul>
-<li><p>利用Scrapy提供的统计数据收集功能，以<code>key/value</code>方式，可以方便地统计一些特殊信息，包括指定数据的统计，比如特定的关键词、404页面等。Scrapy 提供的这种收集数据机制叫作<code>StatsCollection</code>。</p>
+<li><p>利用 Scrapy 提供的统计数据收集功能，以<code>key/value</code>方式，可以方便地统计一些特殊信息，包括指定数据的统计，比如特定的关键词、404 页面等。Scrapy 提供的这种收集数据机制叫作<code>StatsCollection</code>。</p>
 </li>
-<li><p>数据收集器对每个Spider 保持一个<strong>状态表</strong>。当Spider启动时，该表自动打开;当Spider关闭时，该表自动关闭。</p>
+<li><p>数据收集器对每个 Spider 保持一个<strong>状态表</strong>。当 Spider 启动时，该表自动打开;当 Spider 关闭时，该表自动关闭。</p>
 </li>
 <li><p>通过<code>stats</code>属性来使用数据收集器</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ExtensionThatAccessstats</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -560,7 +560,7 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
     <span class="token keyword">def</span> <span class="token function">from_crawler</span> <span class="token punctuation">(</span>cls<span class="token punctuation">,</span>crawler<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     	<span class="token keyword">return</span> cls<span class="token punctuation">(</span>crawler<span class="token punctuation">.</span>stats<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>stats属性有以下属性值可以配置</p>
+<li><p>stats 属性有以下属性值可以配置</p>
 <ul>
 <li>设置数据：<code>stats.set_value('hostname',socket.gethostname)</code></li>
 <li>增加数据值：<code>stats.inc_value('pages_crawled')</code></li>
@@ -570,7 +570,7 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
 <li>获取所有数据：<code>stats.get_stats()</code> 返回字典</li>
 </ul>
 </li>
-<li><p>spider中使用stats</p>
+<li><p>spider 中使用 stats</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TagsSpider</span><span class="token punctuation">(</span>spider<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -578,19 +578,19 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
         self<span class="token punctuation">.</span>crawled<span class="token punctuation">.</span>stats<span class="token punctuation">.</span>inc_value<span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">)</span>
         <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>Scrapy内置可用的数据收集器除了基本的<code>StatsCollector</code>外，还有基于StatsCollector的其他数据收集器，可以通过<code>STATS_CLASS</code> 设置来选择。</p>
+<li><p>Scrapy 内置可用的数据收集器除了基本的<code>StatsCollector</code>外，还有基于 StatsCollector 的其他数据收集器，可以通过<code>STATS_CLASS</code> 设置来选择。</p>
 </li>
-<li><p>Scrapy默认使用的是<code>MemoryStatsCollector</code></p>
+<li><p>Scrapy 默认使用的是<code>MemoryStatsCollector</code></p>
 <ul>
 <li><code>class scrapy.statscollectors.MemoryStatsCollector</code></li>
-<li>其在Spider运行完毕后将数据保存在内存中。数据可以通过<code>spider_stats</code>属性访问，该属性以字典类型保存了每个Spider最近一次爬取的状态的数据。</li>
+<li>其在 Spider 运行完毕后将数据保存在内存中。数据可以通过<code>spider_stats</code>属性访问，该属性以字典类型保存了每个 Spider 最近一次爬取的状态的数据。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

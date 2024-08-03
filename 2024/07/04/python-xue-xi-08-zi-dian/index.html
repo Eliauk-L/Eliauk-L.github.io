@@ -364,32 +364,32 @@
 <p><strong>访问字典</strong></p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
- 
+
 tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
- 
+
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Name']: "</span> <span class="token operator">+</span> tinydict<span class="token punctuation">[</span><span class="token string">'Name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Age']: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>访问不存在的键将会报错KeyError</strong>==&gt;使用<code>get()</code></p>
+<p><strong>访问不存在的键将会报错 KeyError</strong>==&gt;使用<code>get()</code></p>
 <blockquote>
 <p><strong>修改字典</strong></p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
- 
+
 tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">8</span> <span class="token comment"># 更新</span>
 tinydict<span class="token punctuation">[</span><span class="token string">'School'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"RUNOOB"</span> <span class="token comment"># 添加</span>
- 
- 
+
+
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['Age']: "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>tinydict<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"tinydict['School']: "</span> <span class="token operator">+</span> tinydict<span class="token punctuation">[</span><span class="token string">'School'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>删除字典</strong></p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">tinydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">'Zara'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'Class'</span><span class="token punctuation">:</span> <span class="token string">'First'</span><span class="token punctuation">}</span>
- 
+
 <span class="token keyword">del</span> tinydict<span class="token punctuation">[</span><span class="token string">'Name'</span><span class="token punctuation">]</span>  <span class="token comment"># 删除键是'Name'的条目</span>
 tinydict<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment"># 清空字典所有条目</span>
 <span class="token keyword">del</span> tinydict          <span class="token comment"># 删除字典</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -457,22 +457,22 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="2-字典遍历"><a href="#2-字典遍历" class="headerlink" title="2 字典遍历"></a>2 字典遍历</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">user_0 <span class="token operator">=</span> <span class="token punctuation">{</span> 
- <span class="token string">'username'</span><span class="token punctuation">:</span> <span class="token string">'efermi'</span><span class="token punctuation">,</span> 
- <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'enrico'</span><span class="token punctuation">,</span> 
- <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'fermi'</span><span class="token punctuation">,</span> 
+<h2 id="2-字典遍历"><a href="#2-字典遍历" class="headerlink" title="2 字典遍历"></a>2 字典遍历</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">user_0 <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token string">'username'</span><span class="token punctuation">:</span> <span class="token string">'efermi'</span><span class="token punctuation">,</span>
+ <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'enrico'</span><span class="token punctuation">,</span>
+ <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'fermi'</span><span class="token punctuation">,</span>
  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><strong>遍历所有键值对—items()</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> key<span class="token punctuation">,</span>value <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span>
 	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Value: "</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>遍历所有键</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> key <span class="token keyword">in</span> user_0<span class="token punctuation">:</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> 
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span>
 <span class="token keyword">for</span> key <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># keys()返回列表</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nKey: "</span> <span class="token operator">+</span> key<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>遍历所有值</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> value <span class="token keyword">in</span> user_0<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -490,7 +490,7 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 <tbody>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-cmp.html"> cmp(dict1, dict2)</a></td>
-<td>比较两个字典元素。（Python3.x已移除）</td>
+<td>比较两个字典元素。（Python3.x 已移除）</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-len.html">len(dict)</a></td>
@@ -514,15 +514,15 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-fromkeys.html">dict.fromkeys(seq[, val])</a></td>
-<td>创建一个新字典，<strong>以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值，默认None</strong>。需保存变量</td>
+<td>创建一个新字典，<strong>以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值，默认 None</strong>。需保存变量</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-get.html">dict.get(key, default=None)</a></td>
-<td>返回指定键的值，如果<strong>值不在</strong>字典中返回default值</td>
+<td>返回指定键的值，如果<strong>值不在</strong>字典中返回 default 值</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-has_key.html"> dict.has_key(key)</a></td>
-<td>如果键在字典dict里返回true，否则返回false。Python3 不支持。改为 <code>in</code></td>
+<td>如果键在字典 dict 里返回 true，否则返回 false。Python3 不支持。改为 <code>in</code></td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-items.html">dict.items()</a></td>
@@ -534,11 +534,11 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-setdefault.html"> dict.setdefault(key, default=None)</a></td>
-<td>和get()类似, 但如果<strong>键不存在</strong>于字典中，将会添加键并将值设为default</td>
+<td>和 get()类似, 但如果<strong>键不存在</strong>于字典中，将会添加键并将值设为 default</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-update.html">dict.update(dict2)</a></td>
-<td>把字典dict2的键/值对<strong>更新</strong>到dict里   合并</td>
+<td>把字典 dict2 的键/值对<strong>更新</strong>到 dict 里 合并</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-dictionary-values.html">dict.values()</a></td>
@@ -546,7 +546,7 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-att-dictionary-pop.html">pop(key[,default])</a></td>
-<td>删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</td>
+<td>删除字典给定键 key 所对应的值，返回值为被删除的值。key 值必须给出。 否则，返回 default 值。</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-att-dictionary-popitem.html">popitem()</a></td>
@@ -558,28 +558,28 @@ c <span class="token operator">=</span> ChainMap<span class="token punctuation">
 <h2 id="4-字典复制"><a href="#4-字典复制" class="headerlink" title="4 字典复制"></a>4 字典复制</h2><ul>
 <li><p><strong>直接复制</strong>:浅拷贝: 引用对象</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">dict1 <span class="token operator">=</span>  <span class="token punctuation">{</span><span class="token string">'user'</span><span class="token punctuation">:</span><span class="token string">'runoob'</span><span class="token punctuation">,</span><span class="token string">'num'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
- 
+
 dict2 <span class="token operator">=</span> dict1
 <span class="token comment"># id(dict1) = id(dict2)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>copy()</strong>:浅拷贝—<strong>深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 dict1 <span class="token operator">=</span>  <span class="token punctuation">{</span><span class="token string">'user'</span><span class="token punctuation">:</span><span class="token string">'runoob'</span><span class="token punctuation">,</span><span class="token string">'num'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
- 
-dict3 <span class="token operator">=</span> dict1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>  
- 
+
+dict3 <span class="token operator">=</span> dict1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
 <span class="token comment"># 修改 data 数据</span>
 dict1<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'root'</span>
 dict1<span class="token punctuation">[</span><span class="token string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 输出结果</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>dict3<span class="token punctuation">)</span>
 
 <span class="token punctuation">{</span><span class="token string">'num'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">}</span>
-<span class="token punctuation">{</span><span class="token string">'num'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'runoob'</span><span class="token punctuation">}</span> <span class="token comment">#dict3 父对象进行了深拷贝，不会随dict1 修改而修改，子对象是浅拷贝所以随 dict1 的修改而修改  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">{</span><span class="token string">'num'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'runoob'</span><span class="token punctuation">}</span> <span class="token comment">#dict3 父对象进行了深拷贝，不会随dict1 修改而修改，子对象是浅拷贝所以随 dict1 的修改而修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>字典子集构造</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">prices <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -629,23 +629,23 @@ p2 <span class="token operator">=</span> <span class="token punctuation">{</span
 <blockquote>
 <p><strong>嵌套字典</strong></p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">users <span class="token operator">=</span> <span class="token punctuation">{</span> 
-    <span class="token string">'aeinstein'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'albert'</span><span class="token punctuation">,</span> 
-        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'einstein'</span><span class="token punctuation">,</span> 
-        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'princeton'</span><span class="token punctuation">,</span> 
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
-    <span class="token string">'mcurie'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'marie'</span><span class="token punctuation">,</span> 
-        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'curie'</span><span class="token punctuation">,</span> 
-        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'paris'</span><span class="token punctuation">,</span> 
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">users <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'aeinstein'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'albert'</span><span class="token punctuation">,</span>
+        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'einstein'</span><span class="token punctuation">,</span>
+        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'princeton'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'mcurie'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'marie'</span><span class="token punctuation">,</span>
+        <span class="token string">'last'</span><span class="token punctuation">:</span> <span class="token string">'curie'</span><span class="token punctuation">,</span>
+        <span class="token string">'location'</span><span class="token punctuation">:</span> <span class="token string">'paris'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">for</span> username<span class="token punctuation">,</span> user_info <span class="token keyword">in</span> users<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> 
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nUsername: "</span> <span class="token operator">+</span> username<span class="token punctuation">)</span> 
-	full_name <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'first'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> user_info<span class="token punctuation">[</span><span class="token string">'last'</span><span class="token punctuation">]</span> 
-	location <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'location'</span><span class="token punctuation">]</span> 
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tFull name: "</span> <span class="token operator">+</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+<span class="token keyword">for</span> username<span class="token punctuation">,</span> user_info <span class="token keyword">in</span> users<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nUsername: "</span> <span class="token operator">+</span> username<span class="token punctuation">)</span>
+	full_name <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'first'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> user_info<span class="token punctuation">[</span><span class="token string">'last'</span><span class="token punctuation">]</span>
+	location <span class="token operator">=</span> user_info<span class="token punctuation">[</span><span class="token string">'location'</span><span class="token punctuation">]</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tFull name: "</span> <span class="token operator">+</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tLocation: "</span> <span class="token operator">+</span> location<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-多值映射"><a href="#6-多值映射" class="headerlink" title="6 多值映射"></a>6 多值映射</h2><ul>
 <li><p>常规字典就是一个键对应一个单值的映射。如果想实现一个键多值映射，需要将这多个值放入列表或集合中</p>

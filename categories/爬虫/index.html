@@ -305,19 +305,10 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="博客搭建: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">博客搭建
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/Http/" title="Http: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Http
+                            style="background-color: #F5EEF8;">Http
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -326,8 +317,17 @@
                 <a href="/categories/Java/" title="Java: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">Java
+                            style="background-color: #D5F5E3;">Java
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="博客搭建: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">博客搭建
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -375,10 +375,10 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy运行实践脚本运行Scrapy
+                                Scrapy 运行实践脚本运行 Scrapy
 Scrapy 是建立在 Twisted 异步网络库之上的，因此需要在 Twisted 反应器内运行它。
 
-scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器
+scrapy.crawler.CrawlerProcess:启动一个 Twisted 反
                             
                         </div>
                         <div class="publish-info">
@@ -437,9 +437,8 @@ scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器
                         <div class="summary block-with-text">
                             
                                 模拟登录
-在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用Scrapy 处理这种情况时，我们既可以使用表单进行模拟登录，又可以直接使用Cookie进行验证。
+在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用 Scrapy 处理这种情况时，我们既可以使用表单进行模拟登录，又可以直接使用 Cookie 进行验证。
 
-模拟
                             
                         </div>
                         <div class="publish-info">
@@ -497,7 +496,7 @@ scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy配置与内置服务Scrapy框架中可以通过一系列的配置来定制组件，包括核心(Core)、插件（Extension)、管道(Pipeline）及 Spider组件。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合理的配
+                                Scrapy 配置与内置服务Scrapy 框架中可以通过一系列的配置来定制组件，包括核心(Core)、插件（Extension)、管道(Pipeline）及 Spider 组件。同时不同的内置服务也需要在配置中进行设定，如邮件服务等。进行合
                             
                         </div>
                         <div class="publish-info">
@@ -555,8 +554,8 @@ scrapy.crawler.CrawlerProcess:启动一个 Twisted 反应器
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy中间件自定义Spider中间件
-Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制的钩子框架,可以添加代码来处理发送给Spiders的Response及Spider产生的Item和 Re
+                                Scrapy 中间件自定义 Spider 中间件
+Spider 中间件(Middleware)是介于 Scrapy 引擎与 Spider 中间的处理机制的钩子框架,可以添加代码来处理发送给 Spiders 的 Response 及 Spid
                             
                         </div>
                         <div class="publish-info">
@@ -614,9 +613,9 @@ Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制�
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Request与Response
-Scrapy框架中，有两个主要的对象Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。
-Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一
+                                Request 与 Response
+Scrapy 框架中，有两个主要的对象 Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。
+Request 对象在 Spider 中生成，包含 HTTP 请求信
                             
                         </div>
                         <div class="publish-info">
@@ -674,15 +673,15 @@ Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy管道
-管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为Item之后，会传递给Item Pipeline做进一步处理，包括:
+                                Scrapy 管道
+管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为 Item 之后，会传递给 Item Pipeline 做进一步处理，包括:
 清洗数据
 检查抓取的数据是否有效
 去重
 保存数据
 
 
-一个项目可以
+一
                             
                         </div>
                         <div class="publish-info">
@@ -740,12 +739,12 @@ Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy爬虫编写爬虫
-Scrapy主要通过Spider类来实现爬虫的相关功能。Spider类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。
+                                Scrapy 爬虫编写爬虫
+Scrapy 主要通过Spider类来实现爬虫的相关功能。Spider 类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。
 
-Spider循环爬取步骤如下
+Spider 循环爬取步骤如下
 
-通过start_requests()以 start_
+通过start_requests()以 st
                             
                         </div>
                         <div class="publish-info">
@@ -803,13 +802,13 @@ Spider循环爬取步骤如下
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy命令行
-Scrapy提供了两种类型的命令:一种必须在Scrapy项目中运行，称为项目命令;另一种则不需要在 Scrapy 项目中运行，称为全局命令。
+                                Scrapy 命令行
+Scrapy 提供了两种类型的命令:一种必须在 Scrapy 项目中运行，称为项目命令;另一种则不需要在 Scrapy 项目中运行，称为全局命令。
 
-7个全局命令：
+7 个全局命令：
 
 startproject:创建项目。
-settings:查
+setti
                             
                         </div>
                         <div class="publish-info">
@@ -867,8 +866,8 @@ settings:查
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Scrapy简介
-Scrapy是一个使用Python实现的，为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。只需要定制开发几个模块就可以轻松地实现一个爬虫，用来抓取网页内容以及各种图片，非常方便。Scrapy使用了Twist
+                                Scrapy 简介
+Scrapy 是一个使用 Python 实现的，为了爬取网站数据、提取结构性数据而编写的应用框架，用途非常广泛。只需要定制开发几个模块就可以轻松地实现一个爬虫，用来抓取网页内容以及各种图片，非常方便。Scrapy 使用了
                             
                         </div>
                         <div class="publish-info">
@@ -926,9 +925,9 @@ Scrapy是一个使用Python实现的，为了爬取网站数据、提取结构�
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Selenium操纵浏览器
-Selenium是一个自动化测试工具，支持各种浏览器，包括Chrome、Safari、Firefox等主流界面式浏览器。
-Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行JavaScr
+                                Selenium 操纵浏览器
+Selenium 是一个自动化测试工具，支持各种浏览器，包括 Chrome、Safari、Firefox 等主流界面式浏览器。
+Selenium 可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行 J
                             
                         </div>
                         <div class="publish-info">
@@ -986,10 +985,10 @@ Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                元素提取BeautifulSoup
-BeautifulSoup是一个可以从HTML或XML文件中提取数据的Python库，可以很方便地进行文档的导航、查找或修改。在爬虫工作中，常用的是查找功能。
+                                元素提取 BeautifulSoup
+BeautifulSoup 是一个可以从 HTML 或 XML 文件中提取数据的 Python 库，可以很方便地进行文档的导航、查找或修改。在爬虫工作中，常用的是查找功能。
 
-安装BeautifulSoup：pip i
+安装 BeautifulS
                             
                         </div>
                         <div class="publish-info">
@@ -1047,9 +1046,9 @@ BeautifulSoup是一个可以从HTML或XML文件中提取数据的Python库，可
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                CSS选择语法
-CSS指层叠样式表(Cascading Style Sheets)，用来定义如何显示HTML元素，一般和HTML文件一起使用，通过对HTML标签的修饰来解决内容与表现分离的问题。
-CSS规则由两个主要的部分构成:选择器以及一
+                                CSS 选择语法
+CSS 指层叠样式表(Cascading Style Sheets)，用来定义如何显示 HTML 元素，一般和 HTML 文件一起使用，通过对 HTML 标签的修饰来解决内容与表现分离的问题。
+CSS 规则由两个主要的部分
                             
                         </div>
                         <div class="publish-info">

@@ -356,12 +356,12 @@ Determinants $det(A)$ are only defined for square matrices $A ∈ \mathbb R^{">
 </li>
 <li><p>Determinants</p>
 <ul>
-<li>For $n=1$,    $det(A)=det(a_{11})=a_{11}$</li>
-<li>For $n=2$,    $det(A)=\left|\begin{matrix}a_{11}&amp;a_{12}\\a_{21}&amp;a_{22}\end{matrix}\right|=a_{11}a_{22}-a_{12}a_{21}$</li>
-<li>For $n=3$,   $\left|\begin{matrix}a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\a_{31}&amp;a_{32}&amp;a_{33}\end{matrix}\right|=a_{11}a_{22}a_{33}+a_{21}a_{32}a_{13}+a_{31}a_{12}a_{23}-a_{31}a_{22}a_{13}-a_{11}a_{32}a_{23}-a_{21}a_{12}a_{33}$</li>
+<li>For $n=1$, $det(A)=det(a_{11})=a_{11}$</li>
+<li>For $n=2$, $det(A)=\left|\begin{matrix}a_{11}&amp;a_{12}\\a_{21}&amp;a_{22}\end{matrix}\right|=a_{11}a_{22}-a_{12}a_{21}$</li>
+<li>For $n=3$, $\left|\begin{matrix}a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\a_{31}&amp;a_{32}&amp;a_{33}\end{matrix}\right|=a_{11}a_{22}a_{33}+a_{21}a_{32}a_{13}+a_{31}a_{12}a_{23}-a_{31}a_{22}a_{13}-a_{11}a_{32}a_{23}-a_{21}a_{12}a_{33}$</li>
 </ul>
 </li>
-<li><p>We call a square matrix $T$ an <em>upper-triangular</em> matrix if $T_{ij} = 0$ for $i &gt; j$, i.e., the matrix is zero below its diagonal. Analogously, we define a <em>lower-triangular</em> matrix as a matrix with zeros above its diagonal. <strong>For a triangular matrix $T ∈ \mathbb R^{n×n}$, the determinant is the product of the diagonal elements</strong>, i.e.,</p>
+<li><p>We call a square matrix $T$ an _upper-triangular_ matrix if $T_{ij} = 0$ for $i &gt; j$, i.e., the matrix is zero below its diagonal. Analogously, we define a _lower-triangular_ matrix as a matrix with zeros above its diagonal. <strong>For a triangular matrix $T ∈ \mathbb R^{n×n}$, the determinant is the product of the diagonal elements</strong>, i.e.,</p>
 <script type="math/tex; mode=display">
 det(T)=\prod_{i=1}^{n}{T_{ii}}</script></li>
 <li><p><strong>Laplace Expansion</strong>: Consider a matrix $A ∈ \mathbb R^{n×n}$. Then, for all $j = 1, . . . , n$:</p>
@@ -373,9 +373,9 @@ det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{kj}det(A_{k,j})}</script></li>
 <script type="math/tex; mode=display">
 det(A)=\sum_{k=1}^{n}{(-1)^{k+j}a_{jk}det(A_{j,k})}</script></li>
 </ol>
-<p>Here $A_{k,j} ∈ \mathbb R^{(n−1)×(n−1)}$ is the submatrix of $A$ that we obtain when deleting row $k$ and column $j$.  ($det(A_{k,j})$ is called a <em>minor</em> and $(−1)^{k+j} det(A_{k,j})$ a <em>cofactor</em>.)</p>
+<p>Here $A_{k,j} ∈ \mathbb R^{(n−1)×(n−1)}$ is the submatrix of $A$ that we obtain when deleting row $k$ and column $j$. ($det(A_{k,j})$ is called a _minor_ and $(−1)^{k+j} det(A_{k,j})$ a _cofactor_.)</p>
 <blockquote>
-<p>e.g. </p>
+<p>e.g.</p>
 <script type="math/tex; mode=display">
 A=\left[\begin{matrix}
 1& 2& 3\\
@@ -387,11 +387,11 @@ det(A)&=\left|\begin{matrix}
 1& 2& 3\\
 3& 1& 2\\
 0& 0& 1
-\end{matrix}\right| \\&= 
+\end{matrix}\right| \\&=
 (-1)^{1+1} \cdot1\left|\begin{matrix}
 1& 2\\
 0& 1
-\end{matrix}\right| + 
+\end{matrix}\right| +
 (-1)^{1+2} \cdot2\left|\begin{matrix}
 3& 2\\
 0& 1
@@ -399,7 +399,7 @@ det(A)&=\left|\begin{matrix}
 (-1)^{1+3} \cdot3\left|\begin{matrix}
 3& 1\\
 0& 0
-\end{matrix}\right| \\&= 
+\end{matrix}\right| \\&=
 1(1-0)-2(3-0)+3(0-0)=-5
 \end{split}</script></blockquote>
 </li>
@@ -418,7 +418,7 @@ det(A)&=\left|\begin{matrix}
 </li>
 <li><p>A square matrix $A ∈ \mathbb R^{n×n}$ has $det(A) \ne 0$ if and only if $rk(A) = n$. In other words, $A$ is invertible if and only if it is full rank.</p>
 </li>
-<li><p>The <strong>trace</strong> of a square matrix $A ∈ \mathbb R^{n×n}$ is defined as </p>
+<li><p>The <strong>trace</strong> of a square matrix $A ∈ \mathbb R^{n×n}$ is defined as</p>
 <script type="math/tex; mode=display">
 tr(A):=\sum_{i=1}^{n}{a_ii}</script><p>i.e. , the trace is the sum of the diagonal elements of $A$.</p>
 </li>
@@ -439,18 +439,18 @@ tr(xy^T)=tr(y^Tx)=y^Tx\in \mathbb R</script></li>
 <li><p><strong>Matrix representations of linear mappings are basis dependent the trace of a linear mapping $Φ$ is independent of the basis.</strong> For a given basis of $V$, we can describe $Φ$ by means of the transformation matrix $A$. Then the trace of $Φ$ is the trace of $A$. For a different basis of $V$, it holds that the corresponding transformation matrix $B$ of $Φ$ can be obtained by a basis change of the form $S^{−1}AS$ for suitable $S$ . For the corresponding trace of $Φ$, this means</p>
 <script type="math/tex; mode=display">
 tr(B)=tr(S^{-1}AS)=tr(ASS^{-1})=tr(A)</script></li>
-<li><p><strong>Characteristic Polynomial</strong>:  For $λ ∈ \mathbb R$ and a square matrix $A ∈ \mathbb R^{n×n}$</p>
+<li><p><strong>Characteristic Polynomial</strong>: For $λ ∈ \mathbb R$ and a square matrix $A ∈ \mathbb R^{n×n}$</p>
 <script type="math/tex; mode=display">
 \begin{split}
 p_A(\lambda)&:=det(A-\lambda I)\\
 &=c_0+c_1\lambda+c_2\lambda^2+\cdots+c_{n-1}\lambda^{n-1}+(-1)^n\lambda^n
-\end{split}</script><p>$c_0, . . . , c_{n−1} ∈ \mathbb R$, is the <em>characteristic polynomial</em> of $A$. In particular,</p>
+\end{split}</script><p>$c_0, . . . , c_{n−1} ∈ \mathbb R$, is the _characteristic polynomial_ of $A$. In particular,</p>
 <script type="math/tex; mode=display">
 c_0=det(A),\\
 c_{n-1}=(-1)^{n-1}tr(A)</script></li>
 </ul>
 <h2 id="Eigenvalues-and-Eigenvectors"><a href="#Eigenvalues-and-Eigenvectors" class="headerlink" title="Eigenvalues and Eigenvectors"></a>Eigenvalues and Eigenvectors</h2><ul>
-<li><p>Let $A ∈ \mathbb R^{n×n}$ be a square matrix. Then $λ ∈ \mathbb R$ is an <strong><em>eigenvalue</em></strong> of $A$ and $x ∈ \mathbb R^n\backslash\{0\}$ is the corresponding <strong><em>eigenvector</em></strong> of $A$ if</p>
+<li><p>Let $A ∈ \mathbb R^{n×n}$ be a square matrix. Then $λ ∈ \mathbb R$ is an <strong>_eigenvalue_</strong> of $A$ and $x ∈ \mathbb R^n\backslash\{0\}$ is the corresponding <strong>_eigenvector_</strong> of $A$ if</p>
 <script type="math/tex; mode=display">
 Ax=\lambda x</script></li>
 <li><p>The following statements are equivalent</p>
@@ -461,11 +461,11 @@ Ax=\lambda x</script></li>
 <li>$det(A-\lambda I_n)=0$</li>
 </ul>
 </li>
-<li><p><strong>Collinearity and Codirection</strong>: Two vectors that point in <strong>the same direction</strong> are called <strong><em>codirected</em></strong>. Two vectors are <strong><em>collinear</em></strong> if they point in the same or the opposite direction.</p>
+<li><p><strong>Collinearity and Codirection</strong>: Two vectors that point in <strong>the same direction</strong> are called <strong>_codirected_</strong>. Two vectors are <strong>_collinear_</strong> if they point in the same or the opposite direction.</p>
 </li>
-<li><p><strong>Non-uniqueness of eigenvectors</strong>:  If $x$ is an eigenvector of $A$ associated with eigenvalue $λ$, then for any $c ∈ \mathbb R\backslash\{0\}$ it holds that $cx$ is an eigenvector of $A$ with the same eigenvalue since</p>
+<li><p><strong>Non-uniqueness of eigenvectors</strong>: If $x$ is an eigenvector of $A$ associated with eigenvalue $λ$, then for any $c ∈ \mathbb R\backslash\{0\}$ it holds that $cx$ is an eigenvector of $A$ with the same eigenvalue since</p>
 <script type="math/tex; mode=display">
-A(cx)=cAx=c\lambda x=\lambda(cx)</script><p>Thus, all vectors that are <em>collinear</em> to $x$ are also eigenvectors of $A$.</p>
+A(cx)=cAx=c\lambda x=\lambda(cx)</script><p>Thus, all vectors that are _collinear_ to $x$ are also eigenvectors of $A$.</p>
 </li>
 <li><p>$λ ∈ \mathbb R$ is an eigenvalue of $A ∈ \mathbb R^{n×n}$ if and only if $λ$ is a root of the characteristic polynomial $p_A(λ)$ of $A$.</p>
 </li>
@@ -494,7 +494,7 @@ Ax=\lambda x \Leftrightarrow Ax-\lambda x = 0
 <blockquote>
 <p>e.g. Computing Eigenvalues, Eigenvectors, and Eigenspaces</p>
 <p>the $2 × 2$ matrix $A=\left[\begin{matrix}4&amp; 2\\1&amp;3\end{matrix}\right]$</p>
-<p><strong>Step 1: Characteristic Polynomial.</strong>From our definition of the eigenvector $x \ne 0$ and eigenvalue $λ$ of $A$, there will be a vector such that $Ax = λx$, i.e., $(A−λI)x = 0$. Since $x \ne 0$, this requires that the kernel (null space) of $A − λI$ contains more elements than just $0$. This means that $A− λI$ is not invertible and therefore $det(A− λI) = 0$. Hence, we<br>need to compute the roots of the characteristic polynomial  to find the eigenvalues.</p>
+<p><strong>Step 1: Characteristic Polynomial.</strong>From our definition of the eigenvector $x \ne 0$ and eigenvalue $λ$ of $A$, there will be a vector such that $Ax = λx$, i.e., $(A−λI)x = 0$. Since $x \ne 0$, this requires that the kernel (null space) of $A − λI$ contains more elements than just $0$. This means that $A− λI$ is not invertible and therefore $det(A− λI) = 0$. Hence, we<br>need to compute the roots of the characteristic polynomial to find the eigenvalues.</p>
 <p><strong>Step 2: Eigenvalues.</strong> The characteristic polynomial is</p>
 <script type="math/tex; mode=display">
 \begin{split}
@@ -526,15 +526,15 @@ E_5=span[\left[\begin{matrix}2\\1\end{matrix}\right]]</script><p>This eigenspace
 <script type="math/tex; mode=display">
 E_2=span[\left[\begin{matrix}1\\-1\end{matrix}\right]]</script></blockquote>
 <ul>
-<li><p>Let $λ_i$ be an eigenvalue of a square matrix $A$. Then the <em>geometric multiplicity</em> of $λ_i$ is the number of linearly independent eigenvectors associated with $λ_i$. In other words, it is the dimensionality of the eigenspace spanned by the eigenvectors associated with $λ_i$.</p>
+<li><p>Let $λ_i$ be an eigenvalue of a square matrix $A$. Then the _geometric multiplicity_ of $λ_i$ is the number of linearly independent eigenvectors associated with $λ_i$. In other words, it is the dimensionality of the eigenspace spanned by the eigenvectors associated with $λ_i$.</p>
 </li>
 <li><p>A specific eigenvalue’s geometric multiplicity must be at least one because every eigenvalue has at least one associated eigenvector. An eigenvalue’s geometric multiplicity cannot exceed its algebraic multiplicity, but it may be lower.</p>
 </li>
 <li><p>The eigenvectors $x_1, . . . , x_n$ of a matrix $A ∈ \mathbb R^{n×n}$ with $n$ distinct eigenvalues $λ_1, . . . , λ_n$ are linearly independent. This theorem states that eigenvectors of a matrix with $n$ distinct eigenvalues form a basis of $\mathbb R^n$.</p>
 </li>
-<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ is <strong><em>defective</em></strong> if it possesses fewer than $n$ linearly independent eigenvectors. Specifically, a defective matrix has at least one eigenvalue $λ_i$ with an algebraic multiplicity $m &gt; 1$ and a geometric multiplicity of less than $m$.</p>
+<li><p>A square matrix $A ∈ \mathbb R^{n×n}$ is <strong>_defective_</strong> if it possesses fewer than $n$ linearly independent eigenvectors. Specifically, a defective matrix has at least one eigenvalue $λ_i$ with an algebraic multiplicity $m &gt; 1$ and a geometric multiplicity of less than $m$.</p>
 </li>
-<li><p>Given a matrix $A ∈ \mathbb R^{m×n}$, we can always obtain <em>a symmetric, positive semidefinite matrix</em> $S ∈ \mathbb R^{n×n}$ by defining</p>
+<li><p>Given a matrix $A ∈ \mathbb R^{m×n}$, we can always obtain _a symmetric, positive semidefinite matrix_ $S ∈ \mathbb R^{n×n}$ by defining</p>
 <script type="math/tex; mode=display">
 S:=A^TA</script><p>If $rk(A) = n$, then $S := A^⊤A$ is symmetric, positive definite.</p>
 </li>
@@ -552,12 +552,12 @@ tr(A)=\sum_{i=1}^n{\lambda_i}</script><p>where $λ_i ∈ \mathbb C$ are (possibl
 </li>
 </ul>
 <h2 id="Cholesky-Decomposition"><a href="#Cholesky-Decomposition" class="headerlink" title="Cholesky Decomposition"></a>Cholesky Decomposition</h2><ul>
-<li><strong>Cholesky Decomposition</strong>： A symmetric, positive definite matrix $A$ can be factorized into a product $A = LL^⊤$, where $L$ is a <em>lower-triangular</em> matrix with <em>positive diagonal elements</em>:<script type="math/tex; mode=display">
+<li><strong>Cholesky Decomposition</strong>： A symmetric, positive definite matrix $A$ can be factorized into a product $A = LL^⊤$, where $L$ is a _lower-triangular_ matrix with _positive diagonal elements_:<script type="math/tex; mode=display">
 \left[\begin{matrix}
 a_{11}&\cdots&a_{1n}\\
 \vdots&\ddots&\vdots\\
 a_{n1}&\cdots&a_{nn}
-\end{matrix}\right] = 
+\end{matrix}\right] =
 \left[\begin{matrix}
 l_{11}&\cdots&0\\
 \vdots&\ddots&\vdots\\
@@ -567,7 +567,7 @@ l_{n1}&\cdots&l_{nn}
 l_{11}&\cdots&l_{n1}\\
 \vdots&\ddots&\vdots\\
 0&\cdots&l_{nn}
-\end{matrix}\right]</script>$L$ is called the <em>Cholesky factor</em> of $A$, and $L$ is unique.</li>
+\end{matrix}\right]</script>$L$ is called the _Cholesky factor_ of $A$, and $L$ is unique.</li>
 </ul>
 <blockquote>
 <p>e.g. <strong>Cholesky Factorization</strong></p>
@@ -601,7 +601,7 @@ l_{21}=\frac{1}{l_{11}}a_{21},\;l_{31}=\frac{1}{l_{11}}a_{31},\;l_{32}=\frac{1}{
 <li>Given the Cholesky decomposition $A = LL^⊤$, we know that $det(A) = det(L) det(L^⊤) = det(L)^2$. Since $L$ is a triangular matrix, the determinant is simply the product of its diagonal entries so that $det(A) =\prod_i{l_{ii}^2}$</li>
 </ul>
 <h2 id="Eigendecomposition-and-Diagonalization"><a href="#Eigendecomposition-and-Diagonalization" class="headerlink" title="Eigendecomposition and Diagonalization"></a>Eigendecomposition and Diagonalization</h2><ul>
-<li><p>A <em>diagonal matrix</em> is a matrix that has value zero on all off-diagonal elements, i.e., they are of the form</p>
+<li><p>A _diagonal matrix_ is a matrix that has value zero on all off-diagonal elements, i.e., they are of the form</p>
 <script type="math/tex; mode=display">
 D=\left[\begin{matrix}
 c_1&\cdots&0\\
@@ -609,7 +609,7 @@ c_1&\cdots&0\\
 0&\cdots&c_n
 \end{matrix}\right]</script><p>They allow fast computation of determinants, powers, and inverses. The determinant is the product of its diagonal entries, a matrix power $D^k$ is given by each diagonal element raised to the power $k$, and the inverse $D^{−1}$ is the reciprocal of its diagonal elements if all of them are nonzero.</p>
 </li>
-<li><p><strong>Diagonalizable</strong>: A matrix $A ∈ \mathbb R^{n×n}$ is <em>diagonalizable</em> if it is similar to a diagonal matrix, i.e., if there exists an invertible matrix $P ∈ \mathbb R^{n×n}$ such that $D = P^{−1}AP$.</p>
+<li><p><strong>Diagonalizable</strong>: A matrix $A ∈ \mathbb R^{n×n}$ is _diagonalizable_ if it is similar to a diagonal matrix, i.e., if there exists an invertible matrix $P ∈ \mathbb R^{n×n}$ such that $D = P^{−1}AP$.</p>
 </li>
 <li><p>Let $A ∈ \mathbb R^{n×n}$, let $λ_1, . . . , λ_n$ be a set of scalars, and let $p_1, . . . , p_n$ be a set of vectors in $\mathbb R^{n×n}$. We define $P := [p_1, . . . , p_n]$ and let $D ∈ \mathbb R^{n×n}$ be a diagonal matrix with diagonal entries $λ_1, . . . , λ_n$. Then we can show that</p>
 <script type="math/tex; mode=display">
@@ -617,7 +617,7 @@ AP=PD</script><p>if and only if $λ_1, . . . , λ_n$ are the eigenvalues of $A$ 
 </li>
 <li><p><strong>Eigendecomposition</strong>: A square matrix $A ∈ \mathbb R^{n×n}$ can be factored into</p>
 <script type="math/tex; mode=display">
-A=PDP^{-1}</script><p>where $P ∈ \mathbb R^{n×n}$ and $D$ is a <em>diagonal matrix</em> whose diagonal entries are <em>the eigenvalues</em> of $A$, if and only if the eigenvectors of $A$ form a basis of $\mathbb R^{n×n}$.<br>It implies that only <em>non-defective</em> matrices can be diagonalized and that the columns of $P $are the $n$ eigenvectors of $A$.</p>
+A=PDP^{-1}</script><p>where $P ∈ \mathbb R^{n×n}$ and $D$ is a _diagonal matrix_ whose diagonal entries are _the eigenvalues_ of $A$, if and only if the eigenvectors of $A$ form a basis of $\mathbb R^{n×n}$.<br>It implies that only _non-defective_ matrices can be diagonalized and that the columns of $P $are the $n$ eigenvectors of $A$.</p>
 <blockquote>
 <p>e.g. $A=\frac{1}{2}\left[\begin{matrix}<br>5&amp;-2\\<br>-2&amp;5<br>\end{matrix}\right]$</p>
 <p><strong>Step 1: Compute eigenvalues and eigenvectors.</strong> The characteristic polynomial of $A$ is</p>
@@ -628,7 +628,7 @@ det(A− λI) &= det(\left[\begin{matrix}
 -1&\frac{5}{2}-\lambda
 \end{matrix}\right]) \\
 &=(\frac{5}{2}-\lambda)^2-1=\lambda^2-5\lambda+\frac{21}{4}=(\lambda-\frac{7}{2})(\lambda-\frac{3}{2})
-\end{split}</script><p>Therefore, the eigenvalues of $A$ are $\lambda_1=\frac{7}{2}$and $\lambda_2=\frac{3}{2}$  (the roots of the characteristic polynomial), and the associated (normalized) eigenvectors are obtained via</p>
+\end{split}</script><p>Therefore, the eigenvalues of $A$ are $\lambda_1=\frac{7}{2}$and $\lambda_2=\frac{3}{2}$ (the roots of the characteristic polynomial), and the associated (normalized) eigenvectors are obtained via</p>
 <script type="math/tex; mode=display">
 Ap_1=\frac{7}{2}p_1,\;Ap_2=\frac{3}{2}p_2</script><p>This yields</p>
 <script type="math/tex; mode=display">

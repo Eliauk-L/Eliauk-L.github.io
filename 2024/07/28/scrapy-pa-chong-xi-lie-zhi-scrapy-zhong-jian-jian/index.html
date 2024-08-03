@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Scrapy中间件, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy中间件自定义Spider中间件
-Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制的钩子框架,可以添加代码来处理发送给Spiders的Response及Spider产生的Item和 Re">
+    <meta name="description" content="Scrapy 中间件自定义 Spider 中间件
+Spider 中间件(Middleware)是介于 Scrapy 引擎与 Spider 中间的处理机制的钩子框架,可以添加代码来处理发送给 Spiders 的 Response 及 Spid">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -323,7 +323,7 @@ Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.7k
                 </div>
                 
 
@@ -353,15 +353,15 @@ Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy中间件"><a href="#Scrapy中间件" class="headerlink" title="Scrapy中间件"></a>Scrapy中间件</h1><h2 id="自定义Spider中间件"><a href="#自定义Spider中间件" class="headerlink" title="自定义Spider中间件"></a>自定义Spider中间件</h2><ul>
-<li><p>Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制的钩子框架,可以添加代码来处理发送给Spiders的Response及Spider产生的Item和 Request。</p>
+                <h1 id="Scrapy-中间件"><a href="#Scrapy-中间件" class="headerlink" title="Scrapy 中间件"></a>Scrapy 中间件</h1><h2 id="自定义-Spider-中间件"><a href="#自定义-Spider-中间件" class="headerlink" title="自定义 Spider 中间件"></a>自定义 Spider 中间件</h2><ul>
+<li><p>Spider 中间件(Middleware)是介于 Scrapy 引擎与 Spider 中间的处理机制的钩子框架,可以添加代码来处理发送给 Spiders 的 Response 及 Spider 产生的 Item 和 Request。</p>
 </li>
-<li><p>启用Spider中间件时,需要将其加入<code>SPIDER_MIDDLEWARES</code>设置中。该设置位于settings.py文件中，是<strong>字典</strong>类型的，其中键为中间件的路径，值为中间件的顺序</p>
+<li><p>启用 Spider 中间件时,需要将其加入<code>SPIDER_MIDDLEWARES</code>设置中。该设置位于 settings.py 文件中，是<strong>字典</strong>类型的，其中键为中间件的路径，值为中间件的顺序</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">SPIDER_MIDDLEWARES <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'myproject.middlewares.MySpiderMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">510</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>自定义在settings.py中的中间件设置会与Scrapy内置的SPIDER_MIDDWARES_BASE 设置<strong>合并</strong>(但不是覆盖），然后根据顺序（order）进行排序，最后得到启用中间件的有序列表:<strong>第一个中间件是最靠近引擎的，最后一个中间件是最靠近Spider的。</strong></p>
+<li><p>自定义在 settings.py 中的中间件设置会与 Scrapy 内置的 SPIDER_MIDDWARES_BASE 设置<strong>合并</strong>(但不是覆盖），然后根据顺序（order）进行排序，最后得到启用中间件的有序列表:<strong>第一个中间件是最靠近引擎的，最后一个中间件是最靠近 Spider 的。</strong></p>
 </li>
 <li><p>注意，关于如何分配中间件的顺序，请查看下面的<code>SPIDER_MIDDLEWARES_BASE</code>设置，而后根据要放置中间件的位置选择一个值。由于每个中间件执行不同的动作，自定义的中间件可能会依赖于之前(或者之后)执行的中间件，因此顺序是很重要的，如果不能确定自己的自定义中间件应该靠近哪个方向，就在<strong>500-700</strong>之间选择最为妥当。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Scrapy内置SPIDER_MIDDWARES_BASE:</span>
@@ -371,58 +371,58 @@ Spider中间件(Middleware)是介于Scrapy引擎与Spider中间的处理机制�
 <span class="token string">'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">800</span><span class="token punctuation">,</span>
 <span class="token string">'scrapy.spidermiddlewares.depth.DepthMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">900</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果想禁止内置的中间件，就必须在项目的SPIDER_MIDDLEWARES 设置中定义该中间件，并将其值赋为<strong><code>None</code></strong>。</p>
+<li><p>如果想禁止内置的中间件，就必须在项目的 SPIDER_MIDDLEWARES 设置中定义该中间件，并将其值赋为<strong><code>None</code></strong>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 关闭off-site 中间件</span>
 SPIDER_MIDDLEWARES <span class="token operator">=</span> <span class="token punctuation">{</span>
 <span class="token string">'myproject.middlewares.MySpiderMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">510</span><span class="token punctuation">,</span>
 <span class="token string">'scrapy.contrib.spidermiddleware.offsite.offsiteMiddleware'</span> <span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>编写Spider中间件与管道类似，每个中间件组件都实现了以下一个或多个方法的 Python类。</p>
+<li><p>编写 Spider 中间件与管道类似，每个中间件组件都实现了以下一个或多个方法的 Python 类。</p>
 <ul>
 <li><strong><code>process_spider_input(response,spider)</code></strong><ul>
-<li>当参数response通过参数spider中间件时，该方法被调用，处理该response，即在下载器中间件处理完成后，马上要<strong>进入某个回调函数parse_xx()前被调用</strong>。</li>
-<li><strong>response</strong> ( Response对象):被处理的Response。</li>
-<li><strong>spider</strong> ( Spider对象):该Response对应的Spider。</li>
-<li>该方法应该返回<strong>None</strong>或者<strong>抛出一个异常</strong>。如果其返回None，Scrapy将会<strong>继续处理</strong>该Response，调用所有其他的中间件直到Spider处理该Response。如果其抛出一个异常(exception) ,Scrapy将<strong>不会调用</strong>任何其他中间件的 process_spider_iuput()方法，而是调用Request的<strong>errback</strong>。erback 的输出将会从另一个方向被<strong>重新输入中间件链</strong>中，使用<strong>process _spider_output()</strong>方法来处理，当其抛出异常时调用<strong>process_spider_exception()</strong>。</li>
+<li>当参数 response 通过参数 spider 中间件时，该方法被调用，处理该 response，即在下载器中间件处理完成后，马上要<strong>进入某个回调函数 parse_xx()前被调用</strong>。</li>
+<li><strong>response</strong> ( Response 对象):被处理的 Response。</li>
+<li><strong>spider</strong> ( Spider 对象):该 Response 对应的 Spider。</li>
+<li>该方法应该返回<strong>None</strong>或者<strong>抛出一个异常</strong>。如果其返回 None，Scrapy 将会<strong>继续处理</strong>该 Response，调用所有其他的中间件直到 Spider 处理该 Response。如果其抛出一个异常(exception) ,Scrapy 将<strong>不会调用</strong>任何其他中间件的 process_spider_iuput()方法，而是调用 Request 的<strong>errback</strong>。erback 的输出将会从另一个方向被<strong>重新输入中间件链</strong>中，使用<strong>process _spider_output()</strong>方法来处理，当其抛出异常时调用<strong>process_spider_exception()</strong>。</li>
 </ul>
 </li>
 <li><strong><code>process_spider_output(response,result,spider)</code></strong><ul>
-<li>当Spider处理完毕Response返回result时,即在爬虫运行<strong>yield item</strong>或者<strong>yield scrapy.Request()</strong>的时候调用该方法。</li>
-<li><strong>response</strong> ( Response对象):生成该输出的Response。</li>
-<li><strong>result</strong>(包含Request或Item对象的可迭代对象):Spider 返回的result。</li>
-<li><strong>spider</strong> ( Spider对象):结果被处理的Spider。</li>
-<li>该方法必须返回包含<strong>Request或Item对象的可迭代对象</strong>。如果是Item，就会被交给<strong>Pipeline</strong>;如果是Request，就会被交给<strong>调度器</strong>，然后下载器中间件才会开始运行。</li>
+<li>当 Spider 处理完毕 Response 返回 result 时,即在爬虫运行<strong>yield item</strong>或者<strong>yield scrapy.Request()</strong>的时候调用该方法。</li>
+<li><strong>response</strong> ( Response 对象):生成该输出的 Response。</li>
+<li><strong>result</strong>(包含 Request 或 Item 对象的可迭代对象):Spider 返回的 result。</li>
+<li><strong>spider</strong> ( Spider 对象):结果被处理的 Spider。</li>
+<li>该方法必须返回包含<strong>Request 或 Item 对象的可迭代对象</strong>。如果是 Item，就会被交给<strong>Pipeline</strong>;如果是 Request，就会被交给<strong>调度器</strong>，然后下载器中间件才会开始运行。</li>
 </ul>
 </li>
 <li><strong><code>process_spider_exception(response,exception,spider)</code></strong><ul>
-<li>当spider或(其他spider 中间件的)process_spider_input()抛出异常时，该方法被调用。</li>
-<li><strong>response</strong> ( Response对象):异常抛出时处理的Response。</li>
-<li><strong>exception</strong> ( Exception对象):抛出的异常。</li>
-<li><strong>spider</strong> ( Spider对象):抛出异常的Spider。</li>
-<li>该方法必须返回<strong>None</strong>或者一个<strong>包含Response或 Item对象</strong>的可迭代对象(iterable)。如果返回 None ，Scrapy将<strong>继续处理该异常</strong>，调用中间件链中的其他中间件的process_spider_exception()方法，直到所有中间件都被调用，该异常到达引擎（异常将被记录并被忽略）。如果其返回一个可迭代对象，那么中间件链的 <strong>process_spider_output()</strong>方法将被调用，其他的中间件的 process_spider_exception()将不会被调用。</li>
+<li>当 spider 或(其他 spider 中间件的)process_spider_input()抛出异常时，该方法被调用。</li>
+<li><strong>response</strong> ( Response 对象):异常抛出时处理的 Response。</li>
+<li><strong>exception</strong> ( Exception 对象):抛出的异常。</li>
+<li><strong>spider</strong> ( Spider 对象):抛出异常的 Spider。</li>
+<li>该方法必须返回<strong>None</strong>或者一个<strong>包含 Response 或 Item 对象</strong>的可迭代对象(iterable)。如果返回 None ，Scrapy 将<strong>继续处理该异常</strong>，调用中间件链中的其他中间件的 process_spider_exception()方法，直到所有中间件都被调用，该异常到达引擎（异常将被记录并被忽略）。如果其返回一个可迭代对象，那么中间件链的 <strong>process_spider_output()</strong>方法将被调用，其他的中间件的 process_spider_exception()将不会被调用。</li>
 </ul>
 </li>
 <li><strong><code>process_start_requests(start_requests, spider)</code></strong><ul>
-<li>该方法以Spider 启动的Request为参数被调用。</li>
-<li><strong>start_requests</strong> (包含Request的可迭代对象): start requests 列表。</li>
-<li><strong>spider</strong> ( Spider对象):启动start requests 的Spider。</li>
-<li>该方法接收的是一个<strong>可迭代对象(start_requests参数)</strong>，而且必须返回一个<strong>包含Request对象的可迭代对象。</strong></li>
+<li>该方法以 Spider 启动的 Request 为参数被调用。</li>
+<li><strong>start_requests</strong> (包含 Request 的可迭代对象): start requests 列表。</li>
+<li><strong>spider</strong> ( Spider 对象):启动 start requests 的 Spider。</li>
+<li>该方法接收的是一个<strong>可迭代对象(start_requests 参数)</strong>，而且必须返回一个<strong>包含 Request 对象的可迭代对象。</strong></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="Spider内置中间件"><a href="#Spider内置中间件" class="headerlink" title="Spider内置中间件"></a>Spider内置中间件</h2><ul>
+<h2 id="Spider-内置中间件"><a href="#Spider-内置中间件" class="headerlink" title="Spider 内置中间件"></a>Spider 内置中间件</h2><ul>
 <li><p><strong>DepthMiddleware 爬取深度中间件</strong></p>
 <ul>
 <li><strong><code>class scrapy.contrib.spidermiddleware.depth.DepthMiddleware</code></strong></li>
-<li>DepthMiddleware是一个用于追踪被爬取网站中每个 Request 的<strong>爬取深度</strong>的中间件。深度是<strong>start_urls中定义URL的相对值,也就是相对URL的深度</strong>。例如定义URL为<a target="_blank" rel="noopener" href="http://www.example.com/article/，设置DEPTH_LIMIT=1，那么限制爬取的只能是此URL下一级的网页。">http://www.example.com/article/，设置DEPTH_LIMIT=1，那么限制爬取的只能是此URL下一级的网页。</a></li>
+<li>DepthMiddleware 是一个用于追踪被爬取网站中每个 Request 的<strong>爬取深度</strong>的中间件。深度是<strong>start_urls 中定义 URL 的相对值,也就是相对 URL 的深度</strong>。例如定义 URL 为<a target="_blank" rel="noopener" href="http://www.example.com/article/，设置DEPTH_LIMIT=1，那么限制爬取的只能是此URL下一级的网页。">http://www.example.com/article/，设置DEPTH_LIMIT=1，那么限制爬取的只能是此URL下一级的网页。</a></li>
 <li>它可用于<strong>限制爬取的最大深度，并根据深度控制请求优先级</strong>等。</li>
-<li>DepthMiddleware可以通过下列设置进行配置:<ul>
-<li><code>DEPTH_LIMIT</code>: 爬取所允许的最大深度，如果为0，就没有限制。</li>
+<li>DepthMiddleware 可以通过下列设置进行配置:<ul>
+<li><code>DEPTH_LIMIT</code>: 爬取所允许的最大深度，如果为 0，就没有限制。</li>
 <li><code>DEPTH_STATS</code>: 是否收集爬取深度统计数据。</li>
-<li><code>DEPTH_PRIORITY</code>: 是否根据Request深度对其安排优先级。</li>
+<li><code>DEPTH_PRIORITY</code>: 是否根据 Request 深度对其安排优先级。</li>
 </ul>
 </li>
 </ul>
@@ -431,69 +431,69 @@ SPIDER_MIDDLEWARES <span class="token operator">=</span> <span class="token punc
 <ul>
 <li><p><strong><code>class scrapy.contrib.spidermiddleware.httperror.HttpErrorMiddleware</code></strong></p>
 </li>
-<li><p>过滤出所有失败（错误）的 HTTP Response，爬虫不需要消耗更多的资源，设置更为复杂的逻辑来处理这些异常Request。根据HTTP标准，返回值在200~300的为成功的 Response。</p>
+<li><p>过滤出所有失败（错误）的 HTTP Response，爬虫不需要消耗更多的资源，设置更为复杂的逻辑来处理这些异常 Request。根据 HTTP 标准，返回值在 200~300 的为成功的 Response。</p>
 </li>
-<li><p>如果想处理在这个范围之外的 Response，可以通过Spider 的 handle_httpstatus_list属性或HTTPERROR_ALLOWED_CODES设置来指定Spider能处理的Response返回值。</p>
+<li><p>如果想处理在这个范围之外的 Response，可以通过 Spider 的 handle_httpstatus_list 属性或 HTTPERROR_ALLOWED_CODES 设置来指定 Spider 能处理的 Response 返回值。</p>
 </li>
-<li><p>如果想要处理返回值为404的Response</p>
+<li><p>如果想要处理返回值为 404 的 Response</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MySpider</span><span class="token punctuation">(</span>CrawlSpider<span class="token punctuation">)</span><span class="token punctuation">:</span>
 	handle_httpstatus_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>Request.meta 中的 handle_httpstatus_list键也可以用来指定每个请求所允许的响应码。也可以设置handle_httpstatus_all键值为True来处理任何响应状态码的请求。</p>
+<li><p>Request.meta 中的 handle_httpstatus_list 键也可以用来指定每个请求所允许的响应码。也可以设置 handle_httpstatus_all 键值为 True 来处理任何响应状态码的请求。</p>
 </li>
-<li><p>HttpErrorMiddleware部分设置项:</p>
+<li><p>HttpErrorMiddleware 部分设置项:</p>
 <ul>
-<li><code>HTTPERROR_ALLOWED_CODES</code>: 默认为[]，传递该列表中所有非200状态码的Response。</li>
-<li><code>HTTPERROR_ALLOW_ALL</code>: 默认为False，传递所有Response，无论其状态码为何值。</li>
+<li><code>HTTPERROR_ALLOWED_CODES</code>: 默认为[]，传递该列表中所有非 200 状态码的 Response。</li>
+<li><code>HTTPERROR_ALLOW_ALL</code>: 默认为 False，传递所有 Response，无论其状态码为何值。</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>OffsiteMiddleware过滤请求中间件</strong></p>
+<li><p><strong>OffsiteMiddleware 过滤请求中间件</strong></p>
 <ul>
 <li><p><strong><code>class scrapy.contrib.spidermiddleware.offsite.OffsiteMiddleware</code></strong></p>
 </li>
-<li><p>过滤掉所有Spider 所覆盖主机域名外的URL请求。</p>
+<li><p>过滤掉所有 Spider 所覆盖主机域名外的 URL 请求。</p>
 </li>
-<li><p>该中间件过滤掉所有主机名不在Spider 的allowed_domains属性值中的Request。此属性中域名的子域名是被允许的，如果allow_domains中包含 www.example.com ，那么允许child.www.example.com，但不论是www1.example.com还是example.com都不允许。</p>
+<li><p>该中间件过滤掉所有主机名不在 Spider 的 allowed_domains 属性值中的 Request。此属性中域名的子域名是被允许的，如果 allow_domains 中包含 www.example.com ，那么允许 child.www.example.com，但不论是www1.example.com还是example.com都不允许。</p>
 </li>
-<li><p>当Spider返回一个主机名不在该Spider覆盖范围内的 Request 时，该中间件将会做一个类似于下面的日志记录:</p>
+<li><p>当 Spider 返回一个主机名不在该 Spider 覆盖范围内的 Request 时，该中间件将会做一个类似于下面的日志记录:</p>
 <pre class="line-numbers language-none"><code class="language-none">DEBUG: Filtered offsite request to 'www.othersite.com': &lt;GET http://www.othersite.com/some/page.html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>为了避免在日志中记录太多无用信息，只会对每个新过滤的域名记录一次。例如，如果过滤出另一个www.othersite.com请求，就不会有新的记录。但如果过滤出 someothersite.com请求，就会增加一条记录信息（第一次过滤时增加记录）。</p>
+<li><p>为了避免在日志中记录太多无用信息，只会对每个新过滤的域名记录一次。例如，如果过滤出另一个www.othersite.com请求，就不会有新的记录。但如果过滤出 someothersite.com 请求，就会增加一条记录信息（第一次过滤时增加记录）。</p>
 </li>
-<li><p>如果Spider中没有定义allowed_domains 属性，或该属性为空，此offsite中间件将不会过滤任何Request。</p>
+<li><p>如果 Spider 中没有定义 allowed_domains 属性，或该属性为空，此 offsite 中间件将不会过滤任何 Request。</p>
 </li>
-<li><p>如果Request设置了dont_filter属性,即使该Request的域名不在allow_domain属性值中, offsite中间件也会允许该Request。</p>
+<li><p>如果 Request 设置了 dont_filter 属性,即使该 Request 的域名不在 allow_domain 属性值中, offsite 中间件也会允许该 Request。</p>
 </li>
 </ul>
 </li>
-<li><p><strong>RefererMiddleware参考位置中间件</strong></p>
+<li><p><strong>RefererMiddleware 参考位置中间件</strong></p>
 <ul>
 <li><strong><code>class scrapy.contrib.spidermiddleware.referer.RefererMiddleware</code></strong></li>
-<li>根据生成的Response 的URL来填充Request Referer信息。</li>
-<li>RefererMiddleware有一个关键的设置项:<code>REFERER_ENABLED</code>，默认为True，表示是否启用referer 中间件。</li>
+<li>根据生成的 Response 的 URL 来填充 Request Referer 信息。</li>
+<li>RefererMiddleware 有一个关键的设置项:<code>REFERER_ENABLED</code>，默认为 True，表示是否启用 referer 中间件。</li>
 </ul>
 </li>
 <li><p><strong>UrlLengthMiddleware 网址长度限制中间件</strong></p>
 <ul>
 <li><strong><code>class scrapy.contrib.spidermiddleware.urllength.UrlLengthMiddleware</code></strong></li>
-<li>过滤URL长度比URLLENGTH_LIMIT的值大的Request。</li>
-<li>UrILengthMiddleware有一个关键配置<code>URLLENGTH_LIMIT</code>,表示允许爬取URL最长的长度。</li>
+<li>过滤 URL 长度比 URLLENGTH_LIMIT 的值大的 Request。</li>
+<li>UrILengthMiddleware 有一个关键配置<code>URLLENGTH_LIMIT</code>,表示允许爬取 URL 最长的长度。</li>
 </ul>
 </li>
 </ul>
 <h2 id="自定义下载器中间件"><a href="#自定义下载器中间件" class="headerlink" title="自定义下载器中间件"></a>自定义下载器中间件</h2><ul>
-<li><p>下载器中间件是介于Scrapy 的Request 与 Response中间的、用于处理请求与响应的钩子框架，它是一个轻量级的底层系统，用于全局修改Scrapy的请求与响应。</p>
+<li><p>下载器中间件是介于 Scrapy 的 Request 与 Response 中间的、用于处理请求与响应的钩子框架，它是一个轻量级的底层系统，用于全局修改 Scrapy 的请求与响应。</p>
 </li>
-<li><p>与激活Spider 中间件一样，激活下载器中间件需要将其加入<code>DOWNLOADER_MIDDLEWARES</code>设置中，该设置位于settings.py文件中，是一个字典类型。其中，键为中间件的路径，值为中间件的执行顺序</p>
+<li><p>与激活 Spider 中间件一样，激活下载器中间件需要将其加入<code>DOWNLOADER_MIDDLEWARES</code>设置中，该设置位于 settings.py 文件中，是一个字典类型。其中，键为中间件的路径，值为中间件的执行顺序</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'myproject.middlewares.CustomDownloaderMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">543</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>自定义在setting.py中的下载器中间件会与Scrapy 中定义<code>DOWNLOADER_MIDDLEWARES_BASE</code>设置相合并(并不会覆盖)﹐然后根据顺序进行排序，最终得到一个启用的中间件有序列表。第一个中间件靠近Scrapy引擎，最后一个中间件靠近下载器。</p>
+<li><p>自定义在 setting.py 中的下载器中间件会与 Scrapy 中定义<code>DOWNLOADER_MIDDLEWARES_BASE</code>设置相合并(并不会覆盖)﹐然后根据顺序进行排序，最终得到一个启用的中间件有序列表。第一个中间件靠近 Scrapy 引擎，最后一个中间件靠近下载器。</p>
 </li>
-<li><p>下载器中间件的顺序同样很重要，由于每个中间件执行不同的动作，因此自定义的中间件可能会依赖于之前(或者之后）执行的中间件。参考以下DOWNLOADER_MIDDLEWARES_BASE顺序来设置自定义中间件的顺序:</p>
+<li><p>下载器中间件的顺序同样很重要，由于每个中间件执行不同的动作，因此自定义的中间件可能会依赖于之前(或者之后）执行的中间件。参考以下 DOWNLOADER_MIDDLEWARES_BASE 顺序来设置自定义中间件的顺序:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware'</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
 <span class="token string">'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
 <span class="token string">'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware'</span><span class="token punctuation">:</span> <span class="token number">350</span><span class="token punctuation">,</span>
@@ -509,50 +509,50 @@ SPIDER_MIDDLEWARES <span class="token operator">=</span> <span class="token punc
 <span class="token string">'scrapy.downloadermiddlewares.stats.Downloaderstats'</span><span class="token punctuation">:</span> <span class="token number">850</span><span class="token punctuation">,</span>
 <span class="token string">'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">900</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果想关闭在DOWNLOADER_MIDDLEWARES_BASE中定义的默认启用的中间件，就必须在项目的DOWNLOADER_MIDDLEWARES中设置该中间件的顺序值为 None。</p>
+<li><p>如果想关闭在 DOWNLOADER_MIDDLEWARES_BASE 中定义的默认启用的中间件，就必须在项目的 DOWNLOADER_MIDDLEWARES 中设置该中间件的顺序值为 None。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 禁用user-agent中间件</span>
 DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'myproject.middlewares.CustomDownloaderMiddleware'</span> <span class="token punctuation">:</span> <span class="token number">543</span><span class="token punctuation">,</span>
     <span class="token string">'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware'</span> <span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>编写下载器中间件与Spider中间件一样，都是实现以下一个或几个方法的Python类:</p>
+<li><p>编写下载器中间件与 Spider 中间件一样，都是实现以下一个或几个方法的 Python 类:</p>
 <ul>
 <li><strong><code>process_request(request, spider)</code></strong><ul>
-<li>当Request经过下载器中间件时调用该方法。</li>
-<li><strong>request</strong> ( Request对象):处理的Request。</li>
-<li><strong>spider</strong> ( Spider对象):该Request对应的Spider。</li>
-<li>该方法必须返回<strong>None、Response对象、Request对象或IgnoreRequest 异常</strong>其中之一。<ul>
-<li>如果其返回None，Scrapy将执行其他中间件相应的方法<strong>继续处理</strong>该Request，直到合适的下载器处理函数被调用，该Request被执行处理（对应的 Response被下载）。</li>
-<li>如果返回Response对象，Scrapy将不再调用其他中间件的process_request()或process_exception()方法，或相应地下载函数，并将<strong>返回该Response</strong>。已启用的中间件的process_response()方法会在每个Response返回时被调用。</li>
-<li>如果返回 Request对象，Scrapy 会停止调用process_request()方法，并<strong>重新调度处理</strong>返回的Request。当新返回的Request被执行后，将会根据下载的Response调用相应的中间件处理。</li>
-<li>如果其抛出一个 IgnoreRequest 异常，已启用下载中间件的process_exception()方法会被调用。如果没有任何一个中间件处理该异常，Request.errback会被调用。如果没有代码处理抛出的异常，那么该异常被忽略且不记录到日志中。</li>
+<li>当 Request 经过下载器中间件时调用该方法。</li>
+<li><strong>request</strong> ( Request 对象):处理的 Request。</li>
+<li><strong>spider</strong> ( Spider 对象):该 Request 对应的 Spider。</li>
+<li>该方法必须返回<strong>None、Response 对象、Request 对象或 IgnoreRequest 异常</strong>其中之一。<ul>
+<li>如果其返回 None，Scrapy 将执行其他中间件相应的方法<strong>继续处理</strong>该 Request，直到合适的下载器处理函数被调用，该 Request 被执行处理（对应的 Response 被下载）。</li>
+<li>如果返回 Response 对象，Scrapy 将不再调用其他中间件的 process_request()或 process_exception()方法，或相应地下载函数，并将<strong>返回该 Response</strong>。已启用的中间件的 process_response()方法会在每个 Response 返回时被调用。</li>
+<li>如果返回 Request 对象，Scrapy 会停止调用 process_request()方法，并<strong>重新调度处理</strong>返回的 Request。当新返回的 Request 被执行后，将会根据下载的 Response 调用相应的中间件处理。</li>
+<li>如果其抛出一个 IgnoreRequest 异常，已启用下载中间件的 process_exception()方法会被调用。如果没有任何一个中间件处理该异常，Request.errback 会被调用。如果没有代码处理抛出的异常，那么该异常被忽略且不记录到日志中。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong><code>process_response(request,response,spider)</code></strong><ul>
-<li>当Response经过下载器中间件时调用该方法。</li>
-<li><strong>request</strong> ( Request对象): Response所对应的Request。</li>
-<li><strong>response</strong> ( Response对象):被处理的Response。</li>
-<li><strong>spider</strong> ( Spider对象): Response所对应的Spider。</li>
-<li>该方法必须返回<strong>Response对象、Request对象或IgnoreRequest异常</strong>其中之一。<ul>
-<li>如果其返回一个 Response(可以与处理的 Response 相同，也可以是全新的对象)，那么该Response会被其他中间件的 process_response(方法处理。</li>
-<li>如果其返回一个Request对象，那么中间件停止处理，返回的Request 会被重新调度下载。该处理类似于process_request()处理返回的 Request的步骤。</li>
-<li>如果其抛出一个IgnoreRequest 异常，那就调用Request.erback。如果没有代码处理抛出的异常，那么该异常被忽略且不记录在日志中。</li>
+<li>当 Response 经过下载器中间件时调用该方法。</li>
+<li><strong>request</strong> ( Request 对象): Response 所对应的 Request。</li>
+<li><strong>response</strong> ( Response 对象):被处理的 Response。</li>
+<li><strong>spider</strong> ( Spider 对象): Response 所对应的 Spider。</li>
+<li>该方法必须返回<strong>Response 对象、Request 对象或 IgnoreRequest 异常</strong>其中之一。<ul>
+<li>如果其返回一个 Response(可以与处理的 Response 相同，也可以是全新的对象)，那么该 Response 会被其他中间件的 process_response(方法处理。</li>
+<li>如果其返回一个 Request 对象，那么中间件停止处理，返回的 Request 会被重新调度下载。该处理类似于 process_request()处理返回的 Request 的步骤。</li>
+<li>如果其抛出一个 IgnoreRequest 异常，那就调用 Request.erback。如果没有代码处理抛出的异常，那么该异常被忽略且不记录在日志中。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong><code>process_exception(request, exception, spider)</code></strong><ul>
-<li>当下载处理器( download handler）或process_request()(下载中间件）抛出异常（包括IgnoreRequest异常）时，Scrapy调用process_exception()。</li>
-<li><strong>request</strong> ( Request对象):产生异常的Request。</li>
-<li><strong>exception</strong> ( Exception对象)抛出的异常。</li>
-<li><strong>spider</strong> ( Spider对象): Request对应的Spider。</li>
-<li>该方法必须返回<strong>None、Response对象或Request对象</strong>其中之一。<ul>
-<li>如果其返回 None，Scrapy 将会继续处理该异常，接着调用已启用的其他中间件的process_exception()方法，直到所有中间件都被调用完毕，并且默认异常处理执行。</li>
-<li>如果其返回一个 Response对象，就调用已启用中间件的 process_response()方法。Scrapy将不会调用任何其他中间件的process_exception)方法。</li>
-<li>如果其返回一个Request对象，就返回的Request将会被重新调用下载。这将停止执行中间件的process_exception()方法。</li>
+<li>当下载处理器( download handler）或 process_request()(下载中间件）抛出异常（包括 IgnoreRequest 异常）时，Scrapy 调用 process_exception()。</li>
+<li><strong>request</strong> ( Request 对象):产生异常的 Request。</li>
+<li><strong>exception</strong> ( Exception 对象)抛出的异常。</li>
+<li><strong>spider</strong> ( Spider 对象): Request 对应的 Spider。</li>
+<li>该方法必须返回<strong>None、Response 对象或 Request 对象</strong>其中之一。<ul>
+<li>如果其返回 None，Scrapy 将会继续处理该异常，接着调用已启用的其他中间件的 process_exception()方法，直到所有中间件都被调用完毕，并且默认异常处理执行。</li>
+<li>如果其返回一个 Response 对象，就调用已启用中间件的 process_response()方法。Scrapy 将不会调用任何其他中间件的 process_exception)方法。</li>
+<li>如果其返回一个 Request 对象，就返回的 Request 将会被重新调用下载。这将停止执行中间件的 process_exception()方法。</li>
 </ul>
 </li>
 </ul>
@@ -565,15 +565,15 @@ DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token 
 <ul>
 <li><p><strong><code>class scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware</code></strong></p>
 </li>
-<li><p>该中间件可以使用Cookie爬取网站数据。记录了向Web Server ‘发送的Cookie，并在之后的Request请求中发送回去，就像操作浏览器一样。</p>
+<li><p>该中间件可以使用 Cookie 爬取网站数据。记录了向 Web Server ‘发送的 Cookie，并在之后的 Request 请求中发送回去，就像操作浏览器一样。</p>
 </li>
-<li><p>CookiesMiddleware设置项:</p>
+<li><p>CookiesMiddleware 设置项:</p>
 <ul>
-<li><code>COOKIES_ENABLE</code>:默认为True，该配置指定是否启用cookies 中间件，如果指定为False,就不会使用cookies。需要注意的是，如果Request.meta参数<strong>dont merge_cookies</strong> 指定为True,那么无论COOKIES_ENABLE指定为何值，Request都不会向服务器传递任何cookies，Response接收到的cookies也不会做任何处理。</li>
-<li><code>COOKIES_DEBUG</code>:默认为False，如果该参数指定为True，那么将会记录所有的请求发送的cookies和响应接收到的cookies。</li>
+<li><code>COOKIES_ENABLE</code>:默认为 True，该配置指定是否启用 cookies 中间件，如果指定为 False,就不会使用 cookies。需要注意的是，如果 Request.meta 参数<strong>dont merge_cookies</strong> 指定为 True,那么无论 COOKIES_ENABLE 指定为何值，Request 都不会向服务器传递任何 cookies，Response 接收到的 cookies 也不会做任何处理。</li>
+<li><code>COOKIES_DEBUG</code>:默认为 False，如果该参数指定为 True，那么将会记录所有的请求发送的 cookies 和响应接收到的 cookies。</li>
 </ul>
 </li>
-<li><p>每个蜘蛛爬虫可以<strong>保存多个cookies</strong>，只需要为Request.meta 指定<code>cookiejar</code>值。如下所示，通过传递不同的标识符使用不同的Cookie:</p>
+<li><p>每个蜘蛛爬虫可以<strong>保存多个 cookies</strong>，只需要为 Request.meta 指定<code>cookiejar</code>值。如下所示，通过传递不同的标识符使用不同的 Cookie:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i<span class="token punctuation">,</span> url <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>urls<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>
         url<span class="token punctuation">,</span>
@@ -595,14 +595,14 @@ DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token 
 <li><p><strong>HttpProxyMiddleware</strong></p>
 <ul>
 <li><strong><code>class scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware</code></strong></li>
-<li>此中间件可以通过在Request.meta中添加<code>proxy</code>属性值为该请求设置HTTP代理,默认获取代理的方法是通过以下环境变量来获取代理地址:<ul>
+<li>此中间件可以通过在 Request.meta 中添加<code>proxy</code>属性值为该请求设置 HTTP 代理,默认获取代理的方法是通过以下环境变量来获取代理地址:<ul>
 <li>http_proxy</li>
 <li>https_proxy</li>
 <li>no_proxy</li>
 </ul>
 </li>
-<li>在settings.py中的设置:<ul>
-<li><code>HTTPPROXY_ENABLED</code>: 默认为False，表示是否激活HttpProxyMiddleware。. </li>
+<li>在 settings.py 中的设置:<ul>
+<li><code>HTTPPROXY_ENABLED</code>: 默认为 False，表示是否激活 HttpProxyMiddleware。.</li>
 <li><code>HTTPPROXY_AUTH_ENCODING</code>: 代理有验证时的账户信息编码方式。</li>
 </ul>
 </li>
@@ -610,7 +610,7 @@ DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token 
 </li>
 </ul>
 <blockquote>
-<p>为爬虫添加中间件，主要是middlers.py文件</p>
+<p>为爬虫添加中间件，主要是 middlers.py 文件</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
 <span class="token keyword">from</span> scrapy <span class="token keyword">import</span> signals
 <span class="token keyword">import</span> scrapy
@@ -666,7 +666,7 @@ DOWNLOADER_MIDDLEWARES <span class="token operator">=</span> <span class="token 
      spider<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'Spider opened: %s'</span> <span class="token operator">%</span> spider<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

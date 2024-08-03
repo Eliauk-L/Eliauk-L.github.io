@@ -365,12 +365,12 @@
     <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment"># 这里是在调用原始函数前添加的新功能</span>
         before_call_code<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        
+
         result <span class="token operator">=</span> original_function<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
-        
+
         <span class="token comment"># 这里是在调用原始函数后添加的新功能</span>
         after_call_code<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        
+
         <span class="token keyword">return</span> result
     <span class="token keyword">return</span> wrapper
 
@@ -381,7 +381,7 @@
 <ul>
 <li><code>decorator_function</code> 是装饰器，它接收一个函数 <code>original_function</code> 作为参数。</li>
 <li><code>wrapper</code> 是内部函数，它是实际会被调用的新函数，它包裹了原始函数的调用，并在其前后增加了额外的行为。</li>
-<li>当我们使用 <code>@decorator_function</code> 前缀在 <code>target_function</code> 定义前，Python会自动将 <code>target_function</code> 作为参数传递给 <code>decorator_function</code>，然后将返回的 <code>wrapper</code> 函数替换掉原来的 <code>target_function</code>。</li>
+<li>当我们使用 <code>@decorator_function</code> 前缀在 <code>target_function</code> 定义前，Python 会自动将 <code>target_function</code> 作为参数传递给 <code>decorator_function</code>，然后将返回的 <code>wrapper</code> 函数替换掉原来的 <code>target_function</code>。</li>
 </ul>
 <h2 id="2-使用装饰器"><a href="#2-使用装饰器" class="headerlink" title="2 使用装饰器"></a>2 使用装饰器</h2><p>装饰器通过 <strong>@</strong> 符号应用在函数定义之前</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@time_logger</span>
@@ -412,7 +412,7 @@ greet<span class="token punctuation">(</span><span class="token string">"Alice"<
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">DecoratorClass</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> func<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>func <span class="token operator">=</span> func
-    
+
     <span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment"># 在调用原始函数之前/之后执行的代码</span>
         result <span class="token operator">=</span> self<span class="token punctuation">.</span>func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>

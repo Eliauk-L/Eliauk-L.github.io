@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Selenium操纵浏览器, Jay&#39;s Blog">
-    <meta name="description" content="Selenium操纵浏览器
-Selenium是一个自动化测试工具，支持各种浏览器，包括Chrome、Safari、Firefox等主流界面式浏览器。
-Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行JavaScr">
+    <meta name="description" content="Selenium 操纵浏览器
+Selenium 是一个自动化测试工具，支持各种浏览器，包括 Chrome、Safari、Firefox 等主流界面式浏览器。
+Selenium 可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行 J">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -324,7 +324,7 @@ Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    746
+                    753
                 </div>
                 
 
@@ -354,12 +354,12 @@ Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Selenium操纵浏览器"><a href="#Selenium操纵浏览器" class="headerlink" title="Selenium操纵浏览器"></a>Selenium操纵浏览器</h1><ul>
-<li>Selenium是一个自动化测试工具，支持各种浏览器，包括Chrome、Safari、Firefox等主流界面式浏览器。</li>
-<li>Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行JavaScript等操作，即可自动加载完成后的页面。</li>
+                <h1 id="Selenium-操纵浏览器"><a href="#Selenium-操纵浏览器" class="headerlink" title="Selenium 操纵浏览器"></a>Selenium 操纵浏览器</h1><ul>
+<li>Selenium 是一个自动化测试工具，支持各种浏览器，包括 Chrome、Safari、Firefox 等主流界面式浏览器。</li>
+<li>Selenium 可以模拟操作浏览器，对一些需要动态加载的页面，不需要我们执行 JavaScript 等操作，即可自动加载完成后的页面。</li>
 </ul>
-<h2 id="安装Selenium"><a href="#安装Selenium" class="headerlink" title="安装Selenium"></a>安装Selenium</h2><ul>
-<li><p>pip安装：<strong><code>pip install selenium</code></strong></p>
+<h2 id="安装-Selenium"><a href="#安装-Selenium" class="headerlink" title="安装 Selenium"></a>安装 Selenium</h2><ul>
+<li><p>pip 安装：<strong><code>pip install selenium</code></strong></p>
 </li>
 <li><p>下载与自己电脑对应版本的浏览器驱动，放入系统路径</p>
 <ul>
@@ -367,7 +367,7 @@ Selenium可以模拟操作浏览器，对一些需要动态加载的页面，不
 <li>Firefox driver: <a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases。">https://github.com/mozilla/geckodriver/releases。</a></li>
 <li>IE driver: <a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases。">https://github.com/mozilla/geckodriver/releases。</a></li>
 <li>Edge driver: <a target="_blank" rel="noopener" href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver。">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver。</a></li>
-<li>ps：有些下载的驱动名称与selenium中驱动名称不对应需要重命名，例如：Edge浏览器驱动下载后，需将msedgedriver.exe重命名为<strong>MicrosoftWebDriver.exe</strong></li>
+<li>ps：有些下载的驱动名称与 selenium 中驱动名称不对应需要重命名，例如：Edge 浏览器驱动下载后，需将 msedgedriver.exe 重命名为<strong>MicrosoftWebDriver.exe</strong></li>
 </ul>
 </li>
 <li><p>测试</p>
@@ -377,7 +377,7 @@ driver<span class="token punctuation">.</span>get<span class="token punctuation"
 <p>若能正常打开浏览器，则设置正确。</p>
 </li>
 </ul>
-<h2 id="Selenium基本使用"><a href="#Selenium基本使用" class="headerlink" title="Selenium基本使用"></a>Selenium基本使用</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<h2 id="Selenium-基本使用"><a href="#Selenium-基本使用" class="headerlink" title="Selenium 基本使用"></a>Selenium 基本使用</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
 <span class="token keyword">import</span> time
 <span class="token comment"># 获取浏览器驱动</span>
 driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -417,16 +417,16 @@ driver <span class="token operator">=</span> webdriver<span class="token punctua
 driver<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span>timeout<span class="token punctuation">)</span>
 driver<span class="token punctuation">.</span>maximize_window<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><ul>
-<li><p>selenium使用代码分为3部分</p>
+<li><p>selenium 使用代码分为 3 部分</p>
 <ul>
 <li>浏览器</li>
 <li>driver</li>
 <li>client</li>
 </ul>
 </li>
-<li><p>client就是我们写的代码，我们无须知道浏览器具体的运行原理，只需要调用driver，而 driver知道如何驱动浏览器运行。</p>
+<li><p>client 就是我们写的代码，我们无须知道浏览器具体的运行原理，只需要调用 driver，而 driver 知道如何驱动浏览器运行。</p>
 </li>
-<li>在Selenium启动以后，driver充当了HTTP Server 服务器的角色，负责client和浏览器通信。client根据Webdriver协议发送请求给driver，driver解析请求后，在浏览器上执行相应的操作，并把执行结果返回给client。其中 Webdriver协议包含几乎所有与浏览器的交互操作。通过这些协议，client就可以通知driver执行哪些操作。</li>
+<li>在 Selenium 启动以后，driver 充当了 HTTP Server 服务器的角色，负责 client 和浏览器通信。client 根据 Webdriver 协议发送请求给 driver，driver 解析请求后，在浏览器上执行相应的操作，并把执行结果返回给 client。其中 Webdriver 协议包含几乎所有与浏览器的交互操作。通过这些协议，client 就可以通知 driver 执行哪些操作。</li>
 </ul>
 <h2 id="元素定位"><a href="#元素定位" class="headerlink" title="元素定位"></a>元素定位</h2><ul>
 <li><strong>find_element_by_id()</strong></li>
@@ -443,7 +443,7 @@ driver<span class="token punctuation">.</span>maximize_window<span class="token 
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26086231/article/details/126744036">https://blog.csdn.net/qq_26086231/article/details/126744036</a></li>
 </ol>
 </blockquote>

@@ -370,12 +370,12 @@ Geometr">
 </li>
 <li><strong><code>Polynomials</code></strong><ul>
 <li>can be added together, which results in another polynomial</li>
-<li>can be multiplied by a scalar  λ, and the result is a polynomial as well</li>
+<li>can be multiplied by a scalar λ, and the result is a polynomial as well</li>
 <li><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251631853.png" alt="Polynomials"></li>
 </ul>
 </li>
 <li><strong><code>Audio signals</code></strong></li>
-<li><strong>Elements of R^n^</strong>  (tuples of n real numbers)</li>
+<li><strong>Elements of R^n^</strong> (tuples of n real numbers)</li>
 </ul>
 </li>
 </ul>
@@ -497,10 +497,10 @@ A^{-1}:=\frac{1}{a_{11}a_{22}-a_{12}a_{21}} \left[ \begin{matrix}
 AA^{-1}= I =A^{-1}A \\
 (AB)^{-1} =  B^{-1} A^{-1} \\
 (A+B)^{-1} \ne A^{-1} + B^{-1} \\
-(A^{T})^{T} = A \\ 
+(A^{T})^{T} = A \\
 (A+B)^{T} = A^{T} + B^{T} \\
 (AB)^{T} = B^{T} A^{T}</script></li>
-<li><p><strong>Symmetric Matrix</strong>:  $A = A^⊤,A ∈ R^{n×n}$.</p>
+<li><p><strong>Symmetric Matrix</strong>: $A = A^⊤,A ∈ R^{n×n}$.</p>
 <ul>
 <li>only <strong>(n, n)-matrices</strong>(square matrices) can be symmetric</li>
 <li>if $A$ is invertible, then so is $A^⊤$, and $(A^{−1})^{⊤} = (A^⊤)^{−1} =: A^{−⊤}$.</li>
@@ -541,7 +541,7 @@ AA^{-1}= I =A^{-1}A \\
 </li>
 </ul>
 <blockquote>
-<p><strong>e.g. </strong>  For  <strong>a ∈ R</strong> </p>
+<p><strong>e.g. </strong> For <strong>a ∈ R</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251635152.png" alt="System of linear equations"></p>
 <p>the augmented matrix (in the form$\left [<br>\begin{array}{c|c}<br>\begin{matrix}<br>\mathbf A<br>\end{matrix}&amp;<br>\begin{matrix}<br>\mathbf b<br>\end{matrix}<br>\end{array}<br>\right ]$):</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251636698.png" alt="the augmented matrix"></p>
@@ -560,7 +560,7 @@ AA^{-1}= I =A^{-1}A \\
      x_{3} \\
      x_{4} \\
      x_{5} \\
-\end{matrix} \right] = 
+\end{matrix} \right] =
 \left[\begin{matrix}
         2 \\
         0 \\
@@ -581,7 +581,7 @@ AA^{-1}= I =A^{-1}A \\
 </li>
 <li><p><strong>Basic and Free Variables</strong></p>
 <ul>
-<li>The variables corresponding to the <strong>pivots</strong> in the row-echelon form are called <strong>basic variables</strong> and the other variables are <strong>free variables</strong>. </li>
+<li>The variables corresponding to the <strong>pivots</strong> in the row-echelon form are called <strong>basic variables</strong> and the other variables are <strong>free variables</strong>.</li>
 <li>In the above example, x1, x3, x4 are basic free variable, whereas x2, x5 are free variables.</li>
 </ul>
 </li>
@@ -591,28 +591,28 @@ AA^{-1}= I =A^{-1}A \\
 </li>
 <li><p>In the previous example, we would try to find $λ_1, λ_2, λ_3$ so that</p>
 <script type="math/tex; mode=display">
-\lambda_1 \left[\begin{matrix} 
+\lambda_1 \left[\begin{matrix}
 1 \\
 0 \\
 0 \\
 0 \\
-\end{matrix}\right] 
+\end{matrix}\right]
 +
-\lambda_2 \left[\begin{matrix} 
+\lambda_2 \left[\begin{matrix}
 1 \\
 1 \\
 0 \\
 0 \\
-\end{matrix}\right] 
+\end{matrix}\right]
 +
-\lambda_3 \left[\begin{matrix} 
+\lambda_3 \left[\begin{matrix}
 -1 \\
 -1 \\
 1 \\
 0 \\
-\end{matrix}\right] 
+\end{matrix}\right]
 =
-\left[\begin{matrix} 
+\left[\begin{matrix}
 0 \\
 -2 \\
 1 \\
@@ -636,7 +636,7 @@ A=\left[\begin{matrix}
 0& 0& 0& \mathbf 1&    -4 \\
 \end{matrix}\right]</script><ul>
 <li>The key idea for finding the solutions of $Ax = 0$ is to look at <strong>the non-pivot columns</strong>, which we will need to express as <strong>a (linear) combination of the pivot columns</strong>.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251637666.png" alt="reduced row-echelon "><script type="math/tex; mode=display">
-\left\{x\in R^5:x=\lambda_1 
+\left\{x\in R^5:x=\lambda_1
 \left[\begin{matrix}
 3  \\
 -1  \\
@@ -662,7 +662,7 @@ A=\left[\begin{matrix}
 </li>
 <li><p>The columns $j_1, . . . , j_k$ with the pivots (marked in <strong>bold</strong>) are the standard unit vectors $e_1, . . . , e_k ∈ R^k$. We extend this matrix to an $n × n$-matrix $\tilde A$ by adding $n − k$ rows of the form</p>
 <script type="math/tex; mode=display">
-\left[\begin{matrix} 
+\left[\begin{matrix}
 0& \cdots& 0& -1& 0& \cdots& 0
 \end{matrix} \right]</script><p>so that the diagonal of the augmented matrix $\tilde A$ contains either 1 or −1.</p>
 </li>
@@ -678,7 +678,7 @@ A=\left[\begin{matrix}
 0& 0& 0& 1&    -4 \\
 \end{matrix}\right]</script><p>We now augment this matrix to a 5 × 5 matrix by <strong>adding rows of the form at the places where the pivots on the diagonal are missing.</strong></p>
 <script type="math/tex; mode=display">
-\tilde A = 
+\tilde A =
 \left[\begin{matrix}
 1& 3& 0& 0&    3 \\
 \mathbf0& \mathbf{-1}& \mathbf0& \mathbf0& \mathbf0 \\
@@ -687,7 +687,7 @@ A=\left[\begin{matrix}
 \mathbf0& \mathbf0& \mathbf0& \mathbf0&    \mathbf{-1} \\
 \end{matrix}\right]</script><p>We can immediately read out the solutions of $Ax = 0$ by taking the columns of $\tilde A$, which contain −1 on the diagonal:</p>
 <script type="math/tex; mode=display">
-\left\{x\in R^5:x=\lambda_1 
+\left\{x\in R^5:x=\lambda_1
 \left[\begin{matrix}
 3  \\
 -1  \\
@@ -713,7 +713,7 @@ A=\left[\begin{matrix}
 \begin{array}{c|c}
 A& I_n
 \end{array}
-\right] 
+\right]
 \rightarrow \cdots \rightarrow
 \left[
 \begin{array}{c|c}
@@ -724,7 +724,7 @@ I_n & A^{-1}
 </li>
 </ul>
 <blockquote>
-<p>e.g. </p>
+<p>e.g.</p>
 <script type="math/tex; mode=display">
 A=\left[\begin{matrix}
 1& 0& 2& 0 \\
@@ -744,13 +744,13 @@ A=\left[\begin{matrix}
 \begin{array}{c|c}
 I_n & A^{-1}
 \end{array}
-\right] = \left[\begin{array}{c|c} 
+\right] = \left[\begin{array}{c|c}
 \begin{matrix}
 1& 0& 0& 0& \\
 0& 1& 0& 0& \\
 0& 0& 1& 0& \\
 0& 0& 0& 1& \\
-\end{matrix} & 
+\end{matrix} &
 \begin{matrix}
 -1& 0& -2& 2\\
 1& -1& 2& -2\\
@@ -788,7 +788,7 @@ x^{(k+1)} = Cx^{(k)} + d</script><p>for suitable $C$ and $d$ that reduces the re
 <li><p>Some examples of sets with associated operations</p>
 <ul>
 <li><strong>$(\mathbb Z, +)$ is an Abelian group.</strong></li>
-<li>$(\mathbb N_0, +)$ is not a group: Although $(\mathbb N_0, +)$ possesses a neutral element(0), the inverse elements are missing.  $\mathbb N_0 := \mathbb N∪ \{0\}$</li>
+<li>$(\mathbb N_0, +)$ is not a group: Although $(\mathbb N_0, +)$ possesses a neutral element(0), the inverse elements are missing. $\mathbb N_0 := \mathbb N∪ \{0\}$</li>
 <li>$(\mathbb Z, ·)$ is not a group: Although $(\mathbb Z, ·)$ contains a neutral element (1), the inverse elements for any $z ∈ \mathbb Z, z \ne ±1$, are missing.</li>
 <li>$(\mathbb R, ·)$ is not a group since 0 does not possess an inverse element</li>
 <li><strong>$(\mathbb R\backslash\{0\}, ·)$ is Abelian</strong></li>
@@ -831,11 +831,11 @@ x^{(k+1)} = Cx^{(k)} + d</script><p>for suitable $C$ and $d$ that reduces the re
 </li>
 <li><p>The elements $x ∈ V$ are called vectors. The neutral element of $(\nu, +)$ is the zero vector $\mathbf 0 = [0, . . . , 0]^⊤$, and the inner operation $+$ is called vector addition. The elements $λ ∈ R $are called scalars and the outer operation $·$ is a multiplication by scalars.</p>
 </li>
-<li><p>A “vector multiplication” $ab, a, b ∈ \mathbb R^n$, is not defined. We could define an element-wise multiplication, such that $c = ab$ with $c_j = a_jb_j$. Only the following multiplications for vectors are defined: $ab^⊤ ∈ \mathbb R^{n×n}$ (<strong>outer  product</strong>), $a^⊤b ∈ \mathbb R$ (<strong>inner/scalar/dot product</strong>).</p>
+<li><p>A “vector multiplication” $ab, a, b ∈ \mathbb R^n$, is not defined. We could define an element-wise multiplication, such that $c = ab$ with $c_j = a_jb_j$. Only the following multiplications for vectors are defined: $ab^⊤ ∈ \mathbb R^{n×n}$ (<strong>outer product</strong>), $a^⊤b ∈ \mathbb R$ (<strong>inner/scalar/dot product</strong>).</p>
 </li>
 <li><p>By default, we write $x$ to denote a column vector, and a row vector is denoted by $x^⊤$, the transpose of $x$</p>
 </li>
-<li><p><strong>Vector Subspace</strong>： Let $V = (\nu, +, ·)$ be a vector space and $u ⊆ \nu, u \ne ∅$. Then $U = (u, +, ·)$ is called <strong>vector subspace</strong> of $V$ (or linear subspace) if U is a vector space with the vector space operations + and · restricted to $u×u$ and $\R×u$. We write $U ⊆ V$ to denote a subspace U of V.   U naturally inherits many properties directly from V</p>
+<li><p><strong>Vector Subspace</strong>： Let $V = (\nu, +, ·)$ be a vector space and $u ⊆ \nu, u \ne ∅$. Then $U = (u, +, ·)$ is called <strong>vector subspace</strong> of $V$ (or linear subspace) if U is a vector space with the vector space operations + and · restricted to $u×u$ and $\R×u$. We write $U ⊆ V$ to denote a subspace U of V. U naturally inherits many properties directly from V</p>
 <ul>
 <li>For every vector space $V$, the trivial subspaces are $V$ itself and $\{0\}$.</li>
 <li>Not all subsets of $\mathbb R^2$ are subspaces. In A and C, the closure property is violated; B does not contain 0. Only D is a subspace.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407251638848.png" alt="Vector Subspace"></li>
@@ -869,7 +869,7 @@ v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</scri
 </li>
 </ul>
 <h2 id="Basis-and-Rank"><a href="#Basis-and-Rank" class="headerlink" title="Basis and Rank"></a>Basis and Rank</h2><ul>
-<li><p><strong>Generating Set and Span</strong>: Consider a vector space $V =(\nu, +, ·)$ and set of vectors $A = {x_1, . . . , x_k} ⊆ \nu$. If every vector $v ∈\nu$ can be expressed as a <em>linear combination</em> of $x_1, . . . , x_k$, $A$ is called a <strong>generating set</strong> of $V$. The set of all linear combinations of vectors in A is called the <strong>span</strong> of $A$. If $A$ spans the vector space $V$, we write $V = span[A]$ or $V = span[x_1, . . . , x_k]$.</p>
+<li><p><strong>Generating Set and Span</strong>: Consider a vector space $V =(\nu, +, ·)$ and set of vectors $A = {x_1, . . . , x_k} ⊆ \nu$. If every vector $v ∈\nu$ can be expressed as a _linear combination_ of $x_1, . . . , x_k$, $A$ is called a <strong>generating set</strong> of $V$. The set of all linear combinations of vectors in A is called the <strong>span</strong> of $A$. If $A$ spans the vector space $V$, we write $V = span[A]$ or $V = span[x_1, . . . , x_k]$.</p>
 </li>
 <li><p><strong>Basis</strong>: Consider a vector space $V = (\nu, +, ·)$ and $A ⊆ \nu$. A generating set $A$ of $V$ is called <strong>minimal</strong> if there exists <strong>no smaller set $\tilde A⊊ A ⊆ \nu$ that spans $V$.</strong> <strong>Every linearly independent generating set of $V$ is minimal and is called a basis of $V$.</strong></p>
 </li>
@@ -883,7 +883,7 @@ v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</scri
 </li>
 <li><p><strong>Every vector space $V$ possesses a basis</strong> $\mathcal B$. And there can be many bases of a vector space $V$, i.e., there is no unique basis. However, all bases possess <strong>the same number of elements, the basis vectors.</strong></p>
 </li>
-<li><p>Consider finite-dimensional vector spaces $V$, the <strong><em>dimension</em></strong> of $V$ is <strong>the number of basis vectors</strong> of $V$, and we write $dim(V)$. If $U ⊆ V$ is a subspace of $V$, then $dim(U) ⩽ dim(V) $and $dim(U) =dim(V)$ if and only if $U = V$​. Intuitively, <strong>the dimension of a vector space</strong><br><strong>can be thought of as the number of independent directions in this vector space.</strong></p>
+<li><p>Consider finite-dimensional vector spaces $V$, the <strong>_dimension_</strong> of $V$ is <strong>the number of basis vectors</strong> of $V$, and we write $dim(V)$. If $U ⊆ V$ is a subspace of $V$, then $dim(U) ⩽ dim(V) $and $dim(U) =dim(V)$ if and only if $U = V$​. Intuitively, <strong>the dimension of a vector space</strong><br><strong>can be thought of as the number of independent directions in this vector space.</strong></p>
 </li>
 <li><p>The dimension of a vector space is not necessarily the number of elements in a vector.</p>
 </li>
@@ -894,7 +894,7 @@ v = \lambda_1x_1 + \cdots + \lambda_kx_k = \sum_{i=1}^k{\lambda_ix_i}\in V</scri
 <li>The spanning vectors associated with the pivot columns are a basis of $U$.</li>
 </ol>
 <blockquote>
-<p>e.g.  For a vector subspace $U ⊆ \mathbb R^5$, spanned by the vectors</p>
+<p>e.g. For a vector subspace $U ⊆ \mathbb R^5$, spanned by the vectors</p>
 <script type="math/tex; mode=display">
 x_1 = \left[ \begin{matrix}
 1 \\
@@ -924,9 +924,9 @@ x_4 = \left[ \begin{matrix}
 -6 \\
 1
 \end{matrix} \right] \in \mathbb R^5</script><p>To find out which vectors $x_1, . . . , x_4$ are a basis for $U$, we need to check whether $x_1, . . . , x_4$ are linearly independent.</p>
-<p>Therefore, we need to solve $\sum_{i=1}^4{\lambda_ix_i}=0$,  which leads to a homogeneous system of equations with matrix</p>
+<p>Therefore, we need to solve $\sum_{i=1}^4{\lambda_ix_i}=0$, which leads to a homogeneous system of equations with matrix</p>
 <script type="math/tex; mode=display">
-[x_1,x_2,x_3,x_4]=\left[\begin{matrix} 
+[x_1,x_2,x_3,x_4]=\left[\begin{matrix}
 1& 2& 3& -1\\
 2& -1& -4& 8\\
 -1& 1& 3& -5\\
@@ -934,7 +934,7 @@ x_4 = \left[ \begin{matrix}
 -1& -2& -3& 1\\
 \end{matrix}\right]</script><p>With the basic transformation rules for systems of linear equations, we obtain the row-echelon form</p>
 <script type="math/tex; mode=display">
-\left[\begin{matrix} 
+\left[\begin{matrix}
 1& 2& 3& -1\\
 0& 1& 2& -2\\
 0& 0& 0& 1\\
@@ -951,7 +951,7 @@ x_4 = \left[ \begin{matrix}
 <li>For all $A ∈ \mathbb R^{n×n}$ it holds that $A$ is regular (invertible) if and only if $rk(A) = n$.</li>
 <li>For all $A ∈ \mathbb R^{m×n}$ and all $b ∈ \mathbb R^m$ it holds that the linear equation system $Ax = b$ can be solved if and only if $rk(A) = rk(A|b)$.</li>
 <li>For$A ∈ \mathbb R^{m×n}$ the subspace of solutions for $Ax = 0$ possesses dimension $n − rk(A)$.</li>
-<li>A matrix $A ∈ \mathbb R^{m×n}$  has <em>full rank</em> if its rank equals the largest possible  rank for a matrix of the same dimensions. This means that the rank of a full-rank matrix is the lesser of the number of rows and columns, i.e., $rk(A) = min(m,n)$. A matrix is said to be <em>rank deficient</em> if it does not  have full rank.</li>
+<li>A matrix $A ∈ \mathbb R^{m×n}$ has _full rank_ if its rank equals the largest possible rank for a matrix of the same dimensions. This means that the rank of a full-rank matrix is the lesser of the number of rows and columns, i.e., $rk(A) = min(m,n)$. A matrix is said to be _rank deficient_ if it does not have full rank.</li>
 </ul>
 </li>
 </ul>
@@ -963,8 +963,8 @@ x_4 = \left[ \begin{matrix}
 <li><p>Consider a mapping $Φ : V →W$, where $V,W$ can be arbitrary sets. Then $Φ$ is called</p>
 <ul>
 <li><strong><code>Injective</code></strong> if $∀x, y ∈ V : Φ(x) = Φ(y) ⇒ x = y$.</li>
-<li><strong><code>Surjective</code></strong> if $Φ(V) = W$.   Every element in $W$ can be “reached” from $V$ using $Φ$.</li>
-<li><strong><code>Bijective</code></strong> if it is injective and surjective.  A bijective $Φ$ can be “undone”, i.e., there exists a mapping $Ψ :W → V$ so that $Ψ ◦ Φ(x) = x$. This mapping $Ψ$ is then called the inverse of $Φ$ and normally denoted by $Φ^{−1}$.</li>
+<li><strong><code>Surjective</code></strong> if $Φ(V) = W$. Every element in $W$ can be “reached” from $V$ using $Φ$.</li>
+<li><strong><code>Bijective</code></strong> if it is injective and surjective. A bijective $Φ$ can be “undone”, i.e., there exists a mapping $Ψ :W → V$ so that $Ψ ◦ Φ(x) = x$. This mapping $Ψ$ is then called the inverse of $Φ$ and normally denoted by $Φ^{−1}$.</li>
 </ul>
 </li>
 <li><p>The special cases of linearmappings between vector spaces $V$ and $W$</p>
@@ -981,39 +981,39 @@ x_4 = \left[ \begin{matrix}
 <script type="math/tex; mode=display">
 \begin{equation}
 \begin{split}
-\varPhi \left( 
-\left[\begin{matrix} 
+\varPhi \left(
+\left[\begin{matrix}
 x_1\\
 x_2
 \end{matrix}\right] +
-\left[\begin{matrix} 
+\left[\begin{matrix}
 y_1\\
 y_2
-\end{matrix}\right] 
+\end{matrix}\right]
 \right) &= (x_1+y_1) + i(x_2+y_2)=x_1+ix_2+y_1+iy_2 \\
-&= \varPhi \left( 
-\left[\begin{matrix} 
+&= \varPhi \left(
+\left[\begin{matrix}
 x_1\\
 x_2
-\end{matrix}\right]\right)+\varPhi \left( 
-\left[\begin{matrix} 
+\end{matrix}\right]\right)+\varPhi \left(
+\left[\begin{matrix}
 y_1\\
 y_2
 \end{matrix}\right]\right)
 \end{split}
 \end{equation}</script><script type="math/tex; mode=display">
-\left( \lambda \left[\begin{matrix} 
+\left( \lambda \left[\begin{matrix}
 x_1\\
 x_2
-\end{matrix}\right]\right) = 
-\lambda x_1 + \lambda i x_2 = 
+\end{matrix}\right]\right) =
+\lambda x_1 + \lambda i x_2 =
 \lambda(x_1+ix_2) =
-\lambda \varPhi \left( \left[\begin{matrix} 
+\lambda \varPhi \left( \left[\begin{matrix}
 x_1\\
 x_2
 \end{matrix}\right]\right)</script></blockquote>
 <ul>
-<li><p><em>Finite-dimensional vector spaces $V$ and $W$</em> are <strong>isomorphic</strong> if and only if $dim(V) = dim(W)$.</p>
+<li><p>_Finite-dimensional vector spaces $V$ and $W$_ are <strong>isomorphic</strong> if and only if $dim(V) = dim(W)$.</p>
 <ul>
 <li>There exists a linear, bijective mapping between two vector spaces of the same dimension.</li>
 <li>Vector spaces of the same dimension are kind of the same thing, as they can be transformed into each other without incurring any loss.</li>
@@ -1027,11 +1027,11 @@ x_2
 <li>If $Φ : V →W, Ψ : V →W$ are linear, then $Φ+Ψ$ and $λΦ, λ ∈ R$, are linear, too.</li>
 </ul>
 </li>
-<li><p>Consider a basis $\{b_1, . . . , b_n\}$ of an $n$-dimensional vector space $V$. We write </p>
+<li><p>Consider a basis $\{b_1, . . . , b_n\}$ of an $n$-dimensional vector space $V$. We write</p>
 <script type="math/tex; mode=display">
 B = (b_1,\cdots,b_n)</script><p>and call this $n$-tuple an <strong>ordered basis</strong> of $V$.</p>
 </li>
-<li><p><strong>Coordinates</strong>:  Consider a vector space $V$ and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. For any $x ∈ V$ we obtain a unique representation (linear combination)</p>
+<li><p><strong>Coordinates</strong>: Consider a vector space $V$ and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. For any $x ∈ V$ we obtain a unique representation (linear combination)</p>
 <script type="math/tex; mode=display">
 x = \alpha_1b_1 + \cdots + \alpha_nb_n</script><p>of $x$ with respect to $B$. Then $α_1, . . . , α_n$ are the <strong>coordinates</strong> of $x$ with respect to $B$, and the vector</p>
 <script type="math/tex; mode=display">
@@ -1041,18 +1041,18 @@ x = \alpha_1b_1 + \cdots + \alpha_nb_n</script><p>of $x$ with respect to $B$. Th
 \vdots\\
 \alpha_n
 \end{matrix}
-\right]\in \mathbb R^n</script><p>is the <strong>coordinate vector/coordinate representation</strong> of $x$ with respect to the ordered basis $B$​.  Different coordinate representations of a vector x, depending on the choice of basis.</p>
+\right]\in \mathbb R^n</script><p>is the <strong>coordinate vector/coordinate representation</strong> of $x$ with respect to the ordered basis $B$​. Different coordinate representations of a vector x, depending on the choice of basis.</p>
 </li>
 <li><p><strong>Transformation Matrix</strong>: Consider vector spaces $V,W$ with corresponding (ordered) bases $B = (b_1, . . . , b_n)$ and $C = (c_1, . . . , c_m)$. Moreover, we consider a linear mapping $Φ : V →W$. For $j ∈ \{1, . . . , n\}$,</p>
 <script type="math/tex; mode=display">
 \varPhi(b_j) = \alpha_{1j}c_1+\cdots+\alpha_{mj}c_m=\sum_{i=1}^m{\alpha_{ij}c_i}</script><p>is the unique representation of $Φ(b_j)$ with respect to $C$. Then, we call the $m× n$-matrix $A_Φ$, whose elements are given by $A_{\varPhi}(i,j)=\alpha_{ij}$ the <strong>transformation matrix</strong> of $Φ$ (with respect to the ordered bases $B$ of $V$ and $C$ of $W$).</p>
 </li>
-<li><p>The coordinates of $Φ(b_j)$ with respect to the ordered basis $C$ of $W$ are the $j$-th column of $A_Φ$. Consider (finite-dimensional) vector spaces $V,W$ with ordered bases $B, C$ and a linear mapping $Φ : V →W$ with  transformation matrix $A_Φ$. If $\tilde x$ is the coordinate vector of $x ∈ V$ with respect to $B$ and $\tilde y$ the coordinate vector of $y = Φ(x) ∈ W$ with respect<br>to $C$, then  </p>
+<li><p>The coordinates of $Φ(b_j)$ with respect to the ordered basis $C$ of $W$ are the $j$-th column of $A_Φ$. Consider (finite-dimensional) vector spaces $V,W$ with ordered bases $B, C$ and a linear mapping $Φ : V →W$ with transformation matrix $A_Φ$. If $\tilde x$ is the coordinate vector of $x ∈ V$ with respect to $B$ and $\tilde y$ the coordinate vector of $y = Φ(x) ∈ W$ with respect<br>to $C$, then</p>
 <script type="math/tex; mode=display">
 \tilde y = A_\varPhi \tilde x</script></li>
 </ul>
 <blockquote>
-<p>e.g. Consider a homomorphism $Φ : V → W$ and ordered bases $B = (b_1, . . . , b_3)$ of $V$ and $C = (c_1, . . . , c_4)$ of $W$. With </p>
+<p>e.g. Consider a homomorphism $Φ : V → W$ and ordered bases $B = (b_1, . . . , b_3)$ of $V$ and $C = (c_1, . . . , c_4)$ of $W$. With</p>
 <script type="math/tex; mode=display">
 \varPhi(b_1)=c_1-c_2+3c_3-c_4 \\
 \varPhi(b_2)=2c_1+c_2+7c_3+2c_4\\
@@ -1082,7 +1082,7 @@ A_3 = \frac{1}{2}\left[\begin{matrix}
 1& -1
 \end{matrix}\right],</script></blockquote>
 <ul>
-<li><p><strong>Basis Change</strong>: For a linear mapping $Φ : V →W$, ordered bases $B=(b_1,…,b_n),\tilde B=(\tilde{b_1},…,\tilde{b_n})$ of $V$ and $C=(c_1,…,c_m),\tilde C=(\tilde{c_1},…,\tilde{c_m})$ of $W$, and a transformation matrix $A_\varPhi$ of $\varPhi$  with respect to $B$ and $C$, the corresponding transformation matrix $\tilde A_Φ$ with respect to the bases $\tilde B$ and $\tilde C$ is given as</p>
+<li><p><strong>Basis Change</strong>: For a linear mapping $Φ : V →W$, ordered bases $B=(b_1,…,b_n),\tilde B=(\tilde{b_1},…,\tilde{b_n})$ of $V$ and $C=(c_1,…,c_m),\tilde C=(\tilde{c_1},…,\tilde{c_m})$ of $W$, and a transformation matrix $A_\varPhi$ of $\varPhi$ with respect to $B$ and $C$, the corresponding transformation matrix $\tilde A_Φ$ with respect to the bases $\tilde B$ and $\tilde C$ is given as</p>
 <script type="math/tex; mode=display">
 \tilde A_Φ = T^{-1}A_\varPhi S</script><p>$S ∈ \mathbb R^{n×n}$ is the transformation matrix of $id_V$ that maps coordinates with respect to<br>$\tilde B$ onto coordinates with respect to $B$, and $T ∈ \mathbb R^{m×m}$ is the transformation matrix of $id_W$that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$.</p>
 <ul>
@@ -1090,7 +1090,7 @@ A_3 = \frac{1}{2}\left[\begin{matrix}
 <script type="math/tex; mode=display">
 \tilde b_j=s_{1j}b_1+\cdots+s_{nj}b_n=\sum_{i=1}^n{s_{ij}b_i},j = 1,...,n</script><script type="math/tex; mode=display">
 \tilde c_k=t_{1k}c_1+\cdots+t_{mk}c_m=\sum_{l=1}^m{t_{lk}c_l},k = 1,...,m</script></li>
-<li><p>We define $S = ((s_{ij})) ∈ \mathbb R^{n×n}$ as the transformation matrix that maps coordinates with respect to $\tilde B$ onto coordinates with respect to $B$ and $T = ((t_{lk})) ∈ R^{m×m}$ as the transformation matrix that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$. </p>
+<li><p>We define $S = ((s_{ij})) ∈ \mathbb R^{n×n}$ as the transformation matrix that maps coordinates with respect to $\tilde B$ onto coordinates with respect to $B$ and $T = ((t_{lk})) ∈ R^{m×m}$ as the transformation matrix that maps coordinates with respect to $\tilde C$ onto coordinates with respect to $C$.</p>
 </li>
 <li><p>In particular, the $j$th column of $S$ is the coordinate representation of $\tilde b_j$ with respect to $B$ and the $k$th column of $T$ is the coordinate representation of $\tilde c_k$ with respect to $C$. Both $S$ and $T$ are regular.</p>
 </li>
@@ -1138,60 +1138,60 @@ Im(\varPhi) &=\{Ax:x\in \mathbb R^n \}=\{\sum_{i=1}^{n}{x_ia_i}:x_1, . . . , x_n
 </li>
 </ul>
 <blockquote>
-<p>e.g.  The mapping</p>
+<p>e.g. The mapping</p>
 <script type="math/tex; mode=display">
-\varPhi:\mathbb R^4 \rightarrow \mathbb R^2, \left[\begin{matrix} 
+\varPhi:\mathbb R^4 \rightarrow \mathbb R^2, \left[\begin{matrix}
 x_1\\
 x_2\\
 x_3\\
 x_4
 \end{matrix} \right] \mapsto
-\left[\begin{matrix} 
+\left[\begin{matrix}
 x_1\\
 x_2\\
 x_3\\
 x_4
 \end{matrix} \right]
-\left[\begin{matrix} 
+\left[\begin{matrix}
 1& 2& -1& 0\\
 1& 0& 0& 1
-\end{matrix} \right] = \left[\begin{matrix} 
+\end{matrix} \right] = \left[\begin{matrix}
 x_1+2x_2-x_3\\
 x_1+x_4
 \end{matrix} \right]\\
-=x_1\left[\begin{matrix} 
+=x_1\left[\begin{matrix}
 1\\
 1
-\end{matrix} \right] + x_2\left[\begin{matrix} 
+\end{matrix} \right] + x_2\left[\begin{matrix}
 2\\
 0
-\end{matrix} \right] +x_3\left[\begin{matrix} 
+\end{matrix} \right] +x_3\left[\begin{matrix}
 -1\\
 0
-\end{matrix} \right] +x_4\left[\begin{matrix} 
+\end{matrix} \right] +x_4\left[\begin{matrix}
 0\\
 1
 \end{matrix} \right]</script><p>is linear. To determine $Im(Φ)$, we can take the span of the columns of the transformation matrix and obtain</p>
 <script type="math/tex; mode=display">
 Im(\varPhi)=span
 \left[
-\left[\begin{matrix} 
+\left[\begin{matrix}
 1\\
 1
 \end{matrix} \right],
-\left[\begin{matrix} 
+\left[\begin{matrix}
 2\\
 0
 \end{matrix} \right],
-\left[\begin{matrix} 
+\left[\begin{matrix}
 -1\\
 0
 \end{matrix} \right],
-\left[\begin{matrix} 
+\left[\begin{matrix}
 0\\
 1
 \end{matrix} \right]
-\right]</script><p>To compute the kernel (null space) of $Φ$, we need to solve $Ax = 0$, </p>
+\right]</script><p>To compute the kernel (null space) of $Φ$, we need to solve $Ax = 0$,</p>
 <script type="math/tex; mode=display">
 \left[\begin{matrix}
 1& 2& -1& 0\\
@@ -1202,7 +1202,7 @@ Im(\varPhi)=span
 0& 1& -\frac{1}{2}& -\frac{1}{2}
 \end{matrix}\right]</script><p>Therefore, $0 = a_3+ \frac{1}{2}a_2$, $0 = a_1−\frac{1}{2}a_2−a_4$</p>
 <script type="math/tex; mode=display">
-ker(\varPhi) = span 
+ker(\varPhi) = span
 \left[
 \left[\begin{matrix}
 0\\
@@ -1218,7 +1218,7 @@ ker(\varPhi) = span
 \end{matrix}\right]
 \right]</script></blockquote>
 </li>
-<li><p><strong>Rank-Nullity Theorem</strong>: For vector spaces $V,W$ and a linear mapping $Φ : V →W$ it holds that </p>
+<li><p><strong>Rank-Nullity Theorem</strong>: For vector spaces $V,W$ and a linear mapping $Φ : V →W$ it holds that</p>
 <script type="math/tex; mode=display">
 dim(ker(Φ)) + dim(Im(Φ)) = dim(V)</script><ul>
 <li><p>If $dim(Im(Φ)) &lt; dim(V)$, then $ker(Φ)$ is non-trivial, i.e., the kernel contains more than $0_V$ and $dim(ker(Φ)) ⩾ 1$.</p>

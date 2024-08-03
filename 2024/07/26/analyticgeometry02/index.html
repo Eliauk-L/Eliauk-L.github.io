@@ -355,7 +355,7 @@ Orthonormal Basis: Consider an $n$-dimensional vector space $V$ and a basis {$b_
 <b_i,b_j>=0 ,\;for \;i\ne j\\
 <b_i,b_i>=1</script><p>for all $i, j = 1, . . . , n$ then the basis is called an <strong>orthonormal basis (ONB)</strong>. If only $<b_i,b_j>=0$ is satisfied, then the basis is called an <strong>orthogonal basis</strong>.</b_i,b_j></p>
 </li>
-<li><p>Assume we are given a set ${\tilde b_1, . . . , \tilde b_n}$ of non-orthogonal and unnormalized basis vectors. We concatenate them into a matrix $\tilde B = [\tilde b_1, . . . , \tilde b_n]$ and apply Gaussian elimination to the augmented matrix  $[\tilde B \tilde B^⊤|\tilde B]$ to obtain an orthonormal basis. This constructive way to iteratively build an orthonormal basis ${b_1, . . . , b_n}$ is called the <em>Gram-Schmidt process</em>.</p>
+<li><p>Assume we are given a set ${\tilde b_1, . . . , \tilde b_n}$ of non-orthogonal and unnormalized basis vectors. We concatenate them into a matrix $\tilde B = [\tilde b_1, . . . , \tilde b_n]$ and apply Gaussian elimination to the augmented matrix $[\tilde B \tilde B^⊤|\tilde B]$ to obtain an orthonormal basis. This constructive way to iteratively build an orthonormal basis ${b_1, . . . , b_n}$ is called the _Gram-Schmidt process_.</p>
 </li>
 </ul>
 <h2 id="Orthogonal-Complement"><a href="#Orthogonal-Complement" class="headerlink" title="Orthogonal Complement"></a>Orthogonal Complement</h2><ul>
@@ -372,7 +372,7 @@ x=\sum_{m=1}^M{\lambda_mb_m}+\sum_{j=1}^{D-M}{\psi_jb_j^\bot},\lambda_m,\psi_j \
 <li><p>An inner product of two functions $u : \mathbb R → \mathbb R$ and $v : \mathbb R → \mathbb R$ can be defined as the definite integral</p>
 <script type="math/tex; mode=display">
 \left<u,v\right>=\int_a^b{u(x)v(x)dx},\; a,b< \infty</script></li>
-<li><p>It also holds that the collection of functions </p>
+<li><p>It also holds that the collection of functions</p>
 <script type="math/tex; mode=display">
 \{1,cos(x),cos(2x),cos(3x),\cdots\}</script><p>is orthogonal if we integrate from $−π$ to $π$, i.e., any pair of functions are orthogonal to each other.</p>
 </li>
@@ -397,13 +397,13 @@ x=\sum_{m=1}^M{\lambda_mb_m}+\sum_{j=1}^{D-M}{\psi_jb_j^\bot},\lambda_m,\psi_j \
 <script type="math/tex; mode=display">
 \left<x-\pi_U(x),b\right>=0 \xLeftrightarrow{\pi_U(x)=\lambda b}\left<x-\lambda b,b\right>=0</script><p>We can now exploit the bilinearity of the inner product and arrive at</p>
 <script type="math/tex; mode=display">
-\left<x,b\right>-\lambda\left<b,b\right>=0 \Leftrightarrow 
+\left<x,b\right>-\lambda\left<b,b\right>=0 \Leftrightarrow
 \lambda = \frac{\left<x,b\right>}{\left<b,b\right>}
 =\frac{\left<x,b\right>}{\left\|b\right\|^2}</script><p>In the last step, we exploited the fact that inner products are symmetric. If we choose $⟨·, ·⟩$ to be the dot product, we obtain</p>
 <script type="math/tex; mode=display">
 \lambda = \frac{b^Tx}{b^Tb}=\frac{b^Tx}{\left\|b\right\|^2}</script><p>If $∥b∥ = 1$, then the coordinate $λ$ of the projection is given by $b^⊤x$.</p>
 </li>
-<li><p>Finding the projection point $π_U(x) ∈ U$. Since $π_U(x) = λb$, we immediately obtain </p>
+<li><p>Finding the projection point $π_U(x) ∈ U$. Since $π_U(x) = λb$, we immediately obtain</p>
 <script type="math/tex; mode=display">
 \pi_U(x)=\lambda b =\frac{\left<x,b\right>}{\left\|b\right\|^2}b
 =\frac{b^Tx}{\left\|b\right\|^2}b</script><p>where the last equality holds for the dot product only. We can also compute the length of $π_U(x)$ as</p>
@@ -448,24 +448,24 @@ b_m^T
 \end{matrix}\right]\left[\begin{matrix}
 x-B\lambda
 \end{matrix}\right]=0 \Leftrightarrow
-B^T(x-B\lambda)=0 \Leftrightarrow B^TB\lambda = B^Tx</script><p> The last expression is called <strong>normal equation</strong>. Since $b_1, . . . , b_m$ are a basis of $U$ and, therefore, linearly independent, $B^⊤B ∈ \mathbb R^{m×m}$ is regular and can be inverted. This allows us to solve for the coefficients/coordinates</p>
+B^T(x-B\lambda)=0 \Leftrightarrow B^TB\lambda = B^Tx</script><p>The last expression is called <strong>normal equation</strong>. Since $b_1, . . . , b_m$ are a basis of $U$ and, therefore, linearly independent, $B^⊤B ∈ \mathbb R^{m×m}$ is regular and can be inverted. This allows us to solve for the coefficients/coordinates</p>
 <script type="math/tex; mode=display">
-\lambda = (B^TB)^{-1}B^Tx</script><p>The matrix $(B^⊤B)^{−1}B^⊤$ is also called the <strong>pseudo-inverse</strong> of $B$, which can be computed for non-square matrices $B$. It only requires that $B^⊤$B is positive definite, which is the case if $B$ is full rank. </p>
+\lambda = (B^TB)^{-1}B^Tx</script><p>The matrix $(B^⊤B)^{−1}B^⊤$ is also called the <strong>pseudo-inverse</strong> of $B$, which can be computed for non-square matrices $B$. It only requires that $B^⊤$B is positive definite, which is the case if $B$ is full rank.</p>
 </li>
 <li><p>Find the projection $π_U(x) ∈ U$. We already established that $π_U(x) =Bλ$.</p>
 <script type="math/tex; mode=display">
 \pi_U(x)=B(B^TB)^{-1}B^Tx</script></li>
 <li><p>Find the projection matrix Pπ. We can immediately see that the projection matrix that solves $P_πx = π_U(x)$ must be</p>
 <script type="math/tex; mode=display">
-P_\pi=B(B^TB)^{-1}B^T</script><p>If $dim(U) = 1$, then $B^⊤B ∈ \mathbb R$ is a scalar and we can rewrite the projection matrix in  $P_π = B(B^⊤B)^{−1}B^⊤$ as $P_π = \frac{BB^⊤}{B^TB}$.</p>
+P_\pi=B(B^TB)^{-1}B^T</script><p>If $dim(U) = 1$, then $B^⊤B ∈ \mathbb R$ is a scalar and we can rewrite the projection matrix in $P_π = B(B^⊤B)^{−1}B^⊤$ as $P_π = \frac{BB^⊤}{B^TB}$.</p>
 </li>
 </ol>
 </li>
-<li><p>We just looked at projections of vectors $x$ onto a subspace $U$ with basis vectors ${b_1, . . . , b_k}$. If this basis is an <strong>ONB</strong>, the projection equation  simplifies greatly to</p>
+<li><p>We just looked at projections of vectors $x$ onto a subspace $U$ with basis vectors ${b_1, . . . , b_k}$. If this basis is an <strong>ONB</strong>, the projection equation simplifies greatly to</p>
 <script type="math/tex; mode=display">
 \pi_U(x)=BB^Tx</script><p>since $B^⊤B = I$ with coordinates $λ = B^⊤x$ . This means that we no longer have to compute the inverse, which saves computation time.</p>
 </li>
-<li><p><strong>Gram-Schmidt Orthogonalization</strong>: Projections are at the core of the Gram-Schmidt method that allows us to constructively transform any basis $(b_1, . . . , b_n)$ of an $n$-dimensional vector space $V$ into an orthogonal/orthonormal basis $(u_1, . . . , u_n)$ of $V$. This basis always exists and span$[b_1, . . . , b_n] =span[u_1, . . . , u_n]$. The Gram-Schmidt orthogonalization method iteratively  constructs an orthogonal basis $(u_1, . . . , u_n)$ from any basis $(b_1, . . . , b_n)$ of $V$ as follows:</p>
+<li><p><strong>Gram-Schmidt Orthogonalization</strong>: Projections are at the core of the Gram-Schmidt method that allows us to constructively transform any basis $(b_1, . . . , b_n)$ of an $n$-dimensional vector space $V$ into an orthogonal/orthonormal basis $(u_1, . . . , u_n)$ of $V$. This basis always exists and span$[b_1, . . . , b_n] =span[u_1, . . . , u_n]$. The Gram-Schmidt orthogonalization method iteratively constructs an orthogonal basis $(u_1, . . . , u_n)$ from any basis $(b_1, . . . , b_n)$ of $V$ as follows:</p>
 <script type="math/tex; mode=display">
 \begin{split}
 u_1&:=b_1\\
@@ -473,7 +473,7 @@ u_k&:=b_k-\pi_{span[u_1,...,u_{k-1}]}(b_k),k=2,...,n
 \end{split}</script><p>the $k$th basis vector $b_k$ is projected onto the subspace spanned by the first $k − 1$constructed orthogonal vectors $u_1, . . . , u_{k−1}$; This projection is then subtracted from bk and yields a vector $u_k$ that is orthogonal to the $(k − 1)$-dimensional subspace spanned by<br>$u_1, . . . , u_{k−1}$. Repeating this procedure for all $n$ basis vectors $b_1, . . . , b_n$ yields an orthogonal basis $(u_1, . . . , u_n)$ of $V$. If we normalize the $u_k$, we obtain an ONB where $∥uk∥ = 1$ for $k = 1, . . . , n$</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243141.png" alt="Gram-Schmidt Orthogonalization"></p>
 </li>
-<li><p><strong>Projection onto Affine Subspaces</strong>: </p>
+<li><p><strong>Projection onto Affine Subspaces</strong>:</p>
 <script type="math/tex; mode=display">
 \pi_L(x)=x_0+\pi_U(x-x_0)</script><p>the distance of $x$ from the affine space $L$ is identical to the distance of $x − x_0$ from $U$</p>
 <script type="math/tex; mode=display">
@@ -482,7 +482,7 @@ d(x,L)=\left\|x-\pi_L(x)\right\|=\left\|x-(x_0+\pi_U(x-x_0))\right\|
 </li>
 </ul>
 <h2 id="Rotations"><a href="#Rotations" class="headerlink" title="Rotations"></a>Rotations</h2><ul>
-<li><p><strong>Rotations in $\mathbb R^2$</strong>: Consider the standard basis $\{e_1=\left[\begin{matrix}1\\0\end{matrix}\right],e_2=\left[\begin{matrix}0\\1\end{matrix}\right]\}$  of $\mathbb R^2$, which defines the standard coordinate system in $\mathbb R^2$. We aim to rotate this coordinate system by an angle $θ$. Note that the rotated vectors are still linearly independent and, therefore, are a basis of $\mathbb R^2$. This means that the rotation performs a basis change.  Rotations $Φ$ are linear mappings so that we can express them by ar <em>otation matrix</em> $R(θ)$. Trigonometry allows us to determine the coordinates of the rotated axes (the image of $Φ$) with respect to<br>the standard basis in $\mathbb R^2$. We obtain</p>
+<li><p><strong>Rotations in $\mathbb R^2$</strong>: Consider the standard basis $\{e_1=\left[\begin{matrix}1\\0\end{matrix}\right],e_2=\left[\begin{matrix}0\\1\end{matrix}\right]\}$ of $\mathbb R^2$, which defines the standard coordinate system in $\mathbb R^2$. We aim to rotate this coordinate system by an angle $θ$. Note that the rotated vectors are still linearly independent and, therefore, are a basis of $\mathbb R^2$. This means that the rotation performs a basis change. Rotations $Φ$ are linear mappings so that we can express them by ar _otation matrix_ $R(θ)$. Trigonometry allows us to determine the coordinates of the rotated axes (the image of $Φ$) with respect to<br>the standard basis in $\mathbb R^2$. We obtain</p>
 <script type="math/tex; mode=display">
 \varPhi(e_1)=\left[\begin{matrix}cos \theta\\ sin\theta\end{matrix}\right],
 \varPhi(e_2)=\left[\begin{matrix}-sin \theta\\ cos\theta\end{matrix}\right]</script><p>Therefore, the rotation matrix that performs the basis change into the rotated coordinates $R(θ)$ is given as</p>
@@ -491,7 +491,7 @@ R(\theta)=\left[\begin{matrix}\varPhi(e_1)&\varPhi(e_2)\end{matrix}\right]=\left
 </li>
 <li><p><strong>Rotations in $\mathbb R^3$</strong>: In $\mathbb R^3$ we can rotate any two-dimensional plane about a one-dimensional axis. There are therefore three (planar) rotations about the three standard basis vectors.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243360.png" alt="Rotation of a vector (gray) in R^3"></p>
 <ul>
-<li><p>Rotation about the $e_1$-axis:  the $e_1$ coordinate is fixed, and the counterclockwise rotation is performed in the $e_2e_3$ plane.</p>
+<li><p>Rotation about the $e_1$-axis: the $e_1$ coordinate is fixed, and the counterclockwise rotation is performed in the $e_2e_3$ plane.</p>
 <script type="math/tex; mode=display">
 R_1(\theta)=\left[\begin{matrix}
 \varPhi(e_1)& \varPhi(e_2)& \varPhi(e_3)
@@ -530,7 +530,7 @@ I_{i-1}& 0& \cdots& \cdots& 0\\
 0& 0&I_{j-i-1}& 0& 0\\
 0& sin\theta& 0& cos\theta& 0\\
 0& \cdots& \cdots& 0& I_{n-j}
-\end{matrix}\right] \in \mathbb R^{n\times n}</script><p>for $1 ⩽ i &lt; j ⩽ n$ and $θ ∈ R$. Then $R_{ij}(θ)$ is called a <em>Givens rotation</em>.<br>Essentially, $R_{ij}(θ)$ is the identity matrix $I_n$ with</p>
+\end{matrix}\right] \in \mathbb R^{n\times n}</script><p>for $1 ⩽ i &lt; j ⩽ n$ and $θ ∈ R$. Then $R_{ij}(θ)$ is called a _Givens rotation_.<br>Essentially, $R_{ij}(θ)$ is the identity matrix $I_n$ with</p>
 <script type="math/tex; mode=display">
 r_{ii}=cos\theta,\;r_{ij}=-sin\theta,\;r_{ji}=sin\theta,\;r_{jj}=cos\theta</script></li>
 <li><p>Properties of Rotations</p>

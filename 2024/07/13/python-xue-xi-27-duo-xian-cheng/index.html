@@ -7,7 +7,7 @@
     <meta name="keywords" content="Python学习27-多线程, Jay&#39;s Blog">
     <meta name="description" content="多线程
 每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。
-每个线程都有他自己的一组CPU寄存器，称为线程的上下文，该上下文反映了线程上次运行该线程的">
+每个线程都有他自己的一组 CPU 寄存器，称为线程的上下文，该上下文反映了线程上次运行该线">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -348,14 +348,14 @@
             <div id="articleContent">
                 <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
 <li>每个独立的线程有一个程序运行的<strong>入口、顺序执行序列和程序的出口</strong>。但是线程不能够独立执行，<strong>必须依存在应用程序中</strong>，由应用程序提供多个线程执行控制。</li>
-<li>每个线程都有他自己的一组CPU寄存器，称为线程的<strong>上下文</strong>，该上下文反映了线程上次运行该线程的CPU寄存器的状态。</li>
+<li>每个线程都有他自己的一组 CPU 寄存器，称为线程的<strong>上下文</strong>，该上下文反映了线程上次运行该线程的 CPU 寄存器的状态。</li>
 <li><strong>指令指针和堆栈指针寄存器</strong>是线程上下文中两个最重要的寄存器，线程总是在进程得到上下文中运行的，这些地址都用于标志拥有线程的进程地址空间中的内存。<ul>
 <li>线程可以被抢占（中断）。</li>
 <li>在其他线程正在运行时，线程可以暂时搁置（也称为睡眠） — 这就是线程的退让。</li>
 </ul>
 </li>
-<li>Python中的线程会在一个单独的<strong>系统级线程</strong>中执行（比如说一个 POSIX 线程或者一个 Windows 线程），这些线程将由操作系统来全权管理。线程一旦启动，将独立执行直到目标函数返回。</li>
-<li>Python解释器直到所有线程都终止前仍保持运行。对于需要长时间运行的线程或者需要一直运行的后台任务，你应当考虑使用后台线程(daemon=True)。</li>
+<li>Python 中的线程会在一个单独的<strong>系统级线程</strong>中执行（比如说一个 POSIX 线程或者一个 Windows 线程），这些线程将由操作系统来全权管理。线程一旦启动，将独立执行直到目标函数返回。</li>
+<li>Python 解释器直到所有线程都终止前仍保持运行。对于需要长时间运行的线程或者需要一直运行的后台任务，你应当考虑使用后台线程(daemon=True)。</li>
 <li>线程可以分为:<ul>
 <li><strong>内核线程：</strong>由操作系统内核创建和撤销。</li>
 <li><strong>用户线程：</strong>不需要内核支持而在用户程序中实现的线程。</li>
@@ -366,7 +366,7 @@
 <li><strong>threading(推荐使用)</strong></li>
 </ul>
 </li>
-<li>由于全局解释锁（GIL）的原因，Python 的线程被限制到<strong>同一时刻只允许一个线程执行</strong>这样一个执行模型。所以，Python 的线程更适用于处理I/O和其他需要并发执行的阻塞操作（比如等待I/O、等待从数据库获取数据等等），而不是需要多处理器并行的计算密集型任务。</li>
+<li>由于全局解释锁（GIL）的原因，Python 的线程被限制到<strong>同一时刻只允许一个线程执行</strong>这样一个执行模型。所以，Python 的线程更适用于处理 I/O 和其他需要并发执行的阻塞操作（比如等待 I/O、等待从数据库获取数据等等），而不是需要多处理器并行的计算密集型任务。</li>
 </ul>
 <h2 id="1-thread-模块"><a href="#1-thread-模块" class="headerlink" title="1 _thread 模块"></a>1 _thread 模块</h2><ul>
 <li><p>函数式创建线程：调用 _thread 模块中的<strong>start_new_thread()</strong>函数来产生新线程</p>
@@ -374,7 +374,7 @@
 <li><p><strong><code>_thread.start_new_thread ( function, args[, kwargs] )</code></strong></p>
 <ul>
 <li>function - 线程函数。</li>
-<li>args - 传递给线程函数的参数,他必须是个<strong>tuple类型</strong>。</li>
+<li>args - 传递给线程函数的参数,他必须是个<strong>tuple 类型</strong>。</li>
 <li>kwargs - 可选参数。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
@@ -401,7 +401,7 @@
    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="2-线程模块threading"><a href="#2-线程模块threading" class="headerlink" title="2 线程模块threading"></a>2 线程模块threading</h2><ul>
+<h2 id="2-线程模块-threading"><a href="#2-线程模块-threading" class="headerlink" title="2 线程模块 threading"></a>2 线程模块 threading</h2><ul>
 <li><p>threading 模块除了包含 _thread 模块中的所有方法外，还提供的其他方法</p>
 <ul>
 <li><strong>threading.current_thread()</strong>: 返回当前的线程变量。</li>
@@ -438,7 +438,7 @@
 </ul>
 </li>
 <li><strong><code>join(self, timeout=None)</code>：</strong><ul>
-<li><strong>等待线程终止</strong>。默    认情况下，<code>join()</code>会一直阻塞，直到被调用线程终止。如果指定了<code>timeout</code>参数，则最多等待<code>timeout</code>秒。</li>
+<li><strong>等待线程终止</strong>。默 认情况下，<code>join()</code>会一直阻塞，直到被调用线程终止。如果指定了<code>timeout</code>参数，则最多等待<code>timeout</code>秒。</li>
 </ul>
 </li>
 <li><strong><code>is_alive(self)</code>：</strong><ul>
@@ -579,7 +579,7 @@ threads<span class="token punctuation">.</span>append<span class="token punctuat
     t<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"退出主线程"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong>with语句</strong></p>
+<li><p><strong>with 语句</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> threading
 
 <span class="token keyword">class</span> <span class="token class-name">SharedCounter</span><span class="token punctuation">:</span>
@@ -645,18 +645,18 @@ _fetch_url_sema <span class="token operator">=</span> Semaphore<span class="toke
 </li>
 </ul>
 <h2 id="4-线程优先级队列"><a href="#4-线程优先级队列" class="headerlink" title="4 线程优先级队列"></a>4 线程优先级队列</h2><ul>
-<li><p>Python 的 <code>Queue</code> 模块中提供了<strong>同步的、线程安全</strong>的队列类，包括<code>FIFO</code>（先入先出)队列Queue，<code>LIFO</code>（后入先出）队列LifoQueue，和优先级队列 <code>PriorityQueue</code>。这些队列都实现了锁原语，能够<strong>在多线程中直接使用</strong>，可以<strong>使用队列来实现线程间的同步</strong>。</p>
+<li><p>Python 的 <code>Queue</code> 模块中提供了<strong>同步的、线程安全</strong>的队列类，包括<code>FIFO</code>（先入先出)队列 Queue，<code>LIFO</code>（后入先出）队列 LifoQueue，和优先级队列 <code>PriorityQueue</code>。这些队列都实现了锁原语，能够<strong>在多线程中直接使用</strong>，可以<strong>使用队列来实现线程间的同步</strong>。</p>
 </li>
 <li><p>Queue 模块中的常用方法</p>
 <ul>
 <li>Queue.qsize() 返回队列的大小</li>
-<li>Queue.empty() 如果队列为空，返回True,反之False</li>
-<li>Queue.full() 如果队列满了，返回True,反之False</li>
+<li>Queue.empty() 如果队列为空，返回 True,反之 False</li>
+<li>Queue.full() 如果队列满了，返回 True,反之 False</li>
 <li>Queue.full 与 maxsize 大小对应</li>
-<li>Queue.get([block[, timeout]])获取队列，timeout等待时间</li>
-<li>Queue.get_nowait() 相当Queue.get(False)</li>
-<li>Queue.put(item) 写入队列，timeout等待时间</li>
-<li>Queue.put_nowait(item) 相当Queue.put(item, False)</li>
+<li>Queue.get([block[, timeout]])获取队列，timeout 等待时间</li>
+<li>Queue.get_nowait() 相当 Queue.get(False)</li>
+<li>Queue.put(item) 写入队列，timeout 等待时间</li>
+<li>Queue.put_nowait(item) 相当 Queue.put(item, False)</li>
 <li>Queue.task_done() 在完成一项工作之后，Queue.task_done()函数向任务已经完成的队列发送一个信号</li>
 <li>Queue.join() 实际上意味着等到队列为空，再执行别的操作</li>
 </ul>
@@ -740,7 +740,7 @@ Thread-1 processing Five
 <h2 id="5-信号量"><a href="#5-信号量" class="headerlink" title="5 信号量"></a>5 信号量</h2><ul>
 <li><p>程序中的其他线程需要通过判断某个线程的状态来确定下一步操作</p>
 </li>
-<li><p><code>threading</code> 库中的 <code>Event</code> 对象包含一个可由线程设置的信号标志，它允许线程等待某些事件的发生。在初始情况下，event 对象中的信号标志被设置为<strong>假</strong>。如果有线程等待一个 event 对象，而这个 event 对象的标志为假，那么这个线程将会被一直<strong>阻塞</strong>直至该标志为真。一个线程如果将一个 event 对象的信号标志设置为真，它将<strong>唤醒所有等待这个 event 对象的线程</strong>。如果一个线程等待一个已经被设置为真的 event 对象，那么它将忽略这个事件，继续执行。 </p>
+<li><p><code>threading</code> 库中的 <code>Event</code> 对象包含一个可由线程设置的信号标志，它允许线程等待某些事件的发生。在初始情况下，event 对象中的信号标志被设置为<strong>假</strong>。如果有线程等待一个 event 对象，而这个 event 对象的标志为假，那么这个线程将会被一直<strong>阻塞</strong>直至该标志为真。一个线程如果将一个 event 对象的信号标志设置为真，它将<strong>唤醒所有等待这个 event 对象的线程</strong>。如果一个线程等待一个已经被设置为真的 event 对象，那么它将忽略这个事件，继续执行。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread<span class="token punctuation">,</span> Event
 <span class="token keyword">import</span> time
 
@@ -842,17 +842,17 @@ nworkers <span class="token operator">=</span> <span class="token number">10</sp
 <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>nworkers<span class="token punctuation">)</span><span class="token punctuation">:</span>
     t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>worker<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> sema<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sema<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
 Working <span class="token number">0</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> sema<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
 Working <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>到大量的线程间同步问题合适的解决方式是使用<strong>队列</strong>来进行线程间通信或者每个把线程当作一个<strong>Actor</strong>，利用Actor模型来控制并发。</p>
+<li><p>到大量的线程间同步问题合适的解决方式是使用<strong>队列</strong>来进行线程间通信或者每个把线程当作一个<strong>Actor</strong>，利用 Actor 模型来控制并发。</p>
 </li>
 </ul>
 <h2 id="6-防止死锁的加锁机制"><a href="#6-防止死锁的加锁机制" class="headerlink" title="6 防止死锁的加锁机制"></a>6 防止死锁的加锁机制</h2><ul>
-<li><p>解决死锁:为程序中的<strong>每一个锁分配一个唯一的id</strong>，然后只允许按照<strong>升序</strong>规则来使用多个锁，这个规则使用<strong>上下文管理器</strong>是非常容易实现的</p>
+<li><p>解决死锁:为程序中的<strong>每一个锁分配一个唯一的 id</strong>，然后只允许按照<strong>升序</strong>规则来使用多个锁，这个规则使用<strong>上下文管理器</strong>是非常容易实现的</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> threading
 <span class="token keyword">from</span> contextlib <span class="token keyword">import</span> contextmanager
 
@@ -882,7 +882,7 @@ _local <span class="token operator">=</span> threading<span class="token punctua
         <span class="token keyword">for</span> lock <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span>locks<span class="token punctuation">)</span><span class="token punctuation">:</span>
             lock<span class="token punctuation">.</span>release<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">del</span> acquired<span class="token punctuation">[</span><span class="token operator">-</span><span class="token builtin">len</span><span class="token punctuation">(</span>locks<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-        
+
 <span class="token keyword">import</span> threading
 x_lock <span class="token operator">=</span> threading<span class="token punctuation">.</span>Lock<span class="token punctuation">(</span><span class="token punctuation">)</span>
 y_lock <span class="token operator">=</span> threading<span class="token punctuation">.</span>Lock<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -930,7 +930,7 @@ t2<span class="token punctuation">.</span>start<span class="token punctuation">(
     <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exc_ty<span class="token punctuation">,</span> exc_val<span class="token punctuation">,</span> tb<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>local<span class="token punctuation">.</span>sock<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">del</span> self<span class="token punctuation">.</span>local<span class="token punctuation">.</span>sock
-        
+
 <span class="token keyword">from</span> functools <span class="token keyword">import</span> partial
 <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>conn<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">with</span> conn <span class="token keyword">as</span> s<span class="token punctuation">:</span>
@@ -1011,13 +1011,13 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 <span class="token keyword">with</span> ThreadPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> pool<span class="token punctuation">:</span>
     <span class="token keyword">for</span> second <span class="token keyword">in</span> lists<span class="token punctuation">:</span>
         all_task<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pool<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>action<span class="token punctuation">,</span> second<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
+
     result<span class="token operator">=</span><span class="token punctuation">[</span>i<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> all_task<span class="token punctuation">]</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"result:</span><span class="token interpolation"><span class="token punctuation">{</span>result<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>等到所有子线程完成：<strong><code>wait(fs, timeout=None, return_when=ALL_COMPLETED)</code></strong></p>
 <ul>
-<li>fs: 表示需要执行的序列<br>timeout: 等待的最大时间，如果超过这个时间即使线程未执行完成也将返回<br>return_when：表示wait返回结果的条件，默认为 <code>ALL_COMPLETED</code> 全部执行完成再返回，可选 <code>FIRST_COMPLETED</code></li>
+<li>fs: 表示需要执行的序列<br>timeout: 等待的最大时间，如果超过这个时间即使线程未执行完成也将返回<br>return_when：表示 wait 返回结果的条件，默认为 <code>ALL_COMPLETED</code> 全部执行完成再返回，可选 <code>FIRST_COMPLETED</code></li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures <span class="token keyword">import</span> ThreadPoolExecutor<span class="token punctuation">,</span>wait<span class="token punctuation">,</span>ALL_COMPLETED<span class="token punctuation">,</span>FIRST_COMPLETED<span class="token punctuation">,</span> as_completed
@@ -1058,7 +1058,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 3
 '''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>result方法是阻塞的，所以流程会在result这里阻塞直到所有子线程返回，相当于 <code>ALL_COMPLETED</code> 方法</p>
+<li><p>result 方法是阻塞的，所以流程会在 result 这里阻塞直到所有子线程返回，相当于 <code>ALL_COMPLETED</code> 方法</p>
 </li>
 <li><p>每返回一个子线程就立刻处理：<code>as_completed</code>获取每一个线程的返回结果</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
@@ -1075,7 +1075,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 <span class="token keyword">with</span> ThreadPoolExecutor<span class="token punctuation">(</span>max_workers<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> pool<span class="token punctuation">:</span>
     <span class="token keyword">for</span> second <span class="token keyword">in</span> lists<span class="token punctuation">:</span>
         all_task<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pool<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>action<span class="token punctuation">,</span> second<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
+
     <span class="token keyword">for</span> future <span class="token keyword">in</span> as_completed<span class="token punctuation">(</span>all_task<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>future<span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> 返回"</span></span><span class="token punctuation">)</span>
 
@@ -1095,7 +1095,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 </li>
 <li><p>map 方法是对序列中每一个元素都执行 action 方法</p>
 <ul>
-<li><p>不需要将任务submit到线程池</p>
+<li><p>不需要将任务 submit 到线程池</p>
 </li>
 <li><p>返回结果的顺序和元素的顺序相同，即使子线程先返回也不会获取结果</p>
 </li>
@@ -1103,7 +1103,7 @@ all_task <span class="token operator">=</span> <span class="token punctuation">[
 <ul>
 <li>fn： 第一个参数 fn 是需要线程执行的函数；</li>
 <li>iterables：第二个参数接受一个可迭代对象；</li>
-<li>timeout： 第三个参数 timeout 跟 wait() 的 timeout 一样，但由于 map 是返回线程执行的结果，如果 timeout小于线程执行时间会抛异常 TimeoutError。</li>
+<li>timeout： 第三个参数 timeout 跟 wait() 的 timeout 一样，但由于 map 是返回线程执行的结果，如果 timeout 小于线程执行时间会抛异常 TimeoutError。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures <span class="token keyword">import</span> ThreadPoolExecutor<span class="token punctuation">,</span>wait<span class="token punctuation">,</span>ALL_COMPLETED<span class="token punctuation">,</span>FIRST_COMPLETED<span class="token punctuation">,</span> as_completed
@@ -1132,7 +1132,7 @@ lists<span class="token operator">=</span><span class="token punctuation">[</spa
 </li>
 </ul>
 <h2 id="9-进程池"><a href="#9-进程池" class="headerlink" title="9 进程池"></a>9 进程池</h2><ul>
-<li><p><code>concurrent.futures</code> 库中的 <code>ProcessPoolExecutor</code> 类， 可被用来在一个单独的Python解释器中执行计算密集型函数。</p>
+<li><p><code>concurrent.futures</code> 库中的 <code>ProcessPoolExecutor</code> 类， 可被用来在一个单独的 Python 解释器中执行计算密集型函数。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures <span class="token keyword">import</span> ProcessPoolExecutor
 
 <span class="token keyword">with</span> ProcessPoolExecutor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> pool<span class="token punctuation">:</span>
@@ -1140,11 +1140,11 @@ lists<span class="token operator">=</span><span class="token punctuation">[</spa
     do work <span class="token keyword">in</span> parallel using pool
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>一个 <code>ProcessPoolExecutor</code> 创建N个独立的Python解释器， N是系统上面可用CPU的个数。可以通过提供可选参数给 <code>ProcessPoolExecutor(N)</code> 来修改 处理器数量。这个处理池会一直运行到with块中最后一个语句执行完成， 然后处理池被关闭。程序会一直等待直到所有提交的工作被处理完成。</p>
+<li><p>一个 <code>ProcessPoolExecutor</code> 创建 N 个独立的 Python 解释器， N 是系统上面可用 CPU 的个数。可以通过提供可选参数给 <code>ProcessPoolExecutor(N)</code> 来修改 处理器数量。这个处理池会一直运行到 with 块中最后一个语句执行完成， 然后处理池被关闭。程序会一直等待直到所有提交的工作被处理完成。</p>
 </li>
 <li><p>被提交到池中的工作必须被定义为一个函数。有两种方法去提交。</p>
 <ul>
-<li><p>想让一个列表推导或一个 <code>map()</code> 操作并行执行的话，使用 <code>pool.map()</code> </p>
+<li><p>想让一个列表推导或一个 <code>map()</code> 操作并行执行的话，使用 <code>pool.map()</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># A function that performs a lot of work</span>
 <span class="token keyword">def</span> <span class="token function">work</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -1177,10 +1177,10 @@ results <span class="token operator">=</span> <span class="token builtin">map</s
 </ul>
 </li>
 </ul>
-<h2 id="10全局锁"><a href="#10全局锁" class="headerlink" title="10全局锁"></a>10全局锁</h2><ul>
-<li><p>python解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并<strong>不能利用多核CPU的优势</strong>（比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。</p>
+<h2 id="10-全局锁"><a href="#10-全局锁" class="headerlink" title="10 全局锁"></a>10 全局锁</h2><ul>
+<li><p>python 解释器被一个全局解释器锁保护着，它确保任何时候都只有一个 Python 线程执行。 GIL 最大的问题就是 Python 的多线程程序并<strong>不能利用多核 CPU 的优势</strong>（比如一个使用了多个线程的计算密集型程序只会在一个单 CPU 上面运行）。</p>
 </li>
-<li><p>解决GIL的缺点：<strong>multiprocessing、C扩展编程</strong></p>
+<li><p>解决 GIL 的缺点：<strong>multiprocessing、C 扩展编程</strong></p>
 </li>
 <li><p>使用 <code>multiprocessing</code> 模块来创建进程池</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Processing pool (see below for initiazation)</span>
@@ -1202,9 +1202,9 @@ pool <span class="token operator">=</span> <span class="token boolean">None</spa
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> multiprocessing
     pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p> 当一个线程想要执行CPU密集型工作时，会将任务发给进程池。 然后进程池会在另外一个进程中启动一个单独的Python解释器来工作。 当线程等待结果的时候会释放GIL。能很好的利用多CPU的优势。</p>
+<p>当一个线程想要执行 CPU 密集型工作时，会将任务发给进程池。 然后进程池会在另外一个进程中启动一个单独的 Python 解释器来工作。 当线程等待结果的时候会释放 GIL。能很好的利用多 CPU 的优势。</p>
 </li>
-<li><p>使用C扩展编程技术：将计算密集型任务转移给C，跟Python独立，在工作的时候在C代码中释放GIL。</p>
+<li><p>使用 C 扩展编程技术：将计算密集型任务转移给 C，跟 Python 独立，在工作的时候在 C 代码中释放 GIL。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//在C代码中插入特殊宏</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Python.h"</span></span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>

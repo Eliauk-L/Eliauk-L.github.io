@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之模拟登录, Jay&#39;s Blog">
     <meta name="description" content="模拟登录
-在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用Scrapy 处理这种情况时，我们既可以使用表单进行模拟登录，又可以直接使用Cookie进行验证。
-
-模拟">
+在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用 Scrapy 处理这种情况时，我们既可以使用表单进行模拟登录，又可以直接使用 Cookie 进行验证。
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -356,10 +355,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h1><ul>
-<li>在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用Scrapy 处理这种情况时，我们既可以<strong>使用表单进行模拟登录</strong>，又可以<strong>直接使用Cookie进行验证</strong>。</li>
+<li>在实际的爬虫作业中，由于一些网站的授权机制，某些内容只能登录后查看，或对非登录限制访问，因此模拟登录在爬虫中经常用到。在使用 Scrapy 处理这种情况时，我们既可以<strong>使用表单进行模拟登录</strong>，又可以<strong>直接使用 Cookie 进行验证</strong>。</li>
 </ul>
 <h2 id="模拟提交表单"><a href="#模拟提交表单" class="headerlink" title="模拟提交表单"></a>模拟提交表单</h2><ul>
-<li><p>在Scrapy 中，模拟提交表单需要用到 Request 的 <code>FormRequest</code>子类，与 Request 相比，FormRequest 多了一个<code>formdata</code> 参数，此项参数为要填充的HTML表单，是一个字典类型数据，或者可迭代的(key,value)型元组数据。</p>
+<li><p>在 Scrapy 中，模拟提交表单需要用到 Request 的 <code>FormRequest</code>子类，与 Request 相比，FormRequest 多了一个<code>formdata</code> 参数，此项参数为要填充的 HTML 表单，是一个字典类型数据，或者可迭代的(key,value)型元组数据。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">from</span> myproject<span class="token punctuation">.</span>items <span class="token keyword">import</span> ExampleItem
 
@@ -377,7 +376,7 @@
                 <span class="token comment">#传递表单数据</span>
                 formdata<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token string">'user'</span> <span class="token punctuation">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token string">'pass'</span> <span class="token punctuation">:</span> <span class="token string">'secret'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
                 <span class="token comment">#回调函数</span>
-                callback<span class="token operator">=</span>self<span class="token punctuation">.</span>login_check<span class="token punctuation">)</span> 
+                callback<span class="token operator">=</span>self<span class="token punctuation">.</span>login_check<span class="token punctuation">)</span>
         <span class="token punctuation">]</span>
     <span class="token comment">#检查是否登录成功</span>
     <span class="token keyword">def</span> <span class="token function">login_check</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
@@ -390,30 +389,30 @@
         item <span class="token operator">=</span> ExampleItem<span class="token punctuation">(</span><span class="token punctuation">)</span>
         item <span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">".name"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>某些网站的登录页面中会有一些含有默认值的隐藏的表单字段包含在<code>&lt;.input type="hidden"&gt;</code>元素中，如会话数据、认证信息等。我们在抓取数据时，并不需要了解这些默认数据的生成方法，只需关注需要手动录入数据的字段，如用户名、密码等。这时可以使用from_response()方法。</p>
+<li><p>某些网站的登录页面中会有一些含有默认值的隐藏的表单字段包含在<code>&lt;.input type="hidden"&gt;</code>元素中，如会话数据、认证信息等。我们在抓取数据时，并不需要了解这些默认数据的生成方法，只需关注需要手动录入数据的字段，如用户名、密码等。这时可以使用 from_response()方法。</p>
 <ul>
 <li><p><code>classmethod from_response(response[, formname=None，formid=None,
 formnumber=0，formdata=None，formxpath=None，formcss=None，clickdata=None,dont_click=False, ...])</code></p>
 </li>
-<li><p><strong>response</strong>:包含待填充数据的HTML表单。</p>
+<li><p><strong>response</strong>:包含待填充数据的 HTML 表单。</p>
 </li>
-<li><p><strong>formname</strong>:如果指定了formname值，那么将使用name属性为此值的表单。</p>
+<li><p><strong>formname</strong>:如果指定了 formname 值，那么将使用 name 属性为此值的表单。</p>
 </li>
-<li><p><strong>formid</strong>:如果指定了formid值，那么将使用id属性为此值的表单。</p>
+<li><p><strong>formid</strong>:如果指定了 formid 值，那么将使用 id 属性为此值的表单。</p>
 </li>
-<li><p><strong>formnumer</strong>:如果指定了formmumber值，那么将使用序号为此值的表单，第一个表单序号为0。</p>
+<li><p><strong>formnumer</strong>:如果指定了 formmumber 值，那么将使用序号为此值的表单，第一个表单序号为 0。</p>
 </li>
-<li><p><strong>formxpath</strong>:如果指定了formxpath，就使用该XPath表达式匹配的第一个form表单。</p>
+<li><p><strong>formxpath</strong>:如果指定了 formxpath，就使用该 XPath 表达式匹配的第一个 form 表单。</p>
 </li>
-<li><p><strong>formcss</strong>:如果指定了formcss，就使用该CSS表达式匹配的第一个form表单。</p>
+<li><p><strong>formcss</strong>:如果指定了 formcss，就使用该 CSS 表达式匹配的第一个 form 表单。</p>
 </li>
-<li><p><strong>formdata</strong>:表单填充数据，如果某个字段在Response 中已经存在值，那么将会被覆盖;如果某个字段传递的是None，那么该字段不会包含在生成的Request中。</p>
+<li><p><strong>formdata</strong>:表单填充数据，如果某个字段在 Response 中已经存在值，那么将会被覆盖;如果某个字段传递的是 None，那么该字段不会包含在生成的 Request 中。</p>
 </li>
 <li><p><strong>clickdata</strong>:指定表单中的单击事件，如果没有指定，就会通过模拟单击表单中第一个可单击元素进行表单数据提交。</p>
 </li>
-<li><p><strong>dont_click</strong>:如果指定为True，该表单就不会通过单击任何元素来操作而直接提交。</p>
+<li><p><strong>dont_click</strong>:如果指定为 True，该表单就不会通过单击任何元素来操作而直接提交。</p>
 </li>
-<li><p>from_response()是通过模拟自动单击表单中的可单击元素(如<code>&lt;input type="submit"&gt;</code>)来进行表单数据提交的，生成一个Request。虽然很方便，但仍存在一些问题，例如，如果表单数据是通过JavaScript来进行交互操作的，那么from_response()的默认提交操作就不合适了。这时就可以设置don’t_click=True来禁用自动单击提交功能。</p>
+<li><p>from_response()是通过模拟自动单击表单中的可单击元素(如<code>&lt;input type="submit"&gt;</code>)来进行表单数据提交的，生成一个 Request。虽然很方便，但仍存在一些问题，例如，如果表单数据是通过 JavaScript 来进行交互操作的，那么 from_response()的默认提交操作就不合适了。这时就可以设置 don’t_click=True 来禁用自动单击提交功能。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 
 <span class="token keyword">class</span> <span class="token class-name">LoginSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
@@ -426,20 +425,20 @@ formnumber=0，formdata=None，formxpath=None，formcss=None，clickdata=None,do
                 <span class="token comment">#传递表单数据</span>
                 formdata<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token string">'user'</span> <span class="token punctuation">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token string">'pass'</span> <span class="token punctuation">:</span> <span class="token string">'secret'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
                 <span class="token comment">#回调函数</span>
-                callback<span class="token operator">=</span>self<span class="token punctuation">.</span>after_login<span class="token punctuation">)</span> 
-        
+                callback<span class="token operator">=</span>self<span class="token punctuation">.</span>after_login<span class="token punctuation">)</span>
+
     <span class="token comment">#检查是否登录成功</span>
     <span class="token keyword">def</span> <span class="token function">after_login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token string">"authentication failed"</span> <span class="token keyword">in</span> response<span class="token punctuation">.</span>body <span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"Login failed"</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> 
+            <span class="token keyword">return</span>
         <span class="token comment"># 执行登陆成功后的操作</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="用Cookie模拟登录状态"><a href="#用Cookie模拟登录状态" class="headerlink" title="用Cookie模拟登录状态"></a>用Cookie模拟登录状态</h2><ul>
-<li>使用Cookie实现登录其实就是把已登录的信息（用户名、密码及其他验证信息）一起发给服务器做验证。优点是不需要知道登录URL和表单字段，也不需要了解登录过程和其他细节，即可实现必须登录后查看的目标网页的数据采集。不足之处是Cookie有有效期限制，有效期过后，需要重新获取Cookie 的值。</li>
+<h2 id="用-Cookie-模拟登录状态"><a href="#用-Cookie-模拟登录状态" class="headerlink" title="用 Cookie 模拟登录状态"></a>用 Cookie 模拟登录状态</h2><ul>
+<li>使用 Cookie 实现登录其实就是把已登录的信息（用户名、密码及其他验证信息）一起发给服务器做验证。优点是不需要知道登录 URL 和表单字段，也不需要了解登录过程和其他细节，即可实现必须登录后查看的目标网页的数据采集。不足之处是 Cookie 有有效期限制，有效期过后，需要重新获取 Cookie 的值。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">from</span> myproject<span class="token punctuation">.</span>items <span class="token keyword">import</span> ExampleItem
@@ -459,7 +458,7 @@ formnumber=0，formdata=None，formxpath=None，formcss=None，clickdata=None,do
         <span class="token string">'Connection '</span> <span class="token punctuation">:</span> <span class="token string">'keep-alive '</span><span class="token punctuation">,</span>
         <span class="token string">'User-Agent'</span> <span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; win64; x64) ApplewebKit/537.36 22 (KHTML,like Gecko)Chrome/72.0.3626.121 safari/537.36'</span>
         <span class="token punctuation">}</span>
-        
+
         <span class="token keyword">return</span> <span class="token punctuation">[</span>
             scrapy<span class="token punctuation">.</span>FormRequest<span class="token punctuation">(</span><span class="token string">"http://www.example.com/articles"</span><span class="token punctuation">,</span>
                                <span class="token comment">#使用Cookies</span>
@@ -476,7 +475,7 @@ formnumber=0，formdata=None，formxpath=None，formcss=None，clickdata=None,do
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

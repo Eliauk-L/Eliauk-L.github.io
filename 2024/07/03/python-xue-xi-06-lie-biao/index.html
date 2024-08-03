@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Python学习06-列表, Jay&#39;s Blog">
     <meta name="description" content="列表
-序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字—索引，从0开始
-Python中6个内置的序列类型
+序列是 Python 中最基本的数据结构。序列中的每个元素都分配一个数字—索引，从 0 开始
+Python 中 6 个内置的序列类型
 字符串（string）
 列表（list）
 元组（tuple）
 字节串（bytes）
-字节数组（bytearray）">
+字节数组（byt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -352,8 +352,8 @@ Python中6个内置的序列类型
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
-<li>序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字—<strong>索引，从0开始</strong></li>
-<li>Python中6个内置的序列类型<ul>
+<li>序列是 Python 中最基本的数据结构。序列中的每个元素都分配一个数字—<strong>索引，从 0 开始</strong></li>
+<li>Python 中 6 个内置的序列类型<ul>
 <li><strong>字符串（string）</strong></li>
 <li><strong>列表（list）</strong></li>
 <li><strong>元组（tuple）</strong></li>
@@ -384,7 +384,7 @@ Python中6个内置的序列类型
 <li><p>通过下标索引访问</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'physics'</span><span class="token punctuation">,</span> <span class="token string">'chemistry'</span><span class="token punctuation">,</span> <span class="token number">1997</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">]</span>
 list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span> <span class="token punctuation">]</span>
- 
+
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"list1[0]: "</span><span class="token punctuation">,</span> list1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"list2[1:5]: "</span><span class="token punctuation">,</span> list2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment">#list1[0]:  physics</span>
@@ -401,9 +401,44 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 <blockquote>
 <p><strong>列表操作符</strong></p>
 </blockquote>
-<ul>
-<li>| Python 表达式                | 结果                         | 描述                 |<br>| :—————————————- | :—————————————- | :—————————- |<br>| len([1, 2, 3])               | 3                            | 长度                 |<br>| [1, 2, 3] + [4, 5, 6]        | [1, 2, 3, 4, 5, 6]           | 组合                 |<br>| [‘Hi!’] * 4                  | [‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’] | 重复                 |<br>| 3 in [1, 2, 3]               | True                         | 元素是否存在于列表中 |<br>| for x in [1, 2, 3]: print x, | 1 2 3                        | 迭代                 |</li>
-</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Python 表达式</th>
+<th style="text-align:left">结果</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">len([1, 2, 3])</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">长度</td>
+</tr>
+<tr>
+<td style="text-align:left">[1, 2, 3] + [4, 5, 6]</td>
+<td style="text-align:left">[1, 2, 3, 4, 5, 6]</td>
+<td style="text-align:left">组合</td>
+</tr>
+<tr>
+<td style="text-align:left">[‘Hi!’] * 4</td>
+<td style="text-align:left">[‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’]</td>
+<td style="text-align:left">重复</td>
+</tr>
+<tr>
+<td style="text-align:left">3 in [1, 2, 3]</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">元素是否存在于列表中</td>
+</tr>
+<tr>
+<td style="text-align:left">for x in [1, 2, 3]: print x,</td>
+<td style="text-align:left">1 2 3</td>
+<td style="text-align:left">迭代</td>
+</tr>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p><strong>列表比较</strong></p>
 </blockquote>
@@ -491,7 +526,7 @@ operator<span class="token punctuation">.</span>eq<span class="token punctuation
 </table>
 </div>
 <h2 id="3-遍历列表"><a href="#3-遍历列表" class="headerlink" title="3 遍历列表"></a>3 遍历列表</h2><blockquote>
-<p><strong>for循环遍历</strong></p>
+<p><strong>for 循环遍历</strong></p>
 </blockquote>
 <ul>
 <li><p>索引遍历</p>
@@ -533,19 +568,19 @@ list2 <span class="token operator">=</span> list1<span class="token punctuation"
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">id</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>==copy方法==：不同存储地址</p>
+<li><p>==copy 方法==：不同存储地址</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
 list2 <span class="token operator">=</span> list1<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">id</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>==list方法==：不同存储地址</p>
+<li><p>==list 方法==：不同存储地址</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
 list2 <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">id</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>==for循环==：通过遍历添加元素</p>
+<li><p>==for 循环==：通过遍历添加元素</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
 list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> item <span class="token keyword">in</span> list1<span class="token punctuation">:</span>
@@ -557,17 +592,17 @@ list2 <span class="token operator">=</span> <span class="token punctuation">[</s
 </li>
 </ul>
 <h2 id="5-数值列表—range"><a href="#5-数值列表—range" class="headerlink" title="5 数值列表—range"></a>5 数值列表—range</h2><ul>
-<li><p>range函数用于创建<strong>整数列表</strong>，常用于<strong>for循环</strong></p>
+<li><p>range 函数用于创建<strong>整数列表</strong>，常用于<strong>for 循环</strong></p>
 </li>
 <li><p>使用：<code>range(start,stop,step)</code></p>
 <ul>
-<li><p>start:开始数值，默认为0</p>
+<li><p>start:开始数值，默认为 0</p>
 </li>
-<li><p>stop:结束数值，不包括stop</p>
+<li><p>stop:结束数值，不包括 stop</p>
 </li>
-<li><p>step:步长，默认为1，可以为负，表示递减</p>
+<li><p>step:步长，默认为 1，可以为负，表示递减</p>
 </li>
-<li><p>生成的数值列表范围：<strong>start&lt;= value(+step) &lt; stop  (左闭右开)</strong></p>
+<li><p>生成的数值列表范围：<strong>start&lt;= value(+step) &lt; stop (左闭右开)</strong></p>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">num_list <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>

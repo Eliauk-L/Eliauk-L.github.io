@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Pandas学习, Jay&#39;s Blog">
     <meta name="description" content="Pandas序列与数据框的构造
-Pandas模块的核心操作对象就是序列（Series）和数据框（DataFrame）。序列可以理解为数据集中的一个字段，数据框是指含有至少两个字段（或序列）的数据集。
+Pandas 模块的核心操作对象就是序列（Series）和数据框（DataFrame）。序列可以理解为数据集中的一个字段，数据框是指含有至少两个字段（或序列）的数据集。
 
 构造序列
-构造一个序列可以使用如下方式">
+构造一个序列可以使用如下方">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -322,7 +322,7 @@ Pandas模块的核心操作对象就是序列（Series）和数据框（DataFram
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.5k
+                    8.6k
                 </div>
                 
 
@@ -353,14 +353,14 @@ Pandas模块的核心操作对象就是序列（Series）和数据框（DataFram
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><h2 id="序列与数据框的构造"><a href="#序列与数据框的构造" class="headerlink" title="序列与数据框的构造"></a>序列与数据框的构造</h2><ul>
-<li>Pandas模块的核心操作对象就是<strong>序列（<code>Series</code>）和数据框（<code>DataFrame</code>）</strong>。序列可以理解为数据集中的一个<strong>字段</strong>，数据框是指含有至少两个字段（或序列）的<strong>数据集</strong>。</li>
+<li>Pandas 模块的核心操作对象就是<strong>序列（<code>Series</code>）和数据框（<code>DataFrame</code>）</strong>。序列可以理解为数据集中的一个<strong>字段</strong>，数据框是指含有至少两个字段（或序列）的<strong>数据集</strong>。</li>
 </ul>
 <h3 id="构造序列"><a href="#构造序列" class="headerlink" title="构造序列"></a>构造序列</h3><ul>
 <li>构造一个序列可以使用如下方式实现<ul>
 <li>通过同质的<strong>列表或元组</strong>构建。</li>
 <li>通过<strong>字典</strong>构建。</li>
-<li>通过Numpy中的<strong>一维数组</strong>构建。</li>
-<li>通过数据框DataFrame中的<strong>某一列</strong>构建。</li>
+<li>通过 Numpy 中的<strong>一维数组</strong>构建。</li>
+<li>通过数据框 DataFrame 中的<strong>某一列</strong>构建。</li>
 </ul>
 </li>
 </ul>
@@ -386,8 +386,8 @@ dtype<span class="token punctuation">:</span> float64
 江苏 <span class="token number">8.59</span>
 浙江 <span class="token number">5.18</span>
 dtype<span class="token punctuation">:</span> float64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​    不管是列表、元组还是一维数组，构造的序列结果会产生两列，第一列属于序列的行索引（可以理解为行号），自动从0开始，第二列才是序列的实际值。</p>
-<p>​    通过字典构造的序列仍然包含两列，所不同的是第一列不再是行号，而是具体的行名称（label），对应到字典中的键，第二列是序列的实际值，对应到字典中的值。</p>
+<p>​ 不管是列表、元组还是一维数组，构造的序列结果会产生两列，第一列属于序列的行索引（可以理解为行号），自动从 0 开始，第二列才是序列的实际值。</p>
+<p>​ 通过字典构造的序列仍然包含两列，所不同的是第一列不再是行号，而是具体的行名称（label），对应到字典中的键，第二列是序列的实际值，对应到字典中的值。</p>
 <ul>
 <li><p>序列与一维数组有极高的相似性，获取一维数组元素的所有索引方法都可以应用在序列上，而且数组的数学和统计函数也同样可以应用到序列对象上，不同的是，序列会有更多的其他处理方法。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#取出 gdp1中的第一、第四和第五个元素</span>
@@ -427,7 +427,7 @@ dtype<span class="token punctuation">:</span> float64
  <span class="token number">5.714</span>
 通过序列的方法<span class="token punctuation">:</span>
 <span class="token number">5.714</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果序列是行名称风格，既可以使用位置（行号）索引，又可以使用标签（行名称）索引；如果需要对序列进行数学函数的运算，一般首选numpy模块，因为Pandas模块在这方面比较缺乏；如果是对序列做统计运算，既可以使用numpy模块中的函数，也可以使用序列的“方法”,一般首选序列方法</p>
+<p>如果序列是行名称风格，既可以使用位置（行号）索引，又可以使用标签（行名称）索引；如果需要对序列进行数学函数的运算，一般首选 numpy 模块，因为 Pandas 模块在这方面比较缺乏；如果是对序列做统计运算，既可以使用 numpy 模块中的函数，也可以使用序列的“方法”,一般首选序列方法</p>
 </li>
 </ul>
 <h3 id="构造数据框"><a href="#构造数据框" class="headerlink" title="构造数据框"></a>构造数据框</h3><ul>
@@ -463,14 +463,14 @@ df3 <span class="token operator">=</span> pd<span class="token punctuation">.</s
 <span class="token number">0</span>  张三  <span class="token number">23</span>  男
 <span class="token number">1</span>  李四  <span class="token number">27</span>  女
 <span class="token number">2</span>  王二  <span class="token number">26</span>  女<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>构造数据框需要使用到Pandas模块中的<code>DataFrame</code>函数，如果通过嵌套列表或元组构造数据框，则需要将数据框中的每一行观测作为嵌套列表或元组的元素；如果通过二维数组构造数据框，则需要将数据框的每一行写入到数组的行中；如果通过字典构造数据框，则字典的键构成数据框的变量名，对应的值构成数据框的观测。</p>
+<p>构造数据框需要使用到 Pandas 模块中的<code>DataFrame</code>函数，如果通过嵌套列表或元组构造数据框，则需要将数据框中的每一行观测作为嵌套列表或元组的元素；如果通过二维数组构造数据框，则需要将数据框的每一行写入到数组的行中；如果通过字典构造数据框，则字典的键构成数据框的变量名，对应的值构成数据框的观测。</p>
 <h2 id="外部数据的读取"><a href="#外部数据的读取" class="headerlink" title="外部数据的读取"></a>外部数据的读取</h2><h3 id="文本文件的读取"><a href="#文本文件的读取" class="headerlink" title="文本文件的读取"></a>文本文件的读取</h3><ul>
-<li><p>使用Python读取<code>txt</code>或<code>csv</code>格式中的数据，可以使用Pandas模块中的<code>read_table</code>函数或<code>read_csv</code>函数。这两种函数均可以读取文本文件的数据且功能相似。</p>
+<li><p>使用 Python 读取<code>txt</code>或<code>csv</code>格式中的数据，可以使用 Pandas 模块中的<code>read_table</code>函数或<code>read_csv</code>函数。这两种函数均可以读取文本文件的数据且功能相似。</p>
 </li>
 <li><p><strong><code>pd.read_table(filepath_or_buffer, sep='\t', header='infer', names=None, index_col=None, usecols=None, dtype = None, converters=None, skiprows=None, skipfooter=None, nrows=None, na_values=None, skip_blank_lines=True, parse_dates=False, thousands=None, comment=None, encoding=None</code></strong></p>
 <ul>
-<li><strong>filepath_or_buffer</strong>：指定txt文件或csv文件所在的具体路径。</li>
-<li><strong>sep</strong>：指定原数据集中各字段之间的分隔符，默认为Tab制表符。</li>
+<li><strong>filepath_or_buffer</strong>：指定 txt 文件或 csv 文件所在的具体路径。</li>
+<li><strong>sep</strong>：指定原数据集中各字段之间的分隔符，默认为 Tab 制表符。</li>
 <li><strong>header</strong>：是否需要将原数据集中的第一行作为表头，默认将第一行用作字段名称。</li>
 <li><strong>names</strong>：如果原数据集中没有字段，可以通过该参数在数据读取时给数据框添加具体的表头。</li>
 <li><strong>index_col</strong>：指定原数据集中的某些列作为数据框的行索引（标签）。</li>
@@ -481,8 +481,8 @@ df3 <span class="token operator">=</span> pd<span class="token punctuation">.</s
 <li><strong>skipfooter</strong>：数据读取时，指定需要跳过原数据集末尾的行数。</li>
 <li><strong>nrows</strong>：指定读取数据的行数。</li>
 <li><strong>na_values</strong>：指定原数据集中哪些特征的值作为缺失值。</li>
-<li><strong>skip_blank_lines</strong>：读取数据时是否需要跳过原数据集中的空白行，默认为True。</li>
-<li><strong>parse_dates</strong>：如果参数值为True，则尝试解析数据框的行索引；如果参数为列表，则尝试解析对应的日期列；如果参数为嵌套列表，则将某些列合并为日期列；如果参数为字典，则解析对应的列（字典中的值），并生成新的字段名（字典中的键）。</li>
+<li><strong>skip_blank_lines</strong>：读取数据时是否需要跳过原数据集中的空白行，默认为 True。</li>
+<li><strong>parse_dates</strong>：如果参数值为 True，则尝试解析数据框的行索引；如果参数为列表，则尝试解析对应的日期列；如果参数为嵌套列表，则将某些列合并为日期列；如果参数为字典，则解析对应的列（字典中的值），并生成新的字段名（字典中的键）。</li>
 <li><strong>thousands</strong>：指定原始数据集中的千分位符。</li>
 <li><strong>comment</strong>：指定注释符，在读取数据时，如果碰到行首指定的注释符，则跳过改行。</li>
 <li><strong>encoding</strong>：如果文件中含有中文，有时需要指定字符编码。</li>
@@ -493,21 +493,21 @@ df3 <span class="token operator">=</span> pd<span class="token punctuation">.</s
 <li><p>问题分析</p>
 <ul>
 <li>数据集并不是从第一行开始，前面几行实际上是数据集的来源说明，读取数据时需要注意什么问题。</li>
-<li>数据集的末尾3行仍然不是需要读入的数据，如何避免后3行数据的读入。</li>
+<li>数据集的末尾 3 行仍然不是需要读入的数据，如何避免后 3 行数据的读入。</li>
 <li>中间部分的数据，第四行前加了#号，表示不需要读取该行，该如何处理。</li>
 <li>数据集中的收入一列，千分位符是&amp;，如何将该字段读入为正常的数值型数据。</li>
-<li>如果需要将year、month和day三个字段解析为新的birthday字段，该如何做到。</li>
+<li>如果需要将 year、month 和 day 三个字段解析为新的 birthday 字段，该如何做到。</li>
 <li>数据集中含有中文，一般在读取含中文的文本文件时都会出现编码错误，该如何解决</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#读取文本文件中的数据</span>
 user_income <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_table<span class="token punctuation">(</span>
     <span class="token string">r'C:\Users\Administrator\Desktopldata_test01.txt'</span><span class="token punctuation">,</span>
-    sep <span class="token operator">=</span> <span class="token string">','</span><span class="token punctuation">,</span> 
-    parse_dates<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'birthday'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>                 
+    sep <span class="token operator">=</span> <span class="token string">','</span><span class="token punctuation">,</span>
+    parse_dates<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'birthday'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     skiprows<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
     skipfooter<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
     comment<span class="token operator">=</span><span class="token string">'#'</span><span class="token punctuation">,</span>
-    encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span> 
+    encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span>
     thousands<span class="token operator">=</span><span class="token string">'&amp;'</span><span class="token punctuation">)</span>
 user_income<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012222512.png" alt="txt数据读取结果"></p>
@@ -520,14 +520,14 @@ user_income<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 index_col=None, names=None, parse_cols=None, parse_dates=False, na_values=None, thousands=None, convert_float=True)</code></strong></p>
 <ul>
 <li><strong>io</strong>：指定电子表格的具体路径。</li>
-<li><strong>sheetname</strong>：指定需要读取电子表格中的第几个Sheet，既可以传递整数也可以传递具体的Sheet名称。</li>
+<li><strong>sheetname</strong>：指定需要读取电子表格中的第几个 Sheet，既可以传递整数也可以传递具体的 Sheet 名称。</li>
 <li><strong>header</strong>：是否需要将数据集的第一行用作表头，默认为是需要的。</li>
 <li><strong>skiprows</strong>：读取数据时，指定跳过的开始行数。</li>
 <li><strong>skip_footer</strong>：读取数据时，指定跳过的末尾行数。</li>
 <li><strong>index_col</strong>：指定哪些列用作数据框的行索引（标签）。</li>
 <li><strong>names</strong>：如果原数据集中没有字段，可以通过该参数在数据读取时给数据框添加具体的表头。</li>
 <li><strong>parse_cols</strong>：指定需要解析的字段。</li>
-<li><strong>parse_dates</strong>：如果参数值为True，则尝试解析数据框的行索引；如果参数为列表，则尝试解析对应的日期列；如果参数为嵌套列表，则将某些列合并为日期列；如果参数为字典，则解析对应的列（字典中的值），并生成新的字段名（字典中的键）。</li>
+<li><strong>parse_dates</strong>：如果参数值为 True，则尝试解析数据框的行索引；如果参数为列表，则尝试解析对应的日期列；如果参数为嵌套列表，则将某些列合并为日期列；如果参数为字典，则解析对应的列（字典中的值），并生成新的字段名（字典中的键）。</li>
 <li><strong>na_values</strong>：指定原始数据中哪些特殊值代表了缺失值。</li>
 <li><strong>thousands</strong>：指定原始数据集中的千分位符。</li>
 <li><strong>convert_float</strong>：默认将所有的数值型字段转换为浮点型字段。</li>
@@ -538,7 +538,7 @@ index_col=None, names=None, parse_cols=None, parse_dates=False, na_values=None, 
 <p>在读取数据时需要注意两点：一点是该表没有表头，如何读数据的同时就设置好具体的表头；另一点是数据集的第一列实际上是字符型的字段，如何避免数据读入时自动变成数值型字段。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">child_cloth <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>
     io <span class="token operator">=</span> <span class="token string">r'C:\Users\Administrator\Desktopldata_test02.xlsx'</span><span class="token punctuation">,</span>
-    header <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> 
+    header <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
     converters <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token builtin">str</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     names <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'Prod_Id'</span> <span class="token punctuation">,</span> <span class="token string">'Prod_Name '</span> <span class="token punctuation">,</span> <span class="token string">'Prod_Color'</span><span class="token punctuation">,</span> <span class="token string">'Prod_Price'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 child_cloth<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -546,19 +546,19 @@ child_cloth<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 </li>
 </ul>
 <h3 id="数据库数据的读取"><a href="#数据库数据的读取" class="headerlink" title="数据库数据的读取"></a>数据库数据的读取</h3><ul>
-<li><p>安装pymysql：<code>pip install pymysql</code></p>
+<li><p>安装 pymysql：<code>pip install pymysql</code></p>
 </li>
-<li><p>mysql链接：<strong><code>pymysql.connect(host=None, user=None, password='', database=None, port=0, charset='')</code></strong></p>
+<li><p>mysql 链接：<strong><code>pymysql.connect(host=None, user=None, password='', database=None, port=0, charset='')</code></strong></p>
 <ul>
-<li><strong>host</strong>：指定需要访问的MySQL服务器。</li>
-<li><strong>user</strong>：指定访问MySQL数据库的用户名。</li>
-<li><strong>password</strong>：指定访问MySQL数据库的密码。</li>
-<li><strong>database</strong>：指定访问MySQL数据库的具体库名。</li>
-<li><strong>port</strong>：指定访问MySQL数据库的端口号。</li>
-<li><strong>charset</strong>：指定读取MySQL数据库的字符集，如果数据库表中含有中文，一般可以尝试将该参数设置为“utf8”或“gbk”。</li>
+<li><strong>host</strong>：指定需要访问的 MySQL 服务器。</li>
+<li><strong>user</strong>：指定访问 MySQL 数据库的用户名。</li>
+<li><strong>password</strong>：指定访问 MySQL 数据库的密码。</li>
+<li><strong>database</strong>：指定访问 MySQL 数据库的具体库名。</li>
+<li><strong>port</strong>：指定访问 MySQL 数据库的端口号。</li>
+<li><strong>charset</strong>：指定读取 MySQL 数据库的字符集，如果数据库表中含有中文，一般可以尝试将该参数设置为“utf8”或“gbk”。</li>
 </ul>
 </li>
-<li><p>使用pandas读取数据库数据</p>
+<li><p>使用 pandas 读取数据库数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#读入 MySQL 数据库数据#导入第三方模块</span>
 <span class="token keyword">import</span> pymysql
 <span class="token comment">#连接MySQL数据库</span>
@@ -595,12 +595,12 @@ sec_cars<span class="token punctuation">.</span>New price <span class="token ope
 <span class="token comment">#重新查看各变量数据类型</span>
 sec_cars<span class="token punctuation">.</span>dtypes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223851.png" alt="修改时间和价格数据类型"></p>
-<p>Pandas模块中的<code>to_datetime</code>函数可以通过format参数灵活地将各种格式的字符型日期转换成真正的日期数据；由于二手车新车价格含有“万”字，因此不能直接转换数据类型，为达到目的，需要三步走，首先通过<em>str</em>方法将该字段转换成字符串，然后通过<em>切片</em>手段，将“万”字剔除，最后运用<em>astype</em>方法，实现数据类型的转换。</p>
+<p>Pandas 模块中的<code>to_datetime</code>函数可以通过 format 参数灵活地将各种格式的字符型日期转换成真正的日期数据；由于二手车新车价格含有“万”字，因此不能直接转换数据类型，为达到目的，需要三步走，首先通过<em>str</em>方法将该字段转换成字符串，然后通过<em>切片</em>手段，将“万”字剔除，最后运用<em>astype</em>方法，实现数据类型的转换。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 数据的描述性统计</span>
 sec_cars<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223335.png" alt=" 数值型数据的统计描述"></p>
-<p>通过describe方法，直接运算了数据框中所有数值型变量的统计值，包括<strong>非缺失个数、平均值、标准差、最小值、下四分位数、中位数、上四分位数和最大值</strong>。</p>
-<p>以二手车的售价Sec_price为例，平均价格为25.7万（很明显会受到极端值的影响）、中位数价格为10.2万（即一半的二手车价格不超过10.2万）、最高售价为808万、最低售为0.65万、绝大多数二手车价格不超过23.8万（上四分位数75%对应的值）。</p>
+<p>通过 describe 方法，直接运算了数据框中所有数值型变量的统计值，包括<strong>非缺失个数、平均值、标准差、最小值、下四分位数、中位数、上四分位数和最大值</strong>。</p>
+<p>以二手车的售价 Sec_price 为例，平均价格为 25.7 万（很明显会受到极端值的影响）、中位数价格为 10.2 万（即一半的二手车价格不超过 10.2 万）、最高售价为 808 万、最低售为 0.65 万、绝大多数二手车价格不超过 23.8 万（上四分位数 75%对应的值）。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#挑出所有数值型变量</span>
 <span class="token comment"># 返回数据集的所有变量名，通过布尔索引和切片方法获得所有的数值型变量</span>
 num_variables <span class="token operator">=</span> sec_cars<span class="token punctuation">.</span>columns<span class="token punctuation">[</span>sec_cars<span class="token punctuation">.</span>dtypes <span class="token operator">!=</span><span class="token string">'object'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
@@ -614,11 +614,11 @@ num_variables <span class="token operator">=</span> sec_cars<span class="token p
 <span class="token comment"># 对指定轴（axis=0，即垂直方向的各列）进行统计运算（运算函数即自定义函数）</span>
 sec_cars<span class="token punctuation">[</span>num_variables<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span>func <span class="token operator">=</span> skew_kurt<span class="token punctuation">,</span>axis <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223675.png" alt="数值型数据的偏度和峰度"></p>
-<p>每个数值型变量的偏度和峰度，这三个变量都属于右偏（因为偏度值均大于0），而且三个变量也是尖峰的（因为峰度值也都大于0）。</p>
+<p>每个数值型变量的偏度和峰度，这三个变量都属于右偏（因为偏度值均大于 0），而且三个变量也是尖峰的（因为峰度值也都大于 0）。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 离散型变量的统计描述</span>
 sec_cars<span class="token punctuation">.</span>describe<span class="token punctuation">(</span>include <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'object'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223817.png" alt="离散型数据的统计描述"></p>
-<p>包含离散变量的四个统计值，分别是<strong>非缺失观测数、唯一水平数、频次最高的离散值和具体的频次</strong>。以二手车品牌为例，一共有10 984辆二手车，包含104种品牌，其中别克品牌最多，高达1 346辆。需要注意的是，如果对离散型变量作统计分析，需要将“object”以列表的形式传递给include参数。</p>
+<p>包含离散变量的四个统计值，分别是<strong>非缺失观测数、唯一水平数、频次最高的离散值和具体的频次</strong>。以二手车品牌为例，一共有 10 984 辆二手车，包含 104 种品牌，其中别克品牌最多，高达 1 346 辆。需要注意的是，如果对离散型变量作统计分析，需要将“object”以列表的形式传递给 include 参数。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 离散变量频次统计 以二手车品的标准排量Discharge为例</span>
 Freq <span class="token operator">=</span> sec_cars<span class="token punctuation">.</span>Discharge<span class="token punctuation">.</span>value_counts<span class="token punctuation">(</span><span class="token punctuation">)</span>
 Freq_ratio <span class="token operator">=</span> Freq<span class="token operator">/</span>sec_cars<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
@@ -631,17 +631,17 @@ Freq_df<span class="token punctuation">.</span>head<span class="token punctuatio
 Freq_df<span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>inplace <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
 Freq_df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223977.png" alt="将行索引转为字段"></p>
-<p><code>reset_index</code>方法可以非常方便地将行标签转换为数据框的变量。在如上代码中，将reset_index方法中的<code>inplace</code>参数设置为<code>True</code>，表示直接对原始数据集进行操作，影响到原数据集的变化，否则返回的只是变化预览，并不会改变原数据集。</p>
+<p><code>reset_index</code>方法可以非常方便地将行标签转换为数据框的变量。在如上代码中，将 reset_index 方法中的<code>inplace</code>参数设置为<code>True</code>，表示直接对原始数据集进行操作，影响到原数据集的变化，否则返回的只是变化预览，并不会改变原数据集。</p>
 </li>
 </ul>
 <h2 id="字符与日期数据的处理"><a href="#字符与日期数据的处理" class="headerlink" title="字符与日期数据的处理"></a>字符与日期数据的处理</h2><ul>
 <li><p>待处理的数据表<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223260.png" alt="待处理的数据表"></p>
 <ul>
-<li>如何更改出生日期birthday和手机号tel两个字段的数据类型。</li>
-<li>如何根据出生日期birthday和开始工作日期start_work两个字段新增年龄和工龄两个字段。</li>
-<li>如何将手机号tel的中间四位隐藏起来。</li>
+<li>如何更改出生日期 birthday 和手机号 tel 两个字段的数据类型。</li>
+<li>如何根据出生日期 birthday 和开始工作日期 start_work 两个字段新增年龄和工龄两个字段。</li>
+<li>如何将手机号 tel 的中间四位隐藏起来。</li>
 <li>如何根据邮箱信息新增邮箱域名字段。</li>
-<li>如何基于other字段取出每个人员的专业信息。</li>
+<li>如何基于 other 字段取出每个人员的专业信息。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#数据读入</span>
 df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">r'C:\Users\Administrator\Desktopldata_test03.xlsx'</span><span class="token punctuation">)</span>
@@ -669,7 +669,7 @@ df<span class="token punctuation">.</span>head<span class="token punctuation">(<
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223679.png" alt="常用的日期时间处理“方法”"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#常用日期处理方法</span>
 dates <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>
-    pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'1989-8-18 13:14:55'</span><span class="token punctuation">,</span> <span class="token string">'1995-2-16'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'1989-8-18 13:14:55'</span><span class="token punctuation">,</span> <span class="token string">'1995-2-16'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token builtin">format</span> <span class="token operator">=</span> <span class="token string">'%Y-%m-%d %H:%M:%S'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'返回日期值:\n '</span><span class="token punctuation">,</span> dates<span class="token punctuation">.</span>dt<span class="token punctuation">.</span>date<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'返回季度:n'</span> <span class="token punctuation">,</span> dates<span class="token punctuation">.</span>dt<span class="token punctuation">.</span>quarter<span class="token punctuation">)</span>
@@ -723,7 +723,7 @@ df <span class="token operator">=</span> pd<span class="token punctuation">.</sp
 out<span class="token punctuation">:</span>
 数据集中是否存在重复观测：
 <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>检测数据集的记录是否存在重复，可以使用duplicated方法进行验证，但是该方法返回的是数据集每一行的检验结果，即10行数据会返回10个bool值。很显然，这样也不能直接得知数据集的观测是否重复，为了能够得到最直接的结果，可以使用any函数。该函数表示的是在多个条件判断中，只要有一个条件为True，则any函数的结果就为True。正如结果所示，any函数的运用返回True值，说明该数据集是存在重复观测的。</p>
+<p>检测数据集的记录是否存在重复，可以使用 duplicated 方法进行验证，但是该方法返回的是数据集每一行的检验结果，即 10 行数据会返回 10 个 bool 值。很显然，这样也不能直接得知数据集的观测是否重复，为了能够得到最直接的结果，可以使用 any 函数。该函数表示的是在多个条件判断中，只要有一个条件为 True，则 any 函数的结果就为 True。正如结果所示，any 函数的运用返回 True 值，说明该数据集是存在重复观测的。</p>
 </li>
 <li><p>删除数据集中的重复观测</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 删除重复项,inplace=True表示就在原数据表上操作</span>
@@ -735,7 +735,7 @@ df<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <h3 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h3><ul>
 <li><p>缺失值是指数据集中的某些观测存在遗漏的指标值，缺失值的存在同样会影响到数据分析和挖掘的结果。导致观测的缺失可能有两方面原因，一方面是人为原因（如记录过程中的遗漏、个人隐私而不愿透露等），另一方面是机器或设备的故障所导致（如断电或设备老化等原因）。</p>
 </li>
-<li><p>一般而言，当遇到缺失值（Python中用NaN表示）时，可以采用三种方法处置，分别是<strong>删除法、替换法和插补法</strong>。删除法是指当缺失的观测比例非常低时（如5%以内），直接<strong>删除存在缺失的观测</strong>，或者当某些变量的缺失比例非常高时（如85%以上），直接<strong>删除这些缺失的变量</strong>；替换法是指用某种常数直接替换那些缺失值，例如，对连续变量而言，可以使用<strong>均值或中位数替换</strong>，对于离散变量，可以使用<strong>众数替换</strong>；插补法是指根据其他非缺失的变量或观测来预测缺失值，常见的插补法有<strong>回归插补法、K近邻插补法、拉格朗日插补法</strong>等。</p>
+<li><p>一般而言，当遇到缺失值（Python 中用 NaN 表示）时，可以采用三种方法处置，分别是<strong>删除法、替换法和插补法</strong>。删除法是指当缺失的观测比例非常低时（如 5%以内），直接<strong>删除存在缺失的观测</strong>，或者当某些变量的缺失比例非常高时（如 85%以上），直接<strong>删除这些缺失的变量</strong>；替换法是指用某种常数直接替换那些缺失值，例如，对连续变量而言，可以使用<strong>均值或中位数替换</strong>，对于离散变量，可以使用<strong>众数替换</strong>；插补法是指根据其他非缺失的变量或观测来预测缺失值，常见的插补法有<strong>回归插补法、K 近邻插补法、拉格朗日插补法</strong>等。</p>
 </li>
 <li><p>待处理的缺失值数据</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223982.png" alt="待处理的缺失值数据"></p>
@@ -760,7 +760,7 @@ df<span class="token punctuation">.</span>fillna<span class="token punctuation">
 <span class="token comment"># 替换法之后向替换</span>
 df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>method <span class="token operator">=</span> <span class="token string">'bfill'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012223304.png" alt="缺失观测的前向填充与后向填充"></p>
-<p>缺失值的替换需要借助于fillna方法，该方法中的method参数可以接受’ffill’和’bfill’两种值，分别代表前向填充和后向填充。前向填充是指用缺失值的前一个值替换（如左表所示），而后向填充则表示用缺失值的后一个值替换（如右表所示）。右表中的最后一个记录仍包含缺失值，是因为后向填充法找不到该缺失值的后一个值用于替换。缺失值的前向填充或后向填充一般适用于<strong>时间序列型</strong>的数据集，因为这样的数据前后具有连贯性，而一般的独立性样本并不适用该方法。</p>
+<p>缺失值的替换需要借助于 fillna 方法，该方法中的 method 参数可以接受’ffill’和’bfill’两种值，分别代表前向填充和后向填充。前向填充是指用缺失值的前一个值替换（如左表所示），而后向填充则表示用缺失值的后一个值替换（如右表所示）。右表中的最后一个记录仍包含缺失值，是因为后向填充法找不到该缺失值的后一个值用于替换。缺失值的前向填充或后向填充一般适用于<strong>时间序列型</strong>的数据集，因为这样的数据前后具有连贯性，而一般的独立性样本并不适用该方法。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#替换法之常数替换</span>
 df<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token comment">#替换法之统计值替换</span>
@@ -773,7 +773,7 @@ df<span class="token punctuation">.</span>fillna <span class="token punctuation"
 <li><p>异常值是指那些远离正常值的观测，即“不合群”观测。导致异常值的出现一般是人为的记录错误或者是设备的故障等，异常值的出现会对模型的创建和预测产生严重的后果。当然异常值也不一定都是坏事，有些情况下，通过寻找异常值就能够给业务带来良好的发展，如销毁“钓鱼”网站、关闭“薅羊毛”用户的权限等</p>
 </li>
 <li><p>对于异常值的检测，一般采用两种方法，一种是$n$个<strong>标准差法</strong>，另一种是<strong>箱线图判别法</strong>。标准差法的判断公式是$outlinear &gt; |\bar x\pm n\sigma|$ ，其中$\bar x$为样本均值，$σ$为样本标准差，当$n=2$时，满足条件的观测就是异常值，当$n=3$时，满足条件的观测就是极端异常值；箱线图的判断公式是$outlinear&gt;Q3+nIQR$或者$outlinear&lt;Q1-nIQR$，其中$Q1$为下四分位数（25%），$Q3$为上四位数（75%），$IQR$为四分位差（上四分位数与下四分位数的差），当$n=1.5s$时，满足条件的观测为异常值，当$n=3$时，满足条件的观测即为极端异常值。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224028.png" alt="异常值判断的两种方法"></p>
-<p>这两种方法的选择标准如下，如果数据近似服从<strong>正态分布</strong>时，优先选择<strong>n个标准差法</strong>，因为数据的分布相对比较对称；否则优先选择箱线图法，因为分位数并不会受到极端值的影响。当数据存在异常时，一般可以使用<strong>删除法</strong>将异常值删除（前提是异常观测的比例不能太大）、<strong>替换法</strong>（可以考虑使用低于判别上限的最大值或高于判别下限的最小值替换、使用均值或中位数替换等）。</p>
+<p>这两种方法的选择标准如下，如果数据近似服从<strong>正态分布</strong>时，优先选择<strong>n 个标准差法</strong>，因为数据的分布相对比较对称；否则优先选择箱线图法，因为分位数并不会受到极端值的影响。当数据存在异常时，一般可以使用<strong>删除法</strong>将异常值删除（前提是异常观测的比例不能太大）、<strong>替换法</strong>（可以考虑使用低于判别上限的最大值或高于判别下限的最小值替换、使用均值或中位数替换等）。</p>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#数据读入</span>
@@ -823,11 +823,11 @@ out<span class="token punctuation">:</span>
 判别异常值的上限临界值<span class="token punctuation">:</span><span class="token number">148.85</span>
 用以替换异常值的数据<span class="token punctuation">:</span><span class="token number">141.7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="数据子集的获取"><a href="#数据子集的获取" class="headerlink" title="数据子集的获取"></a>数据子集的获取</h2><ul>
-<li><p>在Pandas模块中实现数据框子集的获取可以使用<code>iloc</code>、<code>loc</code>和<code>ix</code>三种“方法”，这三种方法既可以对数据行进行筛选，也可以实现变量的挑选，它们的语法可以表示成<code>[rows_select,cols_select]</code>。</p>
+<li><p>在 Pandas 模块中实现数据框子集的获取可以使用<code>iloc</code>、<code>loc</code>和<code>ix</code>三种“方法”，这三种方法既可以对数据行进行筛选，也可以实现变量的挑选，它们的语法可以表示成<code>[rows_select,cols_select]</code>。</p>
 <ul>
-<li><code>iloc</code>只能通过<strong>行号和列号</strong>进行数据的筛选，读者可以将iloc中的“i”理解为“integer”，即只能向[rows_select, cols_select]指定<strong>整数列表</strong>。该索引方式与数组的索引方式类似，都是从0开始，可以间隔取号，对于切片仍然无法取到上限。</li>
-<li><code>loc</code>要比iloc灵活一些，读者可以将loc中的“l”理解为“label”，即可以向[rows_select, cols_select]指定具体的<strong>行标签（行名称）和列标签（字段名）</strong>。注意，这里是标签不再是索引。而且，还可以将rows_select指定为具体的筛选条件，在iloc中是无法做到的。</li>
-<li><code>ix</code>是iloc和loc的混合，该“方法”吸收了iloc和loc的优点，使数据框子集的获取更加灵活。</li>
+<li><code>iloc</code>只能通过<strong>行号和列号</strong>进行数据的筛选，读者可以将 iloc 中的“i”理解为“integer”，即只能向[rows_select, cols_select]指定<strong>整数列表</strong>。该索引方式与数组的索引方式类似，都是从 0 开始，可以间隔取号，对于切片仍然无法取到上限。</li>
+<li><code>loc</code>要比 iloc 灵活一些，读者可以将 loc 中的“l”理解为“label”，即可以向[rows_select, cols_select]指定具体的<strong>行标签（行名称）和列标签（字段名）</strong>。注意，这里是标签不再是索引。而且，还可以将 rows_select 指定为具体的筛选条件，在 iloc 中是无法做到的。</li>
+<li><code>ix</code>是 iloc 和 loc 的混合，该“方法”吸收了 iloc 和 loc 的优点，使数据框子集的获取更加灵活。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#构造数据集</span>
 df1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>
@@ -853,7 +853,7 @@ df2<span class="token punctuation">.</span>iloc<span class="token punctuation">[
 df2<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王二'</span><span class="token punctuation">,</span><span class="token string">'丁一'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
 df2<span class="token punctuation">.</span>ix<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224913.png" alt="数据子集的获取结果"></p>
-<p>对于iloc来说，不管什么形式的数据集都可以使用，始终表示行索引，即取哪些行下标的观测；loc就不能使用数值表示行标签了，因为此时数据集的行标签是姓名，所以需要写入中间三行对应的姓名；通过ix方法，既可以用行索引（如代码所示）表示，也可以用行标签表示</p>
+<p>对于 iloc 来说，不管什么形式的数据集都可以使用，始终表示行索引，即取哪些行下标的观测；loc 就不能使用数值表示行标签了，因为此时数据集的行标签是姓名，所以需要写入中间三行对应的姓名；通过 ix 方法，既可以用行索引（如代码所示）表示，也可以用行标签表示</p>
 </li>
 <li><p>筛选条件</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用筛选条件，取出所有男性的姓名和年龄</span>
@@ -872,11 +872,11 @@ df1<span class="token punctuation">.</span>ix<span class="token punctuation">[</
 <li><strong>values</strong>：指定需要拉入“数值”框的字段列表。</li>
 <li><strong>index</strong>：指定需要拉入“行标签”框的字段列表。</li>
 <li><strong>columns</strong>：指定需要拉入“列标签”框的字段列表。</li>
-<li><strong>aggfunc</strong>：指定数值的统计函数，默认为统计均值，也可以指定numpy模块中的其他统计函数。</li>
+<li><strong>aggfunc</strong>：指定数值的统计函数，默认为统计均值，也可以指定 numpy 模块中的其他统计函数。</li>
 <li><strong>fill_value</strong>：指定一个标量，用于填充缺失值。</li>
-<li><strong>margins</strong>：bool类型参数，是否需要显示行或列的总计值，默认为False。</li>
-<li><strong>dropna</strong>：bool类型参数，是否需要删除整列为缺失的字段，默认为True。</li>
-<li><strong>margins_name</strong>：指定行或列的总计名称，默认为All。</li>
+<li><strong>margins</strong>：bool 类型参数，是否需要显示行或列的总计值，默认为 False。</li>
+<li><strong>dropna</strong>：bool 类型参数，是否需要删除整列为缺失的字段，默认为 True。</li>
+<li><strong>margins_name</strong>：指定行或列的总计名称，默认为 All。</li>
 </ul>
 </li>
 <li><p>单个分组变量的均值统计</p>
@@ -884,10 +884,10 @@ df1<span class="token punctuation">.</span>ix<span class="token punctuation">[</
 diamonds <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_table<span class="token punctuation">(</span><span class="token string">r'C:\Users\Administrator\Desktop\diamonds.csv'</span><span class="token punctuation">,</span> sep <span class="token operator">=</span> <span class="token string">','</span><span class="token punctuation">)</span>
 <span class="token comment"># 单个分组变量的均值统计  不同颜色的价格汇总</span>
 pd<span class="token punctuation">.</span>pivot_table<span class="token punctuation">(</span>
-    data <span class="token operator">=</span> diamonds<span class="token punctuation">,</span> 
-    index <span class="token operator">=</span> <span class="token string">'color'</span><span class="token punctuation">,</span> 
-    values <span class="token operator">=</span> <span class="token string">'price'</span><span class="token punctuation">,</span> 
-    margins <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span> 
+    data <span class="token operator">=</span> diamonds<span class="token punctuation">,</span>
+    index <span class="token operator">=</span> <span class="token string">'color'</span><span class="token punctuation">,</span>
+    values <span class="token operator">=</span> <span class="token string">'price'</span><span class="token punctuation">,</span>
+    margins <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
     margins_name <span class="token operator">=</span> <span class="token string">'总计'</span><span class="token punctuation">)</span>
 <span class="token comment"># 返回结果属于Pandas模块中的序列类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224823.png" alt="Python的透视表结果"></p>
@@ -905,36 +905,36 @@ pd<span class="token punctuation">.</span>pivot_table<span class="token punctuat
     margins <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
     margins_name <span class="token operator">=</span> <span class="token string">'总计'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224205.png" alt="Python的透视表结果"></p>
-<p>对于列联表来说，行和列都需要指定某个分组变量，所以index参数和columns参数都需要指定一个分组变量，并且统计的不再是某个变量的均值，而是观测个数，所以aggfunc参数需要指定numpy模块中的size函数。通过这样的参数设置，返回的是一个数据框对象。</p>
+<p>对于列联表来说，行和列都需要指定某个分组变量，所以 index 参数和 columns 参数都需要指定一个分组变量，并且统计的不再是某个变量的均值，而是观测个数，所以 aggfunc 参数需要指定 numpy 模块中的 size 函数。通过这样的参数设置，返回的是一个数据框对象。</p>
 </li>
 </ul>
 <h2 id="表之间的合并与连接"><a href="#表之间的合并与连接" class="headerlink" title="表之间的合并与连接"></a>表之间的合并与连接</h2><ul>
 <li><p>对于多表之间的纵向合并，必须确保多表的列数和数据类型一致；对于多表之间的水平扩展，必须保证多表要有共同的匹配字段</p>
 </li>
-<li><p>Pandas模块同样提供了关于多表之间的合并和连接操作函数，分别是<code>concat</code>函数和<code>merge</code>函数</p>
+<li><p>Pandas 模块同样提供了关于多表之间的合并和连接操作函数，分别是<code>concat</code>函数和<code>merge</code>函数</p>
 <ul>
-<li><p>合并函数concat：<strong><code>pd.concat(objs, axis=0, join='outer', join_axes=None, ignore_index=False, keys=None)</code></strong></p>
+<li><p>合并函数 concat：<strong><code>pd.concat(objs, axis=0, join='outer', join_axes=None, ignore_index=False, keys=None)</code></strong></p>
 <ul>
 <li><strong>objs</strong>：指定需要合并的对象，可以是序列、数据框或面板数据构成的列表。</li>
-<li><strong>axis</strong>：指定数据合并的轴，默认为0，表示合并多个数据的行，如果为1，就表示合并多个数据的列。</li>
-<li><strong>join</strong>：指定合并的方式，默认为outer，表示合并所有数据，如果改为inner，表示合并公共部分的数据。</li>
+<li><strong>axis</strong>：指定数据合并的轴，默认为 0，表示合并多个数据的行，如果为 1，就表示合并多个数据的列。</li>
+<li><strong>join</strong>：指定合并的方式，默认为 outer，表示合并所有数据，如果改为 inner，表示合并公共部分的数据。</li>
 <li><strong>join_axes</strong>：合并数据后，指定保留的数据轴。</li>
-<li><strong>ignore_index</strong>：bool类型的参数，表示是否忽略原数据集的索引，默认为False，如果设为True，就表示忽略原索引并生成新索引。</li>
+<li><strong>ignore_index</strong>：bool 类型的参数，表示是否忽略原数据集的索引，默认为 False，如果设为 True，就表示忽略原索引并生成新索引。</li>
 <li><strong>keys</strong>：为合并后的数据添加新索引，用于区分各个数据部分。</li>
 </ul>
 </li>
-<li><p>如果纵向合并多个数据集，即使这些数据集都含有“姓名”变量，但变量名称不一致，如Name和name，通过合并后，将会得到错误的结果。</p>
+<li><p>如果纵向合并多个数据集，即使这些数据集都含有“姓名”变量，但变量名称不一致，如 Name 和 name，通过合并后，将会得到错误的结果。</p>
 </li>
-<li><p>join_axes参数的使用，例如纵向合并两个数据集df1和df2，可以写成<code>pd.concat([df1,df2])</code>，如果该参数等于<code>[df1.index]</code>，就表示保留与df1行标签一样的数据，但需要配合axis=1一起使用；如果等于<code>[df1.columns]</code>，就保留与df1列标签一样的数据，但不需要添加axis=1的约束。</p>
+<li><p>join_axes 参数的使用，例如纵向合并两个数据集 df1 和 df2，可以写成<code>pd.concat([df1,df2])</code>，如果该参数等于<code>[df1.index]</code>，就表示保留与 df1 行标签一样的数据，但需要配合 axis=1 一起使用；如果等于<code>[df1.columns]</code>，就保留与 df1 列标签一样的数据，但不需要添加 axis=1 的约束。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#构造数据集df1和 df2</span>
 df1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>
-    <span class="token punctuation">{</span> 
-        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王二'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">{</span>
+        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王二'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'gender'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">]</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 df2<span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span>
-    <span class="token punctuation">{</span> 
+    <span class="token punctuation">{</span>
         <span class="token string">'name'</span> <span class="token punctuation">:</span><span class="token punctuation">[</span> <span class="token string">'丁一'</span><span class="token punctuation">,</span><span class="token string">'赵五'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'gender '</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'女'</span> <span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">]</span>
@@ -942,8 +942,8 @@ df2<span class="token operator">=</span> pd<span class="token punctuation">.</sp
 <span class="token comment">#数据集的纵向合并</span>
 pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>df1<span class="token punctuation">,</span>df2<span class="token punctuation">]</span> <span class="token punctuation">,</span> keys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'df1'</span><span class="token punctuation">,</span> <span class="token string">'df2 '</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token comment">#如果df2数据集中的“姓名变量为Name”</span>
-df2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span> 
-    <span class="token punctuation">{</span> 
+df2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
         <span class="token string">'Name '</span> <span class="token punctuation">:</span><span class="token punctuation">[</span> <span class="token string">'丁一'</span><span class="token punctuation">,</span><span class="token string">'赵五'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'gender '</span> <span class="token punctuation">;</span> <span class="token punctuation">[</span> <span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">]</span>
@@ -952,38 +952,38 @@ df2 <span class="token operator">=</span> pd<span class="token punctuation">.</s
 pd<span class="token punctuation">.</span>concat <span class="token punctuation">(</span><span class="token punctuation">[</span>df1<span class="token punctuation">,</span>df2<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224703.png" alt="数据的合并结果"></p>
 </li>
-<li><p>连接函数merge： <code>pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None,left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'))</code></p>
+<li><p>连接函数 merge： <code>pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None,left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'))</code></p>
 <ul>
 <li><strong>left</strong>：指定需要连接的主表。</li>
 <li><strong>right</strong>：指定需要连接的辅表。</li>
-<li><strong>how</strong>：指定连接方式，默认为inner内连，还有其他选项，如左连left、右连right和外连outer。</li>
+<li><strong>how</strong>：指定连接方式，默认为 inner 内连，还有其他选项，如左连 left、右连 right 和外连 outer。</li>
 <li><strong>on</strong>：指定连接两张表的共同字段。</li>
 <li><strong>left_on</strong>：指定主表中需要连接的共同字段。</li>
 <li><strong>right_on</strong>：指定辅表中需要连接的共同字段。</li>
-<li><strong>left_index</strong>：bool类型参数，是否将主表中的行索引用作表连接的共同字段，默认为False。</li>
-<li><strong>right_index</strong>：bool类型参数，是否将辅表中的行索引用作表连接的共同字段，默认为False。</li>
-<li><strong>sort</strong>：bool类型参数，是否对连接后的数据按照共同字段排序，默认为False。</li>
+<li><strong>left_index</strong>：bool 类型参数，是否将主表中的行索引用作表连接的共同字段，默认为 False。</li>
+<li><strong>right_index</strong>：bool 类型参数，是否将辅表中的行索引用作表连接的共同字段，默认为 False。</li>
+<li><strong>sort</strong>：bool 类型参数，是否对连接后的数据按照共同字段排序，默认为 False。</li>
 <li><strong>suffixes</strong>：如果数据连接的结果中存在重叠的变量名，则使用各自的前缀进行区分。</li>
 </ul>
 </li>
-<li><p>该函数的最大缺点是，每次只能操作两张数据表的连接，如果有n张表需要连接，则必须经过n-1次的merge函数使用。</p>
+<li><p>该函数的最大缺点是，每次只能操作两张数据表的连接，如果有 n 张表需要连接，则必须经过 n-1 次的 merge 函数使用。</p>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#构造数据集</span>
-df3 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span> 
-    <span class="token punctuation">{</span> 
-        <span class="token string">'id'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token punctuation">,</span> 
+df3 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'id'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token punctuation">,</span>
         <span class="token string">'name '</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">,</span><span class="token string">'王二'</span><span class="token punctuation">,</span><span class="token string">'丁一'</span><span class="token punctuation">,</span><span class="token string">'赵五'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'gender'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-df4 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span> 
-    <span class="token punctuation">{</span> 
-        <span class="token string">'Id'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+df4 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame <span class="token punctuation">(</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'Id'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'score'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">83</span><span class="token punctuation">,</span><span class="token number">81</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">75</span><span class="token punctuation">,</span><span class="token number">86</span><span class="token punctuation">,</span><span class="token number">74</span><span class="token punctuation">,</span><span class="token number">88</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'kemu'</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'科目1'</span><span class="token punctuation">,</span><span class="token string">'科目1'</span><span class="token punctuation">,</span><span class="token string">'科目2'</span><span class="token punctuation">,</span><span class="token string">'科目1'</span><span class="token punctuation">,</span><span class="token string">'科目2 '</span><span class="token punctuation">,</span><span class="token string">'科目3'</span><span class="token punctuation">,</span><span class="token string">'科目1'</span><span class="token punctuation">]</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 df5 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>
-    <span class="token punctuation">{</span> 
+    <span class="token punctuation">{</span>
         <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">' name'</span> <span class="token punctuation">:</span><span class="token punctuation">[</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'王二'</span><span class="token punctuation">,</span><span class="token string">'赵五'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token string">'income'</span> <span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">13500</span><span class="token punctuation">,</span><span class="token number">18000</span><span class="token punctuation">,</span><span class="token number">15000</span><span class="token punctuation">]</span>
@@ -1016,7 +1016,7 @@ result <span class="token operator">=</span> grouped<span class="token punctuati
     <span class="token punctuation">{</span>
         <span class="token string">'color'</span> <span class="token punctuation">:</span> np<span class="token punctuation">.</span>size<span class="token punctuation">,</span>
         <span class="token string">'carat'</span> <span class="token punctuation">:</span> np<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">,</span>
-        <span class="token string">'price'</span> <span class="token punctuation">:</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span> 
+        <span class="token string">'price'</span> <span class="token punctuation">:</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">,</span>
         <span class="token string">'face_width'</span> <span class="token punctuation">:</span> np<span class="token punctuation">.</span><span class="token builtin">max</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 result
@@ -1027,11 +1027,11 @@ result <span class="token operator">=</span> pd<span class="token punctuation">.
 result
 <span class="token comment">#数据集重命名</span>
 result<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>
-    columns<span class="token operator">=</span> <span class="token punctuation">{</span> 
-        <span class="token string">'color'</span> <span class="token punctuation">:</span> <span class="token string">'counts'</span> <span class="token punctuation">,</span> 
-        <span class="token string">'carat'</span> <span class="token punctuation">:</span> <span class="token string">'min_weight'</span> <span class="token punctuation">,</span> 
+    columns<span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'color'</span> <span class="token punctuation">:</span> <span class="token string">'counts'</span> <span class="token punctuation">,</span>
+        <span class="token string">'carat'</span> <span class="token punctuation">:</span> <span class="token string">'min_weight'</span> <span class="token punctuation">,</span>
         <span class="token string">'price'</span> <span class="token punctuation">:</span> <span class="token string">'avg price'</span><span class="token punctuation">,</span>
-        <span class="token string">'face_width'</span> <span class="token punctuation">:</span> <span class="token string">'max_face_width'</span><span class="token punctuation">}</span> <span class="token punctuation">,</span> 
+        <span class="token string">'face_width'</span> <span class="token punctuation">:</span> <span class="token string">'max_face_width'</span><span class="token punctuation">}</span> <span class="token punctuation">,</span>
     inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 result
 <span class="token comment">#将行索引转换为数据框的变量</span>
@@ -1039,8 +1039,8 @@ result<span class="token punctuation">.</span>reset_index<span class="token punc
 result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408012224342.png" alt="聚合操作结果"></p>
 <ul>
-<li>使用Pandas实现分组聚合需要分两步走<ul>
-<li>第一步是指定分组变量，可以通过数据框的groupby“方法”完成；</li>
+<li>使用 Pandas 实现分组聚合需要分两步走<ul>
+<li>第一步是指定分组变量，可以通过数据框的 groupby“方法”完成；</li>
 <li>第二步是对不同的数值变量计算各自的统计值。必须以字典的形式控制变量名称和统计函数。</li>
 </ul>
 </li>
@@ -1048,7 +1048,7 @@ result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>从零开始学Python数据分析与挖掘／刘顺祥著．北京：清华大学出版社，2018</li>
+<li>从零开始学 Python 数据分析与挖掘／刘顺祥著．北京：清华大学出版社，2018</li>
 </ol>
 </blockquote>
 

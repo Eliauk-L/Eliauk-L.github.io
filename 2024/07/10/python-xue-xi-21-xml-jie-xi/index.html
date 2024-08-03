@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Python学习21-XML解析, Jay&#39;s Blog">
-    <meta name="description" content="XML解析
-XML 指可扩展标记语言（eXtensible Markup Language），标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。 
+    <meta name="description" content="XML 解析
+XML 指可扩展标记语言（eXtensible Markup Language），标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。
 XML 是一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -346,8 +346,8 @@ XML 是一套定义语义标记的规则，这些标记将文档分成许多部�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="XML解析"><a href="#XML解析" class="headerlink" title="XML解析"></a>XML解析</h1><ul>
-<li>XML 指可扩展标记语言（eXtensible Markup Language），标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。 </li>
+                <h1 id="XML-解析"><a href="#XML-解析" class="headerlink" title="XML 解析"></a>XML 解析</h1><ul>
+<li>XML 指可扩展标记语言（eXtensible Markup Language），标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。</li>
 <li>XML 是一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。用于传输和存储数据。</li>
 <li>常见的 XML 编程接口有 DOM 和 SAX，这两种接口处理 XML 文件的方式不同，当然使用场合也不同。</li>
 <li>Python 有三种方法解析 XML<ul>
@@ -365,7 +365,7 @@ XML 是一套定义语义标记的规则，这些标记将文档分成许多部�
 <p><strong>解析 XML</strong></p>
 </blockquote>
 <ul>
-<li><p><strong><code>fromstring()</code></strong>： 将包含XML数据的字符串转换为 Element 对象</p>
+<li><p><strong><code>fromstring()</code></strong>： 将包含 XML 数据的字符串转换为 Element 对象</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> xml<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>ElementTree <span class="token keyword">as</span> ET
 xml_string <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
 &lt;bookstore&gt;
@@ -432,7 +432,7 @@ root <span class="token operator">=</span> tree<span class="token punctuation">.
 </li>
 </ul>
 <blockquote>
-<p><strong>字典转XML</strong></p>
+<p><strong>字典转 XML</strong></p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> xml<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>ElementTree <span class="token keyword">import</span> Element
 
@@ -456,7 +456,7 @@ root <span class="token operator">=</span> tree<span class="token punctuation">.
 b'<span class="token operator">&lt;</span>stock _id<span class="token operator">=</span><span class="token string">"1234"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>price<span class="token operator">&gt;</span><span class="token number">490.1</span><span class="token operator">&lt;</span><span class="token operator">/</span>price<span class="token operator">&gt;</span><span class="token operator">&lt;</span>shares<span class="token operator">&gt;</span><span class="token number">100</span><span class="token operator">&lt;</span><span class="token operator">/</span>shares<span class="token operator">&gt;</span><span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>GOOG<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>stock<span class="token operator">&gt;</span>'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p><strong>保存xml</strong></p>
+<p><strong>保存 xml</strong></p>
 </blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> xml<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>ElementTree <span class="token keyword">import</span> parse<span class="token punctuation">,</span> Element
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> doc <span class="token operator">=</span> parse<span class="token punctuation">(</span><span class="token string">'pred.xml'</span><span class="token punctuation">)</span>
@@ -474,11 +474,11 @@ b'<span class="token operator">&lt;</span>stock _id<span class="token operator">
 </li>
 </ul>
 </li>
-<li>在 Python 中使用 sax 方式处理 xml 要先引入 xml.sax 中的 parse 函数，还有xml.sax.handler 中的 ContentHandler。</li>
+<li>在 Python 中使用 sax 方式处理 xml 要先引入 xml.sax 中的 parse 函数，还有 xml.sax.handler 中的 ContentHandler。</li>
 <li><a target="_blank" rel="noopener" href="https://docs.python.org/library/xml.sax.html">Python SAX APIs</a></li>
 </ul>
-<h2 id="3-DOM解析xml"><a href="#3-DOM解析xml" class="headerlink" title="3 DOM解析xml"></a>3 DOM解析xml</h2><ul>
-<li>DOM 的解析器在解析一个 XML 文档时，一次性读取整个文档，把文档中所有元素保存在内存中的一个树结构里，之后你可以利用DOM 提供的不同的函数来读取或修改文档的内容和结构，也可以把修改过的内容写入xml文件。</li>
+<h2 id="3-DOM-解析-xml"><a href="#3-DOM-解析-xml" class="headerlink" title="3 DOM 解析 xml"></a>3 DOM 解析 xml</h2><ul>
+<li>DOM 的解析器在解析一个 XML 文档时，一次性读取整个文档，把文档中所有元素保存在内存中的一个树结构里，之后你可以利用 DOM 提供的不同的函数来读取或修改文档的内容和结构，也可以把修改过的内容写入 xml 文件。</li>
 <li><a target="_blank" rel="noopener" href="http://docs.python.org/library/xml.dom.html">Python DOM APIs</a></li>
 </ul>
 <h2 id="4-增量解析"><a href="#4-增量解析" class="headerlink" title="4 增量解析"></a>4 增量解析</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> xml<span class="token punctuation">.</span>etree<span class="token punctuation">.</span>ElementTree <span class="token keyword">import</span> iterparse
@@ -513,11 +513,11 @@ data <span class="token operator">=</span> parse_and_remove<span class="token pu
     potholes_by_zip<span class="token punctuation">[</span>pothole<span class="token punctuation">.</span>findtext<span class="token punctuation">(</span><span class="token string">'zip'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
 <span class="token keyword">for</span> zipcode<span class="token punctuation">,</span> num <span class="token keyword">in</span> potholes_by_zip<span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>zipcode<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>iterparse()</code> 方法允许对XML文档进行增量操作，需要提供文件名和一个包含下面一种或多种类型的事件列表： <code>start</code> , <code>end</code>, <code>start-ns</code> 和 <code>end-ns</code> 。 由 <code>iterparse()</code> 创建的迭代器会产生形如 <code>(event, elem)</code> 的元组， 其中 <code>event</code> 是上述事件列表中的某一个，而 <code>elem</code> 是相应的XML元素。</p>
+<p><code>iterparse()</code> 方法允许对 XML 文档进行增量操作，需要提供文件名和一个包含下面一种或多种类型的事件列表： <code>start</code> , <code>end</code>, <code>start-ns</code> 和 <code>end-ns</code> 。 由 <code>iterparse()</code> 创建的迭代器会产生形如 <code>(event, elem)</code> 的元组， 其中 <code>event</code> 是上述事件列表中的某一个，而 <code>elem</code> 是相应的 XML 元素。</p>
 <ul>
-<li><code>start</code> 事件在某个元素第一次被创建并且还没有被插入其他数据(如子元素)时被创建。 </li>
+<li><code>start</code> 事件在某个元素第一次被创建并且还没有被插入其他数据(如子元素)时被创建。</li>
 <li><code>end</code> 事件在某个元素已经完成时被创建。</li>
-<li><code>start-ns</code> 和 <code>end-ns</code> 事件被用来处理XML文档命名空间的声明。</li>
+<li><code>start-ns</code> 和 <code>end-ns</code> 事件被用来处理 XML 文档命名空间的声明。</li>
 </ul>
 <p>该方法内存占用低，但速度慢。</p>
 <blockquote>

@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Request与Response, Jay&#39;s Blog">
-    <meta name="description" content="Request与Response
-Scrapy框架中，有两个主要的对象Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。
-Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一">
+    <meta name="description" content="Request 与 Response
+Scrapy 框架中，有两个主要的对象 Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。
+Request 对象在 Spider 中生成，包含 HTTP 请求信">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -354,28 +354,28 @@ Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Request与Response"><a href="#Request与Response" class="headerlink" title="Request与Response"></a>Request与Response</h1><ul>
-<li>Scrapy框架中，有两个主要的对象Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。</li>
-<li>Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一系列传递、处理，最终到达 Downloader下载器，下载器执行 Request 中的请求进行数据抓取，将生成的响应包装成一个Response对象，再经过传递、处理，最终返回发送Request 的 Spider，整个流程如图所示。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271201765.png" alt="传递Request与Response"></li>
+                <h1 id="Request-与-Response"><a href="#Request-与-Response" class="headerlink" title="Request 与 Response"></a>Request 与 Response</h1><ul>
+<li>Scrapy 框架中，有两个主要的对象 Request 与 Response，它们贯穿在爬虫的始终，最终爬虫通过它们将数据串联起来。</li>
+<li>Request 对象在 Spider 中生成，包含 HTTP 请求信息，在框架中经过一系列传递、处理，最终到达 Downloader 下载器，下载器执行 Request 中的请求进行数据抓取，将生成的响应包装成一个 Response 对象，再经过传递、处理，最终返回发送 Request 的 Spider，整个流程如图所示。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271201765.png" alt="传递Request与Response"></li>
 </ul>
-<h2 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h2><ul>
-<li><p>Request对象由Spider 生成，包含指定的HTTP请求信息，最终传递到Downloader下载器进行数据下载。</p>
+<h2 id="Request-对象"><a href="#Request-对象" class="headerlink" title="Request 对象"></a>Request 对象</h2><ul>
+<li><p>Request 对象由 Spider 生成，包含指定的 HTTP 请求信息，最终传递到 Downloader 下载器进行数据下载。</p>
 </li>
-<li><p>Request类原型：<strong><code>class scrapy.http.Request(url[, callback, method='GET', headers, body, cookies, meta, encoding='utf-8', priority=0, dont_filter=False, errback, flags] )</code></strong></p>
+<li><p>Request 类原型：<strong><code>class scrapy.http.Request(url[, callback, method='GET', headers, body, cookies, meta, encoding='utf-8', priority=0, dont_filter=False, errback, flags] )</code></strong></p>
 <ul>
-<li><p><strong>url(string)</strong>:请求URL。</p>
+<li><p><strong>url(string)</strong>:请求 URL。</p>
 </li>
-<li><p><strong>callback(callable)</strong>:调用指定的方法处理请求生成的响应，如果不指定，就默认使用parse()方法处理响应。需要注意的是，一旦发生错误，errback 指定的异常处理方法将会代替该方法被调用。</p>
+<li><p><strong>callback(callable)</strong>:调用指定的方法处理请求生成的响应，如果不指定，就默认使用 parse()方法处理响应。需要注意的是，一旦发生错误，errback 指定的异常处理方法将会代替该方法被调用。</p>
 </li>
-<li><p><strong>method(string)</strong>: HTTP请求方法，默认为GET。</p>
+<li><p><strong>method(string)</strong>: HTTP 请求方法，默认为 GET。</p>
 </li>
-<li><p><strong>meta(dict)</strong>: Request.meta属性的初始值。</p>
+<li><p><strong>meta(dict)</strong>: Request.meta 属性的初始值。</p>
 </li>
-<li><p><strong>body(str or unicode)</strong>:请求body。如果值为Unicode，那么将会用encoding 指定的编码方式转化为str类型。如果body 不指定，就会存储为空字符串，因此，无论 body指定为何种类型，最终都是存储为一个字符串。</p>
+<li><p><strong>body(str or unicode)</strong>:请求 body。如果值为 Unicode，那么将会用 encoding 指定的编码方式转化为 str 类型。如果 body 不指定，就会存储为空字符串，因此，无论 body 指定为何种类型，最终都是存储为一个字符串。</p>
 </li>
-<li><p><strong>headers(dict)</strong>:请求头。如果指定为None，将不会发送请求头。</p>
+<li><p><strong>headers(dict)</strong>:请求头。如果指定为 None，将不会发送请求头。</p>
 </li>
-<li><p><strong>cookies(dict or list)</strong>:请求cookies，可以用以下两种方式发送:</p>
+<li><p><strong>cookies(dict or list)</strong>:请求 cookies，可以用以下两种方式发送:</p>
 <ol>
 <li><p>使用字典发送</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://www.example.com"</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'currency'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span> <span class="token string">'country'</span><span class="token punctuation">:</span> <span class="token string">'UY'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -383,28 +383,28 @@ Request对象在Spider中生成，包含HTTP请求信息，在框架中经过一
 <li><p>使用字典列表发送</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span>http <span class="token punctuation">:</span> <span class="token operator">/</span> <span class="token operator">/</span> www<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token punctuation">,</span>
 cookies<span class="token operator">=</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span> 
+    <span class="token punctuation">{</span>
         <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'currency '</span><span class="token punctuation">,</span>
         <span class="token string">'value'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span>
         <span class="token string">'domain'</span> <span class="token punctuation">:</span> <span class="token string">'example.com'</span> <span class="token punctuation">,</span>
-        <span class="token string">'path'</span> <span class="token punctuation">:</span> <span class="token string">'/currency'</span> 
-    <span class="token punctuation">}</span> 
+        <span class="token string">'path'</span> <span class="token punctuation">:</span> <span class="token string">'/currency'</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <ul>
-<li><p>第⒉种形式支持自定义cookies 中的domain与 path，这种情形通常是为了把 cookie保存到之后的请求中，在接下来的请求中发送出去。</p>
+<li><p>第 ⒉ 种形式支持自定义 cookies 中的 domain 与 path，这种情形通常是为了把 cookie 保存到之后的请求中，在接下来的请求中发送出去。</p>
 </li>
-<li><p>当一些网站返回cookies 时，这些cookies将会存储在相对应的cookies域中，这是一个典型的浏览器行为。当我们不想将接收到的cookies 与现有的cookies合并时，我们可以指定Request.meta 中的<code>dont_merge_cookies</code>字段值为True.</p>
+<li><p>当一些网站返回 cookies 时，这些 cookies 将会存储在相对应的 cookies 域中，这是一个典型的浏览器行为。当我们不想将接收到的 cookies 与现有的 cookies 合并时，我们可以指定 Request.meta 中的<code>dont_merge_cookies</code>字段值为 True.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">request_with_cookies <span class="token operator">=</span> Request<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"http://www.example.com"</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'currency'</span> <span class="token punctuation">:</span> <span class="token string">'USD'</span><span class="token punctuation">,</span> <span class="token string">'country'</span><span class="token punctuation">:</span> <span class="token string">'UY'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>meta<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'dont_merge_cookies'</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
 </li>
-<li><p><strong>encoding(string)</strong>:请求的编码，默认为UTF-8。使用该指定的编码值对URL和body进行编码。</p>
+<li><p><strong>encoding(string)</strong>:请求的编码，默认为 UTF-8。使用该指定的编码值对 URL 和 body 进行编码。</p>
 </li>
-<li><p><strong>priority(int)</strong>:请求的优先级，默认为0。调度器依据优先级来处理请求的顺序。</p>
+<li><p><strong>priority(int)</strong>:请求的优先级，默认为 0。调度器依据优先级来处理请求的顺序。</p>
 </li>
-<li><p><strong>dont_filter(boolean)</strong>:表明调度器不需过滤该请求，默认为False。当需要多次执行相同的请求时，可以指定为Tnue。在使用此参数时必须小心处理，否则会陷入死循环。</p>
+<li><p><strong>dont_filter(boolean)</strong>:表明调度器不需过滤该请求，默认为 False。当需要多次执行相同的请求时，可以指定为 Tnue。在使用此参数时必须小心处理，否则会陷入死循环。</p>
 </li>
 <li><p><strong>errback(callable)</strong>:当处理请求抛出异常时调用该参数指定的方法。</p>
 </li>
@@ -412,7 +412,7 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </li>
 </ul>
 </li>
-<li><p>Request属性方法</p>
+<li><p>Request 属性方法</p>
 </li>
 </ul>
 <div class="table-container">
@@ -426,11 +426,11 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 <tbody>
 <tr>
 <td>url</td>
-<td>请求的URL，注意这个属性值包含转义过的URL，可以与原始URL不同，可用replaceO方法替换</td>
+<td>请求的 URL，注意这个属性值包含转义过的 URL，可以与原始 URL 不同，可用 replaceO 方法替换</td>
 </tr>
 <tr>
 <td>method</td>
-<td>HTTP请求方式，如GET、POST、PUT等</td>
+<td>HTTP 请求方式，如 GET、POST、PUT 等</td>
 </tr>
 <tr>
 <td>headers</td>
@@ -438,7 +438,7 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </tr>
 <tr>
 <td>body</td>
-<td>包含请求body的字符串，可用replace()方法替换</td>
+<td>包含请求 body 的字符串，可用 replace()方法替换</td>
 </tr>
 <tr>
 <td>meta</td>
@@ -446,17 +446,17 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </tr>
 <tr>
 <td>copy()</td>
-<td>根据原Request复制一个新的Request</td>
+<td>根据原 Request 复制一个新的 Request</td>
 </tr>
 <tr>
-<td>replace([url,  method,  headers,  body,  cookies,  meta,  encoding,  dont_filter, callback, errback])</td>
-<td>通过关键字替换相对应的参数，返回一个与原Request具有相同成员的Request对象</td>
+<td>replace([url, method, headers, body, cookies, meta, encoding, dont_filter, callback, errback])</td>
+<td>通过关键字替换相对应的参数，返回一个与原 Request 具有相同成员的 Request 对象</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li>新生成的 Request 的 meta 属性值为空，通常情况下根据启用的Scrapy 组件进行填充。Request.meta 属性除了可以填充自定义数据外，还包含一些Scrapy和内置扩展可识别的特定键值，这些特定键值对Request起到特殊的限制作用。</li>
+<li>新生成的 Request 的 meta 属性值为空，通常情况下根据启用的 Scrapy 组件进行填充。Request.meta 属性除了可以填充自定义数据外，还包含一些 Scrapy 和内置扩展可识别的特定键值，这些特定键值对 Request 起到特殊的限制作用。</li>
 </ul>
 <div class="table-container">
 <table>
@@ -469,43 +469,43 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 <tbody>
 <tr>
 <td>dont_redirect</td>
-<td>True或False，若设定为Tnue，则禁止重定向</td>
+<td>True 或 False，若设定为 Tnue，则禁止重定向</td>
 </tr>
 <tr>
 <td>dont_retry</td>
-<td>True或False，若设定为True，则禁止重新抓取失败的网页</td>
+<td>True 或 False，若设定为 True，则禁止重新抓取失败的网页</td>
 </tr>
 <tr>
 <td>handle_httpstatus_list</td>
-<td>列表，指定处理更多的HTTP返回状态码，默认处理2xx的状态码</td>
+<td>列表，指定处理更多的 HTTP 返回状态码，默认处理 2xx 的状态码</td>
 </tr>
 <tr>
 <td>handle_httpstatus_all</td>
-<td>True或False，若指定为True，则处理所有的HTTP返回码</td>
+<td>True 或 False，若指定为 True，则处理所有的 HTTP 返回码</td>
 </tr>
 <tr>
 <td>dont_merge_cookies</td>
-<td>True或False，若设定为True，则新的cookies不与现有的cookies合并</td>
+<td>True 或 False，若设定为 True，则新的 cookies 不与现有的 cookies 合并</td>
 </tr>
 <tr>
 <td>cookiejar</td>
-<td>用来管理cookies</td>
+<td>用来管理 cookies</td>
 </tr>
 <tr>
 <td>dont_cache</td>
-<td>True或False，若设定为True，则禁止HTTP缓存</td>
+<td>True 或 False，若设定为 True，则禁止 HTTP 缓存</td>
 </tr>
 <tr>
 <td>redirect_urls</td>
-<td>list，允许重定向的URL</td>
+<td>list，允许重定向的 URL</td>
 </tr>
 <tr>
 <td>bindaddress</td>
-<td>执行外部请求时的IP</td>
+<td>执行外部请求时的 IP</td>
 </tr>
 <tr>
 <td>dont_obey_robotstxt</td>
-<td>True或False，设定为True时忽略网站Robots协议</td>
+<td>True 或 False，设定为 True 时忽略网站 Robots 协议</td>
 </tr>
 <tr>
 <td>download_timeout</td>
@@ -521,7 +521,7 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </tr>
 <tr>
 <td>proxy</td>
-<td>设定代理URL</td>
+<td>设定代理 URL</td>
 </tr>
 <tr>
 <td>max_retry_times</td>
@@ -531,9 +531,9 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </table>
 </div>
 <ul>
-<li><p>Request回调函数与错误处理</p>
+<li><p>Request 回调函数与错误处理</p>
 <ul>
-<li><p>当下载器处理完毕Request并生成Response 时，调用回调函数，也就是callback 指定的处理方法，调用的回调函数以该Response 作为第1个参数。</p>
+<li><p>当下载器处理完毕 Request 并生成 Response 时，调用回调函数，也就是 callback 指定的处理方法，调用的回调函数以该 Response 作为第 1 个参数。</p>
 </li>
 <li><p>许多情况下，我们需要在不同的回调函数间传递参数，这时就可以使用<strong><code>Request.meta</code></strong>来处理参数的传递。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">parse_page1</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
@@ -543,15 +543,15 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
     <span class="token comment"># 通过meta传递数据</span>
     request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span> <span class="token operator">=</span> item
     <span class="token keyword">yield</span> request
-    
+
 <span class="token keyword">def</span> <span class="token function">parse_page2</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
     item <span class="token operator">=</span> response<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span>
     item <span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'.age::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>当下载器处理Request 抛出异常时，可以调用errback指定的异常处理方法</p>
+<li><p>当下载器处理 Request 抛出异常时，可以调用 errback 指定的异常处理方法</p>
 </li>
-<li><p>errback指定的异常处理方法接收一个Twisted Failure 实例作为第1个参数，可用于追踪连接超时、DNS错误等。</p>
+<li><p>errback 指定的异常处理方法接收一个 Twisted Failure 实例作为第 1 个参数，可用于追踪连接超时、DNS 错误等。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> scrapy
 <span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>spidermiddlewares<span class="token punctuation">.</span>httperror <span class="token keyword">import</span> HttpError
 <span class="token keyword">from</span> twisted<span class="token punctuation">.</span>internet<span class="token punctuation">.</span>error <span class="token keyword">import</span> DNSLookupError
@@ -566,11 +566,11 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
         <span class="token string">"http://www.httpbin.org:12345/"</span><span class="token punctuation">,</span> <span class="token comment">#超时无响应错误</span>
         <span class="token string">"http://www.httphttpbinbin.org/"</span> <span class="token punctuation">,</span><span class="token comment">#DNS 错误</span>
     <span class="token punctuation">]</span>
-	
+
     <span class="token keyword">def</span> <span class="token function">start_requests</span> <span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> u <span class="token keyword">in</span> self<span class="token punctuation">.</span>start_urls<span class="token punctuation">:</span>
     	<span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>
-            u<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_httpbin<span class="token punctuation">,</span> 
+            u<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse_httpbin<span class="token punctuation">,</span>
             errback<span class="token operator">=</span>self<span class="token punctuation">.</span>errback_httpbin<span class="token punctuation">,</span>
             dont_filter<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
@@ -581,7 +581,7 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
     <span class="token keyword">def</span> <span class="token function">errback_httpbin</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> failure<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         <span class="token comment">#日志记录所有的异常信息</span>
         self<span class="token punctuation">.</span>logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token builtin">repr</span><span class="token punctuation">(</span>failure<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        
+
         <span class="token comment">#假设我们需要对指定的异常类型做处理，</span>
         <span class="token comment">#我们需要判断异常的类型</span>
         <span class="token comment"># failure.check 查该异常类型是否在指定的参数列表中</span>
@@ -603,18 +603,18 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 </li>
 </ul>
 <h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><ul>
-<li>Response表示一个HTTP响应,通常由Downloader下载器生成,最终传递给Spider进行处理。Spider接收 Response之后，从中提取出数据，可以根据不同类型的数据选择相应的Response子类进行处理。</li>
-<li><p>Response类原型：<strong><code>class scrapy.http.Response(url [, status=200,headers=None，body=b''，flags=None, request=None] )</code></strong></p>
+<li>Response 表示一个 HTTP 响应,通常由 Downloader 下载器生成,最终传递给 Spider 进行处理。Spider 接收 Response 之后，从中提取出数据，可以根据不同类型的数据选择相应的 Response 子类进行处理。</li>
+<li><p>Response 类原型：<strong><code>class scrapy.http.Response(url [, status=200,headers=None，body=b''，flags=None, request=None] )</code></strong></p>
 <ul>
-<li><strong>url(string)</strong>:响应的URL。</li>
-<li><strong>status(integer)</strong>: HTTP响应码，默认为200。</li>
+<li><strong>url(string)</strong>:响应的 URL。</li>
+<li><strong>status(integer)</strong>: HTTP 响应码，默认为 200。</li>
 <li><strong>headers(dict)</strong>:响应的头信息。</li>
-<li><strong>body(bytes)</strong>:响应body，可以使用response.txt转化为string类型进行访问。</li>
+<li><strong>body(bytes)</strong>:响应 body，可以使用 response.txt 转化为 string 类型进行访问。</li>
 <li><strong>flags(list)</strong>:用来初始化 Response.flags。</li>
-<li><strong>request(Request object)</strong>:初始化Response.request，表示生成该Response的Request。</li>
+<li><strong>request(Request object)</strong>:初始化 Response.request，表示生成该 Response 的 Request。</li>
 </ul>
 </li>
-<li><p>Response属性方法</p>
+<li><p>Response 属性方法</p>
 </li>
 </ul>
 <div class="table-container">
@@ -628,59 +628,59 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 <tbody>
 <tr>
 <td>url</td>
-<td>该响应的url</td>
+<td>该响应的 url</td>
 </tr>
 <tr>
 <td>status</td>
-<td>响应码，如200、404</td>
+<td>响应码，如 200、404</td>
 </tr>
 <tr>
 <td>headers</td>
-<td>响应头信息，可以使用getO获取指定头信息，如<code>response.headers.get('User-Agent')</code>，或使用<code>getlist('name')</code>获取指定名称的全部头信息</td>
+<td>响应头信息，可以使用 getO 获取指定头信息，如<code>response.headers.get('User-Agent')</code>，或使用<code>getlist('name')</code>获取指定名称的全部头信息</td>
 </tr>
 <tr>
 <td>body</td>
-<td>响应body</td>
+<td>响应 body</td>
 </tr>
 <tr>
 <td>request</td>
-<td>生成response的Request对象。该属性是在所有请求和响应通过Downloader 中间件时由Scrapy引擎指定。这意味着:<br>(1)HTTP重定向原始的请求指向重定向之后的响应。<br>(2) Response.request.url并不总是等于Response.url。<br>(3）此属性仅在spider 代码及Spider 中间件中可用</td>
+<td>生成 response 的 Request 对象。该属性是在所有请求和响应通过 Downloader 中间件时由 Scrapy 引擎指定。这意味着:<br>(1)HTTP 重定向原始的请求指向重定向之后的响应。<br>(2) Response.request.url 并不总是等于 Response.url。<br>(3）此属性仅在 spider 代码及 Spider 中间件中可用</td>
 </tr>
 <tr>
 <td>meta</td>
-<td>这个值与Response.request 的 meta 属性值一致。Response.meta具有传播性，无论是重定向还是重试，都可以得到原始的Request.meta属性值</td>
+<td>这个值与 Response.request 的 meta 属性值一致。Response.meta 具有传播性，无论是重定向还是重试，都可以得到原始的 Request.meta 属性值</td>
 </tr>
 <tr>
 <td>flags</td>
-<td>包含response标志的列表，flags就是用于调试的标志</td>
+<td>包含 response 标志的列表，flags 就是用于调试的标志</td>
 </tr>
 <tr>
 <td>copy()</td>
-<td>从当前Response复制一个新的Response</td>
+<td>从当前 Response 复制一个新的 Response</td>
 </tr>
 <tr>
 <td>replace([url , status,headers，body，flags, request,cls])</td>
-<td>返回一个修改了指定参数的Response对象</td>
+<td>返回一个修改了指定参数的 Response 对象</td>
 </tr>
 <tr>
 <td>urljoin(url)</td>
-<td>使用Response.url与相对url（相对地址）构成一个绝对url（全地址)</td>
+<td>使用 Response.url 与相对 url（相对地址）构成一个绝对 url（全地址)</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li><p>Response子类</p>
+<li><p>Response 子类</p>
 <ul>
 <li><p><strong><code>TextResponse</code></strong></p>
 <ul>
 <li><p><strong><code>class scrapy.http.TextResponse(url[, encoding[, ...]])</code></strong></p>
 </li>
-<li><p>TextResponse子类在Response基类的基础上添加了<strong>编码能力</strong>,因此适合用来<strong>处理二进制数据</strong>，如图像、音频、视频等媒体文件。</p>
+<li><p>TextResponse 子类在 Response 基类的基础上添加了<strong>编码能力</strong>,因此适合用来<strong>处理二进制数据</strong>，如图像、音频、视频等媒体文件。</p>
 </li>
-<li><p>TextResponse相比于Response添加了一个构造参数encoding，其余参数与Response一致。</p>
+<li><p>TextResponse 相比于 Response 添加了一个构造参数 encoding，其余参数与 Response 一致。</p>
 </li>
-<li><p><strong>encoding(string)</strong>:一个包含用于处理此响应的编码类型的字符串。如果你创建一个带有unicode数据的TextResponse对象,此对象将使用这个指定的编码类型进行编码处理(注意响应的body属性是一个字符串)。如果encoding 是None（默认值)，就在响应头信息和响应正文中查找编码类型进行使用。</p>
+<li><p><strong>encoding(string)</strong>:一个包含用于处理此响应的编码类型的字符串。如果你创建一个带有 unicode 数据的 TextResponse 对象,此对象将使用这个指定的编码类型进行编码处理(注意响应的 body 属性是一个字符串)。如果 encoding 是 None（默认值)，就在响应头信息和响应正文中查找编码类型进行使用。</p>
 </li>
 <li><p>还支持的属性和方法</p>
 </li>
@@ -700,23 +700,23 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 <tbody>
 <tr>
 <td>text</td>
-<td>响应体，unicode类型数据。与<code>response.body.decode(response.encoding)</code>结果一致，会在内存中保存第一次的处理结果，无须每次转化，因此可以随时使用response.text</td>
+<td>响应体，unicode 类型数据。与<code>response.body.decode(response.encoding)</code>结果一致，会在内存中保存第一次的处理结果，无须每次转化，因此可以随时使用 response.text</td>
 </tr>
 <tr>
 <td>encoding</td>
-<td>一个表示该响应编码类型的字符串。该值通过以下方法顺序获取:<br>(1)构造参数encoding 指定的编码类型<br>(2)在响应头信息中Content-Type HTTP参数中指定的编码类型<br>(3)在response 响应体中声明的编码类型<br>(4)通过response 响应体推断编码类型<br></td>
+<td>一个表示该响应编码类型的字符串。该值通过以下方法顺序获取:<br>(1)构造参数 encoding 指定的编码类型<br>(2)在响应头信息中 Content-Type HTTP 参数中指定的编码类型<br>(3)在 response 响应体中声明的编码类型<br>(4)通过 response 响应体推断编码类型<br></td>
 </tr>
 <tr>
 <td>selector</td>
-<td>与response 中 selector的使用方法一致，也支持xpath与css选择使用</td>
+<td>与 response 中 selector 的使用方法一致，也支持 xpath 与 css 选择使用</td>
 </tr>
 <tr>
 <td>follow(url, callback=None, method=’GET’,headers=None, body=None, cookies=None,meta=None, encoding=None, priority=0,dont_filter=False, errback=None)</td>
-<td>根据url返回一个Request对象，用法与Request一致</td>
+<td>根据 url 返回一个 Request 对象，用法与 Request 一致</td>
 </tr>
 <tr>
 <td>body_as_unicode</td>
-<td>与response.text效果相同的一个方法</td>
+<td>与 response.text 效果相同的一个方法</td>
 </tr>
 </tbody>
 </table>
@@ -725,20 +725,20 @@ cookies<span class="token operator">=</span><span class="token punctuation">[</s
 <li><p><strong><code>HtmlResponse</code></strong></p>
 <ul>
 <li><strong><code>class scrapy.http.HtmlResponse(url[, ...])</code></strong></li>
-<li>HtmIResponse是TextResponse的子类，只不过是添加了一个通过查看HTML meta <code>http-equiv</code>属性来自动添加编码的功能。</li>
+<li>HtmIResponse 是 TextResponse 的子类，只不过是添加了一个通过查看 HTML meta <code>http-equiv</code>属性来自动添加编码的功能。</li>
 </ul>
 </li>
 <li><p><strong><code>XMLResponse</code></strong></p>
 <ul>
 <li><strong><code>class scrapy.http.XMLResponse(url[, ...])</code></strong></li>
-<li>XmIResponse也是TextResponse 的一个子类，该类的自动添加编码功能来源于对XML声明行的检查。</li>
+<li>XmIResponse 也是 TextResponse 的一个子类，该类的自动添加编码功能来源于对 XML 声明行的检查。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

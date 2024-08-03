@@ -396,13 +396,13 @@ TypeError<span class="token punctuation">:</span> can only concatenate <span cla
 <li>如果一个异常没有与任何的 except 匹配，那么这个异常将会传递给上层的 try 中。</li>
 </ul>
 </li>
-<li><p>一个 try 语句可能包含多个except子句，分别来处理不同的特定的异常。<strong>最多只有一个分支会被执行</strong>。</p>
+<li><p>一个 try 语句可能包含多个 except 子句，分别来处理不同的特定的异常。<strong>最多只有一个分支会被执行</strong>。</p>
 </li>
-<li><p>一个except子句可以同时处理多个异常，这些异常将被放在一个括号里成为一个<strong>元组</strong></p>
+<li><p>一个 except 子句可以同时处理多个异常，这些异常将被放在一个括号里成为一个<strong>元组</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">except</span> <span class="token punctuation">(</span>RuntimeError<span class="token punctuation">,</span> TypeError<span class="token punctuation">,</span> NameError<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>最后一个except子句可以忽略异常的名称，它将被当作通配符使用。你可以使用这种方法打印一个错误信息，然后再次把异常抛出。</p>
+<li><p>最后一个 except 子句可以忽略异常的名称，它将被当作通配符使用。你可以使用这种方法打印一个错误信息，然后再次把异常抛出。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sys
 
 <span class="token keyword">try</span><span class="token punctuation">:</span>
@@ -430,12 +430,12 @@ TypeError<span class="token punctuation">:</span> can only concatenate <span cla
 <li><p>异常处理并不仅仅处理那些直接发生在 try 子句中的异常，而且<strong>还能处理子句中调用的函数（甚至间接调用的函数）里抛出的异常</strong>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">def</span> <span class="token function">this_fails</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         x <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">0</span>
-   
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">try</span><span class="token punctuation">:</span>
         this_fails<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">except</span> ZeroDivisionError <span class="token keyword">as</span> err<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Handling run-time error:'</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
-   
+
 Handling run<span class="token operator">-</span>time error<span class="token punctuation">:</span> <span class="token builtin">int</span> division <span class="token keyword">or</span> modulo by zero<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><code>try-finally</code> 语句无论是否发生异常都将执行最后的代码。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407171112169.png" alt="img"></p>
@@ -485,7 +485,7 @@ Handling run<span class="token operator">-</span>time error<span class="token pu
 x <span class="token operator">=</span> <span class="token number">10</span>
 <span class="token keyword">if</span> x <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">:</span>
     <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">'x 不能大于 5。x 的值为: {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
+
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"test.py"</span><span class="token punctuation">,</span> line <span class="token number">3</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
     <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">'x 不能大于 5。x 的值为: {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -497,7 +497,7 @@ Exception<span class="token punctuation">:</span> x 不能大于 <span class="to
     <span class="token keyword">except</span> NameError<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'An exception flew by!'</span><span class="token punctuation">)</span>
         <span class="token keyword">raise</span>  <span class="token comment"># 再次抛出</span>
-   
+
 An exception flew by!
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">in</span> ?
@@ -520,7 +520,7 @@ Traceback <span class="token punctuation">(</span>most recent call last<span cla
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">5</span><span class="token punctuation">,</span> <span class="token keyword">in</span> example
 RuntimeError<span class="token punctuation">:</span> A parsing error occurred<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>忽略掉异常链，可使用 <code>raise from None</code> </p>
+<li><p>忽略掉异常链，可使用 <code>raise from None</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">def</span> <span class="token function">example3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">try</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>             <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">'N/A'</span><span class="token punctuation">)</span>
@@ -542,12 +542,12 @@ RuntimeError<span class="token punctuation">:</span> A parsing error occurred<sp
             self<span class="token punctuation">.</span>value <span class="token operator">=</span> value
         <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> <span class="token builtin">repr</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
-   
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">try</span><span class="token punctuation">:</span>
         <span class="token keyword">raise</span> MyError<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>
     <span class="token keyword">except</span> MyError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'My exception occurred, value:'</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
-   
+
 My exception occurred<span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token number">4</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">raise</span> MyError<span class="token punctuation">(</span><span class="token string">'oops!'</span><span class="token punctuation">)</span>
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -593,7 +593,7 @@ __main__<span class="token punctuation">.</span>MyError<span class="token punctu
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">raise</span> KeyboardInterrupt
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">finally</span><span class="token punctuation">:</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Goodbye, world!'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 Goodbye<span class="token punctuation">,</span> world!
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
   File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
@@ -619,7 +619,9 @@ KeyboardInterrupt<span aria-hidden="true" class="line-numbers-rows"><span></span
 <li><p><strong><code>assert expression [, arguments]</code></strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 等价于</span>
 <span class="token keyword">if</span> <span class="token keyword">not</span> expression<span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> AssertionError<span class="token punctuation">(</span>arguments<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">raise</span> AssertionError<span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">assert</span> <span class="token boolean">True</span>     <span class="token comment"># 条件为 true 正常执行</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">assert</span> <span class="token boolean">False</span>    <span class="token comment"># 条件为 false 触发异常</span>
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -638,8 +640,6 @@ AssertionError<span class="token punctuation">:</span> <span class="token number
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-</li>
-</ul>
 <h2 id="6-警告信息"><a href="#6-警告信息" class="headerlink" title="6 警告信息"></a>6 警告信息</h2><ul>
 <li><p>使用 <code>warning.warn()</code> 函数输出一个警告消息</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> warnings
@@ -651,7 +651,7 @@ AssertionError<span class="token punctuation">:</span> <span class="token number
 </li>
 <li><p><code>warn()</code> 的参数是一个警告消息和一个警告类，警告类有如下几种：UserWarning, DeprecationWarning, SyntaxWarning, RuntimeWarning, ResourceWarning, 或 FutureWarning.</p>
 </li>
-<li><p>对警告的处理取决于你如何运行解释器以及一些其他配置。 例如，如果你使用 <code>-W all</code> 选项去运行Python，你会得到如下的输出：</p>
+<li><p>对警告的处理取决于你如何运行解释器以及一些其他配置。 例如，如果你使用 <code>-W all</code> 选项去运行 Python，你会得到如下的输出：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> % python3 <span class="token parameter variable">-W</span> all example.py
 example.py:5: DeprecationWarning: logfile argument is deprecated
   warnings.warn<span class="token punctuation">(</span><span class="token string">'logfile argument is deprecated'</span>, DeprecationWarning<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>

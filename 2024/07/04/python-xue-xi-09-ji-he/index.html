@@ -8,10 +8,10 @@
     <meta name="description" content="集合
 集合：无序不重复的元素序列，可以进行交集、并集、差集等常见的集合操作
 
-使用set()或{}创建集合，空集合必须用set()表示，因为{}用来表示空字典
+使用 set()或{}创建集合，空集合必须用 set()表示，因为{}用来表示空字典
 
 
-&amp;gt;&amp;gt;&amp;gt; basket = {&#39;apple&#39;, &#39;orang">
+&amp;gt;&amp;gt;&amp;gt; basket = {&#39;apple&#39;, &#39;ora">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -353,7 +353,7 @@
                 <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><ul>
 <li><p>集合：<strong>无序不重复</strong>的元素序列，可以进行交集、并集、差集等常见的集合操作</p>
 </li>
-<li><p><strong>使用set()或{}创建集合，空集合必须用set()表示，因为{}用来表示空字典</strong></p>
+<li><p><strong>使用 set()或{}创建集合，空集合必须用 set()表示，因为{}用来表示空字典</strong></p>
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> basket <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'pear'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">}</span>
@@ -368,7 +368,7 @@
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'abracadabra'</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'alacazam'</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a                                  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
 <span class="token punctuation">{</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">}</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">-</span> b                              <span class="token comment"># 集合a中包含而集合b中不包含的元素</span>
 <span class="token punctuation">{</span><span class="token string">'r'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">}</span>
@@ -392,7 +392,7 @@
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token string">'Taobao'</span><span class="token punctuation">,</span> <span class="token string">'Runoob'</span><span class="token punctuation">}</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> thisset<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>thisset<span class="token punctuation">)</span>
 <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'Google'</span><span class="token punctuation">,</span> <span class="token string">'Taobao'</span><span class="token punctuation">,</span> <span class="token string">'Runoob'</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>

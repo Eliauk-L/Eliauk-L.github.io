@@ -5,15 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Scrapy管道, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy管道
-管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为Item之后，会传递给Item Pipeline做进一步处理，包括:
+    <meta name="description" content="Scrapy 管道
+管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为 Item 之后，会传递给 Item Pipeline 做进一步处理，包括:
 清洗数据
 检查抓取的数据是否有效
 去重
 保存数据
 
 
-一个项目可以">
+一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -360,22 +360,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy管道"><a href="#Scrapy管道" class="headerlink" title="Scrapy管道"></a>Scrapy管道</h1><ul>
-<li>管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为Item之后，会传递给Item Pipeline做进一步处理，包括:<ul>
+                <h1 id="Scrapy-管道"><a href="#Scrapy-管道" class="headerlink" title="Scrapy 管道"></a>Scrapy 管道</h1><ul>
+<li>管道（Item Pipeline)的主要作用是处理抓取的数据。当爬虫抓取到数据并转化为 Item 之后，会传递给 Item Pipeline 做进一步处理，包括:<ul>
 <li>清洗数据</li>
 <li>检查抓取的数据是否有效</li>
 <li>去重</li>
 <li>保存数据</li>
 </ul>
 </li>
-<li>一个项目可以包含多个管道,通过爬虫收集到的Item 会依次按指定顺序传递给管道进行处理。每一个管道都是实现一些指定方法的Python类。这些方法接收Item作为参数，判断此ltem是否进行下一步处理，还是丢弃。</li>
+<li>一个项目可以包含多个管道,通过爬虫收集到的 Item 会依次按指定顺序传递给管道进行处理。每一个管道都是实现一些指定方法的 Python 类。这些方法接收 Item 作为参数，判断此 ltem 是否进行下一步处理，还是丢弃。</li>
 </ul>
 <h2 id="自定义管道"><a href="#自定义管道" class="headerlink" title="自定义管道"></a>自定义管道</h2><ul>
 <li>重写方法<ul>
-<li><strong><code>process_item(self, item, spider)</code></strong>: process_item()是每个管道都必须实现的方法。数据处理工作都在此方法中进行，该方法返回一个有数据的dict、Item(或者继承类)，返回Twisted Deferred或抛出DropItem异常，丢弃的数据不会再传递到其他管道进行处理。其中，参数item对象是被爬取的Item，参数spider 代表爬取该Item的 Spider。</li>
+<li><strong><code>process_item(self, item, spider)</code></strong>: process_item()是每个管道都必须实现的方法。数据处理工作都在此方法中进行，该方法返回一个有数据的 dict、Item(或者继承类)，返回 Twisted Deferred 或抛出 DropItem 异常，丢弃的数据不会再传递到其他管道进行处理。其中，参数 item 对象是被爬取的 Item，参数 spider 代表爬取该 Item 的 Spider。</li>
 <li><strong><code>open_spider(self,spider)</code></strong>:当爬虫开启的时候执行此方法，一般做一些初始化工作，比如连接数据库。</li>
 <li><strong><code>close_spider(self, spider)</code></strong>:当爬虫关闭的时候执行此方法，可以做一些收尾工作、关闭数据库等。</li>
-<li><strong><code>from_crawl(cls, crawler)</code></strong>:该方法是一个类方法。调用此方法会通过初始化crawler对象返回一个Pipeline实例。通过crawler对象可以返回Scrapy的所有核心组件，如全局配置信息。</li>
+<li><strong><code>from_crawl(cls, crawler)</code></strong>:该方法是一个类方法。调用此方法会通过初始化 crawler 对象返回一个 Pipeline 实例。通过 crawler 对象可以返回 Scrapy 的所有核心组件，如全局配置信息。</li>
 </ul>
 </li>
 </ul>
@@ -385,45 +385,45 @@
     <span class="token comment">#当启动爬虫时，打开items.json文件，准备写入数据</span>
     <span class="token keyword">def</span> <span class="token function">open_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span><span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'items.json'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span>
-    
+
     <span class="token comment">#当爬虫执行结束时，关闭打开的文件</span>
     <span class="token keyword">def</span> <span class="token function">close_spider</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
+
     <span class="token comment">#将抓取到的数据做json序列化存储</span>
     <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         line <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n"</span>
         self<span class="token punctuation">.</span><span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
         <span class="token keyword">return</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li><p>编写完管道之后，需要启用管道，不然不会生效。只需要将管道添加到<strong><code>settings.py</code></strong>文件的ITEM_PIPELINES变量中</p>
+<li><p>编写完管道之后，需要启用管道，不然不会生效。只需要将管道添加到<strong><code>settings.py</code></strong>文件的 ITEM_PIPELINES 变量中</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'jobbole_article.pipelines.JobboleArticlePipeline'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="下载文件和图片"><a href="#下载文件和图片" class="headerlink" title="下载文件和图片"></a>下载文件和图片</h2><ul>
-<li><p>Scrapy提供了一些可重用的 Item Pipeline。这些管道有一些共同的方法和结构，通常叫作 MediaPipelines，而我们最常用的就是<strong><code>FilesPipeline</code></strong>和<strong><code>ImagesPipeline</code></strong>，分别用于下载文件和图片。这两种管道都包含以下特性:</p>
+<li><p>Scrapy 提供了一些可重用的 Item Pipeline。这些管道有一些共同的方法和结构，通常叫作 MediaPipelines，而我们最常用的就是<strong><code>FilesPipeline</code></strong>和<strong><code>ImagesPipeline</code></strong>，分别用于下载文件和图片。这两种管道都包含以下特性:</p>
 <ul>
 <li><strong>避免重复下载最近下载过的数据</strong>。</li>
 <li>指定存储的位置，可使用本地文件系统或者云端存储。</li>
 </ul>
 </li>
-<li><p>ImagesPipeline还有一些额外特性:</p>
+<li><p>ImagesPipeline 还有一些额外特性:</p>
 <ul>
-<li>将下载的图片转换成通用的JPG格式和RGB模式。</li>
+<li>将下载的图片转换成通用的 JPG 格式和 RGB 模式。</li>
 <li>为下载的图片生成缩略图。</li>
 <li>检查图片的宽/高，确保能够满足最小要求。</li>
 </ul>
 </li>
-<li><p>管道同时会为计划中下载的文件URL保存一个内部队列,与包含同样文件的Response相关联，从而<strong>避免重复下载几个Item共用的图片</strong>。</p>
+<li><p>管道同时会为计划中下载的文件 URL 保存一个内部队列,与包含同样文件的 Response 相关联，从而<strong>避免重复下载几个 Item 共用的图片</strong>。</p>
 </li>
 <li><p>在爬虫项目中，使用<strong>文件管道</strong>的工作流程如下</p>
 <ol>
-<li>在爬虫中，抓取到Item并把期望的URL放入<code>file_urls</code> 内。</li>
-<li>从爬虫内返回的Item进入 Item Pipeline 内。</li>
-<li>当Item进入 FilesPipeline 时，<code>file_urls</code>内的URL将被Scrapy内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些URL 会在抓取其他页面之前被处理。在这个管道内的Item 会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
-<li>当文件下载完成之后，下载的结果将会填充到<code>files</code>字段中。这个字段是由dict类型数据组成的列表，包含<em>下载路径、源地址(从file_urls中获取)、图片校验码(checksum)</em>。files字段中文件的顺序与file_urls文件 URL顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在files字段中。</li>
+<li>在爬虫中，抓取到 Item 并把期望的 URL 放入<code>file_urls</code> 内。</li>
+<li>从爬虫内返回的 Item 进入 Item Pipeline 内。</li>
+<li>当 Item 进入 FilesPipeline 时，<code>file_urls</code>内的 URL 将被 Scrapy 内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些 URL 会在抓取其他页面之前被处理。在这个管道内的 Item 会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
+<li>当文件下载完成之后，下载的结果将会填充到<code>files</code>字段中。这个字段是由 dict 类型数据组成的列表，包含<em>下载路径、源地址(从 file_urls 中获取)、图片校验码(checksum)</em>。files 字段中文件的顺序与 file_urls 文件 URL 顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在 files 字段中。</li>
 </ol>
 <blockquote>
 <p><strong>示例代码</strong></p>
@@ -438,7 +438,7 @@
     file_urls <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token comment"># 文件结果信息</span>
     files <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
+
 <span class="token comment"># settings.py</span>
 ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'scrapy.pipelines.files.FilesPipeline'</span><span class="token punctuation">:</span> <span class="token number">1</span>
@@ -455,7 +455,7 @@ FILES_RESULT_FIELD <span class="token operator">=</span> <span class="token stri
     name <span class="token operator">=</span> <span class="token string">'getfile'</span>
     allowed_domains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'szhrss.gov.cn'</span><span class="token punctuation">]</span>
     start_urls <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'http://hrss.sz.gov.cn/wsbs/xzzx/rcyj/'</span><span class="token punctuation">]</span>
-    
+
     <span class="token keyword">def</span> <span class="token function">parse</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     	files_list <span class="token operator">=</span> response<span class="token punctuation">.</span>css <span class="token punctuation">(</span><span class="token string">'.conRight_text_ull li'</span><span class="token punctuation">)</span>
 		<span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> files_list<span class="token punctuation">:</span>
@@ -468,10 +468,10 @@ FILES_RESULT_FIELD <span class="token operator">=</span> <span class="token stri
         <span class="token comment">#file_urls必须是list形式</span>
         item<span class="token punctuation">[</span><span class="token string">'file_urls'</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token punctuation">[</span>response<span class="token punctuation">.</span>url <span class="token operator">+</span> url<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
         <span class="token keyword">yield</span> item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在 D:\Scrapyldownloadfiles文件夹中会自动创建full文件夹,其中下载文件如图所示，文件名是根据文件URL自动生成的SHA1哈希值。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271200827.png" alt="文件下载结果"></p>
+<p>在 D:\Scrapyldownloadfiles 文件夹中会自动创建 full 文件夹,其中下载文件如图所示，文件名是根据文件 URL 自动生成的 SHA1 哈希值。<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271200827.png" alt="文件下载结果"></p>
 <p><strong>自定义文件下载管道</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#pipelines.py</span>
-<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>pipelines<span class="token punctuation">.</span>files <span class="token keyword">import</span> FilesPipeline 
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>pipelines<span class="token punctuation">.</span>files <span class="token keyword">import</span> FilesPipeline
 <span class="token keyword">from</span> scrapy <span class="token keyword">import</span> Request
 
 <span class="token keyword">class</span> <span class="token class-name">DownloadfilePipeline</span><span class="token punctuation">(</span>FilesPipeline<span class="token punctuation">)</span> <span class="token punctuation">:</span>
@@ -492,12 +492,12 @@ FILES_RESULT_FIELD <span class="token operator">=</span> <span class="token stri
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407271200311.png" alt="修改下载文件名"></p>
 </blockquote>
 </li>
-<li><p>图片管道与文件管道的工作流程一致，不同的是资源URL存储由file_urls变更为<code>image_urls</code>,结果存储字段由files变为<code>images</code>，具体流程如下:</p>
+<li><p>图片管道与文件管道的工作流程一致，不同的是资源 URL 存储由 file_urls 变更为<code>image_urls</code>,结果存储字段由 files 变为<code>images</code>，具体流程如下:</p>
 <ol>
-<li>在爬虫中，抓取到Item并把期望的URL放入<code>image_urls</code> 内。</li>
-<li>从爬虫内返回的Item进入 Item Pipeline 内。</li>
-<li>当Item进入FilesPipeline 时，<code>image_urls</code> 内的URL将被Scrapy 内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些URL会在抓取其他页面之前被处理。在这个管道内的Item会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
-<li>当文件下载完成之后，下载的结果将会填充到<code>images</code>字段中。这个字段是由 dict类型数据组成的列表，包含下载路径、源地址（从image_urls 中获取)、图片校验码(checksum)。images字段中文件的顺序与image_urls文件 URL顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在images字段中。</li>
+<li>在爬虫中，抓取到 Item 并把期望的 URL 放入<code>image_urls</code> 内。</li>
+<li>从爬虫内返回的 Item 进入 Item Pipeline 内。</li>
+<li>当 Item 进入 FilesPipeline 时，<code>image_urls</code> 内的 URL 将被 Scrapy 内置的调度器和下载器安排下载，调度器和下载器中间件是可以重复使用的。如果是更高的优先级，那么这些 URL 会在抓取其他页面之前被处理。在这个管道内的 Item 会保持锁定状态，直到文件下载完成或因其他原因下载失败。</li>
+<li>当文件下载完成之后，下载的结果将会填充到<code>images</code>字段中。这个字段是由 dict 类型数据组成的列表，包含下载路径、源地址（从 image_urls 中获取)、图片校验码(checksum)。images 字段中文件的顺序与 image_urls 文件 URL 顺序保持一致。如果下载失败，就会记录错误信息，文件并不会出现在 images 字段中。</li>
 </ol>
 <blockquote>
 <p>示例代码</p>
@@ -571,11 +571,11 @@ IMAGES_THUMBS <span class="token operator">=</span> <span class="token punctuati
 <span class="token keyword">class</span> <span class="token class-name">LianjiaPipeline</span> <span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
     <span class="token comment">#设置存储文档名称</span>
     collection_name <span class="token operator">=</span> <span class="token string">'secondhandhouse'</span>
-    
+
     <span class="token keyword">def</span> <span class="token function">_init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mongo_uri<span class="token punctuation">,</span> mongo_db<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>mongo_uri <span class="token operator">=</span> mongo_uri
         self<span class="token punctuation">.</span>mongo_db <span class="token operator">=</span> mongo_db
-        
+
     <span class="token decorator annotation punctuation">@classmethod</span>
     <span class="token keyword">def</span> <span class="token function">from_crawler</span> <span class="token punctuation">(</span>cls<span class="token punctuation">,</span>crawler<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         <span class="token keyword">return</span> cls <span class="token punctuation">(</span>
@@ -583,17 +583,17 @@ IMAGES_THUMBS <span class="token operator">=</span> <span class="token punctuati
             mongo_uri<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MONGO_URI'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             mongo_db<span class="token operator">=</span>crawler<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MONGO_DATABASE'</span><span class="token punctuation">,</span> <span class="token string">'lianjia'</span><span class="token punctuation">)</span>
         <span class="token punctuation">)</span>
-    
+
     <span class="token keyword">def</span> <span class="token function">open_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         <span class="token comment">#当爬虫打开时连接MongoDB数据库</span>
         <span class="token comment">#先连接server，再连接指定数据库</span>
         self<span class="token punctuation">.</span>client <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span>self<span class="token punctuation">.</span>mongo_uri<span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>db <span class="token operator">=</span> self<span class="token punctuation">.</span>client<span class="token punctuation">[</span>self<span class="token punctuation">.</span>mongo_db<span class="token punctuation">]</span>
-        
+
     <span class="token keyword">def</span> <span class="token function">close_spider</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span>spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     <span class="token comment">#爬虫结束时关闭数据库连接</span>
     self<span class="token punctuation">.</span>client<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
+
     <span class="token keyword">def</span> process item <span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     <span class="token comment">#将item插入数据库</span>
     self<span class="token punctuation">.</span>db<span class="token punctuation">[</span>self<span class="token punctuation">.</span>collection_name<span class="token punctuation">]</span><span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -610,7 +610,7 @@ MONGO_DATABASE <span class="token operator">=</span> <span class="token string">
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

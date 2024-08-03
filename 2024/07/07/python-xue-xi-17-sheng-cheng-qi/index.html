@@ -359,34 +359,34 @@ yield 是一个关键字，用于定义生成器函数，生成器函数是一�
     <span class="token keyword">while</span> n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
         <span class="token keyword">yield</span> n
         n <span class="token operator">-=</span> <span class="token number">1</span>
- 
+
 <span class="token comment"># 创建生成器对象</span>
 generator <span class="token operator">=</span> countdown<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 通过迭代生成器获取值</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>generator<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: 5</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>generator<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: 4</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>generator<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: 3</span>
- 
+
 <span class="token comment"># 使用 for 循环迭代生成器</span>
 <span class="token keyword">for</span> value <span class="token keyword">in</span> generator<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>  <span class="token comment"># 输出: 2 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。此外，生成器还可以与其他迭代工具（如for循环）无缝配合使用，提供简洁和高效的迭代方式</p>
+<li><p>生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。此外，生成器还可以与其他迭代工具（如 for 循环）无缝配合使用，提供简洁和高效的迭代方式</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
- 
+
 <span class="token keyword">import</span> sys
- 
+
 <span class="token keyword">def</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 生成器函数 - 斐波那契</span>
     a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>
     <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>counter <span class="token operator">&gt;</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span> 
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>counter <span class="token operator">&gt;</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span>
         <span class="token keyword">yield</span> a
         a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a <span class="token operator">+</span> b
         counter <span class="token operator">+=</span> <span class="token number">1</span>
 f <span class="token operator">=</span> fibonacci<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># f 是一个迭代器，由生成器返回生成</span>
- 
+
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">next</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
@@ -395,13 +395,14 @@ f <span class="token operator">=</span> fibonacci<span class="token punctuation"
 </li>
 </ul>
 <h2 id="2-yield-from"><a href="#2-yield-from" class="headerlink" title="2 yield from"></a>2 yield from</h2><ul>
-<li><p><code>yield from</code>后面加上可迭代对象，把可迭代对象里的每个元素一个一个的yield出来</p>
+<li><code>yield from</code>后面加上可迭代对象，把可迭代对象里的每个元素一个一个的 yield 出来</li>
+</ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">alist<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> item <span class="token keyword">in</span> alist<span class="token punctuation">:</span>
     <span class="token keyword">yield</span> item
 
 <span class="token keyword">yield</span> <span class="token keyword">from</span> alist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<ul>
 <li><p>深度优先遍历树</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>

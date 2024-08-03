@@ -10,9 +10,9 @@ Python 不支持单字符类型，单字符在 Python 中也是作为一个字�
 
 字符串访问：下标读取[]
 
-转义字符：\  ，使用 r 可以让反斜杠不发生转义
+转义字符：\ ，使用 r 可以让反斜杠不发生转义
 
-三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其">
+三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -356,18 +356,18 @@ Python 不支持单字符类型，单字符在 Python 中也是作为一个字�
 </li>
 <li><p>字符串访问：<strong>下标读取[]</strong></p>
 </li>
-<li><p>转义字符：<code>\</code>  ，使用 <strong><code>r</code></strong> 可以让反斜杠不发生转义</p>
+<li><p>转义字符：<code>\</code> ，使用 <strong><code>r</code></strong> 可以让反斜杠不发生转义</p>
 </li>
 <li><p>三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> hi <span class="token operator">=</span> <span class="token triple-quoted-string string">'''hi 
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> hi <span class="token operator">=</span> <span class="token triple-quoted-string string">'''hi
 there'''</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> hi   <span class="token comment"># repr()</span>
 <span class="token string">'hi\nthere'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span> hi  <span class="token comment"># str()</span>
-hi 
-there  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hi
+there<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>Python 没有单独的字符类型，一个字符就是长度为1的字符串</p>
+<li><p>Python 没有单独的字符类型，一个字符就是长度为 1 的字符串</p>
 </li>
 <li><p><strong>字符串不能被改变</strong>。向一个索引位置赋值，比如 <strong>word[0] = ‘m’</strong> 会导致错误</p>
 </li>
@@ -432,10 +432,10 @@ there  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span><span class="token string">"{} {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span>    <span class="token comment"># 不设置指定位置，按默认顺序</span>
 <span class="token string">'hello world'</span>
- 
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"{0} {1}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span>  <span class="token comment"># 设置指定位置</span>
 <span class="token string">'hello world'</span>
- 
+
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"{1} {0} {1}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span>  <span class="token comment"># 设置指定位置</span>
 <span class="token string">'world hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
@@ -443,13 +443,13 @@ there  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"网站名：{name}, 地址 {url}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"菜鸟教程"</span><span class="token punctuation">,</span> url<span class="token operator">=</span><span class="token string">"www.runoob.com"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 通过字典设置参数</span>
 site <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"菜鸟教程"</span><span class="token punctuation">,</span> <span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"www.runoob.com"</span><span class="token punctuation">}</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"网站名：{name}, 地址 {url}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token operator">**</span>site<span class="token punctuation">)</span><span class="token punctuation">)</span>
- 
+
 <span class="token comment"># 通过列表索引设置参数</span>
 my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'菜鸟教程'</span><span class="token punctuation">,</span> <span class="token string">'www.runoob.com'</span><span class="token punctuation">]</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"网站名：{0[0]}, 地址 {0[1]}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>my_list<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># "0" 是必须的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -458,7 +458,7 @@ my_list <span class="token operator">=</span> <span class="token punctuation">[<
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 <span class="token keyword">class</span> <span class="token class-name">AssignValue</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>value <span class="token operator">=</span> value
@@ -469,7 +469,7 @@ my_value <span class="token operator">=</span> AssignValue<span class="token pun
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
 <span class="token comment"># -*- coding: UTF-8 -*-</span>
- 
+
 <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"{} 对应的位置是 {{0}}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"runoob"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># runoob 对应的位置是 {0}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
@@ -504,13 +504,10 @@ Look into my eyes<span class="token punctuation">,</span> look into my eyes<span
     the eyes<span class="token punctuation">,</span> look into my eyes<span class="token punctuation">,</span> you're
     under<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
+<li><p>输出自动匹配终端大小:使用 <code>os.get_terminal_size()</code> 方法来获取终端的大小尺寸</p>
 </li>
 </ul>
-<ul>
-<li>输出自动匹配终端大小:使用 <code>os.get_terminal_size()</code> 方法来获取终端的大小尺寸</li>
-</ul>
-<ul>
+</li>
 <li><p><strong>!a</strong> (使用 <strong>ascii()</strong>), <strong>!s</strong> (使用 <strong>str()</strong>) 和 <strong>!r</strong> (使用 <strong>repr()</strong>) 可以用于在格式化某个值之前对其进行转化</p>
 </li>
 <li><p><code>print()</code>改变默认的分隔符或者行尾符</p>
@@ -554,11 +551,11 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-encode.html">string.encode(encoding=’UTF-8’, errors=’strict’)</a></td>
-<td style="text-align:left">以 encoding 指定的编码格式<strong>编码</strong> string，如果出错默认报一个ValueError 的异常，除非 errors 指定的是’ignore’或者’replace’</td>
+<td style="text-align:left">以 encoding 指定的编码格式<strong>编码</strong> string，如果出错默认报一个 ValueError 的异常，除非 errors 指定的是’ignore’或者’replace’</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-endswith.html">string.endswith(obj, beg=0, end=len(string))</a></strong></td>
-<td style="text-align:left">检查字符串是否<strong>以 obj 结束</strong>，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.</td>
+<td style="text-align:left">检查字符串是否<strong>以 obj 结束</strong>，如果 beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-expandtabs.html">string.expandtabs(tabsize=8)</a></td>
@@ -574,7 +571,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-index.html">string.index(str, beg=0, end=len(string))</a></strong></td>
-<td style="text-align:left">跟find()方法一样，只不过如果str不在 string中会报一个<strong>异常</strong>.</td>
+<td style="text-align:left">跟 find()方法一样，只不过如果 str 不在 string 中会报一个<strong>异常</strong>.</td>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-isalnum.html">string.isalnum()</a></td>
@@ -598,7 +595,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-isnumeric.html">string.isnumeric()</a></td>
-<td style="text-align:left">如果 string 中只包含<strong>数字字符</strong>，则返回 True，否则返回 False。针对unicode对象</td>
+<td style="text-align:left">如果 string 中只包含<strong>数字字符</strong>，则返回 True，否则返回 False。针对 unicode 对象</td>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-isspace.html">string.isspace()</a></td>
@@ -630,7 +627,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-maketrans.html">string.maketrans(intab, outtab)</a></td>
-<td style="text-align:left">maketrans() 方法用于创建<strong>字符映射</strong>的<strong>转换表</strong>，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。然后再调用str.translate()</td>
+<td style="text-align:left">maketrans() 方法用于创建<strong>字符映射</strong>的<strong>转换表</strong>，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。然后再调用 str.translate()</td>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-max.html">max(str)</a></td>
@@ -642,7 +639,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-partition.html">string.partition(str)</a></strong></td>
-<td style="text-align:left">有点像 find()和 split()的结合体,从 str 出现的第一个位置起,<strong>把 字 符 串 string 分 成 一 个 3 元 素 的 元 组</strong> (string_pre_str,str,string_post_str),如果 string 中不包含str 则 string_pre_str == string.</td>
+<td style="text-align:left">有点像 find()和 split()的结合体,从 str 出现的第一个位置起,<strong>把 字 符 串 string 分 成 一 个 3 元 素 的 元 组</strong> (string_pre_str,str,string_post_str),如果 string 中不包含 str 则 string_pre_str == string.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-replace.html">string.replace(str1, str2, num=string.count(str1))</a></strong></td>
@@ -678,7 +675,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-startswith.html">string.startswith(obj, beg=0,end=len(string))</a></td>
-<td style="text-align:left">检查字符串是否是<strong>以 obj 开头</strong>，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查.obj可以是元组 <code>name.endswith(('.c', '.h'))</code>  list或set需要转换成tuple</td>
+<td style="text-align:left">检查字符串是否是<strong>以 obj 开头</strong>，是则返回 True，否则返回 False。如果 beg 和 end 指定值，则在指定范围内检查.obj 可以是元组 <code>name.endswith(('.c', '.h'))</code> list 或 set 需要转换成 tuple</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-strip.html">string.strip([obj])</a></strong></td>
@@ -694,7 +691,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-translate.html">string.translate(str, del=””)</a></strong></td>
-<td style="text-align:left">根据 str 给出的表(包含 256 个字符)<strong>转换</strong> string 的字符,要过滤掉的字符放到 del 参数中，结合maketrans()</td>
+<td style="text-align:left">根据 str 给出的表(包含 256 个字符)<strong>转换</strong> string 的字符,要过滤掉的字符放到 del 参数中，结合 maketrans()</td>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-upper.html">string.upper()</a></td>
@@ -702,7 +699,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </tr>
 <tr>
 <td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-zfill.html">string.zfill(width)</a></td>
-<td style="text-align:left">返回长度为 width 的字符串，原字符串 string 右对齐，前面填充0</td>
+<td style="text-align:left">返回长度为 width 的字符串，原字符串 string 右对齐，前面填充 0</td>
 </tr>
 </tbody>
 </table>
@@ -723,7 +720,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 </li>
 </ul>
 </li>
-<li><p><code>直接放在一起</code> </p>
+<li><p><code>直接放在一起</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token string">'Hello'</span> <span class="token string">'World'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
 <span class="token string">'HelloWorld'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -733,7 +730,7 @@ ACME<span class="token punctuation">,</span><span class="token number">50</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># Still ugly</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">':'</span><span class="token punctuation">)</span> <span class="token comment"># Better</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>使用I/O操作和字符串连接操作</p>
+<li><p>使用 I/O 操作和字符串连接操作</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Version 1 (string concatenation)   适用两个字符串很小</span>
 f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chunk1 <span class="token operator">+</span> chunk2<span class="token punctuation">)</span>
 
@@ -747,14 +744,14 @@ f<span class="token punctuation">.</span>write<span class="token punctuation">(<
     <span class="token keyword">yield</span> <span class="token string">'Chicago'</span>
     <span class="token keyword">yield</span> <span class="token string">'Not'</span>
     <span class="token keyword">yield</span> <span class="token string">'Chicago?'</span>
-    
+
 <span class="token comment"># 合并</span>
 text <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># IO</span>
 <span class="token keyword">for</span> part <span class="token keyword">in</span> sample<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>part<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>结合IO</p>
+<li><p>结合 IO</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">combine</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> maxsize<span class="token punctuation">)</span><span class="token punctuation">:</span>
     parts <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     size <span class="token operator">=</span> <span class="token number">0</span>
@@ -774,7 +771,7 @@ text <span class="token operator">=</span> <span class="token string">''</span><
 </li>
 </ul>
 <h2 id="6-字符串分割"><a href="#6-字符串分割" class="headerlink" title="6 字符串分割"></a>6 字符串分割</h2><ul>
-<li><p>简单的字符串分割：<code>str.split()</code>   不允许有多个分隔符或者是分隔符周围不确定的空格</p>
+<li><p>简单的字符串分割：<code>str.split()</code> 不允许有多个分隔符或者是分隔符周围不确定的空格</p>
 </li>
 <li><p><code>re.split()</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> line <span class="token operator">=</span> <span class="token string">'asdf fjdk; afed, fjek,asdf, foo'</span>
@@ -813,8 +810,8 @@ text <span class="token operator">=</span> <span class="token string">''</span><
 <li><p><strong>处理非文件名的字符串。如果你的代码需要做文件名的匹配，最好使用 ==glob== 模块。</strong></p>
 </li>
 </ul>
-<h2 id="8-Unicode文本标准化"><a href="#8-Unicode文本标准化" class="headerlink" title="8 Unicode文本标准化"></a>8 Unicode文本标准化</h2><ul>
-<li><p>由于某些字符能够用多个合法的编码表示，处理Unicode字符串需要确保所有字符串在底层有相同的表示</p>
+<h2 id="8-Unicode-文本标准化"><a href="#8-Unicode-文本标准化" class="headerlink" title="8 Unicode 文本标准化"></a>8 Unicode 文本标准化</h2><ul>
+<li><p>由于某些字符能够用多个合法的编码表示，处理 Unicode 字符串需要确保所有字符串在底层有相同的表示</p>
 </li>
 <li><p>使用<code>unicodedata</code>模块将文本标准化</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> unicodedata
@@ -864,7 +861,7 @@ text <span class="token operator">=</span> <span class="token string">''</span><
 </li>
 <li><p>删除和音符</p>
 <ul>
-<li>translate方法</li>
+<li>translate 方法</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> unicodedata
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> sys
@@ -887,7 +884,7 @@ text <span class="token operator">=</span> <span class="token string">''</span><
 </li>
 </ul>
 <blockquote>
-<p>构造一个将所有Unicode数字字符映射到对应的ASCII字符上的表格</p>
+<p>构造一个将所有 Unicode 数字字符映射到对应的 ASCII 字符上的表格</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> digitmap <span class="token operator">=</span> <span class="token punctuation">{</span> c<span class="token punctuation">:</span> <span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span> <span class="token operator">+</span> unicodedata<span class="token punctuation">.</span>digit<span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>maxunicode<span class="token punctuation">)</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>         <span class="token keyword">if</span> unicodedata<span class="token punctuation">.</span>category<span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'Nd'</span> <span class="token punctuation">}</span>
@@ -907,7 +904,7 @@ text <span class="token operator">=</span> <span class="token string">''</span><
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'Guido'</span><span class="token punctuation">,</span> n<span class="token operator">=</span><span class="token number">37</span><span class="token punctuation">)</span>
 <span class="token string">'Guido has 37 messages.'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>结合使用 <code>format_map()</code> 和 <code>vars()</code>   ：要被替换的变量能在变量域中找到</p>
+<li><p>结合使用 <code>format_map()</code> 和 <code>vars()</code> ：要被替换的变量能在变量域中找到</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> name <span class="token operator">=</span> <span class="token string">'Guido'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> n <span class="token operator">=</span> <span class="token number">37</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span>format_map<span class="token punctuation">(</span><span class="token builtin">vars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -948,17 +945,17 @@ You have <span class="token number">37</span> messages<span class="token punctua
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>sub<span class="token punctuation">(</span><span class="token string">'Your favorite color is {color}'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 Your favorite color <span class="token keyword">is</span> <span class="token punctuation">{</span>color<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>==<code>f-string</code>==:<strong>Python3.6以上的版本</strong></p>
+<li><p>==<code>f-string</code>==:<strong>Python3.6 以上的版本</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> name <span class="token operator">=</span> <span class="token string">'Guido'</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> n <span class="token operator">=</span> <span class="token number">37</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string"> has </span><span class="token interpolation"><span class="token punctuation">{</span>n<span class="token punctuation">}</span></span><span class="token string"> messages.'</span></span><span class="token punctuation">)</span>
 <span class="token string">'Guido has 37 messages.'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="11-f-string用法"><a href="#11-f-string用法" class="headerlink" title="11 f-string用法"></a>11 f-string用法</h2><ul>
-<li><p>Python中的f字符串是一种字符串格式化语法，它可以将变量、表达式和函数等动态地嵌入到字符串中</p>
+<h2 id="11-f-string-用法"><a href="#11-f-string-用法" class="headerlink" title="11 f-string 用法"></a>11 f-string 用法</h2><ul>
+<li><p>Python 中的 f 字符串是一种字符串格式化语法，它可以将变量、表达式和函数等动态地嵌入到字符串中</p>
 </li>
-<li><p><strong>Python3.6及以上</strong>版本支持f-string</p>
+<li><p><strong>Python3.6 及以上</strong>版本支持 f-string</p>
 </li>
 <li><p><code>接受表达式（包括函数调用）</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> name <span class="token operator">=</span> <span class="token string">'Guido'</span>
@@ -988,7 +985,7 @@ now <span class="token operator">=</span> datetime<span class="token punctuation
         self<span class="token punctuation">.</span>job <span class="token operator">=</span> job
     <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string"> is a </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>job<span class="token punctuation">}</span></span><span class="token string">"</span></span>
-u <span class="token operator">=</span> User<span class="token punctuation">(</span><span class="token string">'Ace'</span><span class="token punctuation">,</span> <span class="token string">'teacher'</span><span class="token punctuation">)</span> 
+u <span class="token operator">=</span> User<span class="token punctuation">(</span><span class="token string">'Ace'</span><span class="token punctuation">,</span> <span class="token string">'teacher'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>u<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token comment"># Ace is a teacher</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -1025,9 +1022,8 @@ SHARES <span class="token operator">=</span> <span class="token builtin">slice</
 PRICE <span class="token operator">=</span> <span class="token builtin">slice</span><span class="token punctuation">(</span><span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">)</span>
 cost <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>record<span class="token punctuation">[</span>SHARES<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token builtin">float</span><span class="token punctuation">(</span>record<span class="token punctuation">[</span>PRICE<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-<ul>
-<li>内置的 <code>slice()</code> 函数创建了一个切片对象。所有使用切片的地方都可以使用切片对象。</li>
+<li><p>内置的 <code>slice()</code> 函数创建了一个切片对象。所有使用切片的地方都可以使用切片对象。</p>
+</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
 <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token builtin">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>

@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之Scrapy爬虫, Jay&#39;s Blog">
-    <meta name="description" content="Scrapy爬虫编写爬虫
-Scrapy主要通过Spider类来实现爬虫的相关功能。Spider类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。
+    <meta name="description" content="Scrapy 爬虫编写爬虫
+Scrapy 主要通过Spider类来实现爬虫的相关功能。Spider 类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。
 
-Spider循环爬取步骤如下
+Spider 循环爬取步骤如下
 
-通过start_requests()以 start_">
+通过start_requests()以 st">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -327,7 +327,7 @@ Spider循环爬取步骤如下
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.7k
                 </div>
                 
 
@@ -357,24 +357,24 @@ Spider循环爬取步骤如下
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Scrapy爬虫"><a href="#Scrapy爬虫" class="headerlink" title="Scrapy爬虫"></a>Scrapy爬虫</h1><h2 id="编写爬虫"><a href="#编写爬虫" class="headerlink" title="编写爬虫"></a>编写爬虫</h2><ul>
-<li><p>Scrapy主要通过<strong><code>Spider</code></strong>类来实现爬虫的相关功能。Spider类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。</p>
+                <h1 id="Scrapy-爬虫"><a href="#Scrapy-爬虫" class="headerlink" title="Scrapy 爬虫"></a>Scrapy 爬虫</h1><h2 id="编写爬虫"><a href="#编写爬虫" class="headerlink" title="编写爬虫"></a>编写爬虫</h2><ul>
+<li><p>Scrapy 主要通过<strong><code>Spider</code></strong>类来实现爬虫的相关功能。Spider 类定义了爬取某个或某些网站的规则，包括爬取数据与提取数据。</p>
 </li>
-<li><p>Spider循环爬取步骤如下</p>
+<li><p>Spider 循环爬取步骤如下</p>
 <ol>
-<li>通过<code>start_requests()</code>以 start_urls 中的URL<strong>初始化Request</strong>，下载完毕后返回Response,<strong>作为参数传给回调函数parse</strong>。</li>
-<li>使用<code>parse</code>函数分析Response，可以<strong>返回Item对象、dict、Request</strong>或一个包含三者的可迭代容器。其中，Request可以经过Scrapy继续下载内容，调用设置的回调函数。</li>
-<li>在parse函数内，使用<code>Selector</code>分析Response，<strong>提取相应数据</strong>。</li>
+<li>通过<code>start_requests()</code>以 start_urls 中的 URL<strong>初始化 Request</strong>，下载完毕后返回 Response,<strong>作为参数传给回调函数 parse</strong>。</li>
+<li>使用<code>parse</code>函数分析 Response，可以<strong>返回 Item 对象、dict、Request</strong>或一个包含三者的可迭代容器。其中，Request 可以经过 Scrapy 继续下载内容，调用设置的回调函数。</li>
+<li>在 parse 函数内，使用<code>Selector</code>分析 Response，<strong>提取相应数据</strong>。</li>
 </ol>
 </li>
-<li><p>编写的爬虫Spider是通过继承<code>scrapy.Spider</code>类来实现的。Spider类是最简单的爬虫类。每个其他的Spider必须继承自该类。Spider类提供了start_requests()的默认实现，读取并请求Spider 属性中的start_urls，并根据返回的结果(Resulting Responses）调用Spider 的 parse方法。</p>
+<li><p>编写的爬虫 Spider 是通过继承<code>scrapy.Spider</code>类来实现的。Spider 类是最简单的爬虫类。每个其他的 Spider 必须继承自该类。Spider 类提供了 start_requests()的默认实现，读取并请求 Spider 属性中的 start_urls，并根据返回的结果(Resulting Responses）调用 Spider 的 parse 方法。</p>
 </li>
-<li><p>Spider类常用的属性</p>
+<li><p>Spider 类常用的属性</p>
 <ul>
-<li><strong><code>name</code></strong>： name属性是<strong>必须且唯一</strong>的,其定义了Spider 的名字,而Scrapy通过Spider的名字来定位并且初始化 Spider。</li>
-<li><strong><code>allowed_domains</code></strong>：该属性可选，其包含允许Spider爬取的域名列表。当中间件OffsiteMiddleWare启用时，将不会跟进不在列表中的域名。</li>
-<li><strong><code>start_urls</code></strong>：URL列表。当没有指定特定URL 时, Spider将从该列表中开始获取页面数据，后续的URL将从获取的数据中提取。</li>
-<li><strong><code>custom_settings</code></strong>：该属性可选，是一个<strong>dict</strong>。当Spider 启动时，会覆盖项目的设置，由于设置必须在初始化前被更新，因此<strong>必须设定为class属性</strong>。</li>
+<li><strong><code>name</code></strong>： name 属性是<strong>必须且唯一</strong>的,其定义了 Spider 的名字,而 Scrapy 通过 Spider 的名字来定位并且初始化 Spider。</li>
+<li><strong><code>allowed_domains</code></strong>：该属性可选，其包含允许 Spider 爬取的域名列表。当中间件 OffsiteMiddleWare 启用时，将不会跟进不在列表中的域名。</li>
+<li><strong><code>start_urls</code></strong>：URL 列表。当没有指定特定 URL 时, Spider 将从该列表中开始获取页面数据，后续的 URL 将从获取的数据中提取。</li>
+<li><strong><code>custom_settings</code></strong>：该属性可选，是一个<strong>dict</strong>。当 Spider 启动时，会覆盖项目的设置，由于设置必须在初始化前被更新，因此<strong>必须设定为 class 属性</strong>。</li>
 </ul>
 </li>
 <li><p><strong><code>start_requests()</code>方法</strong></p>
@@ -382,7 +382,7 @@ Spider循环爬取步骤如下
     urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"http://www.example1.com"</span><span class="token punctuation">,</span><span class="token string">"http://www.example2.com"</span><span class="token punctuation">,</span><span class="token string">"http://www.example3.com"</span><span class="token punctuation">]</span>
     <span class="token keyword">for</span> url <span class="token keyword">in</span> urls<span class="token punctuation">:</span>
         <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在爬虫启动时，Scrapy会调用start_requests()方法，从urls表中依次获取 url，为此 url生成Request，然后调用回调方法parse 处理生成的Request。此方法只会调用一次，因此可以将此方法写成一个生成器。</p>
+<p>在爬虫启动时，Scrapy 会调用 start_requests()方法，从 urls 表中依次获取 url，为此 url 生成 Request，然后调用回调方法 parse 处理生成的 Request。此方法只会调用一次，因此可以将此方法写成一个生成器。</p>
 </li>
 <li><p><strong><code>parse(response)</code>方法</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -391,36 +391,36 @@ Spider循环爬取步骤如下
             <span class="token string">"title"</span><span class="token punctuation">:</span> media<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">"h3.p-tit a::text"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             <span class="token string">"publish-data"</span><span class="token punctuation">:</span> media<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">"p.p-metaspan::text"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>parse(response)是Scrapy 的默认回调方法。在生成的Request没有指定回调方法时，默认调用parse(方法。<br>parse()方法主要负责处理Response，返回抓取的数据，或者需要跟进的URL。不只是parse()方法，其他所有Request 的回调方法都必须实现这些功能。<br>此方法以及任何其他Request回调方法必须返回可迭代的Request、dicts或 Item对象。</p>
+<p>parse(response)是 Scrapy 的默认回调方法。在生成的 Request 没有指定回调方法时，默认调用 parse(方法。<br>parse()方法主要负责处理 Response，返回抓取的数据，或者需要跟进的 URL。不只是 parse()方法，其他所有 Request 的回调方法都必须实现这些功能。<br>此方法以及任何其他 Request 回调方法必须返回可迭代的 Request、dicts 或 Item 对象。</p>
 </li>
-<li><p><strong>Selector选择器</strong></p>
+<li><p><strong>Selector 选择器</strong></p>
 <ul>
-<li><p>Scrapy通过实现一套构建于 lxml库上名为选择器(Selector)的机制来提取数据,主要通过特定的Xpath或者CSS表达式来选择HTML文件中的某个指定部分。</p>
+<li><p>Scrapy 通过实现一套构建于 lxml 库上名为选择器(Selector)的机制来提取数据,主要通过特定的 Xpath 或者 CSS 表达式来选择 HTML 文件中的某个指定部分。</p>
 </li>
-<li><p>Selector常用的方法主要有4个</p>
+<li><p>Selector 常用的方法主要有 4 个</p>
 <ul>
-<li><strong><code>xpath()</code></strong>:传入Xpath表达式，返回表达式对应节点的<strong>选择器列表</strong>。</li>
-<li><strong><code>css()</code></strong>:传入CSS表达式，返回表达式对应节点的<strong>选择器列表</strong>。</li>
-<li><strong><code>extract()</code></strong>:以列表形式返回被选择元素的Unicode<strong>字符串</strong>。</li>
-<li><strong><code>re()</code></strong>:返回通过正则表达式提取的Unicode<strong>字符串列表</strong>。</li>
+<li><strong><code>xpath()</code></strong>:传入 Xpath 表达式，返回表达式对应节点的<strong>选择器列表</strong>。</li>
+<li><strong><code>css()</code></strong>:传入 CSS 表达式，返回表达式对应节点的<strong>选择器列表</strong>。</li>
+<li><strong><code>extract()</code></strong>:以列表形式返回被选择元素的 Unicode<strong>字符串</strong>。</li>
+<li><strong><code>re()</code></strong>:返回通过正则表达式提取的 Unicode<strong>字符串列表</strong>。</li>
 </ul>
 </li>
-<li><p>使用xpath方法获取title节点数据</p>
+<li><p>使用 xpath 方法获取 title 节点数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//title/text()'</span><span class="token punctuation">)</span>
 <span class="token comment"># response.css('title')</span>
 <span class="token comment"># [&lt;Selector (text) xpath=//title/text()&gt;]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>通过extract()方法提取数据</p>
+<li><p>通过 extract()方法提取数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'title::text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span> <span class="token string">'Test web site'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>使用xpath 方法获取image节点数据</p>
+<li><p>使用 xpath 方法获取 image 节点数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//a[@class="image"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># 获取第一条数据</span>
 response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//a[@class="image"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># '&lt;a href='/img/1' class='image '&gt; image1 &lt;b /&gt; &lt;img src='imagel.jpg'/&gt;&lt;/a&gt;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>在使用xpath方法时，要特别注意<strong>相对路径</strong>的问题。在HTML示例文件中，div标签外有一个p标签，div内部也有一个p标签，如果以<strong>‘/‘</strong>开始的XPath语法定位标签，就说明与当前的Sclector无关，而是从整个文档开始定位，正确的使用方法是以<strong>‘.’</strong>开始:</p>
+<li><p>在使用 xpath 方法时，要特别注意<strong>相对路径</strong>的问题。在 HTML 示例文件中，div 标签外有一个 p 标签，div 内部也有一个 p 标签，如果以<strong>‘/‘</strong>开始的 XPath 语法定位标签，就说明与当前的 Sclector 无关，而是从整个文档开始定位，正确的使用方法是以<strong>‘.’</strong>开始:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">div_tag <span class="token operator">=</span> response<span class="token punctuation">.</span>css<span class="token punctuation">(</span><span class="token string">'#images'</span><span class="token punctuation">)</span>
 div_tag<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//p'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># '&lt;p&gt;line1&lt;/p&gt;'</span>
@@ -433,61 +433,61 @@ div_tag<span class="token punctuation">.</span>xpath<span class="token punctuati
 <h2 id="通用爬虫"><a href="#通用爬虫" class="headerlink" title="通用爬虫"></a>通用爬虫</h2><ul>
 <li><p><strong>CrawlSpider</strong></p>
 <ul>
-<li>CrawlSpider是抓取网站常用的Spider，它提供了一个通过制定一些规则来达到跟进链接的方便机制。对一般网站的爬取来说，可以通过修改CrawlSpider来完成任务。</li>
-<li>CrawlSpider中最常用也是最重要的就是<strong>rules</strong>属性。rules是一个或一组Rule对象，必须写成<strong>tuple</strong>形式。</li>
-<li>每一个Rule对象定义了对目标网站的爬取行为，如果有多个Rule对象匹配了同一个链接，就只有第一个Rule会生效。</li>
+<li>CrawlSpider 是抓取网站常用的 Spider，它提供了一个通过制定一些规则来达到跟进链接的方便机制。对一般网站的爬取来说，可以通过修改 CrawlSpider 来完成任务。</li>
+<li>CrawlSpider 中最常用也是最重要的就是<strong>rules</strong>属性。rules 是一个或一组 Rule 对象，必须写成<strong>tuple</strong>形式。</li>
+<li>每一个 Rule 对象定义了对目标网站的爬取行为，如果有多个 Rule 对象匹配了同一个链接，就只有第一个 Rule 会生效。</li>
 <li><strong><code>class scrapy.spiders.Rule</code></strong><br><strong><code>(link_extractor,callback=None,cb_kwargs=None,follow=None,process_links=None,process_request=None)</code></strong><ul>
-<li>link_extrator是一个Link Extrator对象，定义了需要从已爬取的页面中提取哪些需要继续跟进的链接，通过<strong>匹配正则表达式</strong>来达到这一目的。</li>
-<li>callback是一个回调函数或者字符串。传递字符串时，通过字符串查找本类中对应的函数名调用该函数。回调函数接收Response作为第一参数，同时返回一个包含Item或者Request对象的列表。<em>(Rule对象中不能使用parse作为回调函数，原因是CrawlSpider 默认使用parse来实现爬虫逻辑，如果复写了parse，那么CrawlSpider将不能继续正确执行。)</em></li>
-<li>cb_kwargs是一个字典对象，包含传递给回调函数(callback 指定的函数）的参数。</li>
-<li>follow参数是一个布尔值，为 true或者false。若为True，则需要跟进依据此条规则从Response 中提取的链接;若为False，则不跟进。若callback 指定为None，则 follow默认为True,否则为False。</li>
-<li>process_links 的主要功能为过滤。它是一个回调函数或者字符串，传递字符串时，通过字符串查找本类中对应的函数名调用该函数。当使用本条Rule中制定的 link_extrator 从 Reponse中获取链接列表时会调用此方法。</li>
-<li>process_request是一个回调函数或者字符串，传递字符串时，通过字符串查找本类中对应的函数名调用该函数。通过本条 Rule提取 Request时调用此回调函数，该函数必须返回一个Request或者None。</li>
+<li>link_extrator 是一个 Link Extrator 对象，定义了需要从已爬取的页面中提取哪些需要继续跟进的链接，通过<strong>匹配正则表达式</strong>来达到这一目的。</li>
+<li>callback 是一个回调函数或者字符串。传递字符串时，通过字符串查找本类中对应的函数名调用该函数。回调函数接收 Response 作为第一参数，同时返回一个包含 Item 或者 Request 对象的列表。_(Rule 对象中不能使用 parse 作为回调函数，原因是 CrawlSpider 默认使用 parse 来实现爬虫逻辑，如果复写了 parse，那么 CrawlSpider 将不能继续正确执行。)_</li>
+<li>cb_kwargs 是一个字典对象，包含传递给回调函数(callback 指定的函数）的参数。</li>
+<li>follow 参数是一个布尔值，为 true 或者 false。若为 True，则需要跟进依据此条规则从 Response 中提取的链接;若为 False，则不跟进。若 callback 指定为 None，则 follow 默认为 True,否则为 False。</li>
+<li>process_links 的主要功能为过滤。它是一个回调函数或者字符串，传递字符串时，通过字符串查找本类中对应的函数名调用该函数。当使用本条 Rule 中制定的 link_extrator 从 Reponse 中获取链接列表时会调用此方法。</li>
+<li>process_request 是一个回调函数或者字符串，传递字符串时，通过字符串查找本类中对应的函数名调用该函数。通过本条 Rule 提取 Request 时调用此回调函数，该函数必须返回一个 Request 或者 None。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p><strong>XMLFeedSpider</strong></p>
 <ul>
-<li>XMLFeedSpider主要用于<strong>RSS源订阅</strong>内容的抓取。RSS源是基于XML的一种信息聚合技术。该爬虫通过指定节点遍历达到抓取数据的目的。</li>
+<li>XMLFeedSpider 主要用于<strong>RSS 源订阅</strong>内容的抓取。RSS 源是基于 XML 的一种信息聚合技术。该爬虫通过指定节点遍历达到抓取数据的目的。</li>
 <li>XMLFeedSpider 中的一些属性如下<ul>
-<li><code>iterator</code>:指定迭代器，迭代器主要用于分析数据RSS订阅源。可用的迭代器如下。<ul>
-<li><code>iternodes</code>:性能高，基于正则表达式，是XMLFEEDSpider 默认的迭代器。</li>
-<li><code>html</code>:使用Selector 加载所有DOM结构进行分析，当数据量很大时会产生性能问题，优点是处理不合理标签时比较有用。</li>
+<li><code>iterator</code>:指定迭代器，迭代器主要用于分析数据 RSS 订阅源。可用的迭代器如下。<ul>
+<li><code>iternodes</code>:性能高，基于正则表达式，是 XMLFEEDSpider 默认的迭代器。</li>
+<li><code>html</code>:使用 Selector 加载所有 DOM 结构进行分析，当数据量很大时会产生性能问题，优点是处理不合理标签时比较有用。</li>
 </ul>
 </li>
-<li><code>xml</code>:同html一样使用Selector进行分析，同样需要加载所有DOM结构，会产生性能问题。</li>
+<li><code>xml</code>:同 html 一样使用 Selector 进行分析，同样需要加载所有 DOM 结构，会产生性能问题。</li>
 <li><code>itertag</code>:指定需要迭代的节点，如: <code>itertag='item'</code></li>
-<li>namespaces:以元组形式组成的列表，定义了Spider处理文档时可用的命名空间。同时，可以在itertag 中指定具有命名空间的节点，此时迭代器应指定为xml。</li>
+<li>namespaces:以元组形式组成的列表，定义了 Spider 处理文档时可用的命名空间。同时，可以在 itertag 中指定具有命名空间的节点，此时迭代器应指定为 xml。</li>
 </ul>
 </li>
 <li>可复写方法<ul>
-<li><code>adapt_response(response)</code>:此方法在处理分析Response之前被调用，可用于修改Response 的内容。此方法返回类型为Response。</li>
-<li><code>parse_node(response,selector)</code>:当匹配到节点的时候，调用此方法进行数据处理。很重要的一点是，此方法必须复写，否则爬虫不会正常工作。该方法必须返回一个Item、Request，或者一个包含Item或 Request 的迭代器。</li>
-<li><code>process_result(response,result)</code>:当爬虫返回抓取结果时调用此方法。多用于在抓取结果传递给框架核心处理前做最后的修改。该方法必须接收一个结果列表和产生这些结果的Response,返回一个包含Item或 Request的结果列表。</li>
+<li><code>adapt_response(response)</code>:此方法在处理分析 Response 之前被调用，可用于修改 Response 的内容。此方法返回类型为 Response。</li>
+<li><code>parse_node(response,selector)</code>:当匹配到节点的时候，调用此方法进行数据处理。很重要的一点是，此方法必须复写，否则爬虫不会正常工作。该方法必须返回一个 Item、Request，或者一个包含 Item 或 Request 的迭代器。</li>
+<li><code>process_result(response,result)</code>:当爬虫返回抓取结果时调用此方法。多用于在抓取结果传递给框架核心处理前做最后的修改。该方法必须接收一个结果列表和产生这些结果的 Response,返回一个包含 Item 或 Request 的结果列表。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p><strong>CSVFeedSpider</strong></p>
 <ul>
-<li>CSVFeedSpider与 XMLFeedspider非常相似，区别是<strong>XMLFeedspider是根据节点来迭代数据的，而CSVFeedSpider是每行迭代</strong>。类似的，每行迭代调用的是 <code>parse_row()</code>方法。常用的属性方法如下:<ul>
+<li>CSVFeedSpider 与 XMLFeedspider 非常相似，区别是<strong>XMLFeedspider 是根据节点来迭代数据的，而 CSVFeedSpider 是每行迭代</strong>。类似的，每行迭代调用的是 <code>parse_row()</code>方法。常用的属性方法如下:<ul>
 <li><code>delimiter</code>:字段分隔符，默认是英文逗号’,’。</li>
-<li><code>quotechar</code>: CSV字段中如果包含回车、引号、逗号，那么此字段必须用双引号引起来。此属性默认值为半角双引号。</li>
-<li><code>headers</code>:CSV文件的标题头，该属性值是一个列表。</li>
+<li><code>quotechar</code>: CSV 字段中如果包含回车、引号、逗号，那么此字段必须用双引号引起来。此属性默认值为半角双引号。</li>
+<li><code>headers</code>:CSV 文件的标题头，该属性值是一个列表。</li>
 <li><code>parse_row(response,row)</code>:对每一行数据进行处理，接收由一个 Response、一个文件标题头组成的字典。</li>
 </ul>
 </li>
-<li>同XMLFeedSpider一样，在 CSVFeedSpider中也可以复写adapt_response 与 process_result方法。</li>
+<li>同 XMLFeedSpider 一样，在 CSVFeedSpider 中也可以复写 adapt_response 与 process_result 方法。</li>
 </ul>
 </li>
 <li><p><strong>SitemapSpider</strong></p>
 <ul>
-<li><p>SitemapSpider 允许通过 Sitemap 发现URL链接来爬取一个网站。</p>
+<li><p>SitemapSpider 允许通过 Sitemap 发现 URL 链接来爬取一个网站。</p>
 </li>
-<li><p>Sitemap包含网站所有网址以及每个网址的其他元数据，包括上次更新的时间、更改的频率以及相对于网站上其他网址的重要程度为何等。</p>
+<li><p>Sitemap 包含网站所有网址以及每个网址的其他元数据，包括上次更新的时间、更改的频率以及相对于网站上其他网址的重要程度为何等。</p>
 </li>
-<li><p>Sitemap有TXT、XML、HTML格式，一般以XML形式展现。</p>
+<li><p>Sitemap 有 TXT、XML、HTML 格式，一般以 XML 形式展现。</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>urlset</span> <span class="token attr-name">xmins</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.sitemaps.org/schemas/sitemap/0.9<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>loc</span><span class="token punctuation">&gt;</span></span>http://example.com/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>loc</span><span class="token punctuation">&gt;</span></span>
@@ -504,22 +504,22 @@ div_tag<span class="token punctuation">.</span>xpath<span class="token punctuati
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>urlset</span><span class="token punctuation">&gt;</span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>loc表示完整网址。</li>
-<li>lastmod表示本网页最后修改时间。</li>
-<li>changefreq表示更新频率。</li>
-<li>priority用来指定此链接相对于其他链接的优先权比值。</li>
+<li>loc 表示完整网址。</li>
+<li>lastmod 表示本网页最后修改时间。</li>
+<li>changefreq 表示更新频率。</li>
+<li>priority 用来指定此链接相对于其他链接的优先权比值。</li>
 </ul>
 </li>
 <li><p>SitemapSpider 常用属性</p>
 <ul>
-<li><code>sitemap_urls</code>:一个包含待爬取url的sitemap列表，也可以指定为rebots.txt，表示从rebots.txt中提取url.</li>
+<li><code>sitemap_urls</code>:一个包含待爬取 url 的 sitemap 列表，也可以指定为 rebots.txt，表示从 rebots.txt 中提取 url.</li>
 <li><code>sitemap_rules</code>:一个元祖列表，形如(regex,callback)，其中:<ul>
-<li><code>regex</code>表示需要从sitmap中提取的url的正则表达式，可以是一个字符串或者正则表达式对象。</li>
-<li><code>callback</code>是处理对应的url的回调方法，如<code>sitemap_url =[('/price/','parse_ price')]</code>，提取到类似<em>\</em>/price/**链接时调用parse_price方法处理。需要注意的是，相同的链接只会调用第一个方法处理，并且如果此属性没有指定，那所有的链接默认使用parse方法处理。</li>
+<li><code>regex</code>表示需要从 sitmap 中提取的 url 的正则表达式，可以是一个字符串或者正则表达式对象。</li>
+<li><code>callback</code>是处理对应的 url 的回调方法，如<code>sitemap_url =[('/price/','parse_ price')]</code>，提取到类似**/price/**链接时调用 parse_price 方法处理。需要注意的是，相同的链接只会调用第一个方法处理，并且如果此属性没有指定，那所有的链接默认使用 parse 方法处理。</li>
 </ul>
 </li>
-<li><code>sitemap_follow</code>:一个指定需要跟进的sitemap的正则表达式列表。当使用Sitemap index files来指向其他sitemap文件的站点时此属性有效。默认情况下，所有的sitemap都会被跟进。</li>
-<li><code>sitemap_alternate_links</code>:指定当一个url有可选的链接时是否跟进。</li>
+<li><code>sitemap_follow</code>:一个指定需要跟进的 sitemap 的正则表达式列表。当使用 Sitemap index files 来指向其他 sitemap 文件的站点时此属性有效。默认情况下，所有的 sitemap 都会被跟进。</li>
+<li><code>sitemap_alternate_links</code>:指定当一个 url 有可选的链接时是否跟进。</li>
 </ul>
 </li>
 </ul>
@@ -528,7 +528,7 @@ div_tag<span class="token punctuation">.</span>xpath<span class="token punctuati
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

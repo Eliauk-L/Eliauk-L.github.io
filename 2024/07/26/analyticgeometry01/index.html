@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Analytic Geometry01, Jay&#39;s Blog">
     <meta name="description" content="Analytic Geometry01Norms
-Norm: A norm on a vector space $V$ is a function 
+Norm: A norm on a vector space $V$ is a function
 
-\left\| \cdot \right\|:V\rightarrow \mathbb{">
+\left\| \cdot \right\|:V\rightarrow \mathbb{R">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -352,21 +352,21 @@ Norm: A norm on a vector space $V$ is a function
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Analytic-Geometry01"><a href="#Analytic-Geometry01" class="headerlink" title="Analytic Geometry01"></a>Analytic Geometry01</h1><h2 id="Norms"><a href="#Norms" class="headerlink" title="Norms"></a>Norms</h2><ul>
-<li><p><strong>Norm</strong>: A norm on a vector space $V$ is a function </p>
+<li><p><strong>Norm</strong>: A norm on a vector space $V$ is a function</p>
 <script type="math/tex; mode=display">
 \left\| \cdot \right\|:V\rightarrow \mathbb{R},\\
 x \mapsto \left\| x \right\|</script><p>which assigns each vector $x$ its length $∥x∥ ∈ \mathbb{R}$, such that for all $λ ∈ \mathbb{R}$ and $x, y ∈ V$ the following hold:</p>
 <ul>
-<li><em>Absolutely homogeneous</em>: $∥λx∥ = |λ|∥x∥$</li>
-<li><em>Triangle inequality</em>: $∥x + y∥ ⩽ ∥x∥ + ∥y∥$</li>
-<li><em>Positive definite</em>: $∥x∥ ⩾ 0$ and $∥x∥ = 0 \Leftrightarrow x = 0$</li>
+<li>_Absolutely homogeneous_: $∥λx∥ = |λ|∥x∥$</li>
+<li>_Triangle inequality_: $∥x + y∥ ⩽ ∥x∥ + ∥y∥$</li>
+<li>_Positive definite_: $∥x∥ ⩾ 0$ and $∥x∥ = 0 \Leftrightarrow x = 0$</li>
 </ul>
 </li>
-<li><p><strong>Manhattan Norm</strong>: The <em>Manhattan norm</em> on $\mathbb R^n$ is defined for $ x ∈ \mathbb R^n$ as </p>
+<li><p><strong>Manhattan Norm</strong>: The _Manhattan norm_ on $\mathbb R^n$ is defined for $ x ∈ \mathbb R^n$ as</p>
 <script type="math/tex; mode=display">
 \left\| x \right\|_1 := \sum_{i=1}^n |x_i|</script><p>where $| · |$ is the absolute value. All vectors $x ∈ \mathbb R^2$ with $∥x∥_1 = 1$. The Manhattan norm is also called <strong>$ℓ_1$ norm.</strong></p>
 </li>
-<li><p><strong>Euclidean Norm</strong>:  The <em>Euclidean norm</em> of $x ∈ \mathbb R^n$ is defined as</p>
+<li><p><strong>Euclidean Norm</strong>: The _Euclidean norm_ of $x ∈ \mathbb R^n$ is defined as</p>
 <script type="math/tex; mode=display">
 \left\| x \right\|_2 := \sqrt{\sum_{i=1}^n{x_i^2}}=\sqrt{x^Tx}</script><p>and computes the Euclidean distance of $x$ from the origin. All vectors $x ∈ \mathbb R^2$ with $∥x∥_2 = 1$. The Euclidean norm is also called <strong>$\ell_{2}$ norm.</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407262243925.png" alt="Manhattan Norm and Euclidean norm"></p>
@@ -392,12 +392,12 @@ x \mapsto \left\| x \right\|</script><p>which assigns each vector $x$ its length
 <li>The pair $(V, ⟨·, ·⟩)$​ is called an <strong>inner product space or (real) vector space with inner product</strong>. If we use the dot product, we call $(V, ⟨·, ·⟩)$ a <strong>Euclidean vector space</strong>.</li>
 </ul>
 </li>
-<li><p>Consider an $n$-dimensional vector space $V$ with an inner product $⟨·, ·⟩ :V×V → \mathbb R$  and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. Recall that any vectors $x, y ∈ V$ can be written as linear combinations of the basis vectors so that $x =\sum_{i=1}^nψ_ib_i ∈ V$ and $y=\sum_{j=1}^nλ_jb_j ∈ V$ for suitable $ψ_i, λ_j ∈ \mathbb R$. Due to the bilinearity of the inner product, it holds for all $x, y ∈ V$ that</p>
+<li><p>Consider an $n$-dimensional vector space $V$ with an inner product $⟨·, ·⟩ :V×V → \mathbb R$ and an ordered basis $B = (b_1, . . . , b_n)$ of $V$. Recall that any vectors $x, y ∈ V$ can be written as linear combinations of the basis vectors so that $x =\sum_{i=1}^nψ_ib_i ∈ V$ and $y=\sum_{j=1}^nλ_jb_j ∈ V$ for suitable $ψ_i, λ_j ∈ \mathbb R$. Due to the bilinearity of the inner product, it holds for all $x, y ∈ V$ that</p>
 <script type="math/tex; mode=display">
 <x,y>=\left<\sum_{i=1}^nψ_ib_i,\sum_{j=1}^nλ_jb_j \right>=
 \sum_{i=1}^n\sum_{j=1}^nψ_i<b_i,b_j>λ_j=\hat x^TA \hat y</script><p>where $A_{ij} := ⟨b_i, b_j⟩$ and $\hat x, \hat y$ are the coordinates of $x$ and $y$ with respect to the basis $B$. This implies that the inner product $⟨·, ·⟩$ is uniquely determined through $A$. The symmetry of the inner product also means that $A$ is symmetric. Furthermore, the positive definiteness of the inner product implies that</p>
 <script type="math/tex; mode=display">
-\forall x\in V \backslash \{0\}:x^TAx > 0</script><p>A symmetric matrix $A ∈ \mathbb R^{n×n}$ that satisfies above equation is called <strong>symmetric, positive definite, or just positive definite</strong>. If only <strong>⩾</strong> holds  then A is called <strong>symmetric,positive semidefinite.</strong></p>
+\forall x\in V \backslash \{0\}:x^TAx > 0</script><p>A symmetric matrix $A ∈ \mathbb R^{n×n}$ that satisfies above equation is called <strong>symmetric, positive definite, or just positive definite</strong>. If only <strong>⩾</strong> holds then A is called <strong>symmetric,positive semidefinite.</strong></p>
 <blockquote>
 <p>e.g. Consider the matrices</p>
 <script type="math/tex; mode=display">
@@ -435,7 +435,7 @@ x_2
 </li>
 </ul>
 <h2 id="Lengths-and-Distances"><a href="#Lengths-and-Distances" class="headerlink" title="Lengths and Distances"></a>Lengths and Distances</h2><ul>
-<li><p>Inner products and norms are closely related in the sense that any inner product induces a norm $||x||=\sqrt{<x,x>}$. However, not every norm is induced by an inner product. <strong>The Manhattan norm  is an example of a norm without a corresponding inner product.</strong></x,x></p>
+<li><p>Inner products and norms are closely related in the sense that any inner product induces a norm $||x||=\sqrt{<x,x>}$. However, not every norm is induced by an inner product. <strong>The Manhattan norm is an example of a norm without a corresponding inner product.</strong></x,x></p>
 </li>
 <li><p><strong>Cauchy-Schwarz Inequality</strong>: For an inner product vector space $(V, ⟨·, ·⟩)$ the induced norm $∥ · ∥$ satisfies the Cauchy-Schwarz inequality</p>
 <script type="math/tex; mode=display">
@@ -449,9 +449,9 @@ d:V \times V \rightarrow \mathbb R\\
 </li>
 <li><p>A metric $d$ satisfies the following:</p>
 <ul>
-<li>$d$ is <em>positive definite</em>, i.e., $d(x, y) ⩾ 0$ for all $x, y ∈ V$ and $d(x, y) = 0 \Leftrightarrow x = y $.</li>
-<li>$d$ is <em>symmetric</em>, i.e., $d(x, y) = d(y, x)$ for all $x, y ∈ V$.</li>
-<li><em>Triangle inequality:</em> $d(x, z) ⩽ d(x, y) + d(y, z)$ for all $x, y, z ∈ V$.</li>
+<li>$d$ is _positive definite_, i.e., $d(x, y) ⩾ 0$ for all $x, y ∈ V$ and $d(x, y) = 0 \Leftrightarrow x = y $.</li>
+<li>$d$ is _symmetric_, i.e., $d(x, y) = d(y, x)$ for all $x, y ∈ V$.</li>
+<li>_Triangle inequality:_ $d(x, z) ⩽ d(x, y) + d(y, z)$ for all $x, y, z ∈ V$.</li>
 </ul>
 </li>
 </ul>
@@ -467,7 +467,7 @@ cos \omega = \frac{<x,y>}{\left\|x\right\|\left\|y\right\|}</script><p>The numbe
 cos \omega = \frac{<x,y>}{\sqrt{<x,x>}{<y,y>}}
 =\frac{x^Ty}{\sqrt{x^Txy^Ty}}=\frac{3}{\sqrt{10}}</script></blockquote>
 </li>
-<li><p><strong>Orthogonality</strong>: Two vectors $x$ and $y$ are <em>orthogonal</em> if and only if $⟨x, y⟩ = 0$, and we write $x ⊥ y$. If additionally $∥x∥ = 1 = ∥y∥$,i.e., the vectors are unit vectors, then $x$ and $y$ are <em>orthonormal</em>.  The $0$-vector is orthogonal to every vector in the vector space.</p>
+<li><p><strong>Orthogonality</strong>: Two vectors $x$ and $y$ are _orthogonal_ if and only if $⟨x, y⟩ = 0$, and we write $x ⊥ y$. If additionally $∥x∥ = 1 = ∥y∥$,i.e., the vectors are unit vectors, then $x$ and $y$ are _orthonormal_. The $0$-vector is orthogonal to every vector in the vector space.</p>
 </li>
 <li><p>Vectors that are orthogonal with respect to one inner product do not have to be orthogonal with respect to a different inner product.</p>
 </li>

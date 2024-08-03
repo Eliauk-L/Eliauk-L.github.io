@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Scrapy爬虫系列之XPath语法, Jay&#39;s Blog">
-    <meta name="description" content="XPath语法
-XPath为XML路径语言(XML Path Language)，是一种用来确定XML文档中某部分位置的语言。XPath基于XML的树状结构提供在数据结构树中找寻节点的能力。
-XPath以节点来解析文档，然后通过路径表达式定">
+    <meta name="description" content="XPath 语法
+XPath 为 XML 路径语言(XML Path Language)，是一种用来确定 XML 文档中某部分位置的语言。XPath 基于 XML 的树状结构提供在数据结构树中找寻节点的能力。
+XPath 以节点来解析文档，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -328,7 +328,7 @@ XPath以节点来解析文档，然后通过路径表达式定">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    953
+                    955
                 </div>
                 
 
@@ -358,15 +358,15 @@ XPath以节点来解析文档，然后通过路径表达式定">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="XPath语法"><a href="#XPath语法" class="headerlink" title="XPath语法"></a>XPath语法</h1><ul>
-<li><strong>XPath为XML路径语言(XML Path Language)</strong>，是一种用来确定XML文档中某部分位置的语言。XPath基于XML的树状结构提供在数据结构树中找寻节点的能力。</li>
-<li>XPath以节点来解析文档，然后通过路径表达式定位元素，再经过XPath轴和运算符的进一步筛选，达到提取规定数据的目的。</li>
+                <h1 id="XPath-语法"><a href="#XPath-语法" class="headerlink" title="XPath 语法"></a>XPath 语法</h1><ul>
+<li><strong>XPath 为 XML 路径语言(XML Path Language)</strong>，是一种用来确定 XML 文档中某部分位置的语言。XPath 基于 XML 的树状结构提供在数据结构树中找寻节点的能力。</li>
+<li>XPath 以节点来解析文档，然后通过路径表达式定位元素，再经过 XPath 轴和运算符的进一步筛选，达到提取规定数据的目的。</li>
 </ul>
-<h2 id="XPath节点"><a href="#XPath节点" class="headerlink" title="XPath节点"></a>XPath节点</h2><ul>
-<li>在XPath中，有7种类型的节点: <strong>元素、属性、文本、命名空间、处理指令、注释以及文档(根）节点</strong>。XML文档是被作为节点树来看待的。树的根被称为文档节点或者根节点。</li>
+<h2 id="XPath-节点"><a href="#XPath-节点" class="headerlink" title="XPath 节点"></a>XPath 节点</h2><ul>
+<li>在 XPath 中，有 7 种类型的节点: <strong>元素、属性、文本、命名空间、处理指令、注释以及文档(根）节点</strong>。XML 文档是被作为节点树来看待的。树的根被称为文档节点或者根节点。</li>
 <li>节点组合在一起便会产生相对应的节点关系，包括父(Parent)、子(Childen)、同胞(Sibling)、先辈(Ancestor)、后代(Descendant)。</li>
 </ul>
-<h2 id="XPath语法-1"><a href="#XPath语法-1" class="headerlink" title="XPath语法"></a>XPath语法</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<h2 id="XPath-语法-1"><a href="#XPath-语法-1" class="headerlink" title="XPath 语法"></a>XPath 语法</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>school</span><span class="token punctuation">&gt;</span></span>
 	 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>student</span><span class="token punctuation">&gt;</span></span>
     	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eng<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Leica<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
@@ -378,7 +378,7 @@ XPath以节点来解析文档，然后通过路径表达式定">
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>student</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>school</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>XPath路径表达式</li>
+<li>XPath 路径表达式</li>
 </ul>
 <div class="table-container">
 <table>
@@ -426,12 +426,12 @@ XPath以节点来解析文档，然后通过路径表达式定">
 <li><p><strong>使用“|”匹配多个路径</strong><br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231428768.png" alt="使用“|”匹配多个路径"></p>
 </li>
 </ul>
-<h2 id="XPath轴"><a href="#XPath轴" class="headerlink" title="XPath轴"></a>XPath轴</h2><ul>
+<h2 id="XPath-轴"><a href="#XPath-轴" class="headerlink" title="XPath 轴"></a>XPath 轴</h2><ul>
 <li><p>轴(Axis）可定义相对于当前节点的节点集。</p>
 </li>
-<li><p>XPath使用位置路径匹配节点位置，而位置路径类型包括绝对路径与相对路径。绝对路径起始于“/”，相对路径没有限制。在两种情况中，位置路径均包括一个或多个步，每个步均被斜杠分割:绝对路径/step/step/…，相对路径step/step/…。每个步均根据当前节点集中的节点进行计算，轴的存在可使节点提取变得更加灵活准确。</p>
+<li><p>XPath 使用位置路径匹配节点位置，而位置路径类型包括绝对路径与相对路径。绝对路径起始于“/”，相对路径没有限制。在两种情况中，位置路径均包括一个或多个步，每个步均被斜杠分割:绝对路径/step/step/…，相对路径 step/step/…。每个步均根据当前节点集中的节点进行计算，轴的存在可使节点提取变得更加灵活准确。</p>
 </li>
-<li><p>XPath轴节点</p>
+<li><p>XPath 轴节点</p>
 <p>| 节点               | 描述                                                   |<br>| ————————— | ——————————————————————————— |<br>| ancestor           | 选取当前节点的所有先辈(父、祖父等)                     |<br>| ancestor-or-self   | 选取当前节点的所有先辈(父、祖父等)以及当前节点本身     |<br>| attribute          | 选取当前节点的所有属性                                 |<br>| child              | 选取当前节点的所有子元素                               |<br>| descendant         | 选取当前节点的所有后代元素（子、孙等)                  |<br>| descendant-or-self | 选取当前节点的所有后代元素（子、孙等）以及当前节点本身 |<br>| following          | 选取文档中当前节点的结束标签之后的所有节点             |<br>| namespace          | 选取当前节点的所有命名空间节点                         |<br>| parent             | 选取当前节点的父节点                                   |<br>| preceding          | 选取文档中当前节点的开始标签之前的所有节点             |<br>| preceding-sibling  | 选取当前节点之前的所有同级节点                         |<br>| self               | 选取当前节点                                           |</p>
 </li>
 <li><p>步包括</p>
@@ -464,14 +464,14 @@ XPath以节点来解析文档，然后通过路径表达式定">
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231429511.png" alt="轴示例"></p>
 </li>
 </ul>
-<h2 id="XPath运算符"><a href="#XPath运算符" class="headerlink" title="XPath运算符"></a>XPath运算符</h2><ul>
-<li>XPath表达式可返回节点集、字符串、逻辑值以及数字。</li>
-<li>XPath运算符<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231429938.png" alt="XPath运算符"></li>
+<h2 id="XPath-运算符"><a href="#XPath-运算符" class="headerlink" title="XPath 运算符"></a>XPath 运算符</h2><ul>
+<li>XPath 表达式可返回节点集、字符串、逻辑值以及数字。</li>
+<li>XPath 运算符<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407231429938.png" alt="XPath运算符"></li>
 </ul>
 <blockquote>
 <p><strong>参考：</strong></p>
 <ol>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

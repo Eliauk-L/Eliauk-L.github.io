@@ -5,11 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Python网络请求库之urllib, Jay&#39;s Blog">
-    <meta name="description" content="Python网络请求库之urllib
+    <meta name="description" content="Python 网络请求库之 urllib
 Python urllib 库是内置库，用于操作网页 URL，并对网页的内容进行抓取处理。
 urllib 包 包含以下几个模块：
 urllib.request - 打开和读取 URL。
-urllib.e">
+urllib">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -352,7 +352,7 @@ urllib.e">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Python网络请求库之urllib"><a href="#Python网络请求库之urllib" class="headerlink" title="Python网络请求库之urllib"></a>Python网络请求库之urllib</h1><ul>
+                <h1 id="Python-网络请求库之-urllib"><a href="#Python-网络请求库之-urllib" class="headerlink" title="Python 网络请求库之 urllib"></a>Python 网络请求库之 urllib</h1><ul>
 <li>Python <strong><code>urllib</code></strong> 库是内置库，用于操作网页 URL，并对网页的内容进行抓取处理。</li>
 <li>urllib 包 包含以下几个模块：<ul>
 <li><strong>urllib.request</strong> - 打开和读取 URL。</li>
@@ -364,7 +364,7 @@ urllib.e">
 </li>
 </ul>
 <h2 id="urllib-request"><a href="#urllib-request" class="headerlink" title="urllib.request"></a>urllib.request</h2><ul>
-<li><p><code>urllib.request</code> 定义了一些打开 URL 的函数和类，包含授权验证、重定向、浏览器 cookies等。</p>
+<li><p><code>urllib.request</code> 定义了一些打开 URL 的函数和类，包含授权验证、重定向、浏览器 cookies 等。</p>
 </li>
 <li><p><code>urllib.request</code> 可以模拟浏览器的一个请求发起过程。</p>
 </li>
@@ -375,7 +375,7 @@ urllib.e">
 <li><strong>timeout</strong>：设置访问超时时间。</li>
 <li><strong>cafile 和 capath</strong>：cafile 为 CA 证书， capath 为 CA 证书的路径，使用 HTTPS 需要用到。</li>
 <li><strong>cadefault</strong>：已经被弃用。</li>
-<li><strong>context</strong>：ssl.SSLContext类型，用来指定 SSL 设置。</li>
+<li><strong>context</strong>：ssl.SSLContext 类型，用来指定 SSL 设置。</li>
 </ul>
 </li>
 <li><p>读取网页内容</p>
@@ -399,7 +399,7 @@ myURL <span class="token operator">=</span> urlopen<span class="token punctuatio
 myURL <span class="token operator">=</span> urlopen<span class="token punctuation">(</span><span class="token string">"https://www.runoob.com/"</span><span class="token punctuation">)</span>
 lines <span class="token operator">=</span> myURL<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> line <span class="token keyword">in</span> lines<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -416,7 +416,7 @@ myURL1 <span class="token operator">=</span> urllib<span class="token punctuatio
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span>   <span class="token comment"># 404</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>URL 的编码与解码：<strong><code>urllib.request.quote()</code></strong> 与 <strong><code>urllib.request.unquote()</code></strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request 
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
 
 encode_url <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>quote<span class="token punctuation">(</span><span class="token string">"https://www.runoob.com/"</span><span class="token punctuation">)</span>  <span class="token comment"># 编码</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>encode_url<span class="token punctuation">)</span>
@@ -435,13 +435,13 @@ unencode_url <span class="token operator">=</span> urllib<span class="token punc
 <li><strong>headers</strong>：HTTP 请求的头部信息，字典格式。</li>
 <li><strong>origin_req_host</strong>：请求的主机地址，IP 或域名。</li>
 <li><strong>unverifiable</strong>：很少用这个参数，用于设置网页是否需要验证，默认是 False。</li>
-<li><strong>method</strong>：请求方法， 如 GET、POST、DELETE、PUT等。</li>
+<li><strong>method</strong>：请求方法， 如 GET、POST、DELETE、PUT 等。</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
 <span class="token keyword">import</span> urllib<span class="token punctuation">.</span>parse
 
 url <span class="token operator">=</span> <span class="token string">'https://www.runoob.com/?s='</span>  <span class="token comment"># 菜鸟教程搜索页面</span>
-keyword <span class="token operator">=</span> <span class="token string">'Python 教程'</span> 
+keyword <span class="token operator">=</span> <span class="token string">'Python 教程'</span>
 key_code <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>keyword<span class="token punctuation">)</span>  <span class="token comment"># 对请求进行编码</span>
 url_all <span class="token operator">=</span> url<span class="token operator">+</span>key_code
 header <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -455,7 +455,7 @@ fh<span class="token punctuation">.</span>write<span class="token punctuation">(
 fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 提交到表单页面</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.runoob.com/try/py3/py3_urllib_test.php'</span>  
+url <span class="token operator">=</span> <span class="token string">'https://www.runoob.com/try/py3/py3_urllib_test.php'</span>
 data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'RUNOOB'</span><span class="token punctuation">,</span> <span class="token string">'tag'</span> <span class="token punctuation">:</span> <span class="token string">'菜鸟教程'</span><span class="token punctuation">}</span>   <span class="token comment"># 提交数据</span>
 header <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'</span>
@@ -469,14 +469,14 @@ fh<span class="token punctuation">.</span>write<span class="token punctuation">(
 fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="使用Cookie"><a href="#使用Cookie" class="headerlink" title="使用Cookie"></a>使用Cookie</h2><ul>
-<li><p>Cookie是当浏览某网站时，网站存储的信息文件，它记录了用户的ID、密码、浏览记录、浏览时间等信息。当同一用户再次访问该网站时，网站通过读取Cookie，获取用户的相关信息，比如用户名、密码，用于自动登录。</p>
+<h2 id="使用-Cookie"><a href="#使用-Cookie" class="headerlink" title="使用 Cookie"></a>使用 Cookie</h2><ul>
+<li><p>Cookie 是当浏览某网站时，网站存储的信息文件，它记录了用户的 ID、密码、浏览记录、浏览时间等信息。当同一用户再次访问该网站时，网站通过读取 Cookie，获取用户的相关信息，比如用户名、密码，用于自动登录。</p>
 </li>
-<li><p>使用urllib操作网站Cookie需要用到<strong><code>urllib.request.HTTPCookieProcessor(cookie)</code></strong>。</p>
+<li><p>使用 urllib 操作网站 Cookie 需要用到<strong><code>urllib.request.HTTPCookieProcessor(cookie)</code></strong>。</p>
 </li>
-<li><p>使用Cookie需要创建一个<strong>opener</strong>。在 Python 的 http包中包含<strong>cookiejar</strong>模块，用于提供对Cookie 的支持。http.cookiejar 功能强大，我们可以利用本模块的CookieJar类的对象来捕获Cookie，并在后续连接请求时重新发送，比如可以实现模拟登录功能。</p>
+<li><p>使用 Cookie 需要创建一个<strong>opener</strong>。在 Python 的 http 包中包含<strong>cookiejar</strong>模块，用于提供对 Cookie 的支持。http.cookiejar 功能强大，我们可以利用本模块的 CookieJar 类的对象来捕获 Cookie，并在后续连接请求时重新发送，比如可以实现模拟登录功能。</p>
 </li>
-<li><p>urllib获取cookie</p>
+<li><p>urllib 获取 cookie</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取cookie</span>
 <span class="token keyword">import</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>request
 
@@ -487,7 +487,7 @@ response <span class="token operator">=</span> opener<span class="token punctuat
 <span class="token keyword">for</span> item <span class="token keyword">in</span> cookie<span class="token punctuation">:</span>
 	<span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">"="</span><span class="token operator">+</span>item<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>urllib保存cookie</p>
+<li><p>urllib 保存 cookie</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#保存Cookie</span>
 filename <span class="token operator">=</span> <span class="token string">'saved_cookies.txt'</span>
 <span class="token comment"># FileCookieJar、MozillaCookieJar、LWPCookieJar均为保存Cookie信息，只是保存格式不同</span>
@@ -497,7 +497,7 @@ opener <span class="token operator">=</span> urllib<span class="token punctuatio
 response <span class="token operator">=</span> opener<span class="token punctuation">.</span><span class="token builtin">open</span> <span class="token punctuation">(</span><span class="token string">'http://www.baidu.com'</span><span class="token punctuation">)</span>
 cookie<span class="token punctuation">.</span>save<span class="token punctuation">(</span>ignore_discard<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>ignore_expires<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>urllib使用cookie</p>
+<li><p>urllib 使用 cookie</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#使用Cookie</span>
 <span class="token keyword">import</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>request
 cookie <span class="token operator">=</span> http<span class="token punctuation">.</span>cookiejar<span class="token punctuation">.</span>MozillacookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -516,6 +516,8 @@ response <span class="token operator">=</span> opener<span class="token punctuat
 <li><p>URLError 是 OSError 的一个子类，用于处理程序在遇到问题时会引发此异常（或其派生的异常），包含的属性 reason 为引发异常的原因。</p>
 </li>
 <li><p>HTTPError 是 URLError 的一个子类，用于处理特殊 HTTP 错误例如作为认证请求的时候，包含的属性 <strong>code</strong> 为 HTTP 的状态码， <strong>reason</strong> 为引发异常的原因，<strong>headers</strong> 为导致 HTTPError 的特定 HTTP 请求的 HTTP 响应头。</p>
+</li>
+</ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
 <span class="token keyword">import</span> urllib<span class="token punctuation">.</span>error
 
@@ -527,8 +529,6 @@ myURL1 <span class="token operator">=</span> urllib<span class="token punctuatio
 <span class="token keyword">except</span> urllib<span class="token punctuation">.</span>error<span class="token punctuation">.</span>HTTPError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
     <span class="token keyword">if</span> e<span class="token punctuation">.</span>code <span class="token operator">==</span> <span class="token number">404</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span>   <span class="token comment"># 404</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
 <h2 id="urllib-parse"><a href="#urllib-parse" class="headerlink" title="urllib.parse"></a>urllib.parse</h2><ul>
 <li><p>urllib.parse 用于解析 URL</p>
 </li>
@@ -570,8 +570,8 @@ o <span class="token operator">=</span> urlparse<span class="token punctuation">
 <tr>
 <td style="text-align:left"><code>scheme</code></td>
 <td style="text-align:left">0</td>
-<td style="text-align:left">URL协议</td>
-<td style="text-align:left"><em>scheme</em> 参数</td>
+<td style="text-align:left">URL 协议</td>
+<td style="text-align:left">_scheme_ 参数</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>netloc</code></td>
@@ -670,7 +670,7 @@ o <span class="token operator">=</span> urlparse<span class="token punctuation">
 <p><strong>参考：</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-urllib.html">https://www.runoob.com/python3/python-urllib.html</a></li>
-<li>东郭大猫. Scrapy网络爬虫实战. 清华大学出版社, 2019</li>
+<li>东郭大猫. Scrapy 网络爬虫实战. 清华大学出版社, 2019</li>
 </ol>
 </blockquote>
 

@@ -350,12 +350,12 @@ A function $f$​ is a quantity that relates two quantities to each other. These
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Vector-Calculus"><a href="#Vector-Calculus" class="headerlink" title="Vector Calculus"></a>Vector Calculus</h1><ul>
-<li><p>A function $f$​ is a quantity that relates two quantities to each other. These quantities are typically inputs $x ∈ \mathbb R^D$ and targets (function values) $f(x)$, which we assume are real-valued if not stated otherwise. Here $\mathbb R^D$ is the domain of $f$ and the function values $f(x)$ are the <em>image/codomain</em> of $f$.</p>
+<li><p>A function $f$​ is a quantity that relates two quantities to each other. These quantities are typically inputs $x ∈ \mathbb R^D$ and targets (function values) $f(x)$, which we assume are real-valued if not stated otherwise. Here $\mathbb R^D$ is the domain of $f$ and the function values $f(x)$ are the _image/codomain_ of $f$.</p>
 </li>
 <li><p>We often write</p>
 <script type="math/tex; mode=display">
 f\;:\;\mathbb R^D \rightarrow \mathbb R\\
-x \mapsto f(x)</script><p>to specify a function, where specifies that $f$ is a mapping from $\mathbb R^D$ to $R$ and  the explicit assignment of an input $x$ to a function value $f(x)$. A function $f$ assigns every input $x $exactly one function value $f(x)$.</p>
+x \mapsto f(x)</script><p>to specify a function, where specifies that $f$ is a mapping from $\mathbb R^D$ to $R$ and the explicit assignment of an input $x$ to a function value $f(x)$. A function $f$ assigns every input $x $exactly one function value $f(x)$.</p>
 <blockquote>
 <p>e.g. the dot product as a special case of an inner product</p>
 <p>the function $f(x) = x^⊤x, x ∈ \mathbb R^2$, would bespecified as</p>
@@ -365,7 +365,7 @@ x \mapsto x_1^2 + x_2^2</script></blockquote>
 </li>
 </ul>
 <h2 id="Differentiation-of-Univariate-Functions"><a href="#Differentiation-of-Univariate-Functions" class="headerlink" title="Differentiation of Univariate Functions"></a>Differentiation of Univariate Functions</h2><ul>
-<li><p><strong>Difference Quotient</strong>: The <em>difference quotient</em></p>
+<li><p><strong>Difference Quotient</strong>: The _difference quotient_</p>
 <script type="math/tex; mode=display">
 \frac{\delta_y}{\delta_x}=\frac{f(x+\delta_x)-f(x)}{\delta_x}</script><p>computes the slope of the secant line through two points on the graph of $f$<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011901845.png" alt="Difference Quotient"></p>
 </li>
@@ -373,13 +373,13 @@ x \mapsto x_1^2 + x_2^2</script></blockquote>
 <script type="math/tex; mode=display">
 \frac{df}{dx}:=\underset{x\rightarrow 0}{\lim}\frac{f(x+h)-f(x)}{h}</script><p>and the secant in Figure becomes a tangent. The derivative of $f$ points in the direction of steepest ascent of $f$.</p>
 </li>
-<li><p><strong>Taylor Polynomial</strong>: The <em>Taylor polynomial</em> of degree $n$ of $f : \mathbb R → \mathbb R$ at $x_0$ is defined as</p>
+<li><p><strong>Taylor Polynomial</strong>: The _Taylor polynomial_ of degree $n$ of $f : \mathbb R → \mathbb R$ at $x_0$ is defined as</p>
 <script type="math/tex; mode=display">
 T_n(x):=\sum_{k=0}^n{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}</script><p>where $f^{(k)}(x_0)$ is the $k$th derivative of $f$ at $x_0$ (which we assume exists) and $\frac{f^{(k)}(x_0)}{k!}$ are the coefficients of the polynomial.</p>
 </li>
-<li><p><strong>Taylor Series</strong>: For a smooth function $f ∈ C^∞, f : \mathbb R → \mathbb R$, the <em>Taylor series</em> of $f$ at $x_0$ is defined as</p>
+<li><p><strong>Taylor Series</strong>: For a smooth function $f ∈ C^∞, f : \mathbb R → \mathbb R$, the _Taylor series_ of $f$ at $x_0$ is defined as</p>
 <script type="math/tex; mode=display">
-T_\infty(x)=\sum_{x=0}^\infty{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}</script><p>For $x_0 = 0$, we obtain the <em>Maclaurin series</em> as a special instance of the Taylor series. If $f(x) = T_∞(x)$, then $f$ is called <em>analytic</em>.</p>
+T_\infty(x)=\sum_{x=0}^\infty{\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}</script><p>For $x_0 = 0$, we obtain the _Maclaurin series_ as a special instance of the Taylor series. If $f(x) = T_∞(x)$, then $f$ is called _analytic_.</p>
 </li>
 <li><p>In general, a Taylor polynomial of degree $n$ is an approximation of a function, which does not need to be a polynomial. The Taylor poly-nomial is similar to $f$ in a neighborhood around $x_0$. However, a Taylor polynomial of degree $n$ is an exact representation of a polynomial $f$ of degree $k ⩽ n$ since all derivatives $f(i), i &gt; k$ vanish.</p>
 </li>
@@ -447,11 +447,11 @@ f(x)=\sum_{k=0}^\infty{a_k(x-c)^k}</script><p>where $a_k$ are coefficients and $
 </li>
 </ul>
 <h2 id="Partial-Differentiation-and-Gradients"><a href="#Partial-Differentiation-and-Gradients" class="headerlink" title="Partial Differentiation and Gradients"></a>Partial Differentiation and Gradients</h2><ul>
-<li><p>We consider the general case where the function $f$ depends on one or more variables $x ∈ \mathbb R^n$, e.g., $f(x) = f(x_1, x_2)$. The generalization of the derivative to functions of several variables is the <strong><em>gradient</em></strong>.</p>
+<li><p>We consider the general case where the function $f$ depends on one or more variables $x ∈ \mathbb R^n$, e.g., $f(x) = f(x_1, x_2)$. The generalization of the derivative to functions of several variables is the <strong>_gradient_</strong>.</p>
 </li>
-<li><p>We find the gradient of the function f with respect to $x$ by <em>varying one variable at a time and keeping the others constant</em>. The gradient is then the collection of these <em>partial derivatives</em>.</p>
+<li><p>We find the gradient of the function f with respect to $x$ by _varying one variable at a time and keeping the others constant_. The gradient is then the collection of these _partial derivatives_.</p>
 </li>
-<li><p><strong>Partial Derivative</strong>: For a function $f : \mathbb R^n → \mathbb R, x \mapsto f(x), x ∈ \mathbb R^n$ of $n$ variables $x_1, . . . , x_n$ we define the <em>partial derivatives</em> as</p>
+<li><p><strong>Partial Derivative</strong>: For a function $f : \mathbb R^n → \mathbb R, x \mapsto f(x), x ∈ \mathbb R^n$ of $n$ variables $x_1, . . . , x_n$ we define the _partial derivatives_ as</p>
 <script type="math/tex; mode=display">
 \begin{split}
 \frac{\partial f}{\partial x_1}&=\underset{h\rightarrow 0}{\lim}\frac{f(x_1+h,x_2,...,x_n)-f(x)}{h}\\
@@ -461,18 +461,18 @@ f(x)=\sum_{k=0}^\infty{a_k(x-c)^k}</script><p>where $a_k$ are coefficients and $
 </ul>
 <p>and collect them in the row vector</p>
 <script type="math/tex; mode=display">
-\nabla_xf=grad\,f=\frac{d\,f}{d\,x}=\left[\begin{matrix}\frac{\partial f(x)}{\partial x_1}&\frac{\partial f(x)}{\partial x_2}&\cdots&\frac{\partial f(x)}{\partial x_n},\end{matrix}\right]\in \mathbb R^{1\times n}</script><p>where $n$ is the number of variables and $1$ is the dimension of the image/ range/codomain off. Here, we defined the column vector $x = [x_1, . . . , x_n]^⊤∈ \mathbb R^n$. The row vector is called the <em>gradient of $f$ or the Jacobian</em>.</p>
+\nabla_xf=grad\,f=\frac{d\,f}{d\,x}=\left[\begin{matrix}\frac{\partial f(x)}{\partial x_1}&\frac{\partial f(x)}{\partial x_2}&\cdots&\frac{\partial f(x)}{\partial x_n},\end{matrix}\right]\in \mathbb R^{1\times n}</script><p>where $n$ is the number of variables and $1$ is the dimension of the image/ range/codomain off. Here, we defined the column vector $x = [x_1, . . . , x_n]^⊤∈ \mathbb R^n$. The row vector is called the _gradient of $f$ or the Jacobian_.</p>
 <ul>
 <li><p>It is not uncommon in the literature to define the gradient vector as a column vector, following the convention that vectors are generally column vectors. The reason why we define the gradient vector as a row vector is twofold: First, we can consistently generalize the gradient to vector-valued functions $f : \mathbb R^n → \mathbb R^m$ (then the gradient becomes a matrix). Second, we can immediately apply the multi-variate chain rule without paying attention to the dimension of the gradient.</p>
 </li>
 <li><p>Basic Rules of Partial Differentiation</p>
 <ul>
-<li><strong>Product rule</strong>:  $\frac{\partial}{\partial_x}(f(x)g(x))=\frac{\partial f}{\partial x}g(x)+f(x)\frac{\partial g}{\partial x}$</li>
-<li><strong>Sum rule</strong>:  $\frac{\partial}{\partial_x}(f(x)+g(x))=\frac{\partial f}{\partial x}+\frac{\partial g}{\partial x}$</li>
-<li><strong>Chain rule</strong>:  $\frac{\partial}{\partial_x}(g◦f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f}\frac{\partial f}{\partial x}$</li>
+<li><strong>Product rule</strong>: $\frac{\partial}{\partial_x}(f(x)g(x))=\frac{\partial f}{\partial x}g(x)+f(x)\frac{\partial g}{\partial x}$</li>
+<li><strong>Sum rule</strong>: $\frac{\partial}{\partial_x}(f(x)+g(x))=\frac{\partial f}{\partial x}+\frac{\partial g}{\partial x}$</li>
+<li><strong>Chain rule</strong>: $\frac{\partial}{\partial_x}(g◦f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f}\frac{\partial f}{\partial x}$</li>
 </ul>
 </li>
-<li><p>Consider a function $f : \mathbb R^2 → \mathbb R$ of two variables $x_1, x_2$. Furthermore, $x_1(t)$ and $x_2(t)$ are themselves functions of $t$. To compute the gradient of $f$ with respect to $t$, we need to apply the chain rule  for multivariate functions as</p>
+<li><p>Consider a function $f : \mathbb R^2 → \mathbb R$ of two variables $x_1, x_2$. Furthermore, $x_1(t)$ and $x_2(t)$ are themselves functions of $t$. To compute the gradient of $f$ with respect to $t$, we need to apply the chain rule for multivariate functions as</p>
 <script type="math/tex; mode=display">
 \frac{d\,f}{d\,t}=\left[\begin{matrix}\frac{\partial f}{\partial x_1}&\frac{\partial f}{\partial x_2}\end{matrix}\right]
 \left[\begin{matrix}\frac{\partial x_1(t)}{\partial t}\\\frac{\partial x_2(t)}{\partial t}\end{matrix}\right]=
@@ -489,7 +489,7 @@ f(x)=\sum_{k=0}^\infty{a_k(x-c)^k}</script><p>where $a_k$ are coefficients and $
 \underset{=\frac{\partial x}{\partial (s,t)}}{\underbrace{\left[\begin{matrix}\frac{\partial x_1}{\partial s}&\frac{\partial x_1}{\partial t}\\\frac{\partial x_2}{\partial s}&\frac{\partial x_2}{\partial t}\end{matrix}\right]}}</script></li>
 <li><p>The chain rule can be written as a matrix multiplication. This compact way of writing the chain rule as a matrix multiplication only makes sense if the gradient is defined as a row vector.</p>
 </li>
-<li><p>The definition of the partial derivatives as the limit of the corresponding difference quotient  can be exploited when numerically checking the correctness of gradients in computer programs. When we compute gradients and implement them, we can use finite differences to numerically test our computation and implementation.</p>
+<li><p>The definition of the partial derivatives as the limit of the corresponding difference quotient can be exploited when numerically checking the correctness of gradients in computer programs. When we compute gradients and implement them, we can use finite differences to numerically test our computation and implementation.</p>
 </li>
 </ul>
 <h2 id="Gradients-of-Vector-Valued-Functions"><a href="#Gradients-of-Vector-Valued-Functions" class="headerlink" title="Gradients of Vector-Valued Functions"></a>Gradients of Vector-Valued Functions</h2><ul>
@@ -512,7 +512,7 @@ f(x)=\left[\begin{matrix}f_1(x)\\\vdots\\f_m(x)\end{matrix}\right]\in \mathbb R^
 \frac{\partial f_m(x))}{\partial x_1}&\cdots&\frac{\partial f_m(x)}{\partial x_n}
 \end{matrix}\right]\in \mathbb R^{m\times n}
 \end{split}</script></li>
-<li><p><strong>Jacobian</strong>:  The collection of all first-order partial derivatives of a vector-valued function $f : \mathbb R^n → \mathbb R^m$ is called the <strong><em>Jacobian</em></strong>. The Jacobian $J$ is an $m× n$ matrix, which we define and arrange as follows:</p>
+<li><p><strong>Jacobian</strong>: The collection of all first-order partial derivatives of a vector-valued function $f : \mathbb R^n → \mathbb R^m$ is called the <strong>_Jacobian_</strong>. The Jacobian $J$ is an $m× n$ matrix, which we define and arrange as follows:</p>
 <script type="math/tex; mode=display">
 \begin{split}
 J&=\nabla_xf=\frac{d\,f}{d\,x}=\left[\begin{matrix}\frac{\partial f(x)}{\partial x_1}&\cdots&\frac{\partial f(x)}{\partial x_n}\end{matrix}\right]\\
@@ -525,13 +525,13 @@ x&=\left[\begin{matrix}x_1\\
 x_n\end{matrix}\right],J(i,j)=\frac{\partial f_i}{\partial x_i}
 \end{split}</script><p>As a special case of above equation, a function $f : \mathbb R^n → \mathbb R^1$, which maps a vector x ∈ Rn onto a scalar (e.g.,$ f(x) =\sum_{i=1}^{n}{x_i}$), possesses a Jacobian that is a row vector (matrix of dimension $1 × n$).</p>
 </li>
-<li><p>We use the <em>numerator layout</em> of the derivative, i.e., the derivative $df/dx$ of $f ∈ \mathbb R^m$ with respect to $x ∈ \mathbb R^n$ is an $m ×n$ matrix, where the elements of $f$ define the rows and the elements of $x$ define the columns of the corresponding Jacobian. There exists also the <em>denominator layou</em>t, which is the transpose of the numerator layout.</p>
+<li><p>We use the _numerator layout_ of the derivative, i.e., the derivative $df/dx$ of $f ∈ \mathbb R^m$ with respect to $x ∈ \mathbb R^n$ is an $m ×n$ matrix, where the elements of $f$ define the rows and the elements of $x$ define the columns of the corresponding Jacobian. There exists also the <em>denominator layou</em>t, which is the transpose of the numerator layout.</p>
 </li>
 <li><p>Figure summarizes the dimensions of those derivatives. If $f : \mathbb R → \mathbb R$ the gradient is simply a scalar (top-left entry). For $f : \mathbb R^D → \mathbb R$ the gradient is a $1 × D$ row vector (top-right entry). For $f : \mathbb R → \mathbb R^E$, the gradient is an $E × 1$ column vector, and for $f : \mathbb R^D → \mathbb R^E$ the gradient is an $E ×D$ matrix.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942507.png" alt="Dimensionality of (partial) derivatives"></p>
 </li>
 </ul>
 <blockquote>
-<p>e.g. </p>
+<p>e.g.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942571.png" alt="Gradient of a Vector-Valued Function"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011942069.png" alt="Chain Rule"></p>
 <p><strong>Gradient of a Least-Squares Loss in a Linear Model</strong><br>Let us consider the linear model</p>
@@ -546,7 +546,7 @@ e(\theta):=y-\varPhi\theta</script><p>We seek $\frac{∂L}{∂θ}$ , and we will
 <script type="math/tex; mode=display">
 \frac{\partial L}{\partial \theta}=\frac{\partial L}{\partial e}\frac{\partial e}{\partial \theta}</script><p>where the $d$th element is given by</p>
 <script type="math/tex; mode=display">
-\frac{\partial L}{\partial \theta}[1,d]=\sum_{n=1}^N{\frac{\partial L}{\partial e}[n]}\frac{\partial e}{\partial \theta}[n,d]</script><p>We know that $∥e∥^2 = e^⊤e$  and determine</p>
+\frac{\partial L}{\partial \theta}[1,d]=\sum_{n=1}^N{\frac{\partial L}{\partial e}[n]}\frac{\partial e}{\partial \theta}[n,d]</script><p>We know that $∥e∥^2 = e^⊤e$ and determine</p>
 <script type="math/tex; mode=display">
 \frac{\partial L}{\partial e}=2e^T\in\mathbb R^{1\times N}</script><p>Furthermore, we obtain</p>
 <script type="math/tex; mode=display">
@@ -612,7 +612,7 @@ R_{ip}\;\;\;\;if\;j=q,p\ne q\\
 \end{cases}</script><p>we know that the desired gradient has the dimension $(N × N) × (M × N)$, and every single entry of this tensor is given by $∂_{pqij}$,where $p, q, j = 1, . . . ,N$ and $i = 1, . . . ,M$.</p>
 </blockquote>
 <h2 id="Useful-Identities-for-Computing-Gradients"><a href="#Useful-Identities-for-Computing-Gradients" class="headerlink" title="Useful Identities for Computing Gradients"></a>Useful Identities for Computing Gradients</h2><ul>
-<li><p>we use $tr(·)$ as the trace , $det(·)$ as the determinant  and $f(X)^{−1}$ as the inverse of $f(X)$, assuming it exists.</p>
+<li><p>we use $tr(·)$ as the trace , $det(·)$ as the determinant and $f(X)^{−1}$ as the inverse of $f(X)$, assuming it exists.</p>
 <script type="math/tex; mode=display">
 \begin{split}
 &\frac{\partial}{\partial X}f(X)^T=\left(\frac{\partial f(X)}{\partial X}\right)^T\\
@@ -643,7 +643,7 @@ y=(f_K◦f_{K-1}◦\cdots◦f_1)(x)=f_K(f_{K-1}(\cdots(f_1(x))\cdots))</script><
 \begin{split}
 f_0&:=x\\
 f_i&:=\sigma_i(A_{i-1}f_{i-1}+b_{i-1}),\;\;i=1,...,K
-\end{split}</script><p>see also Figure  for a visualization, we may be interested in finding $A_j, b_j$ for $j = 0, . . . ,K − 1$, such that the squared loss</p>
+\end{split}</script><p>see also Figure for a visualization, we may be interested in finding $A_j, b_j$ for $j = 0, . . . ,K − 1$, such that the squared loss</p>
 <script type="math/tex; mode=display">
 L(\theta)=\left\|y-f_K(\theta,x)\right\|^2</script><p>is minimized, where $θ = \{A_0, b_0, . . . ,A_{K−1}, b_{K−1}\}$.</p>
 <p>To obtain the gradients with respect to the parameter set $θ$, we require the partial derivatives of L with respect to the parameters $θ_j = {A_j, b_j}$ of each layer $j = 0, . . . ,K− 1$. The chain rule allows us to determine the partial derivatives as</p>
@@ -656,7 +656,7 @@ L(\theta)=\left\|y-f_K(\theta,x)\right\|^2</script><p>is minimized, where $θ = 
 \end{split}</script><p>The ${\color{orange}{orange}}$ terms are partial derivatives of the output of a layer with respect to its inputs, whereas the ${\color{blue}{blue}}$ terms are partial derivatives of the output of a layer with respect to its parameters. Assuming, we have already computed the partial derivatives $∂L/∂θ_{i+1}$, then most of the computation can be reused to compute $∂L/∂θ_i$. The additional terms that we need to compute are indicated by the boxes. Figure visualizes that the gradients are passed backward through the network.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943586.png" alt="Backward pass in a multi-layer neural network"></p>
 </li>
-<li><p><strong>Automatic Differentiation</strong>: It turns out that backpropagation is a special case of a general technique in numerical analysis called <em>automatic differentiation</em>. We can think of automatic differentation as a set of techniques to numerically (in contrast to symbolically) evaluate the exact (up to machine precision) gradient of a function by working with <em>intermediate variables</em> and applying the <em>chain rule</em>. Automatic differentiation applies to general computer programs and has forward and reverse modes.</p>
+<li><p><strong>Automatic Differentiation</strong>: It turns out that backpropagation is a special case of a general technique in numerical analysis called _automatic differentiation_. We can think of automatic differentation as a set of techniques to numerically (in contrast to symbolically) evaluate the exact (up to machine precision) gradient of a function by working with _intermediate variables_ and applying the _chain rule_. Automatic differentiation applies to general computer programs and has forward and reverse modes.</p>
 </li>
 <li><p>Figure shows a simple graph representing the data flow from inputs $x$ to outputs $y$ via some intermediate variables $a, b$. If we were to compute the derivative $dy/dx$, we would apply the chain rule and obtain</p>
 <script type="math/tex; mode=display">
@@ -666,7 +666,7 @@ L(\theta)=\left\|y-f_K(\theta,x)\right\|^2</script><p>is minimized, where $θ = 
 \begin{split}
 \frac{d\,y}{d\,x}&=\left(\frac{d\,y}{d\,b}\frac{d\,b}{d\,a}\right)\frac{d\,a}{d\,x}  \\
 \frac{d\,y}{d\,x}&=\frac{d\,y}{d\,b}\left(\frac{d\,b}{d\,a}\frac{d\,a}{d\,x}\right)
-\end{split}</script><p>The first equation would be the <strong><em>reverse</em></strong> mode because gradients are propagated backward through the graph, i.e., reverse to the data flow. And the second equation would be the <strong><em>forward</em></strong> mode, where the gradients flow with the data from left to right through the graph.</p>
+\end{split}</script><p>The first equation would be the <strong>_reverse_</strong> mode because gradients are propagated backward through the graph, i.e., reverse to the data flow. And the second equation would be the <strong>_forward_</strong> mode, where the gradients flow with the data from left to right through the graph.</p>
 </li>
 <li><p>In the context of neural networks, where the input dimensionality is often much higher than the dimensionality of the labels, the reverse mode is computationally significantly cheaper than the forward mode.</p>
 </li>
@@ -743,11 +743,11 @@ f(x)\approx f(x_0)+(\nabla_xf)(x_0)(x-x_0)</script><p>Here $(∇_xf)(x_0)$ is th
 <li><p><strong>Multivariate Taylor Series</strong>: We consider a function</p>
 <script type="math/tex; mode=display">
 f:\mathbb R^D\rightarrow \mathbb R\\
-x\mapsto f(x),x\in \mathbb R^D</script><p>that is smooth at $x_0$. When we define the difference vector $δ := x − x_0$, the <em>multivariate Taylor</em> series of $f$ at $(x_0)$ is defined as</p>
+x\mapsto f(x),x\in \mathbb R^D</script><p>that is smooth at $x_0$. When we define the difference vector $δ := x − x_0$, the _multivariate Taylor_ series of $f$ at $(x_0)$ is defined as</p>
 <script type="math/tex; mode=display">
 f(x)=\sum_{k=0}^\infty{\frac{D^k_xf(x_0)}{k!}\delta^k}</script><p>where $D^k_xf(x_0)$ is the $k$-th (total) derivative of $f$ with respect to $x$, eval-uated at $x_0$.</p>
 </li>
-<li><p><strong>Taylor Polynomial</strong>: The <em>Taylor polynomial</em> of degree $n$ of $f$ at $x_0$ contains the first $n + 1$ components of the series and isdefined as</p>
+<li><p><strong>Taylor Polynomial</strong>: The _Taylor polynomial_ of degree $n$ of $f$ at $x_0$ contains the first $n + 1$ components of the series and isdefined as</p>
 <script type="math/tex; mode=display">
 T_n(x)=\sum_{k=0}^n{\frac{D^k_xf(x_0)}{k!}\delta^k}</script><p>We used the slightly sloppy notation of $δ^k$, which is not defined for vectors $x ∈ \mathbb R^D, D &gt; 1$, and $k &gt; 1$.Note that both $D^k_xf$ and $δ^k$ are $k$-th order tensors, i.e., $k$-dimensional arrays. The $k$th-order tensor $\delta^k\in\mathbb R^{\overset{k\;times}{\overbrace{D\times D\times \cdots\times D}}}$ is obtained as a $k$-fold outer product, denoted by $⊗$, of the vector $δ ∈ \mathbb R^D$. For example,</p>
 <script type="math/tex; mode=display">
@@ -760,11 +760,11 @@ D^k_xf(x_0)\delta^k=\sum_{i_1=1}^D\cdots\sum_{i_k=1}^DD^k_xf(x_0)[i_1,...,i_k]\d
 <li><p>Now that we defined the Taylor series for vector fields, let us explicitly write down the first terms <script type="math/tex">D^k_xf(x_0)\delta^k</script> of the Taylor series expansion for $k = 0, . . . , 3$ and $δ := x − x_0$:<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408011943666.png" alt="the Taylor series for vector fields"></p>
 </li>
 </ul>
-<p>​        Here, $H(x_0)$ is the Hessian of $f$ evaluated at $x_0$.</p>
+<p>​ Here, $H(x_0)$ is the Hessian of $f$ evaluated at $x_0$.</p>
 <blockquote>
 <p>e.g. <strong>Taylor Series Expansion of a Function with Two Variables</strong></p>
 <p>Consider the function $f(x,y)=x^2+2xy+y^3$</p>
-<p>We want to compute the Taylor series expansion of f at $(x_0, y_0) = (1, 2)$. Before we start, let us discuss what to expect: The function is a polynomial of degree $3$. We are looking for a Taylor series expansion, which itself is a linear combination of polynomials. Therefore, we do not expect the Taylor series expansion to contain terms of fourth or higher order to express a third-order polynomial. This means that it should be sufficient to determine the first four terms  for an exact alternative representation.</p>
+<p>We want to compute the Taylor series expansion of f at $(x_0, y_0) = (1, 2)$. Before we start, let us discuss what to expect: The function is a polynomial of degree $3$. We are looking for a Taylor series expansion, which itself is a linear combination of polynomials. Therefore, we do not expect the Taylor series expansion to contain terms of fourth or higher order to express a third-order polynomial. This means that it should be sufficient to determine the first four terms for an exact alternative representation.</p>
 <p>To determine the Taylor series expansion, we start with the constant term and the first-order derivatives, which are given by</p>
 <script type="math/tex; mode=display">
 f(1,2)=13\\

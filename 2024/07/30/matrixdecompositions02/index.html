@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Matrix Decompositions02, Jay&#39;s Blog">
     <meta name="description" content="Matrix Decompositions02Singular Value Decomposition(SVD)
-SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
+SVD Theorem: Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -350,11 +350,11 @@ SVD Theorem:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Matrix-Decompositions02"><a href="#Matrix-Decompositions02" class="headerlink" title="Matrix Decompositions02"></a>Matrix Decompositions02</h1><h2 id="Singular-Value-Decomposition-SVD"><a href="#Singular-Value-Decomposition-SVD" class="headerlink" title="Singular Value Decomposition(SVD)"></a>Singular Value Decomposition(SVD)</h2><ul>
-<li><p><strong>SVD Theorem</strong>:  Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix of rank $r ∈ [0, min(m,n)]$. The SVD of $A$ is a decomposition of the form<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732879.png" alt="SVD"><br>with an orthogonal matrix $U ∈ \mathbb R^{m×m}$ with column vectors $u_i, i = 1, . . . ,m$, and an orthogonal matrix $V ∈ \mathbb R^{n×n}$ with column vectors $v_j, j = 1, . . . , n$. Moreover, $Σ$ is an $m× n$ matrix with $Σ_{ii} = σ_i ⩾ 0$ and $Σ_{ij} = 0, i \ne j$.</p>
+<li><p><strong>SVD Theorem</strong>: Let $A ∈ \mathbb R^{m×n}$ be a rectangular matrix of rank $r ∈ [0, min(m,n)]$. The SVD of $A$ is a decomposition of the form<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732879.png" alt="SVD"><br>with an orthogonal matrix $U ∈ \mathbb R^{m×m}$ with column vectors $u_i, i = 1, . . . ,m$, and an orthogonal matrix $V ∈ \mathbb R^{n×n}$ with column vectors $v_j, j = 1, . . . , n$. Moreover, $Σ$ is an $m× n$ matrix with $Σ_{ii} = σ_i ⩾ 0$ and $Σ_{ij} = 0, i \ne j$.</p>
 <ul>
-<li><p>The diagonal entries $σ_i, i = 1, . . . , r$, of $Σ$ are called the <strong><em>singular values</em></strong>, $u_i$ are called the <em>left-singular vectors</em>, and $v_j$ are called the <em>right-singular vectors</em> . By convention, the singular values are ordered, i.e., $σ_1 ⩾ σ_2 ⩾ σ_r ⩾ 0$.</p>
+<li><p>The diagonal entries $σ_i, i = 1, . . . , r$, of $Σ$ are called the <strong>_singular values_</strong>, $u_i$ are called the _left-singular vectors_, and $v_j$ are called the _right-singular vectors_ . By convention, the singular values are ordered, i.e., $σ_1 ⩾ σ_2 ⩾ σ_r ⩾ 0$.</p>
 </li>
-<li><p>The <em>singular value matrix</em> Σ is unique, but it requires some attention. Observe that the $Σ ∈ \mathbb R^{m×n}$ is rectangular. In particular, $Σ$ is of the same size as $A$ .This means that $Σ$ has a diagonal submatrix that contains the singular values and needs additional zero padding. Specifically, if $m &gt; n$, then the matrix $Σ$ has diagonal structure up to row $n $and then consists of $0^⊤$ row vectors from $n + 1$ to $m$ below so that</p>
+<li><p>The _singular value matrix_ Σ is unique, but it requires some attention. Observe that the $Σ ∈ \mathbb R^{m×n}$ is rectangular. In particular, $Σ$ is of the same size as $A$ .This means that $Σ$ has a diagonal submatrix that contains the singular values and needs additional zero padding. Specifically, if $m &gt; n$, then the matrix $Σ$ has diagonal structure up to row $n $and then consists of $0^⊤$ row vectors from $n + 1$ to $m$ below so that</p>
 <script type="math/tex; mode=display">
 \varSigma = \left[\begin{matrix}
 \sigma_1& 0& 0\\
@@ -501,35 +501,35 @@ U&=[u_1,u_2]=\frac{1}{\sqrt 5}\left[\begin{matrix}
 </li>
 <li><p>Different versions of SVD in the literature</p>
 <ul>
-<li><p><strong><em>the full SVD</em></strong>: having two square left- and right-singular vector matrices, but a non-square singular value matrix.</p>
+<li><p><strong>_the full SVD_</strong>: having two square left- and right-singular vector matrices, but a non-square singular value matrix.</p>
 </li>
-<li><p><strong><em>the reduced SVD</em></strong>:  Some authors define the SVD a bit differently and focus on square singular matrices. Then, for $A ∈ \mathbb R^{m×n}$ and $m ⩾ n$,</p>
+<li><p><strong>_the reduced SVD_</strong>: Some authors define the SVD a bit differently and focus on square singular matrices. Then, for $A ∈ \mathbb R^{m×n}$ and $m ⩾ n$,</p>
 <script type="math/tex; mode=display">
 \underset{m\times n}{A}=\underset{m\times n}{U}\;\underset{n\times n}{\varSigma}\;\underset{n\times n}{V^T}</script></li>
-<li><p><strong><em>the truncated SVD</em></strong>: matrix approximation techniques using the SVD</p>
+<li><p><strong>_the truncated SVD_</strong>: matrix approximation techniques using the SVD</p>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="Matrix-Approximation"><a href="#Matrix-Approximation" class="headerlink" title="Matrix Approximation"></a>Matrix Approximation</h2><ul>
-<li><p>We construct a rank-$1$ matrix $A_i ∈ \mathbb R^{m×n}$ as </p>
+<li><p>We construct a rank-$1$ matrix $A_i ∈ \mathbb R^{m×n}$ as</p>
 <script type="math/tex; mode=display">
 A_i:=u_iv_i^T</script><p>which is formed by the outer product of the $i$th orthogonal column vector of $U$ and $V$.</p>
 <p>A matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ can be written as a sum of rank-$1$ matrices $A_i$ so that</p>
 <script type="math/tex; mode=display">
 A=\sum_{i=1}^r{\sigma_iu_iv_i^T}=\sum_{i=1}^r{\sigma_iA_i}</script><p>where the outer-product matrices $A_i$ are weighted by the ith singular value $σ_i$.</p>
-<p>We summed up the $r$ individual rank-$1$ matrices to obtain a rank-$r$ matrix $A$; If the<br>sum does not run over all matrices $A_i, i = 1, . . . , r$, but only up to an intermediate value $k &lt; r$, we obtain a <strong><em>rank-$k$ approximation</em></strong></p>
+<p>We summed up the $r$ individual rank-$1$ matrices to obtain a rank-$r$ matrix $A$; If the<br>sum does not run over all matrices $A_i, i = 1, . . . , r$, but only up to an intermediate value $k &lt; r$, we obtain a <strong>_rank-$k$ approximation_</strong></p>
 <script type="math/tex; mode=display">
 \hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}=\sum_{i=1}^k{\sigma_iA_i}</script><p>of $A$ with $rk(\hat A(k)) = k$</p>
 <p>To measure the difference (error) between $A$ and its rank-$k$ approximation $\hat A(k)$, we need the notion of a norm.</p>
 </li>
 <li><p>Figure shows low-rank approximations $\hat A(k)$ of an original image $A$ of Stonehenge. The shape of the rocks becomes increasingly visible and clearly recognizable in the rank-$5 $approximation. While the original image requires $1, 432 · 1, 910 = 2, 735, 120$ numbers,<br>the rank-$5$ approximation requires us only to store the five singular values and the five left- and right-singular vectors ($1, 432$ and $1, 910$-dimensional each) for a total of $5 · (1, 432+1, 910+1) = 16, 715$ numbers – just above $0.6%$ of the original.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407301732935.png" alt="low-rank approximations of image"></p>
 </li>
-<li><p><strong>Spectral Norm of a Matrix</strong>: For $x ∈ \mathbb R^n\backslash\{0\}$, the <em>spectral norm</em> of a matrix $A ∈ \mathbb R^{m×n}$ is defined as</p>
+<li><p><strong>Spectral Norm of a Matrix</strong>: For $x ∈ \mathbb R^n\backslash\{0\}$, the _spectral norm_ of a matrix $A ∈ \mathbb R^{m×n}$ is defined as</p>
 <script type="math/tex; mode=display">
 \left\|A\right\|_2=\underset{x}{max}\frac{\left\|Ax\right\|_2}{\left\|x\right\|_2}</script><p>The spectral norm determines how long any vector $x$ can at most become when multiplied by $A$.</p>
 </li>
-<li><p>The spectral norm of $A$ is its <em>largest singular value</em> $σ_1$.</p>
+<li><p>The spectral norm of $A$ is its _largest singular value_ $σ_1$.</p>
 </li>
 <li><p><strong>Eckart-Young Theorem</strong>: Consider a matrix $A ∈ \mathbb R^{m×n}$ of rank $r$ and let $B ∈ \mathbb R^{m×n}$ be a matrix of rank $k$. For any $k ⩽ r$ with $\hat A(k)=\sum_{i=1}^k{\sigma_iu_iv_i^T}$ it holds that</p>
 <script type="math/tex; mode=display">
