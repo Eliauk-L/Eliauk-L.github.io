@@ -1,0 +1,1290 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Probability and Distributions01, Jay&#39;s Blog">
+    <meta name="description" content="Probability and Distributions01
+Probability can be thought of as the fraction of times an event occurs, or as a degree o">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Probability and Distributions01 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Probability and Distributions01</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/Probability-and-Distributions/">
+                                <span class="chip bg-color">Probability and Distributions</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-04
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    30 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Probability-and-Distributions01"><a href="#Probability-and-Distributions01" class="headerlink" title="Probability and Distributions01"></a>Probability and Distributions01</h1><ul>
+<li><strong>Probability</strong> can be thought of as the fraction of times an event occurs, or as a degree of belief about an event. We then would like to use this probability to measure the chance of something occurring in an experiment.</li>
+<li>Quantifying uncertainty requires the idea of a <strong>random variable</strong>, which is a function that maps outcomes of random experiments to a set of properties that we are interested in.</li>
+<li>Associated with the random variable is a function that measures the probability that a particular outcome (or set of outcomes) will occur; this is called the <strong>probability distribution.</strong></li>
+</ul>
+<h2 id="Construction-of-a-Probability-Space"><a href="#Construction-of-a-Probability-Space" class="headerlink" title="Construction of a Probability Space"></a>Construction of a Probability Space</h2><ul>
+<li>Modern probability is based on a set of axioms proposed by Kolmogorov that introduce the three concepts of <strong>sample space, event space, and probability measure</strong>. The probability space models a real-world process (referred to as an experiment) with random outcomes.<ul>
+<li><strong>The sample space $Ω$</strong>: The sample space is the set of <strong>all possible outcomes of the experiment</strong>, usually denoted by $Ω$. For example, two successive coin tosses have a sample space of $\{hh, tt, ht, th\}$, where “h” denotes “heads” and “t” denotes “tails”.</li>
+<li><strong>The event space $\mathcal A$</strong>: The event space is the space of potential results of the experiment. A subset $A$ of the sample space $Ω$ is in the event space $\mathcal A$ if at the end of the experiment we can observe whether a particular outcome $ω ∈ Ω$ is in $A$. The event space $\mathcal A$ is obtained by considering the collection of <strong>subsets of $Ω$</strong>, and for discrete probability distributions $\mathcal A$ is often the power set of $Ω$.</li>
+<li><strong>The probability $P$</strong>: With each event $A ∈ \mathcal A$, we associate a number $P(A)$ that measures the probability or degree of belief that the event will occur. $P(A)$ is called<br>the probability of $A$.</li>
+</ul>
+</li>
+<li>The probability of a single event must lie in the interval $[0, 1]$, and the total probability over all outcomes in the sample space $Ω$ must be 1, i.e., $P(Ω) = 1$.</li>
+<li><p>We often avoid explicitly referring to the probability space, but instead refer to probabilities on quantities of interest, which we denote by $\mathcal T$. We refer to $\mathcal T$ as the target space and refer to elements of $\mathcal T$ as states. We introduce a function $X : Ω → \mathcal T$ that takes an element of $Ω$ (an outcome) and returns a particular quantity of interest $x$, a value in $\mathcal T$. This <strong>association/mapping</strong> from $Ω$ to $\mathcal T$ is called <strong>a random variable</strong>. For example, in the case of tossing two coins and counting the number of heads, a random variable $X$ maps to the three possible outcomes: $X(hh) = 2, X(ht) = 1, X(th) = 1$, and $X(tt) = 0$. In this particular case, $\mathcal T = \{0, 1, 2\}$, and it is the probabilities on elements of $\mathcal T $that we are interested in.</p>
+<blockquote>
+<p>e.g. Consider a statistical experiment where we model a funfair game consisting of drawing two coins from a bag (with replacement). There are coins from USA (denoted as $\text{＄}$) and UK (denoted as £) in the bag, and since we draw two coins from the bag, there are four outcomes in total. The state space or sample space $Ω$ of this experiment is then ($\text{＄}$, $\text{＄}$), ($\text{＄}$, £), (£, $\text{＄}$), (£, £). Let us assume that the composition of the bag of coins is such that a draw returns at random a $\text{＄}$ with probability 0.3.<br>The event we are interested in is the total number of times the repeated draw returns $\text{＄}$. Let us define a random variable $X$ that maps the sample space $Ω$ to $\mathcal T$, which denotes the number of times we draw $\text{＄}$ out of the bag. We can see from the preceding sample space we can get zero $\text{＄}$, one $\text{＄}$, or two $\text{＄}$s, and therefore $\mathcal T = {0, 1, 2}$. The random variable $X$ (a function or lookup table) can be represented as a table like the following:</p>
+<script type="math/tex; mode=display">
+X(($,$))=2\\
+X(($,£))=1\\
+X((£,$))=1\\
+X((£,£))=0</script><p>Since we return the first coin we draw before drawing the second, this implies that the two draws are independent of each other. Note that there are two experimental outcomes, which map to the same event, where only one of the draws returns $\text{＄}$.<br>Therefore, the probability mass function of $X$ is given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+P(X=2)&=P(($,$))\\&=P($)\cdot P($)\\&=0.3\cdot 0.3=0.09\\
+P(X=1)&=P(($,£)\cup (£,$))\\&=P(($,£))+ P((£,$))\\&=0.3\cdot (1-0.3)+(1-0.3)\cdot 0.3=0.42\\
+P(X=0)&=P((£,£))\\&=P(£)\cdot P(£)\\&=(1-0.3)\cdot (1-0.3)=0.49\\
+\end{split}</script></blockquote>
+</li>
+<li>Consider the random variable $X : Ω → T$ and a subset $S ⊆ T$ . Let $X^{−1}(S)$ be the pre-image of $S$ by $X$, i.e., the set of elements of $Ω$ that map to $S$ under $X; {ω ∈ Ω : X(ω) ∈ S}$. One way to understand thet ransformation of probability from events in $Ω$ via the random variable $X$ is to associate it with the probability of the pre-image of $S$ . For $S ⊆ T$, we have the notation<script type="math/tex; mode=display">
+P_X(S) = P(X ∈ S) = P(X^{−1}(S)) = P({ω ∈ Ω : X(ω) ∈ S})</script>The left-hand side is the probability of the set of possible outcomes (e.g., number of $\text{＄}$ = 1) that we are interested in. Via the random variable $X$, which maps states to outcomes, we see in the right-hand side that this is the probability of the set of states (in $Ω$) that have the property (e.g., $\text{＄}$£, £$\text{＄}$). We say that a random variable $X$ is distributed according to a particular probability distribution $P_X$, which defines the probability mapping between the event and the probability of the outcome of the random variable. In other words, the function $P_X$ or equivalently $P◦X^{−1}$ is the <strong><em>law or distribution</em></strong> of random variable $X$.</li>
+<li><p>The target space, that is, the range $\mathcal T$ of the random variable $X$, is used to indicate the kind of probability space, i.e., a Trandom variable. When $\mathcal T$ is finite or countably infinite, this is called a discrete random variable . For continuous random variables , we only consider $T = \mathbb R$ or $T = \mathbb R^D$.</p>
+</li>
+<li><p>Using probability, we can consider a model of some process, where the underlying uncertainty is captured by random variables, and we use the rules of probability to derive what happens. In statistics, we observe that something has happened and try to figure out the underlying process that explains the observations.</p>
+</li>
+</ul>
+<h2 id="Discrete-and-Continuous-Probabilities"><a href="#Discrete-and-Continuous-Probabilities" class="headerlink" title="Discrete and Continuous Probabilities"></a>Discrete and Continuous Probabilities</h2><ul>
+<li><p>When the target space $\mathcal T$ is discrete, we can specify the probability that a random variable $X$ takes a particular value $x ∈ \mathcal T$, denoted as $P(X = x)$. The expression $P(X = x)$ for a discrete random variable $X$ is known as the <strong>probability mass function</strong>. When the target space $\mathcal T$ is continuous, e.g., the real line $\mathbb R$, it is more natural to specify the probability that a random variable $X$ is in an interval, denoted by $P(a ⩽ X ⩽ b)$ for $a &lt; b$.</p>
+</li>
+<li><p>We specify the probability that a random variable $X$ is less than a particular value $x$, denoted by $P(X ⩽ x)$. The expression $P(X ⩽ x)$ for a continuous random variable $X$ is known as the <strong>cumulative distribution function</strong>.</p>
+</li>
+<li><p><strong>Discrete Probabilities</strong>: When the target space is discrete, we can imagine the probability distribution of multiple random variables as filling out a (multidimensional) array of numbers. The target space of the joint probability is the <em>Cartesian product</em> of the target spaces of each of the random variables. We define the <strong>joint probability</strong> as the entry of both values jointly</p>
+<script type="math/tex; mode=display">
+P(X=x_i,Y=y_j)=\frac{n_{ij}}{N}</script><p>where $n_{ij}$ is the number of events with state $x_i$ and $y_j$ and $N$ the total number of events. The joint probability is the probability of the intersection of both events, that is, $P(X = x_i, Y = y_j) = P(X = x_i ∩ Y = y_j)$.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408042227154.png" alt="a discrete bivariate probability mass function"></p>
+<p>Figure illustrates the <strong>probability mass function</strong> (pmf) of a discrete probability distribution. For two random variables $X$ and $Y$, the probability that $X = x$ and $Y = y$ is  written as $p(x, y)$ and is called the joint probability. One can think of a probability as a function that takes state $x$ and $y$ and returns a real number, which is the reason we write $p(x, y)$. The <strong>marginal probability</strong> that $X$ takes the value $x$ irrespective of the value of random variable $Y$ is written as $p(x)$. We write $X ∼ p(x)$ to denote that the random variable X is distributed according to $p(x)$. If we consider only the instances where $X = x$, then the fraction of instances( <strong>the conditional probability</strong>) for which $Y = y$ is written as $p(y | x)$.</p>
+<blockquote>
+<p>e.g. Consider two random variables $X$ and $Y$, where $X$ has five possible states and $Y$ has three possible states. We denote by $n_{ij}$ the number of events with state $X = x_i$ and $Y = y_j$, and denote by $N$ the total number of events. The value $c_i$ is the sum of the individual frequencies for the $i$th column, that is,$c_i=\sum_{j=1}^3n_{ij}$. Similarly, the value $r_j$ is the row sum, that is, $r_j=\sum_{i=1}^5{n_{ij}}$. Using these definitions, we can<br>compactly express the distribution of $X$ and $Y$.</p>
+<p>The probability distribution of each random variable, the marginal probability, can be seen as the sum over a row or column</p>
+<script type="math/tex; mode=display">
+\begin{split}
+P(X=x_i)&=\frac{c_i}{N}=\frac{\sum_{j=1}^3n_{ij}}{N}\\
+P(Y=y_j)&=\frac{r_j}{N}=\frac{\sum_{i=1}^5n_{ij}}{N}
+\end{split}</script><p>where $c_i$ and $r_j$ are the $i$th column and $j$th row of the probability table, respectively. By convention, for discrete random variables with a finite number of events, we assume that probabilties sum up to one, that is,</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^5P(X=x_i)=1\;\;\;\sum_{j=1}^3P(Y=y_j)=1</script><p>The conditional probability is the fraction of a row or column in a particular cell. For example, the conditional probability of $Y$ given $X$ is</p>
+<script type="math/tex; mode=display">
+P(Y=y_j|X=x_i)=\frac{n_{ij}}{c_i}</script><p>and the conditional probability of $X$ given $Y$ is</p>
+<script type="math/tex; mode=display">
+P(X=x_i|Y=y_j)=\frac{n_{ij}}{r_j}</script></blockquote>
+</li>
+<li><p>Sets that behave well under set operations and additionally have a topology are called a <strong>Borel σ-algebra</strong>.</p>
+</li>
+<li><p><strong>Probability Density Function</strong>： A function $f : \mathbb R^D → \mathbb R$ is called a <em>probability density function</em> (pdf) if</p>
+<ol>
+<li>$∀x ∈ \mathbb R^D : f(x) ⩾ 0$</li>
+<li>Its integral exists and $\int_{\mathbb R^D}{f(x)dx}=1$</li>
+</ol>
+<p>For probability mass functions (pmf) of <em>discrete random variables</em>, the integral is replaced with a sum.</p>
+</li>
+<li><p>We associate a random variable $X$ with the probability density function $f$ by</p>
+<script type="math/tex; mode=display">
+P(a\le X\le b)=\int_a^b{f(x)dx}</script><p>where $a, b ∈ \mathbb R$ and $x ∈ \mathbb R$ are outcomes of the continuous random variable $X$. States $x ∈ \mathbb R^D$ are defined analogously by considering a vector of $x ∈ \mathbb R$. This association is called the <em>law or distribution</em> of the random variable X.</p>
+</li>
+<li><p>In contrast to discrete random variables, the probability of a continuous random variable $X$ taking a particular value $P(X = x)$ is zero, where $a=b$.</p>
+</li>
+<li><p><strong>Cumulative Distribution Function</strong>: A <em>cumulative distribution function</em> (cdf) of a multivariate real-valued random variable $X$ with states $x ∈ \mathbb R^D$ is given by</p>
+<script type="math/tex; mode=display">
+F_X(x)=P(X_1\le x_1,..,X_D\le x_D)</script><p>where $X = [X_1, . . . ,X_D]^⊤, x = [x_1, . . . , x_D]^⊤$, and the right-hand side represents the probability that random variable $X_i$ takes the value smaller than or equal to $x_i$.</p>
+<p>The cdf can be expressed also as the integral of the probability density function $f(x)$ so that</p>
+<script type="math/tex; mode=display">
+F_X(x)=\int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_D}f(z_1,...,z_D)dz_1\cdots dz_D</script></li>
+<li><p>For discrete random variables, this implies that the probability of each state must lie in the interval $[0, 1]$.However, for continuous random variables the normalization does not imply that the value of the density is less than or equal to $1$ for all values.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408042227430.png" alt="Nomenclature for probability distributions."></p>
+</li>
+</ul>
+<h2 id="Sum-Rule-Product-Rule-and-Bayes’-Theorem"><a href="#Sum-Rule-Product-Rule-and-Bayes’-Theorem" class="headerlink" title="Sum Rule, Product Rule, and Bayes’ Theorem"></a>Sum Rule, Product Rule, and Bayes’ Theorem</h2><ul>
+<li><p>Recall that $p(x, y)$ is the joint distribution of the two random variables $x, y$. The distributions $p(x)$ and $p(y)$ are the corresponding marginal distributions, and $p(y | x)$ is the conditional distribution of $y$ given $x$. Given the definitions of the marginal and conditional probability for discrete and continuous random variables, we can now present the two fundamental rules in probability theory.</p>
+</li>
+<li><p>The first rule, the <em>sum rule</em>, states that</p>
+<script type="math/tex; mode=display">
+p(x)=\begin{cases}
+\sum_{y\in \mathcal Y}{p(x,y)}\quad\quad if\;y\;is\;discrete\\
+\int_{\mathcal Y}{p(x,y)dy}\quad\quad if\;y\;is\;continuous\\
+\end{cases}</script><p>where $\mathcal Y$ are the states of the target space of random variable $Y$. This means that we sum out (or integrate out) the set of states $y$ of the random variable $Y$. The sum rule is also known as the <em>marginalization property.</em> The sum rule relates the joint distribution to a marginal distribution.</p>
+<p>When the joint distribution contains more than two random variables, the sum rule can be applied to any subset of the random variables, resulting in a marginal distribution of potentially more than one random variable. More concretely, if $x = [x_1, . . . , x_D]^⊤$, we obtain the marginal</p>
+<script type="math/tex; mode=display">
+p(x_i)=\int {p(x_1,...,x_D)}d_{x\backslash i}</script><p>by repeated application of the sum rule where we integrate/sum out all random variables except $x_i$, which is indicated by $\backslash i$, which reads “<strong>all except i</strong>.”</p>
+</li>
+<li><p>The second rule, known as the <em>product rule</em>, relates the joint distribution to the conditional distribution via</p>
+<script type="math/tex; mode=display">
+p(x,y)=p(y|x)p(x)</script><p>The product rule can be interpreted as the fact that every joint distribution of two random variables can be factorized (written as a product) of two other distributions. The two factors are the marginal distribution of the first random variable $p(x)$, and the conditional distribution of the second random variable given the first $p(y | x)$. Since the ordering of random variables is arbitrary in p(x, y), the product rule also implies $p(x, y) = p(x | y)p(y)$.</p>
+</li>
+<li><p>Let us assume we have some prior knowledge $p(x)$ about an unobserved random variable $x$ and some relationship $p(y | x)$ between $x$ and a second random variable $y$, which we can observe. If we observe $y$, we can use <strong>Bayes’ theorem</strong> to draw some conclusions about $x $given the observed values of $y$. <em>Bayes’ theorem (also Bayes’ rule or Bayes’ law)</em></p>
+<script type="math/tex; mode=display">
+\underset{posterior}{\underbrace{p(x|y)}}=
+\frac{
+\overset{likelihood}{\overbrace{p(y|x)}}
+\overset{prior}{\overbrace{p(x)}}}
+{ {\underset{evidence}{\underbrace{p(y)}}}}</script><p>is a direct consequence of the product rule since</p>
+<script type="math/tex; mode=display">
+p(x,y)=p(x|y)p(y)</script><p>and</p>
+<script type="math/tex; mode=display">
+p(x,y)=p(y|x)p(x)</script><p>so that</p>
+<script type="math/tex; mode=display">
+p(x|y)p(y)=p(y|x)p(x)\Leftrightarrow p(x|y)=\frac{p(y|x)p(x)}{p(y)}</script><ul>
+<li><p>$p(x)$ is the <em>prior</em>, which encapsulates our subjective prior knowledge of the unobserved (latent) variable $x$ before observing any data. We can choose any prior that makes sense to us, but it is critical to ensure that the prior has a nonzero pdf (or pmf) on all plausible $x$, even if they are very rare.</p>
+</li>
+<li><p>The <em>likelihood</em> $p(y | x)$ describes how $x$ and $y$ are related, and in the  case of discrete probability distributions, it is the probability of the data $y$ if we were to know the latent variable $x$. Note that the likelihood is not a distribution in $x$, but only in $y$. We call $p(y | x)$ either the “likelihood of $x$ (given $y$)” or the “probability of $y$ given $x$” but never the likelihood of $y$</p>
+</li>
+<li><p>The <em>posterior</em> $p(x | y)$ is the quantity of interest in Bayesian statistics because it expresses exactly what we are interested in, i.e., what we know about $x$ after having observed $y$.</p>
+</li>
+<li><p>The quantity</p>
+<script type="math/tex; mode=display">
+p(y):=\int{p(y|x)p(x)dx}=\mathbb E_X[p(y|x)]</script><p>is the <em>marginal likelihood/evidence</em>. The marginal likelihood is independent of $x$, and it ensures that the posterior $p(x | y)$ is normalized.</p>
+</li>
+</ul>
+</li>
+<li><p>Bayes’ theorem allows us to invert the relationship between $x$ and $y$ given by the likelihood. Therefore, Bayes’ theorem is sometimes called the <em>probabilistic inverse</em>.</p>
+</li>
+</ul>
+<h2 id="Summary-Statistics-and-Independence"><a href="#Summary-Statistics-and-Independence" class="headerlink" title="Summary Statistics and Independence"></a>Summary Statistics and Independence</h2><ul>
+<li><p><strong>Expected Value</strong>: The <em>expected value</em> of a function $g :\mathbb R →\mathbb R$ of a univariate continuous random variable $X ∼ p(x)$ is given by</p>
+<script type="math/tex; mode=display">
+\mathbb E_X[g(x)]=\int_{\mathcal X}{g(x)p(x)dx}</script><p>Correspondingly, the expected value of a function $g$ of a discrete random variable $X ∼ p(x) $ is given by</p>
+<script type="math/tex; mode=display">
+\mathbb E_X[g(x)]=\sum_{x\in\mathcal X}{g(x)p(x)}</script><p>where $\mathcal X$ is the set of possible outcomes (the target space) of the random variable $X$.</p>
+</li>
+<li><p>We consider multivariate random variables $X$ as a finite vector of univariate random variables $[X_1, . . . ,X_D]^⊤$. For multivariate random variables, we define the expected value element wise</p>
+<script type="math/tex; mode=display">
+\mathbb E_X[g(x)]=\left[\begin{matrix}
+\mathbb E_{X_1}[g(x_1)] \\
+\vdots\\
+\mathbb E_{X_D}[g(x_D)] \\
+\end{matrix}\right]\in\mathbb R^D</script><p>where the subscript $\mathbb E_{X_d}$ indicates that we are taking the expected value with respect to the dth element of the vector $x$.</p>
+</li>
+<li><p><strong>Mean</strong>: The <em>mean</em> of a random variable $X$ with states $x ∈\mathbb R^D$ is an average and is defined as</p>
+<script type="math/tex; mode=display">
+\mathbb E_X[x]=\left[\begin{matrix}
+\mathbb E_{X_1}[x_1] \\
+\vdots\\
+\mathbb E_{X_D}[x_D] \\
+\end{matrix}\right]\in\mathbb R^D</script><p>where</p>
+<script type="math/tex; mode=display">
+\mathbb E_{X_d}[x_d]:=\begin{cases}
+\int_{\mathcal X}{x_dp(x_d)dx_d}\quad\quad if\;X\;is\;a\;continuous\;random\;variable\\
+\sum_{x_i\in\mathcal X}{x_ip(x_d=x_i)}\quad\quad if\;X\;is\;a\;discrete\;random\;variable
+\end{cases}</script><p>for $d = 1, . . . ,D$, where the subscript d indicates the corresponding dimension of $x$. The integral and sum are over the states $X$ of the target space of the random variable $X$.</p>
+<p>The definition of the mean, is a special case of the expected value, obtained by choosing $g$ to be the identity function.</p>
+</li>
+<li><p>In one dimension, there are two other intuitive notions of “average”, which are the median and the mode. The <strong><em>median</em></strong> is the “middle” value if we sort the values. The <strong><em>mode</em></strong> is the most frequently occurring value. For a discrete random variable, the mode is defined as the value of $x$ having the highest frequency of occurrence. For a continuous random variable, the mode is defined as a peak in the density $p(x)$.  A particular density $p(x)$ may have more than one mode, and furthermore there may be a very large number of modes in high-dimensional distributions.</p>
+</li>
+<li><p>The expected value is a <em>linear operator</em>. For example, given a real-valued function $f(x) = ag(x)+bh(x)$ where $a, b ∈\mathbb R$ and $x ∈\mathbb R^D$, we obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathbb E_X[f(x)]&=\int{f(x)p(x)dx}\\
+&=\int[ag(x)+bh(x)]p(x)dx\\
+&=a\int{g(x)p(x)dx}+b\int{h(x)p(x)dx}\\
+&=a\mathbb E_X[g(x)]+b\mathbb E_X[h(x)]
+\end{split}</script></li>
+<li><p><strong>Covariance (Univariate)</strong>: The <strong><em>covariance</em></strong> between two univariate random variables $X, Y ∈ \mathbb R$ is given by the expected product of their deviations from their respective means, i.e.,</p>
+<script type="math/tex; mode=display">
+\text{Cov}_{X,Y}[x,y]:=\mathbb E_{X,Y}[(x-\mathbb E_X[x])(y-\mathbb E_Y[y])]</script><p>The covariance intuitively represents the notion of how dependent random variables are to one another.</p>
+</li>
+<li><p>When the random variable associated with the expectation or covariance is clear by its arguments, the subscript is often suppressed (for example, $\mathbb E_X[x]$ is often written as $\mathbb E[x]$).</p>
+</li>
+<li><p>By using <em>the linearity of expectations</em>, the covariance can be rewritten as the expected value of the product minus the product of the expected values, i.e.,</p>
+<script type="math/tex; mode=display">
+\text{Cov}[x,y]=\mathbb E[x,y]-\mathbb E[x]\mathbb E[y]</script></li>
+<li><p>The covariance of a variable with itself $\text{Cov}[x, x]$ is called the <strong><em>variance</em></strong> and is denoted by $\mathbb V_X[x]$. The square root of the variance is called the <strong><em>standard deviation</em></strong> and is often denoted by $σ(x)$. The notion of covariance can be generalized to multivariate random variables.</p>
+</li>
+<li><p><strong>Covariance (Multivariate)</strong>: If we consider two multivariate random variables $X$ and $Y$ with states $x ∈ \mathbb R^D$ and $y ∈ \mathbb R^E$ respectively, the covariance between $X$ and $Y$ is defined as</p>
+<script type="math/tex; mode=display">
+\text{Cov}[x,y]=\mathbb E[xy^T]-\mathbb E[x]\mathbb E[y]^T=\text{Cov}[y,x]^T\in\mathbb R^{D\times E}</script></li>
+<li><p>For a multivariate random variable, the variance describes the relation between individual dimensions of the random variable.</p>
+</li>
+<li><p><strong>Variance</strong>:  The <em>variance</em> of a random variable $X$ with states $x ∈ \mathbb R^D$ and a mean vector $µ ∈ \mathbb R^D$ is defined as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathbb V_X[x]&=\text{Cov}_X[x,x]\\
+&=\mathbb E_X[(x-\mu)(x-\mu)^T]=\mathbb E_X[xx^T]-\mathbb E_X[x]\mathbb E_X[x]^T\\
+&=\left[\begin{matrix}
+\text{Cov}[x_1,x_1]&\text{Cov}[x_1,x_2]&\cdots&\text{Cov}[x_1,x_D]\\
+\text{Cov}[x_2,x_1]&\text{Cov}[x_2,x_2]&\cdots&\text{Cov}[x_2,x_D]\\
+\vdots&\vdots&\ddots&\vdots\\
+\text{Cov}[x_D,x_1]&\text{Cov}[x_D,x_2]&\cdots&\text{Cov}[x_D,x_D]\\
+\end{matrix}\right]
+\end{split}</script><p>The D×D matrix is called the covariance matrix of the multivariate random variable $X$. The covariance matrix is symmetric and positive semidefinite and tells us something about the spread of the data. On its diagonal, the covariance matrix contains the variances of the marginals</p>
+<script type="math/tex; mode=display">
+p(x_i)=\int{p(x_1,...,x_D)dx_{\backslash i}}</script><p>where “$\backslash i$” denotes “all variables but $i$”. The off-diagonal entries are the cross-covariance terms $Cov[x_i, x_j]$ for $i, j = 1, . . . ,D, i \ne j$.</p>
+</li>
+<li><p><strong>Correlation</strong>: The <em>correlation</em> between two random variables $X, Y$ is given by</p>
+<script type="math/tex; mode=display">
+\text{corr}[x,y]=\frac{\text{Cov[x,y]}}{\sqrt{\mathbb V[x]\mathbb V[y]}}\in [-1,1]</script><p>The correlation matrix is the covariance matrix of standardized random variables, $x/σ(x)$.</p>
+</li>
+<li><p>The previously defined mean and covariance are often also called <em>the population mean and covariance</em>, as it refers to the true statistics for the population. In machine learning, we need to learn from <em>empirical observations</em> of data.</p>
+</li>
+<li><p>Consider a random variable $X$. There are two conceptual steps to go from population statistics to the realization of empirical statistics.</p>
+<ul>
+<li>First, we use the fact that we have a finite dataset (of size $N$) to construct an empiricals tatistic that is a function of a finite number of identical random variables, $X_1, . . . ,X_N$.</li>
+<li>Second, we observe the data, that is, we look at the realization $x_1, . . . , x_N$ of each of the random variables and apply the empirical statistic.</li>
+</ul>
+</li>
+<li><p>Specifically, for the mean , given a particular dataset we can obtain an estimate of the mean, which is called <em>the empirical mean or sample mean</em>. The same holds for the <em>empirical covariance.</em></p>
+</li>
+<li><p><strong>Empirical Mean and Covariance</strong>: The <em>empirical mean vector</em> is the arithmetic average of the observations for each variable, and it is defined as</p>
+<script type="math/tex; mode=display">
+\bar x:=\frac{1}{N}\sum_{n=1}^N{x_n}</script><p>where $x_n ∈ \mathbb R^D$.</p>
+<p>Similar to the empirical mean, the <em>empirical covariance</em> matrix is a $D×D$ matrix</p>
+<script type="math/tex; mode=display">
+\varSigma:=\frac{1}{N}\sum_{n=1}^N{(x_n-\bar x)(x_n-\bar x)^T}</script></li>
+<li><p><strong>Three Expressions for the Variance</strong></p>
+<ul>
+<li><p>The standard definition of variance, corresponding to the definition of covariance , is the expectation of the squared deviation of a random variable $X$ from its expected<br>value $\mu=\mathbb E_X(x)$, i.e.,</p>
+<script type="math/tex; mode=display">
+\mathbb V_X[x]=\mathbb E_X[(x-\mu)^2]</script><p>The variance as expressed is the mean of a new random variable $Z := (X − µ)^2$.</p>
+</li>
+<li><p>When estimating the variance empirically, we need to resort to a two-pass algorithm: one pass through the data to calculate the mean $\mu$, and then a second pass using this estimate $\hat \mu$ calculate the variance. It turns out that we can avoid two passes by rearranging the terms. The formula can be converted to the so-called <em>raw-score formula for variance</em>:</p>
+<script type="math/tex; mode=display">
+\mathbb V_X[x]=\mathbb E_X[x^2]-(\mathbb E_X[x])^2</script><p>This expression can be remembered as “the mean of the square minus the square of the mean”. It can be calculated empirically in one pass through data since we can accumulate $x_i$ (to calculate the mean) and $x^2_i$ simultaneously, where $x_i$ is the $i$th observation.</p>
+</li>
+<li><p>A third way to understand the variance is that it is a sum of pairwise differences between all pairs of observations. Consider a sample $x_1, . . . , x_N$ of realizations of random variable $X$, and we compute the squared difference between pairs of $x_i$ and $x_j$. By expanding the square, we can show that the sum of $N^2$ pairwise differences is the empirical variance of the observations:</p>
+<script type="math/tex; mode=display">
+\frac{1}{N^2}\sum_{i,j=1}^N(x_i-x_j)^2=2\left[\frac{1}{N}\sum_{i=1}^N{x_i^2}-\left(\frac{1}{N}\sum_{i=1}^Nx_i\right)^2\right]</script></li>
+</ul>
+</li>
+<li><p>Consider two random variables $X, Y$ with states $x, y ∈ \mathbb R^D$. Then:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathbb E[x+y]&=\mathbb E[x]+\mathbb E[y]\\
+\mathbb E[x-y]&=\mathbb E[x]-\mathbb E[y]\\
+\mathbb V[x+y]&=\mathbb V[x]+\mathbb V[y]+\text{Cov}[x,y]+\text{Cov}[y,x]\\
+\mathbb V[x-y]&=\mathbb V[x]+\mathbb V[y]-\text{Cov}[x,y]-\text{Cov}[y,x]
+\end{split}</script></li>
+<li><p>Consider a random variable $X$ with mean $\mu$ and covariance matrix $Σ$ and a (deterministic) affine transformation $y = Ax + b$ of $x$. Then $y$ is itself a random variable whose mean vector and covariance matrix are given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathbb E_Y[y]&=\mathbb E_X[Ax+b]=A\mathbb E_X(x) +b = A\mu +b\\
+\mathbb V_Y[y]&=\mathbb V_X[Ax+b]=\mathbb V_X[Ax]=A\mathbb V_X[x]A^T=A\varSigma A^T
+\end{split}</script><p>respectively. Furthermore,</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\text{Cov}[x,y]&=\mathbb E[x(Ax+b)^T]-E[x]E[Ax+b]^T\\
+&=\mathbb E[x]b^T+\mathbb E[xx^T]A^T-\mu b^T-\mu\mu^TA^T\\
+&=\mu b^T-\mu b^T+(\mathbb E[xx^T]-\mu\mu^T)A^T\\
+&=\varSigma A^T
+\end{split}</script><p>where $Σ = E[xx^⊤] −\mu\mu^⊤$ is the covariance of $X$.</p>
+</li>
+<li><p><strong>Independence</strong>: Two random variables $X, Y$ are <strong><em>statistically independent</em></strong> if and only if</p>
+<script type="math/tex; mode=display">
+p(x,y)=p(x)p(y)</script><p>If $X, Y$ are (statistically) independent, then</p>
+<ul>
+<li>$p(y|x)=p(y)$</li>
+<li>$p(x|y)=p(x)$</li>
+<li>$\mathbb V_{X,Y}[x+y]=\mathbb V_X[x]+\mathbb V_Y[y]$</li>
+<li>$\text{Cov}_{X,Y}[x,y]=0$    </li>
+</ul>
+</li>
+<li><p><strong>Two random variables can have covariance zero but are not statistically independent,</strong> because covariance measures only linear dependence. The random variables that are nonlinearly dependent could have covariance zero.</p>
+</li>
+<li><p><strong>Independent and identically distributed</strong> (i.i.d.) random variables, $X_1, . . . ,X_N$. For more than two random variables, the word “independent” usually refers to <strong>mutually independent</strong> random variables, where all subsets are independent. The phrase “identically<br>distributed” means that all the random variables are from <strong>the same distribution</strong>.</p>
+</li>
+<li><p><strong>Conditional Independence</strong>： Two random variables $X$ and $Y$ are conditionally independent given $Z$ if and only if</p>
+<script type="math/tex; mode=display">
+p(x,y|z)=p(x|z)p(y|z)\quad\text{for all}\quad z\in \mathcal Z</script><p>where $Z$ is the set of states of random variable $Z$. We write <img src="D:/software/Typora/img_data/image-20240803171120184.png" alt="image-20240803171120184"> to denote that $X$ is conditionally independent of $Y$ given $Z$. It requires that the relation must hold true for every value of $z$. By using the product rule of probability, we can expand the left-hand side to obtain</p>
+<script type="math/tex; mode=display">
+p(x,y|z)=p(x|y,z)p(y|z)</script><p>By comparing the right-hand side,we see that $p(y | z)$ appears in both of them so that</p>
+<script type="math/tex; mode=display">
+p(x|y,z)=p(x|z)</script><p>Equation provides an alternative definition of conditional independence, i.e., <img src="D:/software/Typora/img_data/image-20240803171120184.png" alt="image-20240803171120184">. This alternative presentation provides the interpretation “given that we know z, knowledge about y does not change our knowledge of x”.</p>
+</li>
+<li><p>Random variables can be considered vectors in a vector space, and we can define <strong>inner products</strong> to obtain geometric properties of random variables . If we define</p>
+<script type="math/tex; mode=display">
+\left<X,Y\right>:=\text{Cov}[x,y]</script><p>for zero mean random variables $X$ and $Y$, we obtain an inner product. We see that the covariance is symmetric, positive definite, and linear in either argument. The length of a random variable is</p>
+<script type="math/tex; mode=display">
+\left\|X\right\|=\sqrt{\text{Cov}[x,x]}=\sqrt{\mathbb V[x]}=\sigma[x]</script><p>i.e., its standard deviation. The “longer” the random variable, the more uncertain it is; and a random variable with length $0$ is deterministic.</p>
+<script type="math/tex; mode=display">
+\text{Cov}[x,x]=0\Leftrightarrow x=0\\
+\text{Cov}[\alpha x+z,y]=\alpha\text{Cov}[x,y]+\text{Cov}[z,y]\quad\text{for}\;\alpha\in \mathbb R</script><p>If we look at the angle $θ$ between two random variables $X, Y,$ we get</p>
+<script type="math/tex; mode=display">
+\cos\theta=\frac{\left<X,Y\right>}{\left\|X\right\|\left\|Y\right\|}=\frac{\text{Cov}[x,y]}{\sqrt{\mathbb V[x]\mathbb V[y]}}</script><p>which is the correlation between the two random variables. This means that we can think of correlation as the cosine of the angle between two random variables when we consider them geometrically.</p>
+<p>$X$ and $Y$ are orthogonal if and only if $\text{Cov}[x, y] = 0$, i.e., they are uncorrelated.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/04/probabilityanddistributions01/">http://Eliauk-L.github.io/2024/08/04/probabilityanddistributions01/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/Probability-and-Distributions/">
+                                    <span class="chip bg-color">Probability and Distributions</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/08/04/probabilityanddistributions02/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Probability and Distributions02">
+                        
+                        <span class="card-title">Probability and Distributions02</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/Probability-and-Distributions/">
+                        <span class="chip bg-color">Probability and Distributions</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/03/java-duo-xian-cheng-si-wei-dao-tu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/43.jpg" class="responsive-img" alt="Java多线程思维导图">
+                        
+                        <span class="card-title">Java多线程思维导图</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="chip bg-color">多线程</span>
+                    </a>
+                    
+                    <a href="/tags/JUC/">
+                        <span class="chip bg-color">JUC</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

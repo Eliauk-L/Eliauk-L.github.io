@@ -1,0 +1,1334 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Probability and Distributions02, Jay&#39;s Blog">
+    <meta name="description" content="Probability and Distributions02Gaussian Distribution
+The Gaussian distribution is the most well-studied probability dist">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Probability and Distributions02 | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Probability and Distributions02</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/Probability-and-Distributions/">
+                                <span class="chip bg-color">Probability and Distributions</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Mathematics/" class="post-category">
+                                Mathematics
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-04
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    29 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Probability-and-Distributions02"><a href="#Probability-and-Distributions02" class="headerlink" title="Probability and Distributions02"></a>Probability and Distributions02</h1><h2 id="Gaussian-Distribution"><a href="#Gaussian-Distribution" class="headerlink" title="Gaussian Distribution"></a>Gaussian Distribution</h2><ul>
+<li><p>The Gaussian distribution is the most well-studied probability distribution for continuous-valued random variables. It is also referred to as the <strong>normal distribution</strong>.</p>
+</li>
+<li><p>For a univariate random variable, the Gaussian distribution has a density that is given by</p>
+<script type="math/tex; mode=display">
+p(x|\mu,\sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)</script><p>The <em>multivariate Gaussian distribution</em> is fully characterized by a mean vector $µ$ and a covariance matrix $Σ$ and defined as</p>
+<script type="math/tex; mode=display">
+p(x|\mu,\varSigma)=(2\pi)^{-\frac{D}{2}}|\varSigma|^{-\frac{1}{2}}\exp\left(-\frac{1}{2}(x-\mu)^T\varSigma^{-1}(x-\mu)\right)</script></li>
+</ul>
+<p>  where $x ∈\mathbb R^D$. We write $p(x) =\mathcal N(x|\mu,\varSigma)$ or $X\sim\mathcal N(\mu,\varSigma)$.<br>  The special case of the Gaussian with zero mean and identity covariance, that is, $\mu = 0$ and $Σ = I$, is referred to as the <em>standard normal distribution</em>.</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408042228434.png" alt="Gaussian distributions"></p>
+<ul>
+<li><p>Let $X$ and $Y$ be two multivariate random variables, that may have different dimensions. To consider the effect of applying the sum rule of probability and the effect of conditioning, we explicitly write the Gaussian distribution in terms of the concatenated states $[x^⊤, y^⊤]$</p>
+<script type="math/tex; mode=display">
+p(x,y)=\mathcal N\left(
+\left[\begin{matrix}
+\mu_x\\
+\mu_y
+\end{matrix}\right]
+,
+\left[\begin{matrix}
+\varSigma_{xx}&\varSigma_{xy}\\
+\varSigma_{yx}&\varSigma_{yy}
+\end{matrix}\right]
+\right)</script><p>where $\varSigma_{xx}=\text{Cov}[x,x]$ and $\varSigma_{yy}=\text{Cov}[y,y]$ are the marginal covariance matrices of $x$ and $y$, respectively, and $\varSigma_{x,y}=\text{Cov}[x,y]$ is the cross-covariance matrix between $x$ and $y$.</p>
+</li>
+<li><p>The conditional distribution $p(x | y)$ is also Gaussian and given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(x|y)&=\mathcal N(\mu_{x|y},\varSigma_{x|y})\\
+\mu_{x|y}&=\mu_x+\varSigma_{xy}\varSigma^{-1}_{yy}(y-\mu_y)\\
+\varSigma_{x|y}&=\varSigma_{xx}-\varSigma_{xy}\varSigma_{yy}^{-1}\varSigma_{yx}
+\end{split}</script></li>
+<li><p>The marginal distribution $p(x)$ of a joint Gaussian distribution $p(x, y)$ is itself Gaussian and computed by applying the sum rule and given by</p>
+<script type="math/tex; mode=display">
+p(x)=\int{p(x,y)dy}=\mathcal N(x|\mu_x,\varSigma_{xx})</script><p>The corresponding result holds for $p(y)$, which is obtained by marginalizing with respect to $x$.</p>
+<blockquote>
+<p>e.g Consider the bivariate Gaussian distribution :</p>
+<script type="math/tex; mode=display">
+p(x_1,x_2)=\mathcal N\left(
+\left[\begin{matrix}
+0\\
+2
+\end{matrix}\right]
+,
+\left[\begin{matrix}
+0.3&-1\\
+-1&5
+\end{matrix}\right]
+\right)</script><p>We can compute the parameters of the univariate Gaussian, conditioned on $x_2 = −1$,  and obtain the mean and variance respectively. Numerically, this is</p>
+<script type="math/tex; mode=display">
+\mu_{x_1|x_2=-1}=0+(-1)\cdot \frac{1}{5}\cdot (-1-2)=0.6\\
+\sigma^2_{x_1|x_2=-1}=0.3-(-1)\cdot  \frac{1}{5}\cdot (-1)=0.1</script><p>Therefore, the conditional Gaussian is given by</p>
+<script type="math/tex; mode=display">
+p(x_1|x_2=-1)=\mathcal N(0.6,0.1)</script><p>The marginal distribution $p(x_1)$,  , which is essentially using the mean and variance of the random variable $x_1$, giving us</p>
+<script type="math/tex; mode=display">
+p(x_1)=\mathcal N(0,0.3)</script></blockquote>
+</li>
+<li><p><strong>The product of two Gaussians</strong> $\mathcal N(x|\boldsymbol a,A)\mathcal N(x|\boldsymbol b,B)$ is a Gaussian distribution scaled by a $c ∈\mathbb R$, given by $c\mathcal N(x|\boldsymbol c,C)$ with</p>
+<script type="math/tex; mode=display">
+\begin{split}
+C&=(A^{-1}+B^{-1})^{-1}\\
+\boldsymbol c&=C(A^{-1}\boldsymbol a+B^{-1}\boldsymbol b)\\
+c&=(2\pi)^{-\frac{D}{2}}\left|A+B\right|^{-\frac{1}{2}}\exp\left(-\frac{1}{2}(\boldsymbol a-\boldsymbol b)^T(A+B)^{-1}(\boldsymbol a-\boldsymbol b)\right)
+\end{split}</script><p>The <em>scaling constant</em> $c$ itself can be written in the form of a Gaussian density either in $a$ or in $b$ with an “inflated” covariance matrix $A + B$, i.e.,$c=\mathcal N(a|b,A+B)=\mathcal N(b|a,A+B)$</p>
+</li>
+<li><p>If $X, Y$ are independent Gaussian random variables (i.e., the joint distribution is given as $p(x, y) = p(x)p(y)$) with $p(x) = \mathcal N(x|\mu_x,\varSigma_x)$ and $p(y)=\mathcal N(y|\mu_y,\varSigma_y)$, then $x + y$ is also Gaussian distributed and given by</p>
+<script type="math/tex; mode=display">
+p(ax+by)=\mathcal N(a\mu_x+b\mu_y,a^2\varSigma_x+b^2\varSigma_y)</script></li>
+<li><p>Consider a mixture of two univariate Gaussian densities</p>
+<script type="math/tex; mode=display">
+p(x)=\alpha p_1(x)+(1-\alpha)p_2(x)</script><p>where the scalar $0 &lt; α &lt; 1$ is the mixture weight, and $p_1(x)$ and $p_2(x)$ are univariate Gaussian densities with different parameters,i.e., $(\mu_1, σ_1^2\ne(\mu_2, σ_2^2)$.</p>
+<p>Then the mean of the mixture density $p(x)$ is given by the weighted sum of the means of each random variable:</p>
+<script type="math/tex; mode=display">
+\mathbb E[x]=\alpha\mu_1+(1-\alpha)\mu_2</script><p>The variance of the mixture density $p(x)$ is given by</p>
+<script type="math/tex; mode=display">
+\mathbb V[x]=[\alpha\sigma_1^2+(1-\alpha)\sigma_2^2]+\left([\alpha\mu_1^2+(1-\alpha)\mu_2^2]-[\alpha\mu_1+(1-\alpha)\mu_2]^2\right)</script><p>The last equation is an example of the conditional variance formula, also known as <em>the law of total variance</em>, which generally states that for two random variables $X$ and $Y$ it holds that $\mathbb V_X[x] =\mathbb E_Y[\mathbb V_X[x|y]]+\mathbb V_Y[\mathbb E_X[x|y]]$, i.e., the (total) variance of $X$ is the expected conditional variance plus the variance of a conditional mean.</p>
+</li>
+<li><p>Observe that <em>adding a constant vector</em> will <strong>change the mean of the distribution, without affecting its variance</strong>, that is, the random variable $x + µ$ is Gaussian with mean µ and identity covariance.</p>
+</li>
+<li><p>Consider a Gaussian distributed random variable $X ∼\mathcal N(\mu,\varSigma)$ For a given matrix $A$ of appropriate shape, let $Y$ be a random variable such that $y = Ax$ is a transformed version of $x$. We can compute the mean of $y$ by exploiting that the expectation is a linear operator as follows:</p>
+<script type="math/tex; mode=display">
+\mathbb E[y]=\mathbb E[Ax]=A\mathbb E[x]=A\mu</script><p>Similarly the variance of $y$ can be found</p>
+<script type="math/tex; mode=display">
+\mathbb V[y]=\mathbb V[Ax]=A\mathbb V[x]A^T=A\varSigma A^T</script><p>This means that the random variable $y$ is distributed according to</p>
+<script type="math/tex; mode=display">
+p(y)=\mathcal N(y|A\mu,A\varSigma A^T)</script></li>
+<li><p>The reverse transformation: when we know that a random variable has a mean that is a linear transformation of another random variable. For a given full rank matrix $A ∈\mathbb R^{M×N}$, where $M ⩾ N$, let $y ∈\mathbb R^M$ be a Gaussian random variable with mean $Ax$, i.e.,</p>
+<script type="math/tex; mode=display">
+p(y)=\mathbb N(y|Ax,\varSigma)</script><p>We pre-multiply both sides with $A^⊤$ and then invert $A^⊤A$, which is symmetric and positive definite, giving us the relation</p>
+<script type="math/tex; mode=display">
+y=Ax\Leftrightarrow (A^TA)^{-1}A^Ty=x</script><p>Hence, $x$ is a linear transformation of $y$, and we obtain</p>
+<script type="math/tex; mode=display">
+p(x)=\mathcal N(x|(A^TA)^{-1}A^T\mu,(A^TA)^{-1}A^T\varSigma A(A^TA)^{-1})</script></li>
+<li><p><strong>Sampling from Multivariate Gaussian Distributions</strong>: In the case of a multivariate Gaussian, this process consists of three stages: </p>
+<ul>
+<li>first, we need a source of pseudo-random numbers that provide a uniform sample in the interval $[0,1]$; </li>
+<li>second, we use a non-linear transformation to obtain a sample from a univariate Gaussian; </li>
+<li>and third, we collate a vector of these samples to obtain a sample from a multivariate standard normal $\mathcal N(0,I)$</li>
+</ul>
+</li>
+<li><p>To obtain samples from a multivariate normal $\mathcal N(\mu, Σ)    $,  we can use the properties of a linear transformation of a Gaussian random variable: If $x ∼\mathcal N(0, I)$ , then $y = Ax + \mu$, where $AA^⊤ = Σ$ is Gaussian distributed with mean $\mu$ and covariance matrix $Σ$. One convenient choice of $A$ is to use the Cholesky decomposition of the covariance matrix $Σ =AA^⊤$.</p>
+</li>
+</ul>
+<h2 id="Conjugacy-and-the-Exponential-Family"><a href="#Conjugacy-and-the-Exponential-Family" class="headerlink" title="Conjugacy and the Exponential Family"></a>Conjugacy and the Exponential Family</h2><ul>
+<li><p>The <strong><em>Bernoulli distribution</em></strong> is a distribution for a <strong>single binary random variable</strong> $X$ with state $x ∈ \{0, 1\}$. It is governed by a single continuous parameter $\mu ∈ [0, 1]$ that represents the probability of $X = 1$. The Bernoulli distribution $Ber(\mu)$ is defined as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(x|\mu)&=\mu^x(1-\mu)^{1-x}\\
+\mathbb E[x]&=\mu\\
+\mathbb V[x]&=\mu(1-\mu)
+\end{split}</script><p>where $\mathbb E[x]$ and $\mathbb V[x]$ are the mean and variance of the binary random variable $X$. An example where the Bernoulli distribution can be used is when we are interested in modeling the probability of “heads” when flipping a coin.</p>
+</li>
+<li><p>The <strong><em>Binomial distribution</em></strong> is a generalization of the Bernoulli distribution to a distribution over integers. In particular, the Binomial can be used to describe <strong>the probability of observing $m$ occurrences of $X = 1$ in a set of $N$ samples from a Bernoulli distribution where $p(X = 1) = \mu ∈ [0, 1]$.</strong> The Binomial distribution $Bin(N, \mu)$ is defined as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(m|N,\mu)&=\left(\begin{array}{c}N\\m\end{array}\right)\mu^m(1-\mu)^{N-m}\\
+\mathbb E[m]&=N\mu\\
+\mathbb V[m]&=N\mu(1-\mu)
+\end{split}</script><p>An example where the Binomial could be used is if we want to describe the probability of observing m “heads” in N coin-flip experiments if the probability for observing head in a single experiment is $\mu$.</p>
+</li>
+<li><p>The <strong><em>Beta distribution</em></strong> is a distribution over a continuous random variable $\mu ∈ [0, 1]$, which is often used to represent the probability for some binary event (e.g., the parameter governing the Bernoulli distribution). The Beta distribution $Beta(α, β)$ itself is governed by two parameters $α &gt; 0, β &gt; 0$ and is defined as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\mu|\alpha,\beta)&=\frac{\varGamma(\alpha+\beta)}{\varGamma(\alpha)\varGamma(\beta)}\mu^{\alpha-1}(1-\mu)^{\beta-1}\\
+\mathbb E[\mu]&=\frac{\alpha}{\alpha+\beta}\\
+\mathbb V[\mu]&=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\end{split}</script><p>where $\varGamma(·)$ is the Gamma function defined as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\varGamma(t)&:=\int_0^\infty{x^{t-1}\exp(-x)dx},\quad t>0\\
+\varGamma(t+1)&=t\varGamma(t)
+\end{split}</script><p>Note that the fraction of Gamma functions in $p(\mu|\alpha,\beta)$ normalizes the Beta distribution.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408042229818.png" alt="Beta distribution"></p>
+<p>$α$ moves probability mass toward $1$, whereas $β$ moves probability mass toward $0$. There are some special cases:</p>
+<ul>
+<li>For $α = 1 = β$, we obtain the <em>uniform distribution</em> $\mathcal U[0, 1]$.</li>
+<li>For $α, β &lt; 1$, we get a <em>bimodal distribution</em> with spikes at $0$ and $1$.</li>
+<li>For $α, β &gt; 1$, the distribution is <em>unimodal</em>.</li>
+<li>For $α, β &gt; 1$ and $α = β$, the distribution is unimodal, symmetric, and centered in the interval $[0, 1]$, i.e., the mode/mean is at $\frac{1}{2}$ .</li>
+</ul>
+</li>
+<li><p><strong>Conjugate Prior</strong>: A prior is <em>conjugate</em> for the likelihood function if <strong>the posterior is of the same form/type as the prior.</strong><br>Conjugacy is particularly convenient because we can algebraically calculate our posterior distribution by updating the parameters of the prior distribution.<br>When considering the geometry of probability distributions, conjugate priors retain the same distance structure as the likelihood.</p>
+<blockquote>
+<p>e.g. <strong>Beta-Binomial Conjugacy</strong></p>
+<p>Consider a Binomial random variable $x ∼ Bin(N, \mu)$ where</p>
+<script type="math/tex; mode=display">
+p(x|N,\mu)=\left(\begin{array}{c}N\\x\end{array}\right)\mu^x(1-\mu)^{N-x},\quad x=0,1,...,N</script><p>is the probability of finding $x$ times the outcome “heads” in $N$ coin flips, where $\mu$ is the probability of a “head”. We place a Beta prior on the parameter $\mu$, that is, $\mu ∼ Beta(α, β)$, where</p>
+<script type="math/tex; mode=display">
+p(\mu|\alpha,\beta)=\frac{\varGamma(\alpha+\beta)}{\varGamma(\alpha)\varGamma(\beta)}\mu^{\alpha-1}(1-\mu)^{\beta-1}</script><p>If we now observe some outcome $x = h$, that is, we see h heads in $N$ coin flips, we compute the posterior distribution on $\mu$ as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\mu|x=h,N,\alpha,\beta)&\propto p(x|N,\mu)p(\mu|\alpha,\beta)\\
+&\propto \mu^h(1-\mu)^{(N-h)}\mu^{\alpha-1}(1-\mu)^{\beta-1}\\
+&=\mu^{h+\alpha-1}(1-\mu)^{(N-h)+\beta-1}\\
+&\propto Beta(h+\alpha,N-h+\beta)
+\end{split}</script><p>i.e., the posterior distribution is a Beta distribution as the prior, i.e., <strong>the Beta prior is conjugate for the parameter µ in the Binomial likelihood function.</strong></p>
+<p>e.g. <strong>Beta-Bernoulli Conjugacy</strong></p>
+<p>Let $x ∈ {0, 1}$ be distributed according to the Bernoulli distribution with parameter $θ ∈ [0, 1]$, that is, $p(x = 1 | θ) = θ$. This can also be expressed as $p(x | θ) = θ^x(1 − θ)^{1−x}$. Let $θ$ be distributed according to a Beta distribution with parameters $α, β$, that is, $p(θ | α, β) ∝ θ^{α−1}(1 − θ)^{β−1}$.</p>
+<p>Multiplying the Beta and the Bernoulli distributions, we get</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\theta|x,\alpha,\beta)&=p(x|\theta)p(\theta|\alpha,\beta)\\
+&\propto θ^x(1 − θ)^{1−x}θ^{α−1}(1 − θ)^{β−1}\\
+&=\theta^{\alpha+x-1}(1-\theta)^{\beta+(1-x)-1}\\
+&\propto p(\theta|\alpha+x,\beta+(1-x))
+\end{split}</script><p>The last line is the Beta distribution with parameters $(α+x, β +(1−x))$.</p>
+<p><strong>It shows that the Beta distribution is a conjugate prior for the Bernoulli distribution.</strong></p>
+</blockquote>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408042229260.png" alt="Examples of conjugate priors for common likelihood functions"></p>
+<p>The Beta distribution is the conjugate prior for the parameter $µ$ in both the Binomial and the Bernoulli likelihood. For a Gaussian likelihood function, we can place a conjugate Gaussian prior on the mean. The reason why the Gaussian likelihood appears twice in the table is that we need to distinguish the univariate from the multivariate case. In the univariate (scalar) case, the inverse Gamma is the conjugate prior for the variance. In the multivariate case, we use a conjugate inverse Wishart distribution as a prior on the covariance matrix. The Dirichlet distribution is the conjugate prior for the multinomial likelihood function.</p>
+</li>
+<li><p>The Gamma prior is conjugate for the precision (inverse variance) in the univariate Gaussian likelihood, and the Wishart prior is conjugate for the precision matrix (inverse covariance matrix) in the multivariate Gaussian likelihood.</p>
+</li>
+<li><p>A statistic of a random variable is a deterministic function of that random variable. For example, if $x = [x_1, . . . , x_N]^⊤$ is a vector of univariate Gaussian random variables, that is,$x_n\sim \mathcal N(\mu,\sigma^2)$, then the sample mean $\hat µ =\frac{1}{N}(x_1 + · · · + x_N)$ is a statistic.And the <strong><em>sufficient statistics</em></strong>is that the idea that there are statistics that will contain a<em>ll available information</em> that can be inferred from data corresponding to the distribution under consideration. Sufficient statistics carry all the information needed to make inference about the population, that is, they are the statistics that are sufficient to represent the distribution.</p>
+</li>
+<li><p>For a set of distributions parametrized by $θ$, let $X$ be a random variable with distribution $p(x | θ_0) $given an unknown $θ_0$. A vector $ϕ(x)$ of statistics is called <em>sufficient statistics</em> for $θ_0$ if they contain all possible information about $θ_0$. This means that <strong>the probability of $x$ given $θ$ can be factored into a part that does not depend on $θ$, and a part that depends on $θ $ only via $ϕ(x)$.</strong></p>
+</li>
+<li><p><strong>Fisher-Neyman</strong>: Let $X$ have probability density function $p(x | θ)$. Then the statistics $ϕ(x) $are sufficient for $θ$ if and only if $p(x | θ)$ can be written in the form</p>
+<script type="math/tex; mode=display">
+p(x|\theta)=h(x)g_\theta(\phi(x))</script><p>where $h(x)$ is a distribution independent of $θ$ and $g_θ$ captures all the dependence on $θ$ via sufficient statistics $ϕ(x)$.</p>
+<p>If $p(x | θ)$ does not depend on $θ$, then $ϕ(x)$ is trivially a sufficient statistic for any function $ϕ$. The more interesting case is that $p(x | θ)$ is dependent only on $ϕ(x)$ and not $x$ itself. In this case, $ϕ(x)$ is a sufficient statistic for $θ$.</p>
+</li>
+<li><p>An <strong><em>exponential family</em></strong> is a family of probability distributions, parameterized by $θ ∈\mathbb R^D$, of the form</p>
+<script type="math/tex; mode=display">
+p(x|\theta)=h(x)\exp(\left<\theta,\phi(x)\right>-A(\theta))</script><p>where $ϕ(x)$ is the vector of sufficient statistics. In general, any inner product can be used, and for concreteness we will use the standard dot product here $(⟨θ, ϕ(x)⟩ = θ^⊤ϕ(x))$. Note that the form of the exponential family is essentially a particular expression of $g_θ(ϕ(x))$ in the Fisher-Neyman theorem.</p>
+<p>The factor $h(x)$ can be absorbed into the dot product term by adding another entry $(\log h(x))$ to the vector of sufficient statistics $ϕ(x)$, and constraining the corresponding parameter $θ_0 = 1$. The term $A(θ)$​ is the normalization constant that ensures that the distribution sums up or integrates to one and is called the <em>log-partition function</em>. A good intuitive notion of exponential families can be obtained by ignoring these two terms<br>and considering exponential families as distributions of the form</p>
+<script type="math/tex; mode=display">
+p(x|\theta)\propto \exp(\theta^T\phi(x))</script><p>For this form of parametrization, the parameters $θ$ are called the <em>natural parameters</em>.</p>
+<blockquote>
+<p>e.g. <strong>Gaussian as Exponential Family</strong></p>
+<p>Consider the univariate Gaussian distribution $\mathcal N(\mu,\theta^2)$. Let $\phi(x)=\left[\begin{matrix}x\\x^2\end{matrix}\right]$. Then by using the definition of the exponential family,</p>
+<script type="math/tex; mode=display">
+p(x|\theta)\propto \exp(\theta_1x+\theta_2x^2)</script><p>Setting</p>
+<script type="math/tex; mode=display">
+\theta=\left[\begin{matrix}
+\frac{\mu}{\sigma^2},-\frac{1}{2\sigma^2}
+\end{matrix}\right]^T</script><p>and substituting, we obtain</p>
+<script type="math/tex; mode=display">
+p(x|\theta)\propto \exp(\frac{\mu x}{\sigma^2}-\frac{x^2}{2\sigma^2})\propto \exp(-\frac{1}{2\sigma^2}(x-\mu)^2)</script><p>Therefore, the univariate Gaussian distribution is a member of the exponential family with sufficient statistic $\phi(x)=\left[\begin{matrix}x\\x^2\end{matrix}\right]$, and natural parameters given by $θ$</p>
+<p>e.g. <strong>Bernoulli as Exponential Family</strong></p>
+<p>Recall the Bernoulli distribution $p(x|\mu)=\mu^x(1-\mu)^{1-x},x\in\{0,1\}$</p>
+<p>This can be written in exponential family form</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(x|u)&=\exp[\log\left(\mu^x(1-\mu)^{1-x}\right)]\\
+&=\exp[x\log\mu+(1-x)\log(1-\mu)]\\
+&=\exp[x\log\mu-x\log(1-\mu)+\log(1-\mu)]\\
+&=\exp[x\log{\frac{\mu}{1-\mu}}+\log(1-\mu)]
+\end{split}</script><p>The last line can be identified as being in exponential family form by observing that</p>
+<script type="math/tex; mode=display">
+\begin{split}
+h(x)&=1\\
+\theta&=\log{\frac{\mu}{1-\mu}}\\
+\phi(x)&=x\\
+A(\theta)&=-\log(1-\mu)=\log(1+\exp(\theta))
+\end{split}</script><p>The relationship between $θ$ and $\mu$​ is invertible so that</p>
+<script type="math/tex; mode=display">
+\mu=\frac{1}{1+\exp(-\theta)}</script></blockquote>
+</li>
+<li><p>The relationship between the original Bernoulli parameter $\mu$ and the natural parameter $\theta$ is known as the sigmoid or logistic function. Observe that $\mu ∈ (0, 1)$ but $θ ∈\mathbb R$, and therefore the sigmoid functions queezes a real value into the range $(0, 1)$.</p>
+</li>
+<li><p>Exponential families provide a convenient way to find conjugate pairs of distributions. Consider the random variable $X$ is a member of the exponential family.</p>
+<script type="math/tex; mode=display">
+p(x|\theta)=h(x)\exp(\left<\theta,\phi(x)\right>-A(\theta))</script><p>Every member of the exponential family has a conjugate prior</p>
+<script type="math/tex; mode=display">
+p(\theta|\gamma)=h_c(\theta)\exp\left(\left<
+\left[\begin{matrix}\gamma_1\\\gamma_2\end{matrix}\right],
+\left[\begin{matrix}\theta\\-A\theta\end{matrix}\right]
+\right>-A_c(\gamma)\right)</script><p>where $\gamma=\left[\begin{matrix}\gamma_1\\\gamma_2\end{matrix}\right]$ has dimension $dim(θ) + 1$. The sufficient statistics of the conjugate prior are $\left[\begin{matrix}\theta\-A\theta\end{matrix}\right]$.</p>
+<blockquote>
+<p>e.g. Recall the exponential family form of the Bernoulli distribution</p>
+<script type="math/tex; mode=display">
+p(x|\mu)=\exp[x\log{\frac{\mu}{1-\mu}}+\log(1-\mu)]</script><p>The canonical conjugate prior has the form</p>
+<script type="math/tex; mode=display">
+p(\mu|\alpha,\beta)=\frac{\mu}{1-\mu}\exp\left[\alpha\log{\frac{\mu}{1-\mu}}+(\beta+\alpha)\log(1-\mu)-A_c(\gamma)\right]</script><p>where we defined $\gamma:=[\alpha,\beta+\alpha]^T$ and $h_c(\mu):=\mu/(1-\mu)$. Equation then simplifies to</p>
+<script type="math/tex; mode=display">
+p(\mu|\alpha,\beta)=\exp\left[(\alpha-1)\log\mu+(\beta-1)\log(1-\mu)-A_c(\alpha,\beta)\right]</script><p>Putting this in non-exponential family form yields</p>
+<script type="math/tex; mode=display">
+p(\mu|\alpha,\beta)\propto \mu^{\alpha-1}(1-\mu)^{\beta-1}</script></blockquote>
+</li>
+</ul>
+<h2 id="Change-of-Variables-Inverse-Transform"><a href="#Change-of-Variables-Inverse-Transform" class="headerlink" title="Change of Variables/Inverse Transform"></a>Change of Variables/Inverse Transform</h2><ul>
+<li><p>We will look at two approaches for obtaining distributions of transformations of random variables: a direct approach using <strong>the definition of a cumulative distribution function</strong> and <strong>a change-of-variable approach that uses the chain rule of calculus.</strong></p>
+</li>
+<li><p>Suppose that there is a discrete random variable $X$ with pmf $P(X =x)$, and an invertible function $U(x)$. Consider the transformed random variable $Y := U(X)$, with pmf $P(Y = y)$. Then</p>
+<script type="math/tex; mode=display">
+\begin{split}
+P(Y=y)&=P(U(X)=y)\\
+&=P(X=U^{-1}(y))
+\end{split}</script><p>where we can observe that $x = U^{−1}(y)$. Therefore, for discrete random variables, transformations directly change the individual events (with the probabilities appropriately transformed).</p>
+</li>
+<li><p>The distribution function technique goes back to first principles, and uses the definition of a cdf $F_X(x) = P(X ⩽ x)$ and the fact that its differential is the pdf $f(x)$. For a random variable $X$ and a function $U$, we find the pdf of the random variable $Y := U(X)$ by</p>
+<ol>
+<li><p>Finding the cdf:</p>
+<script type="math/tex; mode=display">
+F_Y(y)=P(Y\le y)</script></li>
+<li><p>Differentiating the cdf $F_Y(y)$ to get the pdf $f(y)$</p>
+<script type="math/tex; mode=display">
+f(y)=\frac{d}{dy}F_Y(y)</script></li>
+</ol>
+<p>We also need to keep in mind that the domain of the random variable may have changed due to the transformation by $U$.</p>
+<blockquote>
+<p>e.g. Let $X$ be a continuous random variable with probability density function on $0 ⩽ x ⩽ 1$</p>
+<script type="math/tex; mode=display">
+f(x)=3x^2</script><p>We are interested in finding the pdf of $Y = X^2$.</p>
+<p>The function $f$ is an increasing function of $x$, and therefore the resulting value of $y$ lies in the interval $[0, 1]$. We obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+F_Y(y)&=P(Y\le y)\\
+&=P(X^2\le y)\\
+&=P(X\le y^{\frac{1}{2}})\\
+&=F_X(y^{\frac{1}{2}})\\
+&=\int_0^{y^{\frac{1}{2}}}{3t^2dt}\\
+&=\left[t^3\right]_{t=0}^{t=y^{\frac{1}{2}}}\\
+&=y^{\frac{3}{2}},0\le y\le 1
+\end{split}</script><p>Therefore, the cdf of $Y$ is $F_Y(y)=y^{\frac{3}{2}}$ for $0 ⩽ y ⩽ 1$. To obtain the pdf, we differentiate the cdf</p>
+<script type="math/tex; mode=display">
+f(y)=\frac{d}{dy}F_Y(y)=\frac{3}{2}y^{\frac{1}{2}}</script><p>for $0 ⩽ y ⩽ 1$.</p>
+</blockquote>
+</li>
+<li><p>Let $X$ be a continuous random variable with a strictly monotonic cumulative distribution function $F_X(x)$. Then the random variable $Y$ defined as</p>
+<script type="math/tex; mode=display">
+Y:=F_X(X)</script><p>has <em>a uniform distribution</em>.<br>Theorem is known as the <em>probability integral transform</em>, and it is used to derive algorithms for sampling from distributions by transforming the result of sampling from a uniform random variable. The algorithm works by first generating a sample from a uniform distribution, then transforming it by the inverse cdf (assuming this is available) to obtain a sample from the desired distribution.</p>
+</li>
+<li><p><strong>Change of variables in probability</strong> relies on the change-of-variables method in calculus. For univariate functions, we use the substitution rule of integration,</p>
+<script type="math/tex; mode=display">
+\int{f(g(x))g^{'}(x)dx}=\int{f(u)du},\quad \text{where}\;\;u=g(x)</script></li>
+<li><p>Consider a univariate random variable $X$, and an invertible function $U$, which gives us another random variable $Y = U(X)$. We assume that random variable $X$ has states $x ∈ [a, b]$. By the definition of the cdf, we have</p>
+<script type="math/tex; mode=display">
+F_Y(y)=P(Y\le y)</script><p>We are interested in a function $U$ of the random variable</p>
+<script type="math/tex; mode=display">
+P(Y\le y)=P(U(X)\le y)</script><p>where we assume that the function $U$ is <strong>invertible</strong>. An invertible function on an interval is either strictly increasing or strictly decreasing. In the case that $U$ is strictly increasing, then its inverse $U^{−1}$ is also strictly increasing. By applying the inverse $U^{−1}$ to the arguments of $P(U(X) ⩽ y)$, we obtain</p>
+<script type="math/tex; mode=display">
+P(U(X)\le y)=P(U^{-1}(U(X))\le U^{-1}(y))=P(X\le U^{-1}(y))</script><p>The right-most term is an expression of the cdf of $X$. Recall the definition of the cdf in terms of the pdf</p>
+<script type="math/tex; mode=display">
+P(X\le U^{-1}(y))=\int_a^{U^{-1}(y)}{f(x)dx}</script><p>Now we have an expression of the cdf of $Y$ in terms of $x$:</p>
+<script type="math/tex; mode=display">
+F_Y(y)=\int_a^{U^{-1}(y)}{f(x)dx}</script><p>To obtain the pdf, we differentiate with respect to $y$:</p>
+<script type="math/tex; mode=display">
+f(y)=\frac{d}{dy}F_Y(y)=\frac{d}{dy}\int_a^{U^{-1}(y)}{f(x)dx}</script><p>Note that the integral on the right-hand side is with respect to $x$, but we need an integral with respect to $y$ because we are differentiating with respect to $y$. In particular, we get the substitution</p>
+<script type="math/tex; mode=display">
+\int{f(U^{-1}(y))U^{-1'}(y)dy}=\int{f(x)dx},\quad \text{where}\;\;x=U^{-1}(y)</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+f(y)=\frac{d}{dy}{\int_a^{U^{-1}(y)}{ {f_x(U^{-1}(y))U^{-1'}(y)dy}}}</script><p>we use the subscript $x$ to remind ourselves that $f_x(U^{−1}(y))$ is a function of $x$ and not $y$. Invoking the fundamental theorem of calculus again gives us</p>
+<script type="math/tex; mode=display">
+f(y)=f_x(U^{-1}(y))\cdot \left(\frac{d}{dy}{U^{-1}(y)}\right)</script><p>Recall that we assumed that $U$ is a strictly increasing function. For decreasing functions, it turns out that we have a negative sign when we follow the same derivation. We introduce the absolute value of the differential to have the same expression for both increasing and decreasing $U$:</p>
+<script type="math/tex; mode=display">
+f(y)=f_x(U^{-1}(y))\cdot \left|\frac{d}{dy}{U^{-1}(y)}\right|</script><p>This is called <strong>the change-of-variable technique</strong>. The term $\left|\frac{d}{dy}{U^{-1}(y)}\right|$ measures how much a unit volume changes when applying $U$.</p>
+</li>
+<li><p>Let $f(x)$ be the value of the probability density of the <em>multivariate</em> continuous random variable $X$. If the vector-valued function $y = U(x)$ is differentiable and invertible for all values within the domain of $x$, then for corresponding values of $y$, the probability density of $Y = U(X$) is given by</p>
+<script type="math/tex; mode=display">
+f(y)=f_x(U^{-1}(y))\cdot \left|\text{det}\left(\frac{\partial}{\partial y}{U^{-1}(y)}\right)\right|</script><p>The key point is that a change of variable of a multivariate random variable follows the procedure of the univariate change of variable. First we need to work out the inverse transform, and substitute that into the density of $x$. Then we calculate the determinant of the Jacobian and multiply the result.</p>
+<blockquote>
+<p>e.g. Consider a bivariate random variable $X$ with states $x =\left[\begin{matrix}x_1\\x_2\end{matrix}\right]$ and probability density function</p>
+<script type="math/tex; mode=display">
+f(\left[\begin{matrix}x_1\\x_2\end{matrix}\right])=\frac{1}{2\pi}\exp\left(-\frac{1}{2}\left[\begin{matrix}x_1\\x_2\end{matrix}\right]^T\left[\begin{matrix}x_1\\x_2\end{matrix}\right]\right)</script><p>We use the change-of-variable technique to derive the effect of a linear transformation of the random variable.<br>Consider a matrix $A ∈\mathbb R^{2×2}$ defined as </p>
+<script type="math/tex; mode=display">
+A=\left[\begin{matrix}a&b\\c&d\end{matrix}\right]</script><p>We are interested in finding the probability density function of the transformed bivariate random variable $Y$ with states $y = Ax$.</p>
+<p>Recall that for change of variables we require the inverse transformation of $x$ as a function of $y$. Since we consider linear transformations, the inverse transformation is given by the matrix inverse. For $2 × 2$ matrices, we can explicitly write out the formula, given by</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}x_1\\x_2\end{matrix}\right]=A^{-1}\left[\begin{matrix}y_1\\y_2\end{matrix}\right]=\frac{1}{ad-bc}\left[\begin{matrix}d&-b\\-c&a\end{matrix}\right]\left[\begin{matrix}y_1\\y_2\end{matrix}\right]</script><p>Observe that $ad − bc$ is the determinant  of $A$. The corresponding probability density function is given by</p>
+<script type="math/tex; mode=display">
+f(x)=f(A^{-1}y)=\frac{1}{2\pi}\exp(-\frac{1}{2}y^TA^{-T}A^{-1}y)</script><p>The partial derivative of a matrix times a vector with respect to the vector is the matrix itself, and therefore</p>
+<script type="math/tex; mode=display">
+\frac{\partial}{\partial y}A^{-1}y=A^{-1}</script><p>Recall that the determinant of the inverse is the inverse of the determinant so that the determinant of the Jacobian matrix is</p>
+<script type="math/tex; mode=display">
+\text{det}(\frac{\partial}{\partial y}A^{-1}y)=\frac{1}{ad-bc}</script><p>We are now able to apply the change-of-variable formula</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f(y)&=f(x)\left|\text{det}(\frac{\partial}{\partial y}A^{-1}y)\right|\\
+&=\frac{1}{2\pi}\exp(-\frac{1}{2}y^TA^{-T}A^{-1}y)|ad-bc|^{-1}
+\end{split}</script></blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/04/probabilityanddistributions02/">http://Eliauk-L.github.io/2024/08/04/probabilityanddistributions02/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/Probability-and-Distributions/">
+                                    <span class="chip bg-color">Probability and Distributions</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/04/probabilityanddistributions02/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Probability and Distributions02">
+                        
+                        <span class="card-title">Probability and Distributions02</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/Probability-and-Distributions/">
+                        <span class="chip bg-color">Probability and Distributions</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/04/probabilityanddistributions01/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Probability and Distributions01">
+                        
+                        <span class="card-title">Probability and Distributions01</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mathematics/" class="post-category">
+                                    Mathematics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/Probability-and-Distributions/">
+                        <span class="chip bg-color">Probability and Distributions</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
