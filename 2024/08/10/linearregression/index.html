@@ -1,0 +1,1398 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linear Regression, Jay&#39;s Blog">
+    <meta name="description" content="Linear Regression
+In regression, we aim to find a function $f$ that maps inputs $x ∈\mathbb R^D$ to corresponding functi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linear Regression | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linear Regression</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/MachineLearing/">
+                                <span class="chip bg-color">MachineLearing</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                MachineLearing
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-10
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    40 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><ul>
+<li>In <em>regression</em>, we aim to find a function $f$ that maps inputs $x ∈\mathbb R^D$ to corresponding function values $f(x) ∈\mathbb R$.  We assume we are given a set of training inputs $x_n$ and corresponding noisy observations $y_n = f(x_n)+ϵ$, where $ϵ$  is an i.i.d. random variable that describes measurement/observation noise and potentially unmodeled processes. Throughout this chapter, we assume <em>zero-mean Gaussian noise</em>. </li>
+<li>Our task is to find a function that not only models the training data, but generalizes well to predicting function values at input locations that are not part of the training data</li>
+<li>Finding a regression function requires solving a variety of problems, including the following:<ul>
+<li><strong>Choice of the model (type) and the parametrization.</strong></li>
+<li><strong>Finding good parameters.</strong></li>
+<li><strong>Overfitting and model selection.</strong></li>
+<li><strong>Relationship between loss functions and parameter priors.</strong></li>
+<li><strong>Uncertainty modeling</strong>. Given that this finite amount of training data does not cover all possible scenarios, we may want to describe the remaining parameter uncertainty to obtain a measure of confidence of the model’s prediction at test time.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Problem-Formulation"><a href="#Problem-Formulation" class="headerlink" title="Problem Formulation"></a>Problem Formulation</h2><ul>
+<li><p>Because of the presence of observation noise, we will adopt a probabilistic approach and explicitly model the noise using a likelihood function. More specifically, we consider a regression problem with <em>the likelihood function</em></p>
+<script type="math/tex; mode=display">
+p(y|x)=\mathcal N(y|f(x,\sigma^2))</script><p>Here, $x ∈\mathbb R^D$ are inputs and $y ∈ R$ are noisy function values (targets). The functional relationship between $x$ and $y$ is given as</p>
+<script type="math/tex; mode=display">
+y=f(x)+\epsilon</script><p>where $ϵ ∼\mathcal N(0,\sigma^2)$ is independent, identically distributed (i.i.d.) Gaussian measurement noise with mean $0$ and variance $σ^2$. Our objective is to find a function that is close (similar) to the unknown function $f$ that generated the data and that generalizes well.</p>
+</li>
+<li><p>We focus on parametric models, i.e., we choose a parametrized function and find parameters $θ$ that “work well” for modeling the data. For the time being, we assume that the noise variance $σ^2$ is known and focus on learning the model parameters $θ$. In linear regression, wec onsider the special case that the parameters $θ$ appear linearly in our<br>model. An example of linear regression is given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&p(y|x,\theta)=\mathcal N(y|x^T\theta,\sigma^2)\\
+\Leftrightarrow&y=x^T\theta+\epsilon,\quad\epsilon\in\mathcal N(0,\sigma^2)
+\end{split}</script><p>where $θ ∈\mathbb R^D$ are the parameters we seek. The class of functions are straight lines that pass through the origin. We chose a parametrization $f(x) = x^⊤θ$. The likelihood is the probability density function of $y$ evaluated at $x^⊤θ$. Note that the only source of uncertainty originates from the observation noise (as $x$ and $θ$ are assumed known).</p>
+</li>
+<li><p>Without observation noise, the relationship between x and y would be deterministic and likelihood would be a Dirac delta. A Dirac delta (delta function) is zero everywhere except<br>at a single point, and its integral is $1$. It can be considered a Gaussian in the limit of $σ^2 → 0$</p>
+</li>
+<li><p>The above linear regression model is not only linear in the parameters, but also linear in the inputs x. We will see later that $y = ϕ^⊤(x)θ$ for nonlinear trans- formations $ϕ$ is also a linear regression model because “linear regression”  refers to models that are “<strong><em>linear in the parameters</em></strong>”, i.e., models that describe a function by a linear combination of input features. Here, a “feature” is a representation $ϕ(x)$ of the inputs $x$.</p>
+</li>
+</ul>
+<h2 id="Parameter-Estimation"><a href="#Parameter-Estimation" class="headerlink" title="Parameter Estimation"></a>Parameter Estimation</h2><ul>
+<li><p>Consider the linear regression setting and assume we are given a training set $\mathcal D := \{(x_1, y_1), . . . , (x_N, y_N)\}$ consisting of $N$ inputs $x^n ∈\mathbb R^D$ and corresponding observations/targets $y_n ∈\mathbb R, n = 1, . . . ,N$. The corresponding graphical model is given in Figure. Note that $y_i$ and $y_j$ are conditionally independent given their respective inputs $x_i, x_j$ so that the likelihood factorizes according to</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\mathcal Y|\mathcal X,\theta)&=p(y_1,...,y_N|x_1,...,x_N,\theta)\\
+&=\prod_{n=1}^N{p(y_n|x_n,\theta)}=\prod_{n=1}^N{\mathcal N(y_n|x^T_n\theta,\sigma^2)}
+\end{split}</script><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101512773.png" alt="Probabilistic graphical model for linear regression."></p>
+<p>where we defined $\mathcal X := \{x_1, . . . , x_N\}$ and $\mathcal Y := \{y_1, . . . , y_N\}$ as the sets of training inputs and corresponding targets, respectively. The likelihood and the factors $p(y_n | x_n, θ)$ are Gaussian due to the noise distribution.</p>
+</li>
+<li><p>In the following, we will discuss how to find optimal parameters $θ^∗ ∈\mathbb R^D$ for the linear regression model. Once the parameters $θ^∗$ are found, we can predict function values by using this parameter estimateso that at an arbitrary test input $x_∗$ the distribution of the corresponding target $y_∗$ is</p>
+<script type="math/tex; mode=display">
+p(y_*|x_*,\theta^*)=\mathcal N(y_*|x^T_*\theta^*,\sigma^2)</script></li>
+</ul>
+<h3 id="Maximum-Likelihood-Estimation"><a href="#Maximum-Likelihood-Estimation" class="headerlink" title="Maximum Likelihood Estimation"></a>Maximum Likelihood Estimation</h3><ul>
+<li><p>A widely used approach to finding the desired parameters $θ_{ML}$ is <em>maximum likelihood estimation</em>, where we find parameters $θ_{ML}$ that maximize the likelihood. Intuitively, maximizing the likelihood means maximizing the predictive distribution of the training data given the model parameters. We obtain the maximum likelihood parameters as</p>
+<script type="math/tex; mode=display">
+\theta_{ML}\in \arg\underset{\theta}{\max}{p(\mathcal Y|\mathcal X,\theta)}</script></li>
+<li><p><strong>The likelihood $p(y | x, θ)$ is not a probability distribution in $θ$</strong>: It is simply a function of the parameters $θ$ but does not integrate to $1$ (i.e., it is unnormalized), and may not even be integrable with respect to $θ$. However, the likelihood in above equation is <strong>a normalized probability distribution in $y$</strong>.</p>
+</li>
+<li><p>To find the desired parameters $θ_{ML}$ that maximize the likelihood, we typically perform gradient ascent (or gradient descent on the negative likelihood). In the case of linear regression we consider here, however,a closed-form solution exists, which makes iterative gradient descent unnecessary. In practice, instead of maximizing the likelihood directly, we<br>apply <strong>the log-transformation to the likelihood function and minimize the negative log-likelihood.</strong></p>
+</li>
+<li><p>Since the likelihood is a product of $N$ Gaussian distributions, the log-transformation is useful since (a) it does not suffer from numerical underflow, and (b) the differentiation rules will turn out simpler.</p>
+</li>
+<li><p>To find the optimal parameters $θ_{ML}$ of our linear regression problem, we minimize the negative log-likelihood</p>
+<script type="math/tex; mode=display">
+-\log p(\mathcal Y|\mathcal X,\theta)=-\log \prod_{n=1}^Np(y_n|x_n,\theta)=-\sum_{n=1}^N{\log p(y_n|x_n,\theta)}</script><p>In the linear regression model, the likelihood is Gaussian (due to the Gaussian additive noise term), such that we arrive at</p>
+<script type="math/tex; mode=display">
+\log p(y_n|x_n,\theta)=-\frac{1}{2\sigma^2}(y_n-x_n^T\theta)^2+\text{const}</script><p>where the constant includes all terms independent of $θ$. Using this in the negative log-likelihood, we obtain (ignoring the constant terms)</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathcal L(\theta):&=\frac{1}{2\sigma^2}\sum_{n=1}^N(y_n-x_n^T\theta)^2\\
+&=\frac{1}{2\sigma^2}(y-X\theta)^T(y-X\theta)=\frac{1}{2\sigma^2}\left\|y-X\theta\right\|^2
+\end{split}</script><p>where we define the design matrix $X := [x_1, . . . , x_N]^⊤ ∈\mathbb R^{N×D}$ as the collection of training inputs and $y := [y_1, . . . , y_N]^⊤ ∈\mathbb R^N $as a vector that collects all training targets. Note that the nth row in the design matrix $X$ corresponds to the training input $x_n$. We used the fact that the sum of squared errors between the observations $y_n$ and the corresponding model prediction $x^⊤_n θ$ equals the squared distance between $y$ and $Xθ$.</p>
+</li>
+<li><p>We immediately see that $\mathcal L(\theta)$ is quadratic in $θ$. This means that we can find a unique global solution $θ_{ML}$ for minimizing the negative log-likelihood L. We can find the global optimum by computing the gradient of $\mathcal L$, setting it to $0$ and solving for $θ$.</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{d\mathcal L}{d\theta}&=\frac{d}{d\theta}\left(\frac{1}{2\sigma^2}(y-X\theta)^T(y-X\theta)\right)\\
+&=\frac{1}{2\sigma^2}\frac{d}{d\theta}\left(y^Ty-2y^TX\theta+\theta^TX^TX\theta\right)\\
+&=\frac{1}{\sigma^2}\left(-y^TX+\theta^TX^TX\right)\in\mathbb R    ^{1\times D}
+\end{split}</script><p>The maximum likelihood estimator $θ_{ML}$ solves $\frac{d\mathcal L}{dθ} = 0^⊤$ (necessary optimality condition) and we obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{d\mathcal L}{dθ} = 0^⊤&\Leftrightarrow θ_{ML}^TX^TX=y^TX\\
+&\Leftrightarrow θ_{ML}^T=y^TX(X^TX)^{-1}\\
+&\Leftrightarrow θ_{ML}=(X^TX)^{-1}X^Ty\\
+\end{split}</script><p>We could right-multiply the first equation by $(X^⊤X)^{−1}$ because $X^⊤X$ is positive definite if $rk(X) = D$, where $rk(X)$ denotes the rank of $X$.</p>
+</li>
+<li><p>Setting the gradient to $0^⊤$ is a necessary and sufficient condition, and we obtain a <em>global minimum</em> since the Hessian $∇^2_θ\mathcal L(θ) = X^⊤X ∈\mathbb R^{D×D}$ is positive definite.</p>
+</li>
+<li><p>The maximum likelihood solution requires us to solve a system of linear equations of the form $Aθ = b$ with $A = (X^⊤X)$ and $b = X^⊤y$.</p>
+</li>
+<li><p><strong>Maximum Likelihood Estimation with Features</strong>: Linear regression offers us a way to fit nonlinear functions within the linear regression framework: Since “linear regression” only refers to “linear in the parameters”, we can perform an arbitrary nonlinear transformation $ϕ(x)$ of the inputs $x$ and then linearly combine the components of this transformation. The corresponding linear regression model is</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(y|x,\theta)=\mathcal N(y|\phi^T(x)\theta,\sigma^2)\\
+\Leftrightarrow y=\phi^T(x)\theta+\epsilon=\sum_{k=0}^{K-1}{\theta_k\phi_k(x)}+\epsilon
+\end{split}</script><p>where $ϕ :\mathbb R^D →\mathbb R^K$ is a (nonlinear) transformation of the inputs $x$ and $ϕ_k :\mathbb R^D →\mathbb R$ is the $k$th component of the <em>feature vector</em> $ϕ$. Note that the model parameters $θ$ still appear only linearly.</p>
+<blockquote>
+<p>e.g. <strong>Polynomial Regression</strong></p>
+<p>We are concerned with a regression problem $y=\phi^T(x)\theta+\epsilon$, where $x ∈\mathbb R$ and $θ ∈ \mathbb R^K$. A transformation that is often used in this context is</p>
+<script type="math/tex; mode=display">
+\phi(x)=\left[\begin{matrix}
+\phi_0(x)\\
+\phi_1(x)\\
+\vdots\\
+\phi_{K-1}(x)\\\end{matrix}\right]=\left[\begin{matrix}
+1\\
+x\\
+x^2\\
+x^3\\
+\vdots\\
+x^{K-1}\\\end{matrix}\right]\in \mathbb R^K</script><p>This means that we “lift” the original one-dimensional input space into a $K$-dimensional feature space consisting of all monomials $x^k$ for $k = 0, . . . ,K − 1$. With these features, we can model polynomials of degree $⩽ K−1$ within the framework of linear regression: A polynomial of degree $K − 1$ is</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=0}^{K-1}\theta_kx^k=\phi^T(x)\theta</script><p>where $θ = [θ_0, . . . , θ_{K−1}]^⊤ ∈\mathbb R^K$ contains the(linear) parameters $θ_k$.</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Let us now have a look at maximum likelihood estimation of the parameters $θ$ in the linear regression model. We consider training inputs $x_n ∈\mathbb R^D$ and targets $y_n ∈\mathbb R, n = 1, . . . ,N$, and define the <em>feature matrix(design matrix)</em> as</p>
+<script type="math/tex; mode=display">
+\varPhi:=\left[\begin{matrix}
+\phi^T(x_1)\\
+\vdots\\
+\phi^T(x_N)
+\end{matrix}\right]=
+\left[\begin{matrix}
+\phi_0(x_1)&\cdots&\phi_{K-1}(x_1)\\
+\phi_0(x_2)&\cdots&\phi_{K-1}(x_2)\\
+\vdots&&\vdots\\
+\phi_0(x_N)&\cdots&\phi_{K-1}(x_N)
+\end{matrix}\right]\in\mathbb R^{N\times K}</script><p>where $Φ_{ij} = ϕ_j(x_i)$ and $ϕ_j :\mathbb R^D →\mathbb R$.</p>
+<blockquote>
+<p>e.g. <strong>Feature Matrix for Second-order Polynomials</strong></p>
+<p>For a second-order polynomial and $N$ training points $x_n ∈\mathbb R, n = 1, . . . ,N$, the feature matrix is</p>
+<script type="math/tex; mode=display">
+\varPhi=
+\left[\begin{matrix}
+1&x_1&x_1^2\\
+1&x_2&x_2^2\\
+\vdots&&\vdots\\
+1&x_N&x_N^2\\
+\end{matrix}\right]</script></blockquote>
+</li>
+<li><p>With the feature matrix $Φ$ defined, the negative log-likelihood for the linear regression model can be written as</p>
+<script type="math/tex; mode=display">
+-\log p(\mathcal Y|\mathcal X,\theta)=\frac{1}{2\sigma^2}(y-\varPhi\theta)^T(y-\varPhi\theta)+\text{const}</script><p>Since both $X$ and $Φ$ are independent of the parameters $θ$ that we wish to optimize, we arrive immediately at the maximum likelihood estimate</p>
+<script type="math/tex; mode=display">
+θ_{ML}=(\varPhi^T\varPhi)^{-1}\varPhi^Ty</script></li>
+</ul>
+<p>​        for the linear regression problem with nonlinear features.</p>
+<ul>
+<li><p>When we were working without features, we required $X^⊤X$ to be invertible, which is the case when $rk(X) = D$, i.e., the columns of $X$ are linearly independent. We therefore require $Φ^⊤Φ ∈\mathbb R^{K×K}$ to be invertible. This is the case if and only if $rk(Φ) = K$.</p>
+<blockquote>
+<p>e.g <strong>Maximum Likelihood Polynomial Fit</strong></p>
+<p>Consider the dataset in Figure(a). The dataset consists of $N = 10$ pairs $(x_n, y_n)$, where $x_n ∼\mathcal U[−5, 5]$ and $y_n = −sin(x_n/5) + cos(x_n) + ϵ$, where $ϵ ∼\mathcal N(0, 0.2^2)$    .</p>
+<p>We fit a polynomial of degree 4 using maximum likelihood estimation, i.e., parameters $θML$ are given. The maximum likelihood estimate yields function values $ϕ^⊤(x_∗)θ_{ML} $at any test location $x_∗$. The result is shown in Figure(b).<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101513472.png" alt="Polynomial regression"></p>
+</blockquote>
+</li>
+<li><p><strong>Estimating the Noise Variance</strong>: We can also use the principle of maximum likelihood estimation to obtain the maximum likelihood estimator $σ^2_{ML}$ for the noise variance. To do this, we follow the standard procedure: We write down the log-likelihood, compute its derivative with respect to $σ^2 &gt; 0$, set it to $0$, and solve. The log-likelihood is given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\log &p(\mathcal Y|\mathcal X,\theta,\sigma^2)=\sum_{n=1}^N\log\mathcal N(y_n|\phi^T(x_n)\theta,\sigma^2)\\
+&=\sum_{n=1}^N\left(-\frac{1}{2}\log(2\pi)-\frac{1}{2}\log\sigma^2-\frac{1}{2\sigma^2}(y_n-\phi^T(x_n)\theta)^2\right)\\
+&=-\frac{N}{2}\log\sigma^2-\frac{1}{2\sigma^2}\underset{=:s}{\underbrace{\sum_{n=1}^N(y_n-\phi^T(x_n)\theta)^2}}+\theta
+\end{split}</script><p>The partial derivative of the log-likelihood with respect to $σ^2$ is then</p>
+<script type="math/tex; mode=display">
+\frac{\partial \log p(\mathcal Y|\mathcal X,\theta,\sigma^2)}{\partial \sigma^2}=-\frac{N}{2\sigma^2}+\frac{1}{2\sigma^4}s=0\\
+\Leftrightarrow\frac{N}{2\sigma^2}=\frac{s}{2\sigma^4}</script><p>so that we identify</p>
+<script type="math/tex; mode=display">
+\sigma^2_{ML}=\frac{s}{N}=\frac{1}{N}\sum_{n=1}^N(y_n-\phi^T(x_n)\theta)^2</script><p>Therefore, the maximum likelihood estimate of the noise variance is the empirical mean of the squared distances between the noise-free function values $ϕ^⊤(x_n)θ$ and the corresponding noisy observations $y_n$ at input locations $x_n$.</p>
+</li>
+</ul>
+<h3 id="Overfitting-in-Linear-Regression"><a href="#Overfitting-in-Linear-Regression" class="headerlink" title="Overfitting in Linear Regression"></a>Overfitting in Linear Regression</h3><ul>
+<li><p>We can evaluate the quality of the model by computing the error/loss incurred. One way of doing this is to compute the negative log-likelihood,  which we minimized to determine the maximum likelihood estimator. Alternatively, given that the noise parameter $σ^2$ is not a free model parameter, we can ignore the scaling by $1/σ^2$, so that we end up with a squared-error-loss function$∥y −Φθ∥^2$. Instead of using this squared loss, we often use the <strong><em>root mean square error (RMSE)</em></strong></p>
+<script type="math/tex; mode=display">
+\sqrt{\frac{1}{N}\left\|y-\varPhi\theta\right\|^2}=\sqrt{\frac{1}{N}\sum_{n=1}^N(y_n-\phi^T(x_n)\theta)^2}</script><p>which (a) allows us to compare errors of datasets with different sizes and (b) has the same scale and the same units as the observed function values yn. <em>The RMSE is normalized.</em> For example, if we fit a model that maps post-codes ($x$ is given in latitude, longitude) to house prices ($y$-values are EUR) then the RMSE is also measured in EUR, whereas the squared error is given in $\text{EUR}^2$.</p>
+</li>
+<li><p><em>The negative log-likelihood is unitless.</em></p>
+</li>
+<li><p>Figure shows a number of polynomial fits determined by maximum likelihood for the dataset from Figure (a) with $N = 10$ observations. We notice that polynomials of low degree (e.g., constants ($M = 0$) or linear ($M = 1$)) fit the data poorly and, hence, are poor representations of the true underlying function. For degrees $M = 3, . . . , 6$, the fits look<br>plausible and smoothly interpolate the data. When we go to higher-degree polynomials, we notice that they fit the data better and better. In the extreme case of $M = N−1 = 9$, the function will pass through every single data point. However, these high-degree polynomials oscillate wildly and are a poor representation of the underlying function that generated the data, such that we suffer from <strong><em>overfitting</em></strong>.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101513607.png" alt="Maximum likelihood fits for different polynomial degrees M"></p>
+</li>
+<li><p>We obtain some quantitative insight into the dependence of the generalization performance on the polynomial of degree M by considering a separate test set comprising $200$ data points generated using exactly the same procedure used to generate the training set. As test inputs, we chose a linear grid of $200$ points in the interval of $[−5, 5]$. For each choice of $M$, we evaluate the RMSE for both the training data and the test data. </p>
+</li>
+<li><p>Looking now at the test error, which is a qualitive measure of the generalization properties of the corresponding polynomial, we notice that initially the test error decreases; see Figure (orange). For fourth-order polynomials, the test error is relatively low and stays relatively constant up to degree $5$. However, from degree $6$ onward the test error increases significantly, and high-order polynomials have very bad generalization properties. Note that the training error (blue curve in Figure) never increases when the degree of the polynomial increases. In our example, the best generalization (the point of the smallest test error) is obtained for a polynomial of degree $M = 4$.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101513389.png" alt="Training and test error"></p>
+</li>
+</ul>
+<h3 id="Maximum-A-Posteriori-Estimation"><a href="#Maximum-A-Posteriori-Estimation" class="headerlink" title="Maximum A Posteriori Estimation"></a>Maximum A Posteriori Estimation</h3><ul>
+<li><p>We often observe that the magnitude of the parameter values becomes relatively large if we run into overfitting. To mitigate the effect of huge parameter values, we can place a prior distribution $p(θ)$ on the parameters. The prior distribution explicitly encodes what parameter values are plausible (before having seen any data).</p>
+</li>
+<li><p>For example, a Gaussian prior $p(θ) =\mathcal N(0,1)$ on a single parameter $θ$ encodes that parameter values are expected lie in the interval $[−2, 2]$ (two standard deviations around the mean value). Once a dataset $\mathcal X,\mathcal Y$ is available, instead of maximizing the likelihood we seek parameters that maximize the posterior distribution $p(θ |\mathcal X,\mathcal Y)$. This procedure is called <strong><em>maximum a posteriori (MAP) estimation</em></strong>.</p>
+</li>
+<li><p>The posterior over the parameters $θ$, given the training data $\mathcal X,\mathcal Y$, is obtained by applying Bayes’ theorem as</p>
+<script type="math/tex; mode=display">
+p(\theta|\mathcal X,\mathcal Y)=\frac{p(\mathcal Y|\mathcal X,\theta)p(\theta)}{p(\mathcal Y|\mathcal X)}</script><p>Since the posterior explicitly depends on the parameter prior $p(θ)$, the prior will have an effect on the parameter vector we find as the maximizer of the posterior. The parameter vector $θ_{MAP}$ that maximizes the posterior is the MAP estimate.</p>
+</li>
+<li><p>To find the MAP estimate, we follow steps that are similar in flavor to maximum likelihood estimation. We start with the log-transform and compute the log-posterior as</p>
+<script type="math/tex; mode=display">
+\log p(\theta|\mathcal X,\mathcal Y)=\log p(\mathcal Y|\mathcal X,\theta)+\log p(\theta)+\text{const}</script><p>where the constant comprises the terms that are independent of $θ$. We see that the log-posterior is the sum of the log-likelihood $p(\mathcal Y|\mathcal X,\theta)$ and the log-prior log $p(θ)$ so that the MAP estimate will be a “compromise” between the prior (our suggestion for plausible parameter values before observing data) and the data-dependent likelihood.</p>
+</li>
+<li><p>To find the MAP estimate $θ_{MAP}$, we minimize the negative log-posterior distribution with respect to $θ$, i.e., we solve</p>
+<script type="math/tex; mode=display">
+\theta_{MAP}\in \arg\underset{\theta}{\min}\left\{-\log p(\mathcal Y|\mathcal X,\theta)-\log p(\theta)\right\}</script><p>The gradient of the negative log-posterior with respect to $θ$ is</p>
+<script type="math/tex; mode=display">
+-\frac{d\log p(\theta|\mathcal X,\mathcal Y)}{d\theta}=-\frac{d\log p(\mathcal Y|\mathcal X,\theta)}{d\theta}-\frac{d\log p(\theta)}{d\theta}</script></li>
+</ul>
+<p>​    where we identify the first term on the right-hand side as the gradient of the negative log-    likelihood.</p>
+<ul>
+<li><p>With a (conjugate) Gaussian prior $p(θ) =\mathcal N(0, b^2I)$ on the parameters $θ$, the negative log-posterior for the linear regression setting, we obtain the negative log posterior</p>
+<script type="math/tex; mode=display">
+-\log p(\theta|\mathcal X,\mathcal Y)=\frac{1}{2\sigma^2}(y-\varPhi\theta)^T(y-\varPhi\theta)+\frac{1}{2b^2}\theta^T\theta+\text{const}</script><p>The first term corresponds to the contribution from the log-likelihood, and the second term originates from the log-prior. The gradient of the log-posterior with respect to the parameters $θ$ is then</p>
+<script type="math/tex; mode=display">
+-\frac{d\log p(\theta|\mathcal X,\mathcal Y)}{d\theta}=\frac{1}{\sigma^2}(\theta^T\varPhi^T\varPhi-y^T\varPhi)+\frac{1}{b^2}\theta^T</script><p>We will find the MAP estimate $θ_MAP$ by setting this gradient to $0^⊤$ and solving for $θ_{MAP}$. We obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\frac{1}{\sigma^2}(\theta^T\varPhi^T\varPhi-y^T\varPhi)+\frac{1}{b^2}\theta^T=0^T\\
+\Leftrightarrow&\theta^T\left(\frac{1}{\sigma^2}\varPhi^T\varPhi+\frac{1}{b^2}I\right)-\frac{1}{\sigma^2}y^T\varPhi=0^T\\
+\Leftrightarrow&\theta^T\left(\varPhi^T\varPhi+\frac{\sigma^2}{b^2}I\right)=y^T\varPhi\\
+\Leftrightarrow&\theta^T=y^T\varPhi\left(\varPhi^T\varPhi+\frac{\sigma^2}{b^2}I\right)^{-1}
+
+\end{split}</script><p>so that the MAP estimate is (by transposing both sides of the last equality)</p>
+<script type="math/tex; mode=display">
+\theta_{MAP}=\left(\varPhi^T\varPhi+\frac{\sigma^2}{b^2}I\right)^{-1}\varPhi^Ty</script></li>
+<li><p>Comparing the MAP estimate with the maximum likelihood estimate, we see that the only difference between both solutions is the additional term $\frac{σ^2}{b^2} I$ in the inverse matrix. This term ensures that $\varPhi^T\varPhi+\frac{\sigma^2}{b^2}I$ is symmetric and strictly positive definite (i.e., its inverse exists and the MAP estimate is the unique solution of a system of linear equations)</p>
+<blockquote>
+<p>e.g. <strong>MAP Estimation for Polynomial Regression</strong></p>
+<p>In the polynomial regression example, we place a Gaussian prior $p(\theta)=\mathcal N(0,I)$ on the parameters $θ$ and determine the MAP estimates. In Figure, we show both the maximum likelihood and the MAP estimates for polynomials of degree 6 (left) and<br>degree 8 (right). The prior (regularizer) does not play a significant role for the low-degree polynomial, but keeps the function relatively smooth for higher-degree polynomials. Although the MAP estimate can push the boundaries of overfitting, it is not a general solution to this problem, so we need a more principled approach to tackle overfitting.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101513051.png" alt="Polynomial regression: maximum likelihood and MAP estimates."></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="MAP-Estimation-as-Regularization"><a href="#MAP-Estimation-as-Regularization" class="headerlink" title="MAP Estimation as Regularization"></a>MAP Estimation as Regularization</h3><ul>
+<li><p>Instead of placing a prior distribution on the parameters $θ$, it is also possible to mitigate the effect of overfitting by penalizing the amplitude of the parameter by means of regularization. In <em>regularized least squares</em>, we consider the loss function</p>
+<script type="math/tex; mode=display">
+\left\|y-\varPhi\theta\right\|^2+\lambda\left\|\theta\right\|_2^2</script><p>which we minimize with respect to $θ$. Here, the first term is a <em>data-fit term</em> (also called <em>misfit term</em>), which is proportional to the negative log-likelihood;The second term is called the <em>regularizer</em>, and the <em>regularization parameter</em> $λ ⩾ 0$ controls the “strictness” of the regularization.</p>
+</li>
+<li><p>Instead of the Euclidean norm $∥·∥_2$, we can choose any $p$-norm $∥·∥_p$. In practice, smaller values for p lead to sparser solutions. Here, “sparse” means that many parameter values $θ_d = 0$, which is also useful for variable selection. For $p = 1$, the regularizer is called <strong><em>LASSO</em></strong> (least absolute shrinkage and selection operator).</p>
+</li>
+<li><p>The regularizer $λ ∥θ∥_2^2$  can be interpreted as a negative log-Gaussian prior, which we use in MAP estimation. More specifically, with a Gaussian prior $p(θ) =\mathcal N(0,b^2I) $, we obtain the negative log-Gaussian prior</p>
+<script type="math/tex; mode=display">
+-\log p(\theta)=\frac{1}{2b^2}\left\|\theta\right\|_2^2+\text{const}</script><p>so that for $λ =\frac{1}{2b^2}$ the regularization term and the negative log-Gaussian prior are identical.</p>
+</li>
+<li><p>Given that the regularized least-squares loss function consists of terms that are closely related to the negative log-likelihood plus a negative log-prior, it is not surprising that, when we minimize this loss, we obtain a solution that closely resembles the MAP estimate. More specifically, minimizing the regularized least-squares loss function yields</p>
+<script type="math/tex; mode=display">
+\theta_{RLS}=(\varPhi^T\varPhi+\lambda I)^{-1}\varPhi^Ty</script><p>which is identical to the MAP estimate for $λ =\frac{σ^2}{b^2}$, where $σ^2$ is the noise variance and $b^2 $the variance of the (isotropic) Gaussian prior $p(\theta)=\mathcal N(0,b^2I)$.</p>
+</li>
+<li><p>We saw that both maximum likelihood and MAP estimation can lead to overfitting.</p>
+</li>
+</ul>
+<h2 id="Bayesian-Linear-Regression"><a href="#Bayesian-Linear-Regression" class="headerlink" title="Bayesian Linear Regression"></a>Bayesian Linear Regression</h2><ul>
+<li><strong><em>Bayesian linear regression</em></strong> pushes the idea of the parameter prior a step further and does not even attempt to compute a point estimate of the parameters, but instead the full posterior distribution over the parameters is taken into account when making predictions. This means we do not fit any parameters, but we compute a mean over all plausible parameters settings (according to the posterior).</li>
+</ul>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><ul>
+<li>In Bayesian linear regression, we consider the model<script type="math/tex; mode=display">
+\begin{split}
+\text{prior}\quad &p(\theta)=\mathcal N(m_0,S_0)\\
+\text{likelihood}\quad &p(y|x,\theta)=\mathcal N(y|\phi^T(x)\theta,\sigma^2)
+\end{split}</script>where we now explicitly place a Gaussian prior $p(\theta)=\mathcal N(m_0,S_0)$ on $\theta$, which turns the parameter vector into a random variable. This allows us to write down the corresponding graphical model in Figure, where we made the parameters of the Gaussian prior on $θ$ explicit. The full probabilistic model, i.e., the joint distribution of observed and unobserved random variables, $y$ and $θ$, respectively, is<script type="math/tex; mode=display">
+p(y,\theta|x)=p(y|x,\theta)p(\theta)</script><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408101513652.png" alt="Graphical model for Bayesian linear regression"></li>
+</ul>
+<h3 id="Prior-Predictions"><a href="#Prior-Predictions" class="headerlink" title="Prior Predictions"></a>Prior Predictions</h3><ul>
+<li><p>In practice, we are usually not so much interested in the parameter values $θ$ themselves. Instead, our focus often lies in <em>the predictions we make with those parameter values</em>.</p>
+</li>
+<li><p>In a Bayesian setting, we take the parameter distribution and average over all plausible parameter settings when we make predictions. More specifically, to make predictions at an input $x_∗$, we integrate out $θ$ and obtain</p>
+<script type="math/tex; mode=display">
+p(y_*|x_*)=\int p(y_*|x_*,\theta)p(\theta)d(\theta)=\mathbb E_\theta[p(y_*|x_*,\theta)]</script><p>which we can interpret as the average prediction of $y_∗ | x_∗, θ$ for all plausible parameters $θ $according to the prior distribution $p(θ)$. Note that predictions using the prior distribution only require us to specify the input $x_∗$, but no training data.</p>
+</li>
+<li><p>In our model, we chose a conjugate (Gaussian) prior on $θ$ so that the predictive distribution is Gaussian as well (and can be computedi n closed form): With the prior distribution $p(θ) =\mathcal N(m_0, S_0)$ , we obtain the predictive distribution as</p>
+<script type="math/tex; mode=display">
+p(y_*|x_*)=\mathcal N(\phi^T(x_*)m_0,\phi^T(x_*)S_0\phi(x_*)+\sigma^2)</script><p>where we exploited that (i) the prediction is Gaussian due to conjugacy and the marginalization property of Gaussians, (ii) the Gaussian noise is independent so that</p>
+<script type="math/tex; mode=display">
+\mathbb V[y_*]=\mathbb V_\theta[\phi^T(x_*)\theta]+\mathbb V_\epsilon[\epsilon]</script><p>and (iii) $y_∗$ is a linear transformation of $θ$ so that we can apply the rules for computing the mean and covariance of the prediction analytically, respectively. The term $\phi^T(x_<em>)S_0\phi(x_</em>)$<br>in the predictive variance explicitly accounts for the uncertainty associated with the parameters $θ$, whereas $σ^2$ is the uncertainty contribution due to the measurement noise.</p>
+</li>
+<li><p>If we are interested in predicting noise-free function values $f(x_∗) =ϕ^⊤(x_∗)θ$ instead of the noise-corrupted targets $y_∗$ we obtain</p>
+<script type="math/tex; mode=display">
+p(f(x_*))=\mathcal N(\phi^T(x_*)m_0,\phi^T(x_*)S_0\phi(x_*))</script><p>which only differs from the predictive distribution in the omission of the noise variance $σ^2$ in the predictive variance.</p>
+</li>
+<li><p><strong>Distribution over Functions</strong>: Since we can represent the distribution $p(θ)$ using a set of samples $θ_i$ and every sample $θ_i$ gives rise to a function $f_i(·) = θ^⊤_i ϕ(·)$, it follows that the parameter distribution $p(θ)$ induces a distribution $p(f(·))$ over functions. Here we use the notation $(·)$ to explicitly denote a functional relationship.</p>
+</li>
+</ul>
+<h3 id="Posterior-Distribution"><a href="#Posterior-Distribution" class="headerlink" title="Posterior Distribution"></a>Posterior Distribution</h3><ul>
+<li><p>Given a training set of inputs $x_n ∈\mathbb R^D$ and corresponding observations $y_n ∈\mathbb R, n = 1, . . . ,N$, we compute the posterior over the parametersusing Bayes’ theorem as</p>
+<script type="math/tex; mode=display">
+p(\theta|\mathcal X,\mathcal Y)=\frac{p(\mathcal Y|\mathcal X,\theta)p(\theta)}{p(\mathcal Y|\mathcal X)}</script><p>where $\mathcal X$ is the set of training inputs and $\mathcal Y$ the collection of correspond-ng training targets. Furthermore, $p(\mathcal Y|\mathcal X,\theta)$ is the likelihood, $p(θ)$ the parameter prior, and</p>
+<script type="math/tex; mode=display">
+p(\mathcal Y|\mathcal X)=\int p(\mathcal Y|\mathcal X,\theta)p(\theta)d\theta=\mathbb E_\theta[p(\mathcal Y|\mathcal X,\theta)]</script><p>the <em>marginal likelihood/evidence</em>, which is independent of the parameters $θ$ and ensures that the posterior is normalized, i.e., it integrates to $1$. We can think of the marginal likelihood as the likelihood averaged over all possible parameter settings (with respect to the prior distribution $p(θ)$).</p>
+</li>
+<li><p><strong>Parameter Posterior</strong>: In our model, the parameter posterior can be computed in closed form as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\theta|\mathcal X,\mathcal Y)&=\mathcal N(\theta|m_N,S_N)\\
+S_N&=(S_0^{-1}+\sigma^{-2}\varPhi^T\varPhi)^{-1}\\
+m_N&=S_N(S_0^{-1}m_0+\sigma^{-2}\varPhi^Ty)
+\end{split}</script><p>where the subscript $N$ indicates the size of the training set.</p>
+</li>
+<li><p><strong>General Approach to Completing the Squares</strong>: If we are given an equation</p>
+<script type="math/tex; mode=display">
+x^TAx-2a^Tx+\text{const}_1</script><p>where $A$ is symmetric and positive definite, which we wish to bring into the form</p>
+<script type="math/tex; mode=display">
+(x-\mu)^T\varSigma(x-\mu)+\text{const}_2</script><p>we can do this by setting</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\varSigma&:=A\\
+\mu&:=\varSigma^{-1}a
+\end{split}</script><p>and $\text{const}_2 =\text{const}_1 −\mu^TΣ\mu$.</p>
+</li>
+</ul>
+<h3 id="Posterior-Predictions"><a href="#Posterior-Predictions" class="headerlink" title="Posterior Predictions"></a>Posterior Predictions</h3><ul>
+<li><p>We computed the predictive distribution of y∗ at a test input $x_∗$ using the parameter prior $p(θ)$. In principle, predicting with the parameter posterior $p(θ |\mathcal X,\mathcal Y) $is not fundamentally different given that in our conjugate model the prior and posterior are both Gaussian (with<br>different parameters). Therefore, by following the same reasoning as in Prior Predictions, we obtain the (posterior) predictive distribution</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(y_*|\mathcal X,\mathcal Y,x_*)&=\int p(y_*|x_*,\theta)p(\theta|\mathcal X,\mathcal Y)d\theta\\
+&=\int \mathcal N(y_*|\phi^T(x_*)\theta,\sigma^2)\mathcal N(\theta|m_N,S_N)d\theta\\
+&=\mathcal N(y_*|\phi^T(x_*)m_N,\phi^T(x_*)S_N\phi(x_*)+\sigma^2)
+\end{split}</script><p>The term $\phi^T(x_<em>)S_N\phi(x_</em>)$ reflects the posterior uncertainty associated with the parameters $θ$. Note that $S_N$ depends on the training inputs through $Φ$; The predictive mean $ϕ^⊤(x_∗)m_N$ coincides with the predictions made with the MAP estimate $θ_{MAP}$.i.e. $\mathbb E[y_∗ |\mathcal X,\mathcal Y, x_∗] = ϕ^⊤(x_∗)m_N = ϕ^⊤(x_∗)θ_{MAP}$</p>
+</li>
+<li><p>By replacing the integral , the predictive distribution can be equivalently written as the expectation $\mathbb E_{θ |\mathcal X,\mathcal Y}[p(y_∗ | x_∗, θ)]$, where the expec-ation is taken with respect to the parameter posterior $p(θ |\mathcal X,\mathcal Y)$.</p>
+</li>
+<li><p>The key difference between the marginal likelihood and the posterior predictive distribution are (i) the marginal likelihood can be thought of predicting the training<br>targets $y$ and not the test targets $y_∗$, and (ii) the marginal likelihood averages with respect to the parameter prior and not the parameter posterior.</p>
+</li>
+<li><p><strong>Mean and Variance of Noise-Free Function Values</strong>: In many cases, we are not interested in the predictive distribution $p(y_∗ |\mathcal X,\mathcal Y, x_∗)$ of a (noisy) observation $y_∗$. Instead, we would like to obtain the distribution of the (noise-free) function values $f(x_∗) = ϕ^T(x_∗)θ$. We determinethe corresponding moments by exploiting the properties of means and variances , which yields</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathbb E[f(x_*)|\mathcal X,\mathcal Y]&=\mathbb E_\theta[\phi^T(x_*)\theta|\mathcal X,\mathcal Y]=\phi^T(x_*)\mathbb E_\theta[\theta|\mathcal X,\mathcal Y]\\
+&=\phi^T(x_*)m_N=m^T_N\phi(x_*)\\
+\mathbb V[f(x_*)|\mathcal X,\mathcal Y]&=\mathbb V_\theta[\phi^T(x_*)\theta|\mathcal X,\mathcal Y]\\
+&=\phi^T(x_*)\mathbb V_\theta[\theta|\mathcal X,\mathcal Y]\phi(x_*)\\
+&=\phi^T(x_*)S_N\phi(x_*)
+\end{split}</script><p>We see that the predictive mean is the same as the predictive mean for noisy observations as the noise has mean $0$, and the predictive varianceonly differs by $σ^2$, which is the variance of the measurement noise: Whenw e predict noisy function values, we need to include $σ^2$ as a source of uncertainty, but this term is not needed for noise-free predictions. Here, the only remaining uncertainty stems from the parameter posterior.</p>
+</li>
+<li><p><strong>Distribution over Functions</strong>: The fact that we integrate out theparameters $θ$ induces a distribution over functions: If we sample $θ_i ∼p(θ |\mathcal X,\mathcal Y)$ from the parameter posterior, we obtain a single function realization $θ^T_i ϕ(·)$. The <em>mean function</em>, i.e., the set of all expected function  values $E_θ[f(·) | θ,\mathcal X,\mathcal Y]$, of this distribution over functions is $m^T_Nϕ(·)$.<br>The (marginal) variance, i.e., the variance of the function $f(·)$, is given by $ϕ^T(·)S_Nϕ(·)$.</p>
+</li>
+</ul>
+<h3 id="Computing-the-Marginal-Likelihood"><a href="#Computing-the-Marginal-Likelihood" class="headerlink" title="Computing the Marginal Likelihood"></a>Computing the Marginal Likelihood</h3><ul>
+<li><p>We compute the marginal likelihood for Bayesian linear regression with a conjugate Gaussian prior on the parameters.</p>
+</li>
+<li><p>Just to recap, we consider the following generative process:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\theta&\sim\mathcal N(m_0,S_0)\\
+y_n|x_n,\theta&\sim\mathcal N(x^T_n,\sigma^2)
+\end{split}</script><p>$n = 1, . . . ,N$. The marginal likelihood is given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\mathcal Y|\mathcal X)&=\int p(\mathcal Y|\mathcal X,\theta)p(\theta)d\theta\\
+&=\int \mathcal N(y|X\theta,\sigma^2I)\mathcal N(\theta|m_0,S_0)d\theta
+\end{split}</script><p>where we integrate out the model parameters $θ$. We compute the marginal likelihood in two steps: First, we show that the marginal likelihood is Gaussian (as a distribution in $y$); second, we compute the mean and covariance of this Gaussian.</p>
+<ol>
+<li><p>The marginal likelihood is Gaussian:We know that (i) the product of two Gaussian random variables is an (unnormalized) Gaussian distribution, and (ii) a linear transformation of a Gaussian random variable is Gaussian distributed. We require a linear transformation to bring $\mathcal N(y |Xθ, σ^2I)$ into the form $\mathcal N(θ |\mu, Σ)$ for some $\mu,Σ$. Once this is done, the integral can be solved in closed form.The result is the normalizing constant of the product of the two Gaussians. The normalizing constant itself has Gaussian shape.</p>
+</li>
+<li><p>Mean and covariance. We compute the mean and covariance matrix of the marginal likelihood by exploiting the standard results for means and covariances of affine transformations of random variables;The mean of the marginal likelihood is computed as</p>
+<script type="math/tex; mode=display">
+\mathbb E[\mathcal Y|\mathcal X]=\mathbb E_{\theta,\epsilon}[X\theta+\epsilon]=X\mathbb E_\theta[\theta]=Xm_0</script><p>Note that $ϵ ∼\mathcal N(0, σ^2I)$ is a vector of i.i.d. random variables. The covariance matrix is given as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\text{Cov}[\mathcal Y|\mathcal X]&=\text{Cov}_{\theta,\epsilon}[X\theta+\epsilon]=\text{Cov}_\theta[X\theta]+\sigma^2I\\
+&=X\text{Cov}_\theta[\theta]X^T+\sigma^2I=XS_0X^T+\sigma^2I
+\end{split}</script><p>Hence, the marginal likelihood is</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(\mathcal Y|\mathcal X)=&(2\pi)^{-\frac{N}{2}}\text{det}(XS_0X^T+\sigma^2I)^{-\frac{1}{2}}\\&\cdot\exp(-\frac{1}{2}(y-Xm_0)^T(XS_0X^T+\sigma^2I)^{-1}(y-Xm_0))\\
+&=\mathcal N(y|Xm_0,XSX^T+\sigma^2I)
+\end{split}</script></li>
+</ol>
+</li>
+</ul>
+<h2 id="Maximum-Likelihood-as-Orthogonal-Projection"><a href="#Maximum-Likelihood-as-Orthogonal-Projection" class="headerlink" title="Maximum Likelihood as Orthogonal Projection"></a>Maximum Likelihood as Orthogonal Projection</h2><ul>
+<li><p>Let us consider a simple linear regression setting</p>
+<script type="math/tex; mode=display">
+y=x\theta+\epsilon,\quad\epsilon\in\mathcal N(0,\sigma^2)</script><p>in which we consider linear functions $f :\mathbb R →\mathbb R$ that go through theorigin (we omit features here for clarity). The parameter $θ$ determines the slope of the line.</p>
+</li>
+<li><p>With a training data set $\{(x_1, y_1), . . . , (x_N, y_N)\}$ we recall the results and obtain the maximum likelihood estimator for thes lope parameter as</p>
+<script type="math/tex; mode=display">
+θ_{ML}=(X^TX)^{-1}X^Ty=\frac{X^Ty}{X^TX}\in\mathbb R</script><p>where $X = [x_1, . . . , x_N]^⊤ ∈\mathbb R^N, y = [y_1, . . . , y_N]^⊤ ∈\mathbb R^N$.</p>
+</li>
+<li><p>This means for the training inputs $X$ we obtain the optimal (maximum likelihood) reconstruction of the training targets as</p>
+<script type="math/tex; mode=display">
+X\theta_{ML}=X\frac{X^Ty}{X^TX}=\frac{XX^T}{X^TX}y</script><p>i.e., we obtain the approximation with the minimum least-squares error between $y$ and $Xθ$.</p>
+</li>
+<li><p>As we are looking for a solution of $y = Xθ$, we can think of linear regression as a problem for solving systems of linear equations. Therefore, we can relate to concepts from linear algebra and analytic geometry.In particular, looking carefully we see that the maximum likelihood estimator $θ_{ML}$ in our example from effectively does an orthogonal projection of $y$ onto the one-dimensional subspace spanned by $X$.Recalling the results on orthogonal projections, we identify $\frac{XX^T}{X^TX}$ as the projection matrix, $θ_{ML}$ as the coordinates of the projection onto the one-dimensional subspace of $\mathbb R^N$ spanned by $X$ and $Xθ_{ML}$ as the orthogonal projection of $y$ onto this subspace.</p>
+</li>
+<li><p>Therefore, the maximum likelihood solution provides also a geometrically optimal solution by finding the vectors in the subspace spanned by $X$ that are “closest” to the corresponding observations $y$, where “closest” means the smallest (squared) distance of the function values $y_n$ to $x_nθ$.</p>
+</li>
+<li><p>In the general linear regression case where</p>
+<script type="math/tex; mode=display">
+y=\phi^T(x)\theta+\epsilon,\quad\epsilon\in\mathcal N(0,\sigma^2)</script><p>with vector-valued features $ϕ(x) ∈\mathbb R^K$, we again can interpret the maximum likelihood result</p>
+<script type="math/tex; mode=display">
+\begin{split}
+y&\approx\varPhi\theta_{ML}\\
+\theta_{ML}&=(\varPhi^T\varPhi)^{-1}\varPhi^Ty
+\end{split}</script><p>as a projection onto a $K$-dimensional subspace of $\mathbb R^N$, which is spanned by the columns of the feature matrix $Φ$.</p>
+</li>
+<li><p>If the feature functions $ϕ_k$ that we use to construct the feature matrix $Φ$ are orthonormal , we obtain a special case where the columns of $Φ$ form an orthonormal basis, such that<br>$Φ^⊤Φ = I$. This will then lead to the projection</p>
+<script type="math/tex; mode=display">
+\varPhi(\varPhi^T\varPhi)^{-1}\varPhi^Ty=\varPhi\varPhi^Ty=\left(\sum_{k=1}^K\phi_k\phi_k^T\right)y</script><p>so that the maximum likelihood projection is simply the sum of projections of y onto the individual basis vectors $ϕ_k$, i.e., the columns of $Φ$.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/10/linearregression/">http://Eliauk-L.github.io/2024/08/10/linearregression/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/MachineLearing/">
+                                    <span class="chip bg-color">MachineLearing</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/10/linearregression/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linear Regression">
+                        
+                        <span class="card-title">Linear Regression</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                    MachineLearing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/MachineLearing/">
+                        <span class="chip bg-color">MachineLearing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/09/python-shu-ju-ke-shi-hua/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="Python数据可视化">
+                        
+                        <span class="card-title">Python数据可视化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Pandas/">
+                        <span class="chip bg-color">Pandas</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                        <span class="chip bg-color">数据可视化</span>
+                    </a>
+                    
+                    <a href="/tags/Matplotlib/">
+                        <span class="chip bg-color">Matplotlib</span>
+                    </a>
+                    
+                    <a href="/tags/Seaborn/">
+                        <span class="chip bg-color">Seaborn</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
