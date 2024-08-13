@@ -1,0 +1,1308 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Density Estimation with Gaussian Mixture Models, Jay&#39;s Blog">
+    <meta name="description" content="Density Estimation with Gaussian Mixture Models
+In density estimation, we represent the data compactly using a density f">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Density Estimation with Gaussian Mixture Models | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Density Estimation with Gaussian Mixture Models</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/MachineLearing/">
+                                <span class="chip bg-color">MachineLearing</span>
+                            </a>
+                        
+                            <a href="/tags/DensityEstimation/">
+                                <span class="chip bg-color">DensityEstimation</span>
+                            </a>
+                        
+                            <a href="/tags/GaussianMixtureModels/">
+                                <span class="chip bg-color">GaussianMixtureModels</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                MachineLearing
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Density-Estimation-with-Gaussian-Mixture-Models"><a href="#Density-Estimation-with-Gaussian-Mixture-Models" class="headerlink" title="Density Estimation with Gaussian Mixture Models"></a>Density Estimation with Gaussian Mixture Models</h1><ul>
+<li><p>In density estimation, we represent the data compactly using a density from a parametric family, e.g., a Gaussian or Beta distribution.</p>
+</li>
+<li><p>In practice, the Gaussian have limited modeling capabilities. In the following, we will look at a more expressive family of distributions, which we can use for density estimation: <strong><em>mixture models</em></strong>.</p>
+</li>
+<li><p>Mixture models can be used to describe a distribution $p(x)$ by a convex combination of $K$ simple (base) distributions</p>
+<script type="math/tex; mode=display">
+p(x)=\sum_{k=1}^K\pi_kp_k(x)\\
+0\le \pi_k\le1,\sum_{k=1}^K\pi_k=1</script><p>where the components $p_k$ are members of a family of basic distributions, e.g., Gaussians, Bernoullis, or Gammas, and the $π_k$ are mixture weights.</p>
+</li>
+</ul>
+<h2 id="Gaussian-Mixture-Model"><a href="#Gaussian-Mixture-Model" class="headerlink" title="Gaussian Mixture Model"></a>Gaussian Mixture Model</h2><ul>
+<li><p>A <em>Gaussian mixture model</em> is a density model where we combine a finite number of $K$ Gaussian distributions $\mathcal N(x |\mu_k, Σ_k)$ so that</p>
+<script type="math/tex; mode=display">
+p(x|\theta)=\sum_{k=1}^K\pi_k\mathcal N(x |\mu_k, Σ_k)\\
+0\le \pi_k\le1,\sum_{k=1}^K\pi_k=1</script><p>where we defined $θ := \{\mu_k,Σ_k, π_k : k = 1, . . . ,K\}$ as the collection of all parameters of the model. This convex combination of Gaussian distribution gives us significantly more flexibility for modeling complex densities than a simple Gaussian distribution.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131026340.png" alt="Gaussian mixture model"></p>
+</li>
+</ul>
+<h2 id="Parameter-Learning-via-Maximum-Likelihood"><a href="#Parameter-Learning-via-Maximum-Likelihood" class="headerlink" title="Parameter Learning via Maximum Likelihood"></a>Parameter Learning via Maximum Likelihood</h2><ul>
+<li><p>Assume we are given a dataset $\mathcal X = \{x_1, . . . , x_N\}$, where $x_n, n =<br>1, . . . ,N$, are drawn i.i.d. from an unknown distribution $p(x)$. Our objective is to find a good approximation/representation of this unknown distribution $p(x)$ by means of a GMM with $K$ mixture components. The parameters of the GMM are the $K$ means $\mu_k$, the covariances $Σ_k$, andm ixture weights $π_k$. We summarize all these free parameters in $θ := \{π_k, \mu_k,Σ_k : k = 1, . . . ,K\}$.</p>
+<blockquote>
+<p>e.g. <strong>Initial Setting</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131026980.png" alt="Initial Setting"></p>
+<p>We consider a one-dimensional dataset $\mathcal X = \{−3, −2.5, −1, 0, 2, 4, 5\}$ consisting of seven data points and wish to find a GMM with $K = 3$ components that models the density of the data. We initialize the mixture components as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p_1(x)&=\mathcal N(x|-4,1)\\
+p_2(x)&=\mathcal N(x|0,0.2)\\
+p_3(x)&=\mathcal N(x|8,3)\\
+\end{split}</script><p>and assign them equal weights $π_1 = π_2 = π_3 =\frac{1}{3}$ . The corresponding model (and the data points) are shown in Figure.</p>
+</blockquote>
+</li>
+<li><p>In the following, we detail how to obtain a maximum likelihood estimate $θ_{ML}$ of the model parameters $θ$. We start by writing down the likelihood, i.e., the predictive distribution of the training data given the parameters. We exploit our i.i.d. assumption, which leads to the factorized likelihood</p>
+<script type="math/tex; mode=display">
+p(\mathcal X|\theta)=\prod_{n=1}^Np(x_n|\theta),\quad p(x_n|\theta)=\sum_{k=1}^K\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)</script><p>where every individual likelihood term $p(x_n | θ) $is a Gaussian mixture density. Then we obtain the log-likelihood as</p>
+<script type="math/tex; mode=display">
+\log p(\mathcal X|\theta)=\sum_{n=1}^N\log p(x_n|\theta)=\underset{=:\mathcal L}{\underbrace{\sum_{n=1}^N\log\sum_{k=1}^K\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)}}</script><p>We aim to find parameters $θ^∗_{ML}$ that maximize the log-likelihood $\mathcal L$.Unlike our previous examples for maximum likelihood estimation, we cannot obtain a closed-form solution. However, we can exploit an iterative scheme to find good model parameters $θ_{ML}$, which will turn out to be the expectation maximization (EM) algorithm for Gaussian mixture models (GMMs). The key idea is to update one model parameter at a time while keeping the others fixed.</p>
+</li>
+<li><p>If we were to consider a single Gaussian as the desired density, the sum over k vanishes, and the log can be applied directly to the Gaussian component, such that we get</p>
+<script type="math/tex; mode=display">
+\log \mathcal N(x|\mu,\varSigma)=-\frac{D}{2}\log(2\pi)-\frac{1}{2}\log\det(\varSigma)-\frac{1}{2}(x-\mu)^T\varSigma^{-1}(x-\mu)</script><p>This simple form allows us to find closed-form maximum likelihood estimates of $\mu$ and $Σ$. In the log-likelihood, we cannot move the $\log$ into the sum over $k$ so that we cannot obtain a simple closed-form maximum likelihood solution.</p>
+</li>
+<li><p>We obtain the following necessary conditions when we optimize the log-likelihood with respect to the GMM parameters $\mu_k,Σ_k, π_k$:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial \mathcal L}{\partial \mu_k}&=\boldsymbol{0^T}\Leftrightarrow \sum_{n=1}^N\frac{\partial \log p(x_n|\theta)}{\partial \mu_k}=\boldsymbol{0^T}\\
+\frac{\partial \mathcal L}{\partial \varSigma_k}&=\boldsymbol{0}\Leftrightarrow \sum_{n=1}^N\frac{\partial \log p(x_n|\theta)}{\partial \varSigma_k}=\boldsymbol{0}\\
+\frac{\partial \mathcal L}{\partial \pi_k}&=0\Leftrightarrow \sum_{n=1}^N\frac{\partial \log p(x_n|\theta)}{\partial \pi_k}=0\\
+\end{split}</script><p>For all three necessary conditions, by applying the chain rule, we require partial derivatives of the form</p>
+<script type="math/tex; mode=display">
+\frac{\partial \log p(x_n|\theta)}{\partial \theta}=\frac{1}{p(x_n|\theta)}\frac{\partial p(x_n|\theta)}{\partial \theta}</script><p>where $θ = {\mu_k,Σ_k, π_k, k = 1, . . . ,K}$ are the model parameters and</p>
+<script type="math/tex; mode=display">
+\frac{1}{p(x_n|\theta)}=\frac{1}{\sum_{j=1}^K\pi_j\mathcal N(x_n|\mu_j,\varSigma_j)}</script></li>
+</ul>
+<h3 id="Responsibilities"><a href="#Responsibilities" class="headerlink" title="Responsibilities"></a>Responsibilities</h3><ul>
+<li><p>We define the quantity</p>
+<script type="math/tex; mode=display">
+r_{nk}=\frac{\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)}{\sum_{j=1}^K\pi_j\mathcal N(x_n|\mu_j,\varSigma_j)}</script><p>as the <strong><em>responsibility</em></strong> of the $k$th mixture component for the $n$th data point. The responsibility $r_{nk}$ of the $k$th mixture component for data point $x_n$ is proportional to the likelihood</p>
+<script type="math/tex; mode=display">
+p(x_n|\pi_k,\mu_k,\varSigma_k)=\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)</script><p>of the mixture component given the data point. Therefore, mixture components have a high responsibility for a data point when the data point could be a plausible sample from that mixture component. Note that $r_n := [r_{n1}, . . . , r_{nK}]^⊤ ∈ \mathbb R^K$ is a (normalized) probability vector, i.e., $\sum_kr_{nk}=1$ with $r_nk\ge0$. This probability vector distributes probability mass among the $K$ mixture components, and we can think of $r_n$ as a<br>“soft assignment” of $x_n$ to the $K$ mixture components. Therefore, the responsibility $r_{nk}$  represents the probability that $x_n$ has been generated by the $k$th mixture component.</p>
+<blockquote>
+<p>e.g <strong>(Responsibilities)</strong></p>
+<p>For our example from Figure, we compute the responsibilities $r_{nk}$</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}
+1.0&0.0&0.0\\
+1.0&0.0&0.0\\
+0.057&0.943&0.0\\
+0.001&0.999&0.0\\
+0.0&0.066&0.934\\
+0.0&0.0&1.0\\
+0.0&0.0&1.0\\
+\end{matrix}\right]\in\mathbb R^{N\times K}</script><p>Here the $n$th row tells us the responsibilities of all mixture components for $x_n$. The sum of all $K$ responsibilities for a data point (sum of every row) is $1$. The $k$th column gives us an overview of the responsibility of the $k$th mixture component. We can see that the third mixture component (third column) is not responsible for any of the first four data points, but takes much responsibility of the remaining data points. The sum of all entries of a column gives us the values $N_k$, i.e., the total responsibility of<br>the $k$th mixture component. In our example, we get $N_1 = 2.058, N_2 =2.008, N_3 = 2.934$.</p>
+</blockquote>
+</li>
+<li><p>For given responsibilities we will be updating one model parameter at a time, while keeping the others fixed. After this, we will recompute the responsibilities. Iterating these two steps will eventually converge to a local optimum and is a specific instantiation of the EM algorithm.</p>
+</li>
+</ul>
+<h3 id="Updating-the-Means"><a href="#Updating-the-Means" class="headerlink" title="Updating the Means"></a>Updating the Means</h3><ul>
+<li><p><strong>Update of the GMM Means</strong>: The <em>update of the mean parameters</em> $\mu_k, k = 1, . . . ,K$, of the GMM is given by</p>
+<script type="math/tex; mode=display">
+\mu_k^{new}=\frac{\sum_{n=1}^Nr_{nk}x_n}{\sum_{n=1}^Nr_{nk}}</script></li>
+<li><p>The update of the means $\mu_k$ of the individual mixture components depends on all means, covariance matrices $Σ_k$, and mixture weights $π_k$ via $r_{nk}$ . Therefore, we cannot obtain a closed-form solution for all $\mu_k$ at once.</p>
+</li>
+<li><p>We can also interpret the mean update as the expected value of all data points under the distribution given by</p>
+<script type="math/tex; mode=display">
+r_k:=[r_{1k},...,r_{Nk}]^T/N_k,\quad N_k=\sum_{n=1}^Nr_{nk}</script><p>which is a normalized probability vector, i.e.,</p>
+<script type="math/tex; mode=display">
+\mu_k\leftarrow\mathbb E_{r_k}[\mathcal X]</script><blockquote>
+<p>e.g. <strong>(Mean Updates)</strong></p>
+<p>In our example, the mean values are updated as follows:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mu_1&:-4\rightarrow-2.7\\
+\mu_2&:0\rightarrow-0.4\\
+\mu_3&:8\rightarrow3.7\\
+\end{split}</script><p>Here we see that the means of the first and third mixture component move toward the regime of the data, whereas the mean of the second component does not change so dramatically. Figure illustrates this change, where Figure(a) shows the GMM density prior to updating the means and Figure(b) shows the GMM density after updating the mean values $\mu_k$.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131026885.png" alt="Effect of updating the mean values in a GMM"></p>
+</blockquote>
+</li>
+<li><p>Note that the responsibilities rnk are a function of $π_j, \mu_j,Σ_j$ for all $j = 1, . . . ,K$, such that the updates depend on all parameters of the GMM, and a closed-form solution, which we obtained for linear regression or PCA, cannot be obtained.</p>
+</li>
+</ul>
+<h3 id="Updating-the-Covariances"><a href="#Updating-the-Covariances" class="headerlink" title="Updating the Covariances"></a>Updating the Covariances</h3><ul>
+<li><p><strong>Updates of the GMM Covariances</strong>: The <em>update of the covariance parameters</em> $Σ_k, k = 1, . . . ,K$ of the GMM is given by</p>
+<script type="math/tex; mode=display">
+\varSigma_k^{new}=\frac{1}{N_k}\sum_{n=1}^Nr_{nk}(x_n-\mu_k)(x_n-\mu_k)^T</script></li>
+<li><p>Similar to the update of $\mu_k$, we can interpret the update of the covariance as an importance-weighted expected value of the square of the centered data $\tilde X_k := \{x_1 −\mu_k, . . . , x_N −\mu_k\}$.</p>
+<blockquote>
+<p>e.g. <strong>Variance Updates</strong></p>
+<p>In our example, the variances are updated as follows:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\sigma_1^2&:1\rightarrow0.14\\
+\sigma_2^2&:0.2\rightarrow0.44\\
+\sigma_3^2&:3\rightarrow1.53\\
+\end{split}</script><p>Here we see that the variances of the first and third component shrink significantly, whereas the variance of the second component increases slightly.<br>Figure illustrates this setting. Figure(a) is identical (but zoomed in) to Figure(b) and shows the GMM density and its individual components prior to updating the variances. Figure(b) shows the GMM density after updating the variances.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131026741.png" alt="Effect of updating the variances in a GMM"></p>
+</blockquote>
+</li>
+<li><p>As with the updates of the mean parameters, this update depends on all $π_j,\mu_j,Σ_j, j = 1, . . . ,K$, through the responsibilities $r_{nk}$, which prohibits a closed-form solution</p>
+</li>
+</ul>
+<h3 id="Updating-the-Mixture-Weights"><a href="#Updating-the-Mixture-Weights" class="headerlink" title="Updating the Mixture Weights"></a>Updating the Mixture Weights</h3><ul>
+<li><p><strong>Update of the GMM MixtureWeights</strong>: The <em>mixture weights of the GMM are updated</em> as</p>
+<script type="math/tex; mode=display">
+\pi_k^{new}=\frac{N_k}{N},\quad,k=1,...,K</script><p>where $N$ is the number of data points.</p>
+</li>
+<li><p>We can identify the mixture weight  as the ratio of the total responsibility of the $k$th cluster and the number of data points. Since $N =\sum_k N_k$, the number of data points can also be interpreted as the total responsibility of all mixture components together, such that $π_k$ is the relative importance of the $k$th mixture component for the dataset.</p>
+</li>
+<li><p>Since $N_k =\sum^N_{i=1} r_{nk}$, the update equation for the mixture weights $π_k$ also depends on all $π_j,\mu_j,Σ_j, j = 1, . . . ,K$ via the responsibilities $r_{nk}$.</p>
+<blockquote>
+<p>e.g <strong>Weight Parameter Updates</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131026461.png" alt="Effect of updating the mixture weights in a GMM"></p>
+<p>In our running example, the mixture weights are updated as follows:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\pi_1&:\frac{1}{3}\rightarrow 0.29\\
+\pi_2&:\frac{1}{3}\rightarrow 0.29\\
+\pi_3&:\frac{1}{3}\rightarrow 0.42
+\end{split}</script><p>Here we see that the third component gets more weight/importance, while the other components become slightly less important. Figure illustrates the effect of updating the mixture weights. Figure(a) is identical to Figure(b) and shows the GMM density and its individual components prior to updating the mixture weights. Figure(b) shows<br>the GMM density after updating the mixture weights.</p>
+<p>Overall, having updated the means, the variances, and the weights once, we obtain the GMM shown in Figure(b). Compared with the initialization, we can see that the parameter updates caused the GMM density to shift some of its mass toward the data points.</p>
+<p>After updating the means, variances, and weights once, the GMM fit in Figure(b) is already remarkably better than its initialization. This is also evidenced by the log-likelihood values, which increased from 28.3 (initialization) to 14.4 after one complete update cycle.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="EM-Algorithm"><a href="#EM-Algorithm" class="headerlink" title="EM Algorithm"></a>EM Algorithm</h2><ul>
+<li><p>The expectation maximization algorithm (EM algorithm) was proposed by Dempster et al. (1977) and is a general iterative scheme for learning parameters (maximum likelihood or MAP) in mixture models and, more generally, latent-variable models.</p>
+</li>
+<li><p>In our example of the Gaussian mixture model, we choose initial values for $\mu_k,Σ_k, π_k$ and alternate until convergence between</p>
+<ul>
+<li><strong>E-step</strong>: Evaluate the responsibilities $r_{nk}$ (posterior probability of data point $n$ belonging to mixture component $k$).</li>
+<li><strong>M-step</strong>: Use the updated responsibilities to reestimate the parameters $\mu_k,Σ_k, π_k$.</li>
+</ul>
+</li>
+<li><p>Every step in the EM algorithm increases the log-likelihood function. For convergence, we can check the log-likelihood or the parameters directly. A concrete instantiation of the EM algorithm for estimating the parameters of a GMM is as follows:</p>
+<ol>
+<li><p>Initialize $\mu_k,Σ_k, π_k$</p>
+</li>
+<li><p>E-step: Evaluate responsibilities $r_{nk}$ for every data point $x_n$ using current parameters $\mu_k,Σ_k, π_k$:</p>
+<script type="math/tex; mode=display">
+r_{nk}=\frac{\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)}{\sum_j\pi_j\mathcal N(x_n|\mu_j,\varSigma_j)}</script></li>
+<li><p>M-step: Reestimate parameters $\mu_k,Σ_k, π_k$ using the current responsibilities $r_{nk}$ (from E-step):</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mu_k&=\frac{1}{N_k}\sum_{n=1}^Nr_{nk}x_n\\
+\varSigma_k&=\frac{1}{N_k}\sum_{n=1}^Nr_{nk}(x_n-\mu_k)(x_n-\mu_k)^T\\
+\pi_k&=\frac{N_k}{N}
+\end{split}</script></li>
+</ol>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131027508.png" alt="Illustration of the EM algorithm for fitting a Gaussian mixture model with three components to a two-dimensional dataset"></p>
+<h2 id="Latent-Variable-Perspective"><a href="#Latent-Variable-Perspective" class="headerlink" title="Latent-Variable Perspective"></a>Latent-Variable Perspective</h2><ul>
+<li>We can look at the GMM from the perspective of a <strong><em>discrete</em></strong> latent-variable model, i.e., where the latent variable $z$ can attain only a finite set of values. This is in contrast to PCA, where the latent variables were continuous-valued numbers in $\mathbb R^M$.</li>
+<li>The advantages of the probabilistic perspective are that (i) it will justify some ad hoc decisions we made in the previous sections, (ii) it allows for a concrete interpretation of the responsibilities as posterior probabilities, and (iii) the iterative algorithm for updating the model parameters can be derived in a principled manner as the EM algorithm for maximum likelihood parameter estimation in latent-variable models.</li>
+</ul>
+<h3 id="Generative-Process-and-Probabilistic-Model"><a href="#Generative-Process-and-Probabilistic-Model" class="headerlink" title="Generative Process and Probabilistic Model"></a>Generative Process and Probabilistic Model</h3><ul>
+<li><p>We assume a mixture model with $K$ components and that a data point $x$ can be generated by exactly one mixture component. We introduce a binary indicator variable $z_k ∈ \{0, 1\}$ with two states that indicates whether the $k$th mixture component generated that data point so that</p>
+<script type="math/tex; mode=display">
+p(x|z_k=1)=\mathcal N(x|\mu_k,\varSigma_k)</script><p>We define $z := [z_1, . . . , z_K]^⊤ ∈\mathbb R^K$ as a probability vector consisting of $K−1$ many $0$s and exactly one $1$. For example, for $K = 3$, a valid $z$ would be $z = [z_1, z_2, z_3]^⊤ = [0, 1, 0]^⊤$, which would select the second mixture component since $z_2 = 1$.</p>
+</li>
+<li><p>Sometimes this kind of probability distribution is called “multinoulli”, a generalization of the Bernoulli distribution to more than two values</p>
+</li>
+<li><p>The properties of $z$ imply that $\sum_{k=1}^Kz_k=1$. Therefore, $z$ is a <strong><em>one-hot encoding</em></strong> (also: $1$-of-$K$ representation).</p>
+</li>
+<li><p>Thus far, we assumed that the indicator variables $z_k$ are known. However, in practice, this is not the case, and we place a prior distribution</p>
+<script type="math/tex; mode=display">
+p(z)=\pi=[\pi_1,...,\pi_K]^T,\quad \sum_{k=1}^K\pi_k=1</script><p>on the latent variable $z$. Then the $k$th entry</p>
+<script type="math/tex; mode=display">
+\pi_k=p(z_k=1)</script><p>of this probability vector describes the probability that the $k$th mixture component generated data point $x$.</p>
+</li>
+<li><p><strong>Sampling from a GMM</strong>: The construction of this latent-variable model lends itself to a very simple sampling procedure (generative process) to generate data:</p>
+<ol>
+<li>Sample $z^{(i)} ∼ p(z)$.</li>
+<li>Sample $x^{(i)} ∼ p(x | z^{(i)} = 1)$.</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408131027367.png" alt="Graphical model for a GMM with a single data point"></p>
+<p>In the first step, we select a mixture component i (via the one-hot encoding $z$) at random according to $p(z) = π$; in the second step we draw a sample from the corresponding mixture component. When we discard the samples of the latent variable so that we are left with the $x^{(i)}$, we have valid samples from the GMM. This kind of sampling, where samples of random variables depend on samples from the variable’s parents in the graphical model, is called <strong><em>ancestral sampling</em></strong>.</p>
+</li>
+<li><p>Generally, a probabilistic model is defined by the joint distribution of the data and the latent variables. With the prior $p(z)$ and the conditional $p(x | z)$,we obtain all $K$ components of this joint distribution via</p>
+<script type="math/tex; mode=display">
+p(x,z_k=1)=p(x|z_k=1)p(z_k=1)=\pi_k\mathcal N(x|\mu_k,\varSigma_k)</script><p>for $k = 1, . . . ,K$, so that</p>
+<script type="math/tex; mode=display">
+p(x,z)=\left[\begin{matrix}
+p(x,z_1=1)\\
+\vdots\\
+p(x,z_K=1)
+\end{matrix}\right]=
+\left[\begin{matrix}
+\pi_1\mathcal N(x|\mu_1,\varSigma_1)\\
+\vdots\\
+\pi_K\mathcal N(x|\mu_K,\varSigma_K)
+\end{matrix}\right]</script><p>which fully specifies the probabilistic model.</p>
+</li>
+</ul>
+<h3 id="Likelihood"><a href="#Likelihood" class="headerlink" title="Likelihood"></a>Likelihood</h3><ul>
+<li><p>To obtain the likelihood $p(x | θ)$ in a latent-variable model, we need to marginalize out the latent variables. In our case, this can be done by summing out all latent variables from the joint $p(x, z)$ so that</p>
+<script type="math/tex; mode=display">
+p(x|\theta)=\underset{z}{\sum}p(x|\theta,z)p(z|\theta),\quad\theta:=\{\mu_k,\varSigma_k,\pi_k:k=1,...,K\}</script></li>
+<li><p>We now explicitly condition on the parameters $θ$ of the probabilistic model, which we previously omitted. We sum over all $K$ possible one-hot encodings of $z$, which is denoted by $\sum_z$. Since there is only a singlen onzero single entry in each $z$ there are only $K$ possible configurations/settings of $z$. For example, if $K = 3$, then $z$ can have the configurations</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}1\\0\\0\end{matrix}\right],
+\left[\begin{matrix}0\\1\\0\end{matrix}\right],
+\left[\begin{matrix}0\\0\\1\end{matrix}\right],</script><p>Summing over all possible configurations of $z$ is equivalent to looking at the nonzero entry of the $z$-vector and writing</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(x|\theta)&=\sum_zp(x|\theta,z)p(z|\theta)\\
+&=\sum_{k=1}^Kp(x|\theta,z_k=1)p(z_k=1|\theta) 
+\end{split}</script><p>so that the desired marginal distribution is given as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(x|\theta)&=\sum_{k=1}^Kp(x|\theta,z_k=1)p(z_k=1|\theta)\\
+&=\sum_{k=1}^K\pi_k\mathcal N(x|\mu_k,\varSigma_k)
+\end{split}</script><p>which we identify as the GMM model. Given a dataset $\mathcal X$, we immediately obtain the likelihood</p>
+<script type="math/tex; mode=display">
+p(\mathcal X|\theta)=\prod_{n=1}^Np(x_n|\theta)=\prod_{n=1}^N\sum_{k=1}^K\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)</script><p>which is exactly the GMM likelihood. Therefore, the latent-variable model with latent indicators $z_k$ is an equivalent way of thinking about a Gaussian mixture model.</p>
+</li>
+</ul>
+<h3 id="Posterior-Distribution"><a href="#Posterior-Distribution" class="headerlink" title="Posterior Distribution"></a>Posterior Distribution</h3><ul>
+<li>Let us have a brief look at the posterior distribution on the latent variable $z$. According to Bayes’ theorem, the posterior of the $k$th component having generated data point $x$<script type="math/tex; mode=display">
+p(z_k=1|x)=\frac{p(z_k=1)p(x|z_k=1)}{p(x)}</script>where the marginal $p(x)$ is given $p(x|\theta)$ This yields the posterior distribution for the $k$th indicator variable $z_k$<script type="math/tex; mode=display">
+p(z_k=1|x)=\frac{p(z_k=1)p(x|z_k=1)}{\sum_{j=1}^Kp(z_j=1)p(x|z_j=1)}=\frac{\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)}{\sum_{j=1}^K\pi_j\mathcal N(x|\mu_j,\varSigma_j)}</script>which we identify as the responsibility of the $k$th mixture component for data point $x$. Note that we omitted the explicit conditioning on the GMM parameters $π_k,\mu_k,Σ_k$ where $k = 1, . . . ,K$.</li>
+</ul>
+<h3 id="Extension-to-a-Full-Dataset"><a href="#Extension-to-a-Full-Dataset" class="headerlink" title="Extension to a Full Dataset"></a>Extension to a Full Dataset</h3><ul>
+<li><p>The concepts of the prior and posterior can be directly extended to the case of $N$ data points $X := \{x_1, . . . , x_N\}$.</p>
+</li>
+<li><p>In the probabilistic interpretation of the GMM, every data point $x_n$ possesses its own latent variable</p>
+<script type="math/tex; mode=display">
+z_n=[z_{n1},...,z_{nK}]^T\in\mathbb R^{K}</script><p>We share the same prior distribution $π$ across all latent variables $z_n$.</p>
+</li>
+<li><p>The conditional distribution $p(x_1, . . . , x_N | z_1, . . . , z_N)$ factorizes over the data points and is given as</p>
+<script type="math/tex; mode=display">
+p(x_1, . . . , x_N | z_1, . . . , z_N)=\prod_{n=1}^Np(x_n|z_n)</script><p>To obtain the posterior distribution $p(z_{nk} = 1 | x_n)$, we follow the same reasoning as in single posterior distribution and apply Bayes’ theorem to obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+p(z_{nk}=1|x_n)&=\frac{p(x_n|z_{nk}=1)p(z_{nk}=1)}{\sum_{j=1}^Kp(x_n|z_{nk}=1)p(z_{nj}=1)}\\
+&=\frac{\pi_k\mathcal N(x_n|\mu_k,\varSigma_k)}{\sum_{j=1}^K\pi_j\mathcal N(x|\mu_j,\varSigma_j)}=r_{nk}
+\end{split}</script><p>This means that $p(z_k = 1 | x_n)$ is the (posterior) probability that the $k$th mixture component generated data point $x_n$ and corresponds to the responsibility $r_{nk}$</p>
+</li>
+</ul>
+<h3 id="EM-Algorithm-Revisited"><a href="#EM-Algorithm-Revisited" class="headerlink" title="EM Algorithm Revisited"></a>EM Algorithm Revisited</h3><p>The EM algorithm that we introduced as an iterative scheme for maximum likelihood estimation can be derived in a principled way from the latent-variable perspective. Given a current setting $θ^{(t)}$ of model parameters, the E-step calculates the expected log-likelihood</p>
+<script type="math/tex; mode=display">
+\begin{split}
+Q(\theta|\theta^{(t)})&=\mathbb E_{z|x,\theta^{(t)}}[\log p(x,z|\theta)]\\
+&=\int \log p(x,z|\theta)p(z|x,\theta^{(t)})dz
+\end{split}</script><p>where the expectation of log $p(x, z | θ)$ is taken with respect to the posterior $p(z | x, θ^{(t)})$ of the latent variables. The M-step selects an updated set of model parameters $θ^{(t+1)}$ by maximizing the expected log-likelihood.</p>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/13/densityestimationwithgaussianmixturemodels/">http://Eliauk-L.github.io/2024/08/13/densityestimationwithgaussianmixturemodels/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/MachineLearing/">
+                                    <span class="chip bg-color">MachineLearing</span>
+                                </a>
+                            
+                                <a href="/tags/DensityEstimation/">
+                                    <span class="chip bg-color">DensityEstimation</span>
+                                </a>
+                            
+                                <a href="/tags/GaussianMixtureModels/">
+                                    <span class="chip bg-color">GaussianMixtureModels</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/13/densityestimationwithgaussianmixturemodels/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Density Estimation with Gaussian Mixture Models">
+                        
+                        <span class="card-title">Density Estimation with Gaussian Mixture Models</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                    MachineLearing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/MachineLearing/">
+                        <span class="chip bg-color">MachineLearing</span>
+                    </a>
+                    
+                    <a href="/tags/DensityEstimation/">
+                        <span class="chip bg-color">DensityEstimation</span>
+                    </a>
+                    
+                    <a href="/tags/GaussianMixtureModels/">
+                        <span class="chip bg-color">GaussianMixtureModels</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/12/javaweb-si-wei-dao-tu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JavaWeb思维导图">
+                        
+                        <span class="card-title">JavaWeb思维导图</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">
+                        <span class="chip bg-color">思维导图</span>
+                    </a>
+                    
+                    <a href="/tags/JavaWeb/">
+                        <span class="chip bg-color">JavaWeb</span>
+                    </a>
+                    
+                    <a href="/tags/HTML/">
+                        <span class="chip bg-color">HTML</span>
+                    </a>
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                    <a href="/tags/JSP/">
+                        <span class="chip bg-color">JSP</span>
+                    </a>
+                    
+                    <a href="/tags/Servlet/">
+                        <span class="chip bg-color">Servlet</span>
+                    </a>
+                    
+                    <a href="/tags/Tomcat/">
+                        <span class="chip bg-color">Tomcat</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
