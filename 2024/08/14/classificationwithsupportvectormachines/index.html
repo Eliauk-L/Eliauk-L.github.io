@@ -1,0 +1,1344 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Classification with Support Vector Machines, Jay&#39;s Blog">
+    <meta name="description" content="Classification with Support Vector Machines
+We consider predictors that output binary values, i.e., there are only two p">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Classification with Support Vector Machines | Jay&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Jay&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries" class="waves-effect waves-light">
+      
+      <i class="fas fa-image" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Jay&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Jay&#39;s Blog
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-image"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/40.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Classification with Support Vector Machines</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mathematics/">
+                                <span class="chip bg-color">Mathematics</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/MachineLearing/">
+                                <span class="chip bg-color">MachineLearing</span>
+                            </a>
+                        
+                            <a href="/tags/Classification/">
+                                <span class="chip bg-color">Classification</span>
+                            </a>
+                        
+                            <a href="/tags/SVM/">
+                                <span class="chip bg-color">SVM</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                MachineLearing
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-08-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    31 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Classification-with-Support-Vector-Machines"><a href="#Classification-with-Support-Vector-Machines" class="headerlink" title="Classification with Support Vector Machines"></a>Classification with Support Vector Machines</h1><ul>
+<li><p>We consider predictors that output binary values, i.e., there are only two possible outcomes. This machine learning task is called <strong><em>binary classification</em></strong>. For binary classification, the set of possible values that the label/output can attain is binary, and for this chapter we denote them by $\{+1, −1\}$. In other words, we consider predictors of the form</p>
+<script type="math/tex; mode=display">
+f:\mathbb R^D\rightarrow \{+1,-1\}</script></li>
+<li><p>We present an approach known as the <strong><em>support vector machine (SVM)</em></strong>, which solves the binary classification task.</p>
+</li>
+<li><p>There are two main reasons why we chose to illustrate binary classification using SVMs. First, the SVM allows for a geometric way to think about supervised<br>machine learning.  We will consider an alternative approach where we reason geometrically about the machine learning task. It relies heavily on concepts, such as inner products and projections. The second reason why we find SVMs instructive is that the optimization problem for SVM does not admit an analytic solution so that we need to<br>resort to a variety of optimization tools.</p>
+</li>
+</ul>
+<h2 id="Separating-Hyperplanes"><a href="#Separating-Hyperplanes" class="headerlink" title="Separating Hyperplanes"></a>Separating Hyperplanes</h2><ul>
+<li><p>Given two examples represented as vectors $x_i$ and $x_j$, one way to compute the similarity between them is using an inner product $\left<x_i, x_j\right="">$. Recall that inner products are closely related to the angle between two vectors. The value of the inner product between two vectors depends on the length (norm) of each vector. Furthermore, inner products allow<br>us to rigorously define geometric concepts such as orthogonality and projections.</x_i,></p>
+</li>
+<li><p>The main idea behind many classification algorithms is to represent data in $\mathbb R^D$ and then partition this space, ideally in a way that examples with the same label (and no other examples) are in the same partition.</p>
+</li>
+<li><p>In the case of binary classification, the space would be divided into two parts corresponding to the positive and negative classes, respectively. We consider a particularly convenient partition, which is to (linearly) split the space into two halves using a hyperplane. Let example $x ∈\mathbb R^D$ be an element of the data space. Consider a function</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f&:\mathbb R^D\rightarrow \mathbb R\\
+x&\mapsto f(x):=\left<w,x\right>+b
+\end{split}</script><p>parametrized by $w ∈\mathbb R^D$ and $b ∈\mathbb R$. Recall that hyperplanes are affine subspaces. Therefore, we define the hyperplane that separates the two classes in our binary classification problem as</p>
+<script type="math/tex; mode=display">
+\{x\in\mathbb R^D:f(x)=0\}</script><p>An illustration of the hyperplane is shown in Figure, where the vector $w$ is a vector normal to the hyperplane and $b$ the intercept. We can derive that w is a normal vector to the hyperplane by choosing any two examples $x_a$ and $x_b$ on the hyperplane and showing that the vector between them is orthogonal to $w$. In the form of an equation,</p>
+<script type="math/tex; mode=display">
+\begin{split}
+f(x_a)-f(x_b)&=\left<w,x_a\right>+b-(\left<w,x_b\right>+b)\\
+&=\left<w,x_a-x_b\right>
+\end{split}</script><p>where the second line is obtained by the linearity of the inner product.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408141001347.png" alt="Equation of a separating hyperplane"></p>
+</li>
+</ul>
+<p>​        Since we have chosen $x_a$ and $x_b$ to be on the hyperplane, this implies that $f(x_a) = 0$ and $f(x_b) = 0$ and hence $⟨w, xa − xb⟩ = 0$. Recall that two vectors are orthogonal when their inner product is zero.  Therefore, we obtain that $w$ is orthogonal to any vector on the hyperplane.</p>
+<ul>
+<li><p>In this chapter, we think of the parameter vector $w$ as an arrow indicating a direction, i.e., we consider $w$ to be a geometric vector. In contrast, we think of the example vector $x$ as a data point (as indicated by its coordinates), i.e., we consider $x$ to be the coordinates of a vector with respect to the standard basis.</p>
+</li>
+<li><p>To classify a test example $x_{test}$, we calculate the value of the function $f(x_{test})$ and classify the example as $+1$ if $f(x_{test}) ⩾ 0$ and $−1$ otherwise. </p>
+</li>
+<li><p>When training the classifier, we want to ensure that the examples with positive labels are on the positive side of the hyperplane, i.e.,</p>
+<script type="math/tex; mode=display">
+\left<w,x_n\right>+b\ge 0\quad \text{when}\quad y_n=+1</script><p>and the examples with negative labels are on the negative side, i.e.,</p>
+<script type="math/tex; mode=display">
+\left<w,x_n\right>+b < 0\quad \text{when}\quad y_n=-1</script><p>These two conditions are often presented in a single equation</p>
+<script type="math/tex; mode=display">
+y_n(\left<w,x_n\right>+b)\ge0</script></li>
+</ul>
+<h2 id="Primal-Support-Vector-Machine"><a href="#Primal-Support-Vector-Machine" class="headerlink" title="Primal Support Vector Machine"></a>Primal Support Vector Machine</h2><ul>
+<li>For a dataset $\{(x_1, y_1), . . . , (x_N, y_N)\}$ that is linearly separable, we have infinitely many<br>candidate hyperplanes, and therefore classifiers, that solve our classification problem without any (training) errors. To find a unique solution, one idea is to choose the separating hyperplane that maximizes the margin between the positive and negative examples. In other words, we want the positive and negative examples to be separated<br>by a large margin .</li>
+<li>The closest point on the hyperplane to a given point (example $x_n$) is obtained by the orthogonal projection.</li>
+</ul>
+<h3 id="Concept-of-the-Margin"><a href="#Concept-of-the-Margin" class="headerlink" title="Concept of the Margin"></a>Concept of the Margin</h3><ul>
+<li><p>The concept of the <strong><em>margin</em></strong> is intuitively simple: It is the distance of the separating hyperplane to the closest examples in the dataset, assuming that the dataset is linearly separable.</p>
+</li>
+<li><p>The technical wrinkle is that we need to define a scale at which to measure the<br>distance.</p>
+</li>
+<li><p>Consider a hyperplane $⟨w, x⟩ + b$, and an example $x_a$ as illustrated in Figure. Without loss of generality, we can consider the example $x_a$ to be on the positive side of the hyperplane, i.e., $⟨w, x_a⟩ + b &gt; 0$. We would like to compute the distance $r &gt; 0$ of $x_a$ from the hyperplane. We do so by considering the orthogonal projection of $x_a$ onto the hyperplane, which we denote by $x^′_a$. Since $w$ is orthogonal to the hyperplane, we know that the distance $r$ is just a scaling of this vector $w$. If the length of $w$ is known, then we can use this scaling factor $r$ factor to work out the absolute distance between $x_a$ and $x^′_a$.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408141002142.png" alt="Vector addition to express distance to hyperplane"></p>
+</li>
+<li><p>For convenience, we choose to use a vector of unit length (its norm is $1$) and obtain this<br>by dividing $w$ by its norm, $\frac{w}{∥w∥}$ . Using vector addition, we obtain</p>
+<script type="math/tex; mode=display">
+x_a=x^′_a+r\frac{w}{∥w∥}</script></li>
+<li><p>Another way of thinking about $r$ is that it is the coordinate of $x_a$ in the subspace spanned by $w/ ∥w∥$. We have now expressed the distance of $x_a$ from the hyperplane as $r$, and if we choose $x_a$ to be the point closest to the hyperplane, this distance $r$ is the margin.</p>
+</li>
+<li><p>Since we are interested only in the direction, we add an assumption to our model that the parameter vector $w$ is of unit length, i.e., $∥w∥ = 1$, where we use the Euclidean norm $∥w∥ =\sqrt{w^⊤w}$. This assumption also allows a more intuitive interpretation of the distance $r$ since it is the scaling factor of a vector of length $1$.</p>
+</li>
+<li><p>Collecting the three requirements into a single constrained optimization problem, we obtain the objective</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\underset{w,b,r}{\max}&\underset{\text{margin}}{\underbrace{r}}\\
+\text{subject to}\quad &\underset{\text{data fitting}}{\underbrace{y_n(\left<w,x_n\right>+b)\ge r}},\underset{\text{normalization}}{\underbrace{\left\|w\right\|=1}},r>0
+\end{split}</script><p>which says that we want to maximize the margin $r$ while ensuring that the data lies on the correct side of the hyperplane.</p>
+</li>
+</ul>
+<h3 id="Traditional-Derivation-of-the-Margin"><a href="#Traditional-Derivation-of-the-Margin" class="headerlink" title="Traditional Derivation of the Margin"></a>Traditional Derivation of the Margin</h3><ul>
+<li><p>Instead of choosing that the parameter vector is normalized, we choose a scale for the data. We choose this scale such that the value of the predictor $⟨w, x⟩ + b$ is $1$ at<br>the closest example. Let us also denote the example in the dataset that is closest to the hyperplane by $x_a$.</p>
+</li>
+<li><p>Since $x^′_a$ is the orthogonal projection of $x_a$ onto the hyperplane, it must by definition lie on the hyperplane, i.e.,</p>
+<script type="math/tex; mode=display">
+\left<w,x^′_a\right>+b=0\\
+\Downarrow\\
+\left<w,x_a-r\frac{w}{\left\|w\right\|}\right>+b=0</script><p>Exploiting the bilinearity of the inner product, we get</p>
+<script type="math/tex; mode=display">
+\left<w,x_a\right>+b-r\frac{\left<w,w\right>}{\left\|w\right\|}=0</script><p>Observe that the first term is $1$ by our assumption of scale, i.e., $⟨w, xa⟩ +b = 1$. We know that $⟨w,w⟩ = ∥w∥^2$. Hence, the second term reduces to $r∥w∥$. Using these simplifications, we obtain</p>
+<script type="math/tex; mode=display">
+r=\frac{1}{\left\|w\right\|}</script><p>This means we derived the distance r in terms of the normal vector $w$ of the hyperplane.</p>
+<p>At first glance, this equation is counterintuitive as we seem to have derived the distance from the hyperplane in terms of the length of the vector $w$, but we do not yet know this vector. One way to think about it is to consider the distance $r$ to be a temporary variable<br>that we only use for this derivation. Therefore, for the rest of this section we will denote the distance to the hyperplane by $\frac{1}{∥w∥}$ .</p>
+</li>
+<li><p>We want the positive and negative examples to be at least $1$ away from the hyperplane, which yields the condition</p>
+<script type="math/tex; mode=display">
+y_n(\left<w,x_n\right>+b)\ge 1</script><p>Combining the margin maximization with the fact that examples need to be on the correct side of the hyperplane (based on their labels) gives us</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b}{\max}\quad \frac{1}{\left\|w\right\|}\\
+&\text{subject to}\quad y_n(\left<w,x_n\right>+b)\ge 1\quad \text{for all}\quad n=1,...,N
+\end{split}</script><p>Instead of maximizing the reciprocal of the norm, we often minimize the squared norm. We also often include a constant $\frac{1}{2}$ that does not affect the optimal $w, b$ but yields a tidier form when we compute the gradient. Then, our objective becomes</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b}{\max}\quad \frac{1}{2}{\left\|w\right\|}^2\\
+&\text{subject to}\quad y_n(\left<w,x_n\right>+b)\ge 1\quad \text{for all}\quad n=1,...,N
+\end{split}</script><p>Equation is known as the <strong><em>hard margin SVM</em></strong>. The reason for the expression “hard” is because the formulation does not allow for any violations of the margin condition.</p>
+</li>
+</ul>
+<h3 id="Why-We-Can-Set-the-Margin-to-1"><a href="#Why-We-Can-Set-the-Margin-to-1" class="headerlink" title="Why We Can Set the Margin to 1"></a>Why We Can Set the Margin to 1</h3><ul>
+<li><p>Maximizing the margin r, where we consider normalized weights</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\underset{w,b,r}{\max}&\underset{\text{margin}}{\underbrace{r}}\\
+\text{subject to}\quad &\underset{\text{data fitting}}{\underbrace{y_n(\left<w,x_n\right>+b)\ge r}},\underset{\text{normalization}}{\underbrace{\left\|w\right\|=1}},r>0
+\end{split}</script><p>is equivalent to scaling the data, such that the margin is unity:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b}{\max}\quad \frac{1}{2}{\left\|w\right\|}^2\\
+&\text{subject to}\quad\underset{\text{data fitting}}{\underbrace{y_n(\left<w,x_n\right>+b)\ge 1}}
+
+\end{split}</script></li>
+<li><p>Proof</p>
+</li>
+</ul>
+<h3 id="Soft-Margin-SVM-Geometric-View"><a href="#Soft-Margin-SVM-Geometric-View" class="headerlink" title="Soft Margin SVM: Geometric View"></a>Soft Margin SVM: Geometric View</h3><ul>
+<li><p>The model that allows for some classification errors is called the <strong><em>soft margin SVM</em></strong>.</p>
+</li>
+<li><p>In this section, we derive the resulting optimization problem using geometric arguments.</p>
+</li>
+<li><p>The key geometric idea is to introduce a <em>slack variable</em> $\xi_n$ corresponding to each example–label pair $(x_n, y_n)$ that allows a particular example to be within the margin or even on the wrong side of the hyperplane.  We subtract the value of $ξ_n$ from the margin, constraining<br>$ξ_n$ to be non-negative. To encourage correct classification of the samples, we add $ξ_n$ to the objective</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b,\xi}{\max}\quad \frac{1}{2}{\left\|w\right\|}^2+C\sum_{n=1}^N\xi_n\\
+&\text{subject to}\quad{y_n(\left<w,x_n\right>+b)\ge 1-\xi_n},\;\xi_n\ge 0
+\end{split}</script><p>for $n = 1, . . . ,N$.  In contrast to the optimization problem for the hard margin SVM, this one is called the soft margin SVM. The parameter $C &gt; 0$ trades off the size of the margin and the total amount of slack that we have. This parameter is called the <em>regularization parameter</em> since, as we will see in the following section, the margin term in the objective function is a regularization term. The margin term $∥w∥^2$ is called the <em>regularizer</em>, and in many books on numerical optimization, the regularization parameter is multiplied with this term.</p>
+</li>
+<li><p>Here a large value of $C$ implies low regularization, as we give the slack variables larger weight, hence giving more priority to examples that do not lie on the correct side of the margin.</p>
+</li>
+<li><p>In the formulation of the soft margin SVM  $w$ is regularized, but $b$ is not regularized. We can see this by observing that the regularization term does not contain $b$.</p>
+</li>
+</ul>
+<h3 id="Soft-Margin-SVM-Loss-Function-View"><a href="#Soft-Margin-SVM-Loss-Function-View" class="headerlink" title="Soft Margin SVM: Loss Function View"></a>Soft Margin SVM: Loss Function View</h3><ul>
+<li><p>Let us consider a different approach for deriving the SVM, following the principle of empirical risk minimization. For the SVM, we choose hyperplanes as the hypothesis class, that is</p>
+<script type="math/tex; mode=display">
+f(x)=\left<w,x\right>+b</script></li>
+<li><p>The ideal loss function between binary labels is to count the number of mismatches between the prediction and the label. This means that for a predictor $f$ applied to an example $x_n$, we compare the output $f(x_n)$ with the label $y_n$. We define the loss to be zero if they match, and one if they do not match. This is denoted by $1(f(x_n) \ne y_n)$ and is called the <strong><em>zero-one loss</em></strong>. Unfortunately, the zero-one loss results in a combinatorial zero-one loss optimization problem for finding the best parameters $w, b$. Combinatorial optimization problems are in general more challenging to solve.</p>
+</li>
+<li><p>What is the loss function corresponding to the SVM? Consider the error between the output of a predictor $f(x_n)$ and the label $y_n$. The loss describes the error that is made on the training data. An equivalent way to derive is to use the <strong><em>hinge loss</em></strong></p>
+<script type="math/tex; mode=display">
+\ell(t)=\max\{0,1-t\}\quad\text{where}\quad t=yf(x)=y(\left<w,x\right>+b)</script><p>If $f(x)$ is on the correct side (based on the corresponding label $y$) of the hyperplane, and further than distance $1$, this means that $t ⩾ 1$ and the hinge loss returns a value of zero. If $f(x)$ is on the correct side but too close to the hyperplane $(0 &lt; t &lt; 1)$, the example $x$ is within the margin, and the hinge loss returns a positive value. When the example is on the<br>wrong side of the hyperplane $(t &lt; 0)$, the hinge loss returns an even larger value, which increases linearly. In other words, we pay a penalty once we are closer than the margin to the hyperplane, even if the prediction is correct, and the penalty increases linearly.</p>
+</li>
+<li><p>An alternative way to express the hinge loss is by considering it as two linear pieces</p>
+<script type="math/tex; mode=display">
+\ell(t)=\begin{cases}
+0\quad\quad\text{if}\quad t\ge 1\\
+1-t\quad\text{if}\quad t< 1\\
+\end{cases}</script><p>The loss corresponding to the hard margin SVM is defined as</p>
+<script type="math/tex; mode=display">
+\ell(t)=\begin{cases}
+0\quad\text{if}\quad t\ge 1\\
+\infty\quad\text{if}\quad t< 1\\
+\end{cases}</script></li>
+<li><p>For a given training set $\{(x_1, y_1), . . . , (x_N, y_N)\}$, we seek to minimize the total loss, while regularizing the objective with $\ell_2$-regularization. Using the hinge loss gives us the unconstrained optimization problem</p>
+<script type="math/tex; mode=display">
+\underset{w,b}{\min}\underset{\text{regularizer}}{\underbrace{\frac{1}{2}\left\|w\right\|^2}}+\underset{\text{error term}}{\underbrace{C\sum_{n=1}^N\max\{0,1-y_n(\left<w,x_n\right>+b\}}}</script><p>The first term is called the <em>regularization term</em> or the <em>regularizer</em> , and the second term is called the <em>loss term or the error term</em>. Recall that the term $\frac{1}{2}\left|w\right|^2$ arises directly from<br>the margin. In other words, margin maximization can be interpreted as regularization.</p>
+</li>
+<li><p>In principle, the unconstrained optimization problem can be directly solved with (sub-)gradient descent methods. </p>
+</li>
+<li><p>Consider the hinge loss for a single example-label pair. We can equivalently replace minimization of the hinge loss over $t$ with a minimization of a slack variable $\ell$ with two constraints. In equation form,</p>
+<script type="math/tex; mode=display">
+\underset{t}{\min}\max\{0,1-t\}</script><p>is equivalent to</p>
+<script type="math/tex; mode=display">
+\underset{\xi,t}{\min}\xi\\
+\text{subject to}\quad \xi\ge 0,\xi\ge1-t</script><p>By substituting this expression into  the unconstrained optimization problem and rearranging one of the constraints, we obtain exactly the soft margin SVM.</p>
+</li>
+</ul>
+<h2 id="Dual-Support-Vector-Machine"><a href="#Dual-Support-Vector-Machine" class="headerlink" title="Dual Support Vector Machine"></a>Dual Support Vector Machine</h2><ul>
+<li>Recall that we consider inputs $x ∈\mathbb R^D$ with $D$ features. Since w is of the same dimension as $x$, this means that the number of parameters (the dimension of $w$) of the optimization problem grows linearly with the number of features.</li>
+<li>We consider an equivalent optimization problem (the so-called dual view), which is independent of the number of features. Instead, the number of parameters increases with the number of examples in the training set.</li>
+</ul>
+<h3 id="Convex-Duality-via-Lagrange-Multipliers"><a href="#Convex-Duality-via-Lagrange-Multipliers" class="headerlink" title="Convex Duality via Lagrange Multipliers"></a>Convex Duality via Lagrange Multipliers</h3><ul>
+<li><p>Recall the primal soft margin SVM. We call the variables $w, b$, and $ξ$ corresponding to the primal SVM the primal variables. We use $α_n ⩾0$ as the Lagrange multiplier corresponding to the constraint that the examples are classified correctly and $γ_n ⩾ 0$ as the Lagrange multiplier corresponding to the non-negativity constraint of the slack variable. The Lagrangian is then given by</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathfrak L(w,b,\xi,\alpha,\gamma)=&\frac{1}{2}{\left\|w\right\|}^2+C\sum_{n=1}^N\xi_n\\
+&\underset{\text{constraint}}{\underbrace{-\sum_{n=1}^N\alpha_n(y_n(\left<w,x_n\right>+b)-1+\xi_n)}}\underset{\text{constraint}}{\underbrace{-\sum_{n=1}^N\gamma_n\xi_n}}
+\end{split}</script><p>By differentiating the Lagrangian with respect to the three primal variables $w, b$, and $ξ $respectively, we obtain</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\frac{\partial \mathfrak L}{\partial w}&=w^T-\sum_{n=1}^N\alpha_ny_nx_n^T\\
+\frac{\partial \mathfrak L}{\partial b}&=-\sum_{n=1}^N\alpha_ny_n\\
+\frac{\partial \mathfrak L}{\partial \xi_n}&=C-\alpha_n-\gamma_n
+\end{split}</script><p>We now find the maximum of the Lagrangian by setting each of these partial derivatives to zero. By setting $\frac{\partial \mathfrak L}{\partial w}$ to zero, we find</p>
+<script type="math/tex; mode=display">
+w=\sum_{n=1}^N\alpha_ny_nx_n</script><p>which is a particular instance of the <em>representer theorem</em>. Equation states that the optimal weight vector in the primal is a linear combination of the examples $x_n$.</p>
+</li>
+<li><p>By substituting the expression for $w$ into the Lagrangian, we obtain the dual</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mathfrak D(\xi,\alpha,\gamma)=&\color{blue}{\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^Ny_iy_j\alpha_i\alpha_j\left<x_i,x_j\right>-\sum_{i=1}^Ny_i\alpha_i\left<\sum_{j=1}^Ny_j\alpha_jx_j,x_i\right>}\\
+&+C\sum_{i=1}^N\xi_i-b\sum_{i=1}^Ny_i\alpha_i+\sum_{i=1}^N\alpha_i-\sum_{i=1}^N\alpha_i\xi_i-\sum_{i=1}^N\gamma_i\xi_i
+\end{split}</script><p>Note that there are no longer any terms involving the primal variable $w$. By setting $\frac{\partial \mathfrak L}{\partial b}$  to zero, we obtain $\sum_{n=1}^Ny_n\alpha_n=0$. Therefore, the term involving $b$ also vanishes. Recall that inner products are symmetric and bilinear. Therefore, the first two terms are over the same objects. These terms (colored blue) can be simplified, and we obtain the Lagrangia</p>
+<script type="math/tex; mode=display">
+\mathfrak D(\xi,\alpha,\gamma)=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^Ny_iy_j\alpha_i\alpha_j\left<x_i,x_j\right>+\sum_{i=1}^N\alpha_i+\sum_{i=1}^N(C-\alpha_i-\gamma_i)\xi_i</script><p>The last term in this equation is a collection of all terms that contain slack variables $ξ_i$. By setting $\frac{\partial \mathfrak L}{\partial \xi_n}$ to zero, we see that the last term is also zero. Furthermore, by using the same equation and recalling that the Lagrange multiplers $γ_i$ are non-negative, we conclude that $α_i ⩽ C$.</p>
+</li>
+<li><p>We now obtain the dual optimization problem of the SVM, which is expressed exclusively in terms of the Lagrange multipliers αi. Recall from Lagrangian duality that we maximize the dual problem. This is equivalent to minimizing the negative dual problem, such that we end up with the dual SVM</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{\alpha}{\min}\quad\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^Ny_iy_j\alpha_i\alpha_j\left<x_i,x_j\right>-\sum_{i=1}^N\alpha_i\\
+&\text{subject to}\quad \sum_{i=1}^Ny_i\alpha_i=0\\
+&0\le\alpha_i\le C\quad\text{for all}\quad i=1,...,N
+\end{split}</script><p>The equality constraint is obtained from setting $\frac{\partial \mathfrak L}{\partial b}$ to zero. The inequality constraint $α_i ⩾ 0$ is the condition imposed on Lagrange multipliers of inequality constraints。</p>
+</li>
+<li><p>The set of inequality constraints in the SVM are called “box constraints” because they limit the vector $α = [α_1, · · · , α_N]^⊤ ∈\mathbb R^N$ of Lagrange multipliers to be inside the box defined by $0$ and $C$ on each axis. These axis-aligned boxes are particularly efficient to implement in numerical solvers.</p>
+</li>
+<li><p>Once we obtain the dual parameters $α$, we can recover the primal parameters $w$ by using the representer theorem. Let us call the optimal primal parameter $w^∗$. However, there remains the question on how to obtain the parameter $b^∗$. Consider an example $x_n$ that lies exactly on the margin’s boundary, i.e., $⟨w^∗, x_n⟩ + b = y_n$. Recall that $y_n$ is either $+1$ or $−1$. Therefore, the only unknown is $b$, which can be computed by</p>
+<script type="math/tex; mode=display">
+b^*=y_n-⟨w^∗, x_n⟩</script></li>
+<li><p>In principle, there may be no examples that lie exactly on the margin. In this case, we should compute $|y_n − ⟨w^∗, x_n⟩ |$ for all support vectors and take the median value of this absolute value difference to be the value of $b^∗$.</p>
+</li>
+</ul>
+<h3 id="Dual-SVM-Convex-Hull-View"><a href="#Dual-SVM-Convex-Hull-View" class="headerlink" title="Dual SVM: Convex Hull View"></a>Dual SVM: Convex Hull View</h3><ul>
+<li><p>Another approach to obtain the dual SVM is to consider an alternative geometric argument. Consider the set of examples $x_n$ with the same label. We would like to build a convex set that contains all the examples such that it is the smallest possible set. This is called the <em>convex hull</em> and is illustrated in Figure.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408141002927.png" alt="Convex hulls"></p>
+</li>
+<li><p>Let us first build some intuition about a convex combination of points. Consider two points $x_1$ and $x_2$ and corresponding non-negative weights $α_1, α_2 ⩾ 0$ such that $α_1+α_2 = 1$. The equation $α_1x_1+α_2x_2$ describes each point on a line between $x_1$ and $x_2$. Consider what happens when we add a third point $x_3$ along with a weight $α_3 ⩾ 0$ such that $\sum_{n=1}^3\alpha_n=1$.The convex combination of these three points $x_1, x_2, x_3$ spans a two-dimensional area. The convex hull of this area is the triangle formed by the edges corresponding to each pair of of points. As we add more points, and the number of points becomes greater than the number of dimensions, some of the points will be inside the convex hull.</p>
+</li>
+<li><p>In general, building a convex convex hull can be done by introducing non-negative weights $α_n ⩾ 0$ corresponding to each example $x_n$. Then the convex hull can be described as the set</p>
+<script type="math/tex; mode=display">
+\text{conv}(X)=\left\{\sum_{n=1}^N\alpha_nx_n\right\}\quad\text{with}\quad\sum_{n=1}\quad\text{and}\quad\alpha_n\ge0</script><p>for all $n = 1, . . . ,N$.</p>
+</li>
+<li><p>If the two clouds of points corresponding to the positive and negative classes are separated, then the convex hulls do not overlap. Given the training data $(x_1, y_1), . . . , (x_N, y_N)$, we form two convex hulls, corresponding to the positive and negative classes respectively. We pick a point $c$, which is in the convex hull of the set of positive examples, and is closest to the negative class distribution. Similarly, we pick a<br>point $d$ in the convex hull of the set of negative examples and is closest to the positive class distribution. We define a difference vector between $d$ and $c$ as</p>
+<script type="math/tex; mode=display">
+w:=c-d</script></li>
+<li><p>Picking the points $c$ and $d$ as in the preceding cases, and requiring them to be closest to each other is equivalent to minimizing the length/norm of $w$, so that we end up with the corresponding optimization problem</p>
+<script type="math/tex; mode=display">
+\arg\underset{w}{\min}\left\|w\right\|=\arg\underset{w}{\min}\frac{1}{2}\left\|w\right\|^2</script><p>Since $c$ must be in the positive convex hull, it can be expressed as a convex combination of the positive examples, i.e., for non-negative coefficients $α^+$</p>
+<script type="math/tex; mode=display">
+c=\sum_{n:y_n=+1}\alpha_n^+x_n</script><p>we use the notation $n : y_n = +1$ to indicate the set of indices $n$ for which $y_n = +1$. Similarly, for the examples with negative labels, we obtain</p>
+<script type="math/tex; mode=display">
+d=\sum_{n:y_n=-1}\alpha_n^-x_n</script><p>so that we obtain the objective</p>
+<script type="math/tex; mode=display">
+\underset{\alpha}{\min}\frac{1}{2}\left\|\sum_{n:y_n=+1}\alpha_n^+x_n-\sum_{n:y_n=-1}\alpha_n^-x_n\right\|^2</script></li>
+<li><p>Let $α$ be the set of all coefficients, i.e., the concatenation of $α^+$ and $α^−$. Recall that we require that for each convex hull that their coefficients sum to one,</p>
+<script type="math/tex; mode=display">
+\sum_{n:y_n=+1}\alpha_n^+=1\quad\text{and}\quad\sum_{n:y_n=-1}\alpha_n^-=1</script><p>This implies the constraint</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^Ny_n\alpha_n=0</script><p>This result can be seen by multiplying out the individual classes</p>
+<script type="math/tex; mode=display">
+\begin{split}
+\sum_{n=1}^Ny_n\alpha_n&=\sum_{n:y_n=+1}(+1)\alpha_n^++\sum_{n:y_n=-1}(-1)\alpha_n^-\\
+&=\sum_{n:y_n=+1}\alpha_n^+-\sum_{n:y_n=-1}\alpha_n^-=1-1=0
+\end{split}</script><p>The objective function and the constraint, along with the assumption that $α ⩾ 0$, give us a constrained (convex) optimization problem. This optimization problem can be shown to be the same as that of the dual hard margin SVM.</p>
+</li>
+<li><p>To obtain the soft margin dual, we consider the reduced hull. The <em>reduced hull</em> is similar to the convex hull but has an upper bound to the size of the coefficients $α$. The maximum possible value of the elements of $α$ restricts the size that the convex hull can take. In other words, the bound on $α$ shrinks the convex hull to a smaller volume</p>
+</li>
+</ul>
+<h2 id="Kernels"><a href="#Kernels" class="headerlink" title="Kernels"></a>Kernels</h2><ul>
+<li><p>Since $ϕ(x)$ could be a non-linear function, we can use the SVM (which assumes a linear classifier) to construct classifiers that are nonlinear in the examples $x_n$. This provides a second avenue, in addition to the soft margin, for users to deal with a dataset that is not linearly separable. </p>
+</li>
+<li><p>Instead of explicitly defining a non-linear feature map $ϕ(·)$ and computing the resulting inner product between examples $x_i$ and $x_j$, we define a similarity function $k(x_i, x_j)$ between $x_i$ and $x_j$. For a certain class of similarity functions, called <strong><em>kernels</em></strong>, the similarity function implicitly defines a non-linear feature map $ϕ(·)$. Kernels are by definition functions $k :\mathcal X ×\mathcal X →\mathbb R$ for which there exists a Hilbert space $H$ and $ϕ : X → H$ a feature map such that</p>
+<script type="math/tex; mode=display">
+k(x_i,x_j)=\left<\phi(x_i),\phi(x_j)\right>_H</script></li>
+<li><p>There is a unique reproducing kernel Hilbert space associated with every kernel $k$. In this unique association, $ϕ(x) = k(·, x)$ is called the <strong><em>canonical feature map</em></strong>. The generalization from an inner product to a kernel function is known as the <strong><em>kernel trick</em></strong>, as it hides away the explicit non-linear feature map.</p>
+</li>
+<li><p>The matrix $K ∈\mathbb R^{N×N}$, resulting from the inner products or the application of $k(·, ·)$ to a dataset, is called the <strong><em>Gram matrix</em></strong>, and is often just referred to as the <strong><em>kernel matrix</em></strong>. Kernels must be symmetric and positive semidefinite functions so that every kernel matrix $K$ is symmetric and positive semidefinite:</p>
+<script type="math/tex; mode=display">
+\forall z\in\mathbb R^N:z^TKz\ge 0</script></li>
+<li><p>Some popular examples of kernels for multivariate real-valued data $x_i ∈\mathbb R^D$ are the polynomial kernel, the Gaussian radial basis function kernel, and the rational quadratic kernel.<br><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202408141002742.png" alt="SVM with different kernels"></p>
+</li>
+<li><p>Note that we are still solving for hyperplanes, that is, the hypothesis class of functions are still linear. The non-linear surfaces are due to the kernel function.</p>
+</li>
+</ul>
+<h2 id="Numerical-Solution"><a href="#Numerical-Solution" class="headerlink" title="Numerical Solution"></a>Numerical Solution</h2><ul>
+<li><p>Consider the loss function view of the SVM. This is a convex unconstrained optimization problem, but the hinge loss is not differentiable. Therefore, we apply a subgradient approach for solving it. However, the hinge loss is differentiable almost everywhere, except for one single point at the hinge $t = 1$. At this point, the gradient is a set of possible values that lie between $0$ and $−1$. Therefore, the subgradient $g$ of the hinge loss is given by</p>
+<script type="math/tex; mode=display">
+g(t)=\begin{cases}
+-1\quad t<1\\
+[-1,0]\quad t=1\\
+0\quad t>1
+\end{cases}</script></li>
+<li><p>To express the primal SVM in the standard form for quadratic programming, let us assume that we use the dot product as the inner product. We rearrange the equation for the primal SVM, such that the optimization variables are all on the right and the inequality of the constraint matches the standard form. This yields the optimization</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b,\xi}{\min}\quad\frac{1}{2}\left\|w\right\|^2+C\sum_{n=1}^N\xi_n\\
+&\text{subject to}\quad -y_nx_n^Tw-y_nb-\xi_n\le-1\;,-\xi_n\le0
+\end{split}</script><p>$n = 1, . . . ,N$. By concatenating the variables $w, b, x_n$ into a single vector, and carefully collecting the terms, we obtain the following matrix form of the soft margin SVM:</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{w,b,\xi}{\min}\quad\frac{1}{2}\left[\begin{matrix}
+w\\b\\\xi
+\end{matrix}\right]^T\left[\begin{matrix}
+I_D&0_{D,N+1}\\
+0_{N+1,D}&0_{N+1,N+1}
+\end{matrix}\right]\left[\begin{matrix}
+w\\b\\\xi
+\end{matrix}\right]+\left[\begin{matrix}
+0_{D+1,1}&C1_{N,1}
+\end{matrix}\right]^T\left[\begin{matrix}
+w\\b\\\xi
+\end{matrix}\right]
+\\
+&\text{subject to}\left[\begin{matrix}
+-YX&-y&-I_N\\
+0_{N,D+1}&&-I_N
+\end{matrix}\right]\left[\begin{matrix}
+w\\b\\\xi
+\end{matrix}\right]\le \left[\begin{matrix}
+-1_{N,1}\\0_{N,1}
+\end{matrix}\right]
+\end{split}</script><p>In the preceding optimization problem, the minimization is over the parameters $[w^⊤, b, ξ^⊤]^⊤ ∈\mathbb R^{D+1+N}$, and we use the notation: $I_m$ to represent the identity matrix of size $m × m, 0_{m,n}$ to represent the matrix of zeros of size $m × n$, and $1_{m,n}$ to represent the matrix of ones of size $m × n$. In addition, $y$ is the vector of labels $[y_1, · · · , y_N]^⊤, Y = diag(y)$ is an $N$ by $N$ matrix where the elements of the diagonal are from $ y$, and $X ∈\mathbb R^{N×D}$ is the matrix obtained by concatenating all the examples.</p>
+</li>
+<li><p>We can similarly perform a collection of terms for the dual version of the SVM. To express the dual SVM in standard form, we first have to express the kernel matrix $K$ such that each entry is $K_{ij} = k(x_i, x_j)$. If we have an explicit feature representation $x_i$ then we define $K_{ij} = ⟨x_i, x_j⟩$. For convenience of notation we introduce a matrix with zeros everywhere<br>except on the diagonal, where we store the labels, that is, $Y = diag(y)$. The dual SVM can be written as</p>
+<script type="math/tex; mode=display">
+\begin{split}
+&\underset{\alpha}{\min}\quad\frac{1}{2}\alpha^TYKY\alpha-1^T_{N,1}\alpha\\
+&\text{subject to}\quad \left[\begin{matrix}
+y^T\\-y^T\\-I_N\\I_N
+\end{matrix}\right]\alpha\le \left[\begin{matrix}
+0_{N+2,1}\\C1_{N,1}
+\end{matrix}\right]
+\end{split}</script></li>
+</ul>
+<blockquote>
+<p><strong>Bibliography:</strong></p>
+<ol>
+<li>Mathematics for Machine Learning_Marc Peter Deisenroth_2020</li>
+</ol>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jay</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Eliauk-L.github.io/2024/08/14/classificationwithsupportvectormachines/">http://Eliauk-L.github.io/2024/08/14/classificationwithsupportvectormachines/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jay</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mathematics/">
+                                    <span class="chip bg-color">Mathematics</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/MachineLearing/">
+                                    <span class="chip bg-color">MachineLearing</span>
+                                </a>
+                            
+                                <a href="/tags/Classification/">
+                                    <span class="chip bg-color">Classification</span>
+                                </a>
+                            
+                                <a href="/tags/SVM/">
+                                    <span class="chip bg-color">SVM</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat, weibo, douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/08/14/classificationwithsupportvectormachines/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="Classification with Support Vector Machines">
+                        
+                        <span class="card-title">Classification with Support Vector Machines</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                    MachineLearing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/MachineLearing/">
+                        <span class="chip bg-color">MachineLearing</span>
+                    </a>
+                    
+                    <a href="/tags/Classification/">
+                        <span class="chip bg-color">Classification</span>
+                    </a>
+                    
+                    <a href="/tags/SVM/">
+                        <span class="chip bg-color">SVM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/08/13/densityestimationwithgaussianmixturemodels/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Density Estimation with Gaussian Mixture Models">
+                        
+                        <span class="card-title">Density Estimation with Gaussian Mixture Models</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearing/" class="post-category">
+                                    MachineLearing
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mathematics/">
+                        <span class="chip bg-color">Mathematics</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/MachineLearing/">
+                        <span class="chip bg-color">MachineLearing</span>
+                    </a>
+                    
+                    <a href="/tags/DensityEstimation/">
+                        <span class="chip bg-color">DensityEstimation</span>
+                    </a>
+                    
+                    <a href="/tags/GaussianMixtureModels/">
+                        <span class="chip bg-color">GaussianMixtureModels</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="/about" target="_blank">Jay</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Eliauk-L" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2571368706@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2571368706" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2571368706" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
