@@ -614,11 +614,68 @@ Mo Tu We Th Fr Sa Su
 </table>
 </div>
 <h2 id="6-Calendar-模块"><a href="#6-Calendar-模块" class="headerlink" title="6 Calendar 模块"></a>6 Calendar 模块</h2><ul>
-<li><p>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用<code>calendar.setfirstweekday()</code>函数</p>
-</li>
-<li><p>| 函数                                              | 描述                                                                                                                                                                                                                                                                              |<br>| :———————————————————————— | ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————- |<br>| <strong>calendar.calendar(year,w=2,l=1,c=6)</strong>           | 返回一个多行字符串格式的 year 年年历，3 个月一行，间隔距离为 c。 每日宽度间隔为 w 字符。每行长度为 <strong>21* W+18+2* C</strong>。<strong>l</strong> 是每星期行数。                                                                                                                                      |<br>| <strong>calendar.firstweekday( )</strong>                      | 返回当前每周起始日期的设置。默认情况下，首次载入 calendar 模块时返回 0，即星期一。                                                                                                                                                                                                |<br>| <strong>calendar.isleap(year)</strong>                         | 是闰年返回 True，否则为 False。                                                                                                                                                                                                                                                   |<br>| <strong>calendar.leapdays(y1,y2)</strong>                      | 返回在 Y1，Y2 两年之间的闰年总数。                                                                                                                                                                                                                                                |<br>| <strong>calendar.month(year,month,w=2,l=1)</strong>            | 返回一个多行字符串格式的 year 年 month 月日历，两行标题，一周一行。每日宽度间隔为 w 字符。每行的长度为 7* w+6。l 是每星期的行数。                                                                                                                                                |<br>| <strong>calendar.monthcalendar(year,month)</strong>            | 返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year 年 month 月外的日期都设为 0;范围内的日子都由该月第几日表示，从 1 开始。                                                                                                                                        |<br>| <strong>calendar.monthrange(year,month)</strong>               | 返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从 0（星期一）到 6（星期日）。<br><code>&gt;&gt;&gt; import calendar</code><br><code>&gt;&gt;&gt; calendar.monthrange(2014, 11)</code><br><code>(5, 30)</code><br>(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。 |<br>| <strong>calendar.prcal(year, w=0, l=0, c=6, m=3)</strong>      | 相当于 print (calendar.calendar(year, w=0, l=0, c=6, m=3))。                                                                                                                                                                                                                      |<br>| <strong>calendar.prmonth(theyear, themonth, w=0, l=0)</strong> | 相当于 <strong>print(calendar.month(theyear, themonth, w=0, l=0))</strong>。                                                                                                                                                                                                                   |<br>| <strong>calendar.setfirstweekday(weekday)</strong>             | 设置每周的起始日期码。0（星期一）到 6（星期日）。                                                                                                                                                                                                                                 |<br>| <strong>calendar.timegm(tupletime)</strong>                    | 和 time.gmtime 相反：接受一个时间元组形式，返回该时刻的时间戳（1970 纪元后经过的浮点秒数）。                                                                                                                                                                                      |<br>| <strong>calendar.weekday(year,month,day)</strong>              | 返回给定日期的日期码。0（星期一）到 6（星期日）。月份为 1（一月） 到 12（12 月）。                                                                                                                                                                                                |</p>
-</li>
+<li>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用<code>calendar.setfirstweekday()</code>函数</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>calendar.calendar(year,w=2,l=1,c=6)</strong></td>
+<td>返回一个多行字符串格式的 year 年年历，3 个月一行，间隔距离为 c。 每日宽度间隔为 w 字符。每行长度为 <strong>21* W+18+2* C</strong>。<strong>l</strong> 是每星期行数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.firstweekday( )</strong></td>
+<td>返回当前每周起始日期的设置。默认情况下，首次载入 calendar 模块时返回 0，即星期一。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.isleap(year)</strong></td>
+<td>是闰年返回 True，否则为 False。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.leapdays(y1,y2)</strong></td>
+<td>返回在 Y1，Y2 两年之间的闰年总数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.month(year,month,w=2,l=1)</strong></td>
+<td>返回一个多行字符串格式的 year 年 month 月日历，两行标题，一周一行。每日宽度间隔为 w 字符。每行的长度为 7* w+6。l 是每星期的行数。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.monthcalendar(year,month)</strong></td>
+<td>返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year 年 month 月外的日期都设为 0;范围内的日子都由该月第几日表示，从 1 开始。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.monthrange(year,month)</strong></td>
+<td>返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从 0（星期一）到 6（星期日）。<br><code>&gt;&gt;&gt; import calendar</code><br><code>&gt;&gt;&gt; calendar.monthrange(2014, 11)</code><br><code>(5, 30)</code><br>(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.prcal(year, w=0, l=0, c=6, m=3)</strong></td>
+<td>相当于 print (calendar.calendar(year, w=0, l=0, c=6, m=3))。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.prmonth(theyear, themonth, w=0, l=0)</strong></td>
+<td>相当于 <strong>print(calendar.month(theyear, themonth, w=0, l=0))</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.setfirstweekday(weekday)</strong></td>
+<td>设置每周的起始日期码。0（星期一）到 6（星期日）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.timegm(tupletime)</strong></td>
+<td>和 time.gmtime 相反：接受一个时间元组形式，返回该时刻的时间戳（1970 纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>calendar.weekday(year,month,day)</strong></td>
+<td>返回给定日期的日期码。0（星期一）到 6（星期日）。月份为 1（一月） 到 12（12 月）。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="7-datetime-模块"><a href="#7-datetime-模块" class="headerlink" title="7 datetime 模块"></a>7 datetime 模块</h2><ul>
 <li><p>操作日期和时间</p>
 <ul>
@@ -648,14 +705,100 @@ Mo Tu We Th Fr Sa Su
 </li>
 <li><p>datetime 类</p>
 <ul>
-<li><p><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407161901214.png" alt="datetime类"></p>
-</li>
-<li><p>| 类方法                                           | 描述                                                                                                                                                                                                                                                                                                                                                                         |<br>| ———————————————————————— | —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— |<br>| datetime.today()                                 | 返回一个简单型 datetime 对象，表示当前地方时间。（tzinfo 为 None）此方法的功能等价于 now()，但是不带 tz 形参。                                                                                                                                                                                                                                                               |<br>| datetime.now(tz=None)                            | 返回 datetime 对象，表示当前地方时间。（1）如果可选参数 tz 为 None 或未指定，这就类似于 today()；（2）如果 tz 不为 None，它必须是 tzinfo 子类的一个实例，并且当前日期和时间将被转换到 tz 时区；（3）使用带 UTC（tz=timezone.utc）的 datetime.now() 得到当前 UTC datetime 对象                                                                                                |<br>| datetime.utcnow()                                | 返回一个简单型 datetime 对象（其中 tzinfo 为 None），表示当前 UTC。注：不推荐使用此方法，推荐使用 datetime.now(timezone.utc)。                                                                                                                                                                                                                                               |<br>| datetime.combine(date, time, tzinfo=time.tzinfo) | 返回一个新的 datetime 对象，其日期部分等于给定的 date 对象的值，而其时间部分等于给定的 time 对象的值。（1）如果提供了 tzinfo 参数，其值会被用来设置结果的 tzinfo 属性，否则将使用 time 参数的 tzinfo 属性。（2）如果 date 参数是一个 datetime 对象，则其时间部分和 tzinfo 属性将被忽略。（3）对于任意 datetime 对象 d，d == datetime.combine(d.date(), d.time(), d.tzinfo)。 |<br>| datetime.strptime(date_string, format)           | 返回一个对应于 date_string，根据 format 进行解析得到的 datetime 对象。（1）如果 format 不包含微秒或时区信息，等价于:datetime(*(time.strptime(date_string, format)[0:6]))（2）如果 date_string 和 format 无法被 time.strptime() 解析或它返回一个不是时间元组的值则将引发 ValueError                                                                                          |<br>| datetime.fromisoformat(date_string)              | 返回一个对应于以任何有效的 8601 格式给出的 date_string 的 datetime                                                                                                                                                                                                                                                                                                           |<br>| datetime.fromisocalendar(year, week, day)        | 返回以 year, week 和 day 值指明的 ISO 历法日期所对应的 datetime。                                                                                                                                                                                                                                                                                                            |<br>| datetime.fromordinal(ordinal)                    | 返回一个简单型 datetime 对象，表示格列高利历序号对应的日期。注：结果中的 hour, minute, second 和 microsecond 值均为 0，tzinfo 值为 None                                                                                                                                                                                                                                      |<br>| datetime.fromtimestamp(timestamp, tz=None)       | 返回一个简单型 datetime 对象，表示 unix time 对应的本地日期和时间                                                                                                                                                                                                                                                                                                            |<br>| datetime.utcfromtimestamp(timestamp)             | 返回一个简单型 datetime 对象，表示 unix time 对应的 UTC。注：tzinfo 值为 None                                                                                                                                                                                                                                                                                                |</p>
-</li>
-<li><p>| 算术运算                                                                                                         | <strong>描述</strong>                                                                                                                                          |                                                                                                                                           |<br>| :———————————————————————————————————————————————————————- | :———————————————————————————————————————————————————————————————————————— | ————————————————————————————————————————————————————————————————————- |<br>| <code>datetime2 = datetime1 + timedelta</code>                                                                              | 如果 timedelta.days &gt; 0 则在时间线上前进，如果 timedelta.days &lt; 0 则在时间线上后退。                                                              | （1）输出结果具有与输入的 datetime 相同的 tzinfo 属性，并且操作完成后 datetime2 - datetime1 == timedelta。                                |<br>| <code>datetime2 = datetime1 - timedelta</code>                                                                              | 如果 timedelta.days &gt; 0 则在时间线上后退，如果 timedelta.days &lt; 0 则在时间线上前进。                                                              | （2）即使输入的是一个感知型对象，该方法也不会进行时区调整。                                                                               |<br>| <code>timedelta = datetime1 - datetime2</code>                                                                              | 仅对两个操作数均为简单型或均为感知型时有定义，如果一个是感知型而另一个是简单型，将会引发 TypeError。                                              | （1）如果两个比较数都是感知的，并且具有相同的 tzinfo 属性，则忽略 tzinfo 和 fold 属性，基于基本的日期时间进行计算或比较。                 |<br>| <code>datetime1 == datetime2</code><br><code>datetime1 != datetime2</code>                                                           | 相等性比较。<br>简单型和感知型 datetime 对象绝对不会相等，datetime 对象和不为 datetime 实例的 date 对象绝对不会相等（即使二者表示相同的日期）。 | （2）如果两个比较数都是感知的并且具有不同的 tzinfo 属性，则先将比较数转换为 UTC（dt.replace(tzinfo=None) - dt.utcoffset()），再进行比较。 |<br>| <code>datetime1 &lt; datetime2</code><br><code>datetime1 &gt; datetime2</code><br><code>datetime1 &lt;= datetime2</code><br><code>datetime1 &gt;= datetime2</code> | 顺序比较：<br>简单型和感知型对象之间，以及 datetime 对象与非 datetime 实例的 date 对象之间的顺序比较会引发 TypeError。                          |                                                                                                                                           |</p>
-</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Eliauk-L/blog-img@img/img/202407161901214.png" alt="datetime类"></li>
 </ul>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datetime.today()</td>
+<td>返回一个简单型 datetime 对象，表示当前地方时间。（tzinfo 为 None）此方法的功能等价于 now()，但是不带 tz 形参。</td>
+</tr>
+<tr>
+<td>datetime.now(tz=None)</td>
+<td>返回 datetime 对象，表示当前地方时间。（1）如果可选参数 tz 为 None 或未指定，这就类似于 today()；（2）如果 tz 不为 None，它必须是 tzinfo 子类的一个实例，并且当前日期和时间将被转换到 tz 时区；（3）使用带 UTC（tz=timezone.utc）的 datetime.now() 得到当前 UTC datetime 对象</td>
+</tr>
+<tr>
+<td>datetime.utcnow()</td>
+<td>返回一个简单型 datetime 对象（其中 tzinfo 为 None），表示当前 UTC。注：不推荐使用此方法，推荐使用 datetime.now(timezone.utc)。</td>
+</tr>
+<tr>
+<td>datetime.combine(date, time, tzinfo=time.tzinfo)</td>
+<td>返回一个新的 datetime 对象，其日期部分等于给定的 date 对象的值，而其时间部分等于给定的 time 对象的值。（1）如果提供了 tzinfo 参数，其值会被用来设置结果的 tzinfo 属性，否则将使用 time 参数的 tzinfo 属性。（2）如果 date 参数是一个 datetime 对象，则其时间部分和 tzinfo 属性将被忽略。（3）对于任意 datetime 对象 d，d == datetime.combine(d.date(), d.time(), d.tzinfo)。</td>
+</tr>
+<tr>
+<td>datetime.strptime(date_string, format)</td>
+<td>返回一个对应于 date_string，根据 format 进行解析得到的 datetime 对象。（1）如果 format 不包含微秒或时区信息，等价于:datetime(*(time.strptime(date_string, format)[0:6]))（2）如果 date_string 和 format 无法被 time.strptime() 解析或它返回一个不是时间元组的值则将引发 ValueError</td>
+</tr>
+<tr>
+<td>datetime.fromisoformat(date_string)</td>
+<td>返回一个对应于以任何有效的 8601 格式给出的 date_string 的 datetime</td>
+</tr>
+<tr>
+<td>datetime.fromisocalendar(year, week, day)</td>
+<td>返回以 year, week 和 day 值指明的 ISO 历法日期所对应的 datetime。</td>
+</tr>
+<tr>
+<td>datetime.fromordinal(ordinal)</td>
+<td>返回一个简单型 datetime 对象，表示格列高利历序号对应的日期。注：结果中的 hour, minute, second 和 microsecond 值均为 0，tzinfo 值为 None</td>
+</tr>
+<tr>
+<td>datetime.fromtimestamp(timestamp, tz=None)</td>
+<td>返回一个简单型 datetime 对象，表示 unix time 对应的本地日期和时间</td>
+</tr>
+<tr>
+<td>datetime.utcfromtimestamp(timestamp)</td>
+<td>返回一个简单型 datetime 对象，表示 unix time 对应的 UTC。注：tzinfo 值为 None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">算术运算</th>
+<th style="text-align:left"><strong>描述</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>datetime2 = datetime1 + timedelta</code></td>
+<td style="text-align:left">如果 timedelta.days &gt; 0 则在时间线上前进，如果 timedelta.days &lt; 0 则在时间线上后退。</td>
+<td>（1）输出结果具有与输入的 datetime 相同的 tzinfo 属性，并且操作完成后 datetime2 - datetime1 == timedelta。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>datetime2 = datetime1 - timedelta</code></td>
+<td style="text-align:left">如果 timedelta.days &gt; 0 则在时间线上后退，如果 timedelta.days &lt; 0 则在时间线上前进。</td>
+<td>（2）即使输入的是一个感知型对象，该方法也不会进行时区调整。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>timedelta = datetime1 - datetime2</code></td>
+<td style="text-align:left">仅对两个操作数均为简单型或均为感知型时有定义，如果一个是感知型而另一个是简单型，将会引发 TypeError。</td>
+<td>（1）如果两个比较数都是感知的，并且具有相同的 tzinfo 属性，则忽略 tzinfo 和 fold 属性，基于基本的日期时间进行计算或比较。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>datetime1 == datetime2</code><br><code>datetime1 != datetime2</code></td>
+<td style="text-align:left">相等性比较。<br>简单型和感知型 datetime 对象绝对不会相等，datetime 对象和不为 datetime 实例的 date 对象绝对不会相等（即使二者表示相同的日期）。</td>
+<td>（2）如果两个比较数都是感知的并且具有不同的 tzinfo 属性，则先将比较数转换为 UTC（dt.replace(tzinfo=None) - dt.utcoffset()），再进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>datetime1 &lt; datetime2</code><br><code>datetime1 &gt; datetime2</code><br><code>datetime1 &lt;= datetime2</code><br><code>datetime1 &gt;= datetime2</code></td>
+<td style="text-align:left">顺序比较：<br>简单型和感知型对象之间，以及 datetime 对象与非 datetime 实例的 date 对象之间的顺序比较会引发 TypeError。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>date 类、time 类</p>
 <ul>
 <li>类属性、类方法、实例属性、实例方法与 datetime 类似</li>
