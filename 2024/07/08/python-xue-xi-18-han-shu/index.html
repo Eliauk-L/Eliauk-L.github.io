@@ -523,13 +523,13 @@ No b value supplied
 </li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
-
+  
 <span class="token comment"># 可写函数说明</span>
 <span class="token keyword">def</span> <span class="token function">printinfo</span><span class="token punctuation">(</span> arg1<span class="token punctuation">,</span> <span class="token operator">*</span>vartuple <span class="token punctuation">)</span><span class="token punctuation">:</span>
    <span class="token string">"打印任何传入的参数"</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span>arg1<span class="token punctuation">)</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span>vartuple<span class="token punctuation">)</span>
-
+  
 <span class="token comment"># 调用printinfo 函数</span>
 printinfo<span class="token punctuation">(</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">50</span> <span class="token punctuation">)</span>
 <span class="token triple-quoted-string string">'''
@@ -540,13 +540,13 @@ printinfo<span class="token punctuation">(</span> <span class="token number">70<
 <li><strong>加了两个星号 **</strong> 的参数会以<strong>字典</strong>的形式导入，存放<strong>关键字参数</strong></li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
-
+  
 <span class="token comment"># 可写函数说明</span>
 <span class="token keyword">def</span> <span class="token function">printinfo</span><span class="token punctuation">(</span> arg1<span class="token punctuation">,</span> <span class="token operator">**</span>vardict <span class="token punctuation">)</span><span class="token punctuation">:</span>
    <span class="token string">"打印任何传入的参数"</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span>arg1<span class="token punctuation">)</span>
    <span class="token keyword">print</span> <span class="token punctuation">(</span>vardict<span class="token punctuation">)</span>
-
+  
 <span class="token comment"># 调用printinfo 函数</span>
 printinfo<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> a<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
 <span class="token triple-quoted-string string">'''
@@ -892,10 +892,51 @@ inc<span class="token punctuation">,</span> dec <span class="token operator">=</
 <span class="token comment"># 使用闭包</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>inc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: 11</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>dec<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 输出: 10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>总结闭包和全局变量的区别</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>闭包</th>
+<th>全局变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>封装性</strong></td>
+<td>高。闭包可以封装状态，外部代码无法直接访问内部变量。</td>
+<td>低。全局变量在整个程序中都可见，容易被任意修改，封装性差。</td>
+</tr>
+<tr>
+<td><strong>内存管理</strong></td>
+<td>由于闭包保持对环境的引用，可能会导致内存占用较高，但只要闭包存在，其状态就会一直保持。</td>
+<td>全局变量始终占用内存，直到程序结束或者变量被显式删除。</td>
+</tr>
+<tr>
+<td><strong>可维护性</strong></td>
+<td>高。闭包通过减少全局变量的使用，使得代码更加模块化和可维护。</td>
+<td>低。过多的全局变量会使得代码难以追踪和维护。</td>
+</tr>
+<tr>
+<td><strong>复用性</strong></td>
+<td>高。闭包可以根据不同的外部函数参数动态生成具有不同状态的函数。</td>
+<td>中等。全局变量可以在多个函数间共享，但缺乏灵活性。</td>
+</tr>
+<tr>
+<td><strong>调试难度</strong></td>
+<td>中等到高。闭包的调试可能比较复杂，特别是当闭包嵌套层次较深时。</td>
+<td>低。全局变量相对容易跟踪，但在大型项目中可能仍然困难。</td>
+</tr>
+<tr>
+<td><strong>风险控制</strong></td>
+<td>高。闭包提供了更好的控制，因为它限制了状态的访问。</td>
+<td>低。全局变量可能被程序中任何部分意外修改，增加了出错的风险。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
-<li><p>总结闭包和全局变量的区别</p>
-<p>| 特性         | 闭包                                                                                   | 全局变量                                                     |<br>| —————— | ——————————————————————————————————————————— | —————————————————————————————— |<br>| <strong>封装性</strong>   | 高。闭包可以封装状态，外部代码无法直接访问内部变量。                                   | 低。全局变量在整个程序中都可见，容易被任意修改，封装性差。   |<br>| <strong>内存管理</strong> | 由于闭包保持对环境的引用，可能会导致内存占用较高，但只要闭包存在，其状态就会一直保持。 | 全局变量始终占用内存，直到程序结束或者变量被显式删除。       |<br>| <strong>可维护性</strong> | 高。闭包通过减少全局变量的使用，使得代码更加模块化和可维护。                           | 低。过多的全局变量会使得代码难以追踪和维护。                 |<br>| <strong>复用性</strong>   | 高。闭包可以根据不同的外部函数参数动态生成具有不同状态的函数。                         | 中等。全局变量可以在多个函数间共享，但缺乏灵活性。           |<br>| <strong>调试难度</strong> | 中等到高。闭包的调试可能比较复杂，特别是当闭包嵌套层次较深时。                         | 低。全局变量相对容易跟踪，但在大型项目中可能仍然困难。       |<br>| <strong>风险控制</strong> | 高。闭包提供了更好的控制，因为它限制了状态的访问。                                     | 低。全局变量可能被程序中任何部分意外修改，增加了出错的风险。 |</p>
-</li>
 <li><p>闭包提供了更好的封装性和模块化能力，有助于提高代码的可维护性和复用性，但可能会增加内存使用和调试的复杂性。</p>
 </li>
 <li><p>访问闭包中定义的变量：访问函数</p>
@@ -956,10 +997,10 @@ call_with_callback<span class="token punctuation">(</span>callback_obj<span clas
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">CallbackClass</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Callback instance called."</span><span class="token punctuation">)</span>
-
+  
 <span class="token keyword">def</span> <span class="token function">call_with_callback</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
     func<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
+  
 callback_obj <span class="token operator">=</span> CallbackClass<span class="token punctuation">(</span><span class="token punctuation">)</span>
 call_with_callback<span class="token punctuation">(</span>callback_obj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -992,10 +1033,10 @@ root<span class="token punctuation">.</span>mainloop<span class="token punctuati
 </li>
 <li><p><strong>图形界面编程</strong>：处理用户交互事件，例如按钮点击、菜单选择等</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
-
+  
 <span class="token keyword">def</span> <span class="token function">handle_button_click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Button clicked!"</span><span class="token punctuation">)</span>
-
+  
 root <span class="token operator">=</span> tk<span class="token punctuation">.</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>
 button <span class="token operator">=</span> tk<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>root<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"Click Me"</span><span class="token punctuation">,</span> command<span class="token operator">=</span>handle_button_click<span class="token punctuation">)</span>
 button<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
